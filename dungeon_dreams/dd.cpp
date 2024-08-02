@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <cstdlib> // for system("clear")
+#include <cstdlib>  
 
 using namespace std;
 
@@ -11,51 +11,40 @@ void displayCharacterClasses();
 void handleMenuChoice();
 void handleClassChoice();
 
-// ASCII Art for Welcome Screen
-const string welcomeArt = R"(
-      __          __  _                            _   
-     \ \        / / | |                          | |  
-      \ \  /\  / /__| | ___ ___  _ __ ___   ___  | |_ 
-       \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __|
-        \  /\  /  __/ | (_| (_) | | | | | |  __/ | |_ 
-         \/  \/ \___|_|\___\___/|_| |_| |_|\___|  \__|
-  ______________________________________________________
-  |                                                    |
-  |  In a dense forest, a lone adventurer wanders...     |
-  |                                                    |
-  |              ____   ____    _  _                   |
-  |            /     \ /    \  | || |                  |
-  |           |  O   O |  O   | | || |                  |
-  |            \_____/ \____/   \__/                  |
-  |                                                    |
-  |   The adventurer finds a hidden path leading to     |
-  |   a dark dungeon. The quest is about to begin!      |
-  |                                                    |
-  |____________________________________________________|
-)";
 
 // ASCII Art for the Dungeon Entrance
 const string dungeonEntranceArt = R"(
-  ___
- /   \
-|     |
-|     |
- \___/
-  | |
-  | |
- /   \
-|     |
-|     |
- \___/
+   _________________________________________________________
+ /|     -_-                                             _-  |\
+/ |_-_- _                                         -_- _-   -| \   
+  |                            _-  _--                      | 
+  |                            ,                            |
+  |      .-'````````'.        '(`        .-'```````'-.      |
+  |    .` |           `.      `)'      .` |           `.    |          
+  |   /   |   ()        \      U      /   |    ()       \   |
+  |  |    |    ;         | o   T   o |    |    ;         |  |
+  |  |    |     ;        |  .  |  .  |    |    ;         |  |
+  |  |    |     ;        |   . | .   |    |    ;         |  |
+  |  |    |     ;        |    .|.    |    |    ;         |  |
+  |  |    |____;_________|     |     |    |____;_________|  |  
+  |  |   /  __ ;   -     |     !     |   /     `'() _ -  |  |
+  |  |  / __  ()        -|        -  |  /  __--      -   |  |
+  |  | /        __-- _   |   _- _ -  | /        __--_    |  |
+  |__|/__________________|___________|/__________________|__|
+ /                                             _ -        lc \
+/   -_- _ -             _- _---                       -_-  -_ \
 )";
 
 // ASCII Art for Character Classes
 const string knightArt = R"(
-     ,    ,
-    /(    )\
-    \ \__/ /
-    /- _ -\
-   /_/\/\_\  
+              /
+       ,~~   /
+   _  <=)  _/_
+  /I\.="==.{>
+  \I/-\T/-'
+      /_\
+     // \\_
+    _I    /
 )";
 const string mageArt = R"(
     *
@@ -73,12 +62,11 @@ const string thiefArt = R"(
  \______/
 )";
 const string tankArt = R"(
-   __|__    
-  |  o  o|   
- (    ^   )
-  |  \|/  |
-  \ ___  /
-    |   |  
+    ___
+ __(   )====::
+/~~~~~~~~~\
+\O.O.O.O.O/
+
 )";
 const string clericArt = R"(
     /|\
@@ -89,10 +77,60 @@ const string clericArt = R"(
   |__|__|
 )";
 
+// ASCII Art for the welcome & prologue 
+const string dragonWelcomeArt = R"(
+                         _                    _
+                  ,/                        \,
+        _________{(                          })_________
+       /.-------./\\                        //\.-------.\
+      //@@@@@@@//@@\\  )                (  //@@\\@@@@@@@\\
+     //@@@@@@@//@@@@>>/                  \<<@@@@\\@@@@@@@\\
+    //O@O@O@O//@O@O//                      \\O@O@\\O@O@O@O\\
+  //OOOOOOOO//OOOO||          \  /          ||OOOO\\OOOOOOOO\\
+ //O%O%O%O%//O%O%O%\\         ))((         //%O%O%O\\%O%O%O%O\\
+||%%%%%%%%//'  `%%%%\\       //  \\       //%%%%'   `\\%%%%%%%||
+((%%%%%%%((      %%%%%\\    ((    ))    //%%%%%       ))%%%%%%))
+ \:::' `::\\      `:::::\\   \)~~(/    //:::::'      //::' `:::/
+  )'     `;)'      (`  ` \\ `<@  @>' / / '  ')      `(;'     `(
+          (               \`\ )^^( /  /               )
+        _                  ) \\oo/   (
+       (@)                  \  `'   /                      _
+       |-|\__________________\__^__<________oOo__________ (@)
+       |-|                                  VVV           |-|
+       |-|   __          __  _                            |-|
+       |-|  \ \        / / | |                            |-|
+       |-|   \ \  /\  / /__| | ___ ___  _ __ ___   ___    |-|
+       |-|    \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \   |-|
+       |-|     \  /\  /  __/ | (_| (_) | | | | | |  __/   |-|
+       |-|      \/  \/ \___|_|\___\___/|_| |_| |_|\___|   |-|
+       |-|                                                |-|
+       |_|\_____________________________________________  | |
+       (@)                 / ,/ \_____/ \\ ~\/~         `\|-|
+        ~             ___//^~      \____/\\               (@)
+                     <<<  \     __  <____/||               ~
+                               <   \ <___/||
+                                  || <___//
+                                  \ \/__//
+                                   ~----~
+    _________________________________________________________
+    |                                                       |
+    |  In a dense forest, a lone adventurer wanders...      |
+    |                                                       |
+    |   ^  ^  ^   ^      ___I_      ^  ^   ^  ^  ^   ^  ^   |
+    |  /|\/|\/|\ /|\    /\-_--\    /|\/|\ /|\/|\/|\ /|\/|\  |
+    |  /|\/|\/|\ /|\   /  \_-__\   /|\/|\ /|\/|\/|\ /|\/|\  |
+    |  /|\/|\/|\ /|\   |[]| [] |   /|\/|\ /|\/|\/|\ /|\/|\  |   
+    |                                                       |
+    |   The adventurer finds a hidden path leading to       |
+    |   a dark dungeon. The quest is about to begin!        |
+    |                                                       |
+    |_______________________________________________________|
+)";
+
 // Function to display the welcome screen
 void displayWelcome() {
-    system("clear"); // Clear the console (cross-platform, use "CLS" on Windows)
-    cout << welcomeArt << endl;
+    system("clear"); 
+    cout << dragonWelcomeArt << endl;
     cout << "You find yourself lost in the forest, searching for adventure..." << endl;
     cout << "You stumble upon an old path leading to a dark dungeon." << endl;
     cout << "Are you ready to face the challenges ahead?" << endl;
@@ -122,7 +160,6 @@ void handleMenuChoice() {
             break;
         case 2:
             cout << "Starting the game..." << endl;
-            // Add game start logic here
             break;
         case 3:
             cout << "Exiting game. Goodbye!" << endl;
@@ -135,7 +172,7 @@ void handleMenuChoice() {
 
 // Function to display character classes
 void displayCharacterClasses() {
-    system("clear"); // Clear the console (cross-platform, use "CLS" on Windows)
+    system("clear"); 
     cout << "Character Classes in Dungeon Dreams: The Goblin Guide" << endl;
     cout << "1. Knight" << endl;
     cout << knightArt << endl;
