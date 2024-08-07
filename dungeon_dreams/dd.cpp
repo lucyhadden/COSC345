@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>  
+#include <unistd.h>
 
 using namespace std;
 
@@ -47,13 +48,16 @@ const string knightArt = R"(
     _I    /
 )";
 const string mageArt = R"(
-    *
-  /   \
- |     |
- |  O  |
- |     |
-  \   /
-    *  
+            ,    _
+           /|   | |
+         _/_\_  >_<
+        .-\-/.   |
+       /  | | \_ |
+       \ \| |\__(/
+       /(`---')  |
+      / /     \  |
+   _.'  \'-'  /  |
+   `----'`=-='   '
 )";
 const string thiefArt = R"(
    __o__
@@ -69,6 +73,118 @@ const string tankArt = R"(
 
 )";
 const string clericArt = R"(
+    /|\
+  /  |  \
+  |  |  |
+  |  |  |
+  |  |  |
+  |__|__|
+)";
+
+/**
+ * Level - Entrance hall
+ * Inventory - Weapon that fits style of class (TBD)
+ * 
+*/
+const string enemySlimeArt = R"(
+    /|\
+  /  |  \
+  |  |  |
+  |  |  |
+  |  |  |
+  |__|__|
+)";
+
+/**
+ * Level - Tomb of the Fallen
+ * Inventory - Weapon that fits style of class (TBD)
+*/
+const string enemySkeletonArt = R"(
+             _..---..__
+           ,'          `-.
+          .'` .          )
+          |     `;.__.._.'
+           \ .`--.(##)(#).
+            `-->;--' pWq`>
+              < <"v\,,,,]
+               `\`^-''''7
+                 `~"--^-'
+)";
+
+/**
+ * Level - Treacherous Corridors
+ * Inventory - Weapon that fits style of class (TBD)
+*/
+const string enemySpiderArt = R"(
+          |
+      /   |   \
+     / /  |  \ \
+     \ \_(*)_/ /
+      \_(~:~)_/
+       /-(:)-\
+      / / * \ \
+      \ \   / /
+       \     /
+)";
+
+/**
+ * Level - Haunted Gallery
+ * Inventory - Weapon that fits style of class (TBD)
+*/
+const string enemyGhostArt = R"(
+         ___
+       _/ @@\
+      ( \  O/__
+       \    \__)
+       /     \
+      /      _\
+     `"""""``
+)";
+
+/**
+ * Level - Wailing Halls
+ * Inventory - Weapon that fits style of class (TBD)
+*/
+const string enemyBansheeArt = R"(
+    /|\
+  /  |  \
+  |  |  |
+  |  |  |
+  |  |  |
+  |__|__|
+)";
+
+/**
+ * Level - Crimson Forges
+ * Inventory - Weapon that fits style of class (TBD)
+*/
+const string enemyFireGolemArt = R"(
+    /|\
+  /  |  \
+  |  |  |
+  |  |  |
+  |  |  |
+  |__|__|
+)";
+
+/**
+ * Level - Mystic Chamber
+ * Inventory - Weapon that fits style of class (TBD)
+*/
+const string enemyLicheArt = R"(
+    /|\
+  /  |  \
+  |  |  |
+  |  |  |
+  |  |  |
+  |__|__|
+)";
+
+/**
+ * Level - Guardian's lair
+ * Inventory - Weapon that fits style of class (TBD)
+*/
+const string enemyWyvernArt = R"(
     /|\
   /  |  \
   |  |  |
@@ -137,8 +253,28 @@ void displayWelcome() {
     cout << "Press any key to enter the dungeon..." << endl;
     cin.ignore();
     cin.get(); // Wait for user input
+    system("clear");
     cout << dungeonEntranceArt << endl;
-    system("clear"); // Clear the console before showing the main menu
+    cout << "You are entering the dungeon in 5" << endl;
+    sleep(1);
+    system("clear");
+    cout << dungeonEntranceArt << endl;
+    cout << "You are entering the dungeon in 4" << endl;
+    sleep(1);
+    system("clear");
+    cout << dungeonEntranceArt << endl;
+    cout << "You are entering the dungeon in 3" << endl;
+    sleep(1);
+    system("clear");
+    cout << dungeonEntranceArt << endl;
+    cout << "You are entering the dungeon in 2" << endl;
+    sleep(1);
+    system("clear");
+    cout << dungeonEntranceArt << endl;
+    cout << "You are entering the dungeon in 1" << endl;
+    sleep(1);
+    system("clear");
+
 }
 
 // Function to display the main menu
