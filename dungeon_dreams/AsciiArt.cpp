@@ -1,20 +1,7 @@
-#include <iostream>
-#include <string>
-#include <cstdlib>  
-#include <unistd.h>
+// AsciiArt.cpp
+#include "AsciiArt.h"
 
-using namespace std;
-
-// Function prototypes
-void displayWelcome();
-void displayMenu();
-void displayCharacterClasses();
-void handleMenuChoice();
-void handleClassChoice();
-
-
-// ASCII Art for the Dungeon Entrance
-const string dungeonEntranceArt = R"(
+const std::string AsciiArt::dungeonEntranceArt = R"(
    _________________________________________________________
  /|     -_-                                             _-  |\
 / |_-_- _                                         -_- _-   -| \   
@@ -36,8 +23,7 @@ const string dungeonEntranceArt = R"(
 /   -_- _ -             _- _---                       -_-  -_ \
 )";
 
-// ASCII Art for Character Classes
-const string knightArt = R"(
+const std::string AsciiArt::knightArt = R"(
               /
        ,~~   /
    _  <=)  _/_
@@ -47,7 +33,8 @@ const string knightArt = R"(
      // \\_
     _I    /
 )";
-const string mageArt = R"(
+
+const std::string AsciiArt::mageArt = R"(
             ,    _
            /|   | |
          _/_\_  >_<
@@ -59,47 +46,48 @@ const string mageArt = R"(
    _.'  \'-'  /  |
    `----'`=-='   '
 )";
-const string thiefArt = R"(
-   __o__
- /      \
-|   O    o)
- \______/
+
+const std::string AsciiArt::thiefArt = R"(
+   .-.
+  (o o) 
+   | O \
+  /  .  \
+ /_'---'_\
+  |     |
+ /       \
 )";
-const string tankArt = R"(
+
+const std::string AsciiArt::tankArt = R"(
     ___
  __(   )====::
 /~~~~~~~~~\
 \O.O.O.O.O/
-
-)";
-const string clericArt = R"(
-    /|\
-  /  |  \
-  |  |  |
-  |  |  |
-  |  |  |
-  |__|__|
 )";
 
-/**
- * Level - Entrance hall
- * Inventory - Weapon that fits style of class (TBD)
- * 
-*/
-const string enemySlimeArt = R"(
-    /|\
-  /  |  \
-  |  |  |
-  |  |  |
-  |  |  |
-  |__|__|
+const std::string AsciiArt::clericArt = R"(
+  /\_/\ 
+ / o o \
+(   "   )
+ \~(*)~/
+  \~_~/
+   | |
+  /   \
+ /_____\)";
+
+const std::string AsciiArt::enemySlimeArt = R"(
+    .------.  
+   /        \ 
+  / .-"""-.  \
+ | |  .-.  | |
+  \ \_| |_/ / 
+   '.\   /.'  
+     '|_|'    
+      |_|     
+    _/   \_   
+   /_______\
 )";
 
-/**
- * Level - Tomb of the Fallen
- * Inventory - Weapon that fits style of class (TBD)
-*/
-const string enemySkeletonArt = R"(
+const std::string AsciiArt::enemySkeletonArt = R"(
              _..---..__
            ,'          `-.
           .'` .          )
@@ -111,11 +99,7 @@ const string enemySkeletonArt = R"(
                  `~"--^-'
 )";
 
-/**
- * Level - Treacherous Corridors
- * Inventory - Weapon that fits style of class (TBD)
-*/
-const string enemySpiderArt = R"(
+const std::string AsciiArt::enemySpiderArt = R"(
           |
       /   |   \
      / /  |  \ \
@@ -127,11 +111,7 @@ const string enemySpiderArt = R"(
        \     /
 )";
 
-/**
- * Level - Haunted Gallery
- * Inventory - Weapon that fits style of class (TBD)
-*/
-const string enemyGhostArt = R"(
+const std::string AsciiArt::enemyGhostArt = R"(
          ___
        _/ @@\
       ( \  O/__
@@ -141,60 +121,57 @@ const string enemyGhostArt = R"(
      `"""""``
 )";
 
-/**
- * Level - Wailing Halls
- * Inventory - Weapon that fits style of class (TBD)
-*/
-const string enemyBansheeArt = R"(
-    /|\
-  /  |  \
-  |  |  |
-  |  |  |
-  |  |  |
-  |__|__|
+const std::string AsciiArt::enemyBansheeArt = R"(
+   .-""""-.  
+  /        \ 
+ | .-.  .-. | 
+ |/_o | o_\| 
+ |  (_)   (_)
+ |  \ '---'/
+ /    '---' \ 
+/`'-       -'\ 
+\   '-...-'   /
+ '.___ .___.'
+     |_|_|
 )";
 
-/**
- * Level - Crimson Forges
- * Inventory - Weapon that fits style of class (TBD)
-*/
-const string enemyFireGolemArt = R"(
-    /|\
-  /  |  \
-  |  |  |
-  |  |  |
-  |  |  |
-  |__|__|
+const std::string AsciiArt::enemyFireGolemArt = R"(
+   .   _    .  
+  /.\ | |  /.\ 
+ /@@|_|_|_/@@\ 
+ | @@@@|@@@@ | 
+ \  @@'|`@@  / 
+  \  '@|@'  /  
+   '-- | --'   
+       |       
+   .   |   .   
+ /@\  / \  /@\ 
 )";
 
-/**
- * Level - Mystic Chamber
- * Inventory - Weapon that fits style of class (TBD)
-*/
-const string enemyLicheArt = R"(
-    /|\
-  /  |  \
-  |  |  |
-  |  |  |
-  |  |  |
-  |__|__|
+const std::string AsciiArt::enemyLicheArt = R"(
+  .-"""-.  
+ /       \ 
+| .-"""-. |
+| |  X  | |
+| | /^\ | |
+| |(   )| |
+|  \'-'/  |
+ \_______/ 
+  _|_|_|_  
 )";
 
-/**
- * Level - Guardian's lair
- * Inventory - Weapon that fits style of class (TBD)
-*/
-const string enemyWyvernArt = R"(
-    /|\
-  /  |  \
-  |  |  |
-  |  |  |
-  |  |  |
-  |__|__|
+const std::string AsciiArt::enemyWyvernArt = R"(
+    / \__/ \
+   /        \
+  |  .-""-.  |
+ /`-'  oo  '-'\
+|           >  |
+ \   '--'   / /
+  '.___ __.'_/ 
+     |_||_|    
 )";
 
-// ASCII Art for the welcome & prologue 
-const string dragonWelcomeArt = R"(
+const std::string AsciiArt::dragonWelcomeArt = R"(
                          _                    _
                   ,/                        \,
         _________{(                          })_________
@@ -243,98 +220,3 @@ const string dragonWelcomeArt = R"(
     |_______________________________________________________|
 )";
 
-// Function to display the welcome screen
-void displayWelcome() {
-    system("clear"); 
-    cout << dragonWelcomeArt << endl;
-    cout << "You find yourself lost in the forest, searching for adventure..." << endl;
-    cout << "You stumble upon an old path leading to a dark dungeon." << endl;
-    cout << "Are you ready to face the challenges ahead?" << endl;
-    cout << "Press any key to enter the dungeon..." << endl;
-    cin.ignore();
-    cin.get(); // Wait for user input
-    system("clear");
-    cout << dungeonEntranceArt << endl;
-    cout << "You are entering the dungeon in 5" << endl;
-    sleep(1);
-    system("clear");
-    cout << dungeonEntranceArt << endl;
-    cout << "You are entering the dungeon in 4" << endl;
-    sleep(1);
-    system("clear");
-    cout << dungeonEntranceArt << endl;
-    cout << "You are entering the dungeon in 3" << endl;
-    sleep(1);
-    system("clear");
-    cout << dungeonEntranceArt << endl;
-    cout << "You are entering the dungeon in 2" << endl;
-    sleep(1);
-    system("clear");
-    cout << dungeonEntranceArt << endl;
-    cout << "You are entering the dungeon in 1" << endl;
-    sleep(1);
-    system("clear");
-
-}
-
-// Function to display the main menu
-void displayMenu() {
-    cout << "Welcome to Dungeon Dreams: The Goblin Guide!" << endl;
-    cout << "1. View Character Classes" << endl;
-    cout << "2. Start Game" << endl;
-    cout << "3. Exit" << endl;
-    cout << "Please enter your choice (1-3): ";
-}
-
-// Function to handle the menu choice
-void handleMenuChoice() {
-    int choice;
-    cin >> choice;
-    switch(choice) {
-        case 1:
-            handleClassChoice();
-            break;
-        case 2:
-            cout << "Starting the game..." << endl;
-            break;
-        case 3:
-            cout << "Exiting game. Goodbye!" << endl;
-            exit(0);
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-            break;
-    }
-}
-
-// Function to display character classes
-void displayCharacterClasses() {
-    system("clear"); 
-    cout << "Character Classes in Dungeon Dreams: The Goblin Guide" << endl;
-    cout << "1. Knight" << endl;
-    cout << knightArt << endl;
-    cout << "2. Mage" << endl;
-    cout << mageArt << endl;
-    cout << "3. Thief" << endl;
-    cout << thiefArt << endl;
-    cout << "4. Tank" << endl;
-    cout << tankArt << endl;
-    cout << "5. Cleric" << endl;
-    cout << clericArt << endl;
-    cout << "Press any key to return to the main menu..." << endl;
-    cin.ignore();
-    cin.get(); // Wait for user input
-}
-
-// Function to handle the character class choice
-void handleClassChoice() {
-    displayCharacterClasses();
-    displayMenu();
-    handleMenuChoice();
-}
-
-int main() {
-    displayWelcome();
-    displayMenu();
-    handleMenuChoice();
-    return 0;
-}
