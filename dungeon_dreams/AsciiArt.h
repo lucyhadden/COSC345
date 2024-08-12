@@ -21,6 +21,8 @@ public:
     static const std::string enemyLicheArt;
     static const std::string enemyWyvernArt;
     static const std::string dragonWelcomeArt;
+
+    static const std::string WinArt;
 };
 
 #endif
