@@ -1,3 +1,5 @@
+/** File for ending screen for win/lose scenarios */
+
 #include <iostream>
 #include <unistd.h> // For sleep function on Unix systems
 using namespace std;
