@@ -225,7 +225,7 @@ const std::string AsciiArt::dragonWelcomeArt = R"(
 /**
  * ENDSCREEN ART
  */
-const std::string AsciiArt::WinArt = R"(
+const std::string AsciiArt::LoseArt = R"(
                                              ('-. .-.   ('-.          (`-.      ('-.         _ .-') _              ('-.  _ .-') _   
                                             ( OO )  /  ( OO ).-.    _(OO  )_  _(  OO)       ( (  OO) )           _(  OO)( (  OO) )  
   ,--.   ,--..-'),-----.  ,--. ,--.         ,--. ,--.  / . --. /,--(_/   ,. \(,------.       \     .'_   ,-.-') (,------.\     .'_  
