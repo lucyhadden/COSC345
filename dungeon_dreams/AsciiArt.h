@@ -22,7 +22,10 @@ public:
     static const std::string enemyWyvernArt;
     static const std::string dragonWelcomeArt;
 
-    static const std::string LoseArt;
+    static const std::string LoseArt1;
+    static const std::string WinArt1;
+    static const std::string WinArt2;
+    static const std::string WinArt3;
 };
 
 #endif
