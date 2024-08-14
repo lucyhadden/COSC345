@@ -131,9 +131,7 @@ void loseScreen() {
 }
 
 int main() {
-    //winScreen();
-
-    //sleep(2);
-    loseScreen();
+    winScreen();
+    //loseScreen();
     return 0;
 }
