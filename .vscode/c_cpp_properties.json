@@ -4,7 +4,7 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/dungeon_dreams"
+                "${workspaceFolder}/include"
             ],
             "defines": [],
             "macFrameworkPath": [
@@ -20,7 +20,8 @@
             "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe",
             "intelliSenseMode": "windows-msvc-x64",
             "includePath": [
-                "${myIncludePath}"
+                "${myIncludePath}",
+                "${workspaceFolder}/include"
             ],
             "defines": [
                 "${myDefines}",
