@@ -14,14 +14,12 @@
 
 #include <string>
 
-using namespace std;
-
 class Item {
 private:
-    string name;
-    string type; // consumable/equippable/neither/something else entirely
-    string description;
-    string icon;
+    std::string name;
+    std::string type; // consumable/equippable/neither/something else entirely
+    std::string description;
+    std::string icon;
     //float weight; // fun concept
     //float value;    // fun concept
     //short durability // fun concept
@@ -29,17 +27,17 @@ private:
 
 public:
     // Constructor
-    Item(string name, string type, string description, string icon);
+    Item(std::string name, std::string type, std::string description, std::string icon);
     // Getters
-    string getName() const { return name; }
-    string getType() const { return type; }
-    string getDescription() const { return description; }
-    string getIcon() const { return icon; }
+    std::string getName() const { return name; }
+    std::string getType() const { return type; }
+    std::string getDescription() const { return description; }
+    std::string getIcon() const { return icon; }
     // float getWeight() const { return weight; }
     // float getValue() const { return value; }
     // string getDurability() const { return durability; }
 
-    void useItem(string type);
+    void useItem(const std::string& type);
 
 };
 

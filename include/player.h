@@ -15,24 +15,22 @@
 #include <string>
 #include <map>
 
-using namespace std;
-
 class Player {
 private:
-    string name;
+    std::string name;
     short health;
     short attack;
     short defense;
     short stealth;
     short luck;
-    map<string, short> inventory;
+    std::map<std::string, short> inventory;
 
 public:
     // Constructor
-    Player(string name, short health, short attack, short defense, short stealth, short luck);
+    Player(std::string name, short health, short attack, short defense, short stealth, short luck);
 
     // Getters
-    string getName() const { return name; }
+    std::string getName() const { return name; }
     short getHealth() const { return health; }
     short getAttack() const { return attack; }
     short getDefense() const { return defense; }
@@ -41,7 +39,7 @@ public:
     bool isAlive() const { return (health > 0); }
 
     // Setters
-    void setName(const string& n) { name = n; }
+    void setName(const std::string& n) { name = n; }
     void setHealth(short h) { health = h; }
     void setAttack(short a) { attack = a; }
     void setDefense(short d) { defense = d; }
@@ -49,9 +47,9 @@ public:
     void setLuck(short l) { luck = l; }
 
     // Inventory-specific functions
-    bool addToInventory(const string& itemName, short amount);
-    bool removeFromInventory(const string& itemName, short amount);
-    bool findItem(const string& itemName) const;
+    bool addToInventory(const std::string& itemName, short amount);
+    bool removeFromInventory(const std::string& itemName, short amount);
+    bool findItem(const std::string& itemName) const;
 
     // Display functions
     void displayInventory() const;
