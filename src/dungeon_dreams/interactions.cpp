@@ -1,4 +1,8 @@
-/** Making the tile interactions for each level - to later be added to another game play */
+/** Making the tile interactions for each level - to later be added to another game play 
+ * 
+ * Elizabeth Stewart
+ * 
+*/
 
 #include <string>
 #include <iostream>

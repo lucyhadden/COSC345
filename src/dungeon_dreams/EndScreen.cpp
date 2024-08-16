@@ -1,4 +1,8 @@
-/** File for ending screen for win/lose scenarios */
+/** File for ending screen for win/lose scenarios 
+ * 
+ * Elizabeth Stewart
+ * 
+*/
 
 #include <iostream>
 #include <string>
