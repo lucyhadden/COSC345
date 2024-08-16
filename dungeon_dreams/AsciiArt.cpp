@@ -278,3 +278,56 @@ const std::string AsciiArt::WinArt3 = R"(
               "=._o._; | ;_.--"o.--"
                     "=.o|o_.--""
 )";
+
+
+/**
+ * Grizzle Art
+ */
+
+const std::string AsciiArt::grizzleNormalExpression = R"(
+	           ————————————
+		       /  	          \
+	  ____ -     –      –     - ____
+  / 	       ( o )  ( o )          \
+  \ ____  	                  ____ /
+	      |		       ^         |
+	       \	    -v———v-     /
+	        \	               /
+		          ——————————
+)";
+
+const std::string AsciiArt::grizzleAngryExpression = R"(
+	           ————————————
+		       /  	          \
+	  ____ -      \    /      - ____
+  / 	       ( o )  ( o )          \
+  \ ____  	                  ____ /
+	      |		       ^         |
+	       \	    -v———v-     /
+	        \	               /
+		          ——————————
+)";
+
+const std::string AsciiArt::grizzleHappyExpression = R"(
+	           ————————————
+		       /  	          \
+	  ____ -     -      –     - ____
+  / 	       ( o )  ( o )          \
+  \ ____  	\\\        \\\    ____ /
+	      |		       ^         |
+	       \	    'v———v'     /
+	        \	               /
+		          ——————————
+)";
+
+const std::string AsciiArt::grizzleScaredExpression = R"(
+	           ————————————
+		       /  	          \
+	  ____ -     –       –    - ____
+  / 	       ( o )   ( o )          \
+  \ ____  	       ^           ____ /
+	      |		   _________     |
+	       \	  | -v———v- |   /
+	        \	   —————————   /
+		          ——————————
+)";

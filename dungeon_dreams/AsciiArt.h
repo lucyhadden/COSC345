@@ -38,6 +38,17 @@ public:
     static const std::string WinArt1;
     static const std::string WinArt2;
     static const std::string WinArt3;
+
+
+    /**
+    * Grizzle
+    */
+   static const std::string grizzleNormalExpression;
+   static const std::string grizzleAngryExpression;
+   static const std::string grizzleHappyExpression;
+   static const std::string grizzleScaredExpression;
+
 };
+
 
 #endif
