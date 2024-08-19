@@ -17,6 +17,7 @@ void loseScreen();
 // Function to display the win screen animation
 void winScreen() {
     system("clear");
+    //cout << AsciiArt::WinArt9 << AsciiArt::WinArt6  << endl;
 
     cout << "You enter a dark room" << endl;
     sleep(3);

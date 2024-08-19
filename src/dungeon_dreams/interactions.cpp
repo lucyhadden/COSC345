@@ -1,4 +1,4 @@
-/** Making the tile interactions for each level - to later be added to another game play 
+/** Making the tile interactions for each level 
  * 
  * Elizabeth Stewart
  * 
@@ -42,10 +42,11 @@ int tileMovedTo;
 
 
 void levelPlay(){
-
+    //SAFE TILE
     if(tileMovedTo == safeTile){
         cout << "You are safe" << endl;
     }
+    //ENEMY TILE
     else if(tileMovedTo == emenyTile){
         cout << "Oh no! You have encountered a " << enemyType << ". Attack it!"<<endl;
         sleep(2);
@@ -81,6 +82,7 @@ void levelPlay(){
         }
 
     }
+    //TRAP TILE
     else if(tileMovedTo == trapTile){
         cout << "Oh no! A " << trapType << endl;
         sleep(2);
@@ -92,9 +94,11 @@ void levelPlay(){
 
         cout << "You have taken " << trapDamage << " damage" << endl; 
     }
+    //WALL TILE
     else if(tileMovedTo == wallTile){
         cout << "It's a wall! You cannot move here" << endl;
     }
+    //INVALID TILE
     else{
         cout << "Invalid tile" << endl;
     }
@@ -165,6 +169,7 @@ void level8(){
     int trapDamage = 40;
 }
 
+//MAIN METHOD (temporary - for testing)
 int main() {
     srand(time(0));
 
@@ -174,7 +179,7 @@ int main() {
 
     //loop through level play for all moves
     for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level1();
+        level1(); 
         randomNumber = rand() % 5;
         if (randomNumber == 3){
             randomNumber = 0;
