@@ -1,4 +1,8 @@
-/** File for ending screen for win/lose scenarios */
+/** File for ending screen for win/lose scenarios 
+ * 
+ * Elizabeth Stewart
+ * 
+*/
 
 #include <iostream>
 #include <string>
@@ -13,6 +17,7 @@ void loseScreen();
 // Function to display the win screen animation
 void winScreen() {
     system("clear");
+    //cout << AsciiArt::WinArt9 << AsciiArt::WinArt6  << endl;
 
     cout << "You enter a dark room" << endl;
     sleep(3);
@@ -131,9 +136,7 @@ void loseScreen() {
 }
 
 int main() {
-    //winScreen();
-
-    //sleep(2);
-    loseScreen();
+    winScreen();
+    //loseScreen();
     return 0;
 }

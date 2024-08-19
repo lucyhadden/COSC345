@@ -278,3 +278,124 @@ const std::string AsciiArt::WinArt3 = R"(
               "=._o._; | ;_.--"o.--"
                     "=.o|o_.--""
 )";
+
+const std::string AsciiArt::WinArt4 = R"(
+
+  _ ___ _
+ '-|   |-'
+   |___|
+  / / \ \
+ ' |___| '
+   || ||   
+)";
+
+const std::string AsciiArt::WinArt5 = R"(
+
+  _ ___ _
+ '-|   |-'
+   |___|
+  \ / \ /
+   |___| 
+   // \\   
+)";
+
+
+const std::string AsciiArt::WinArt6 = R"(
+
+    _ ___ 
+   '__  o|
+     |___|
+      /|\
+     |_|_|
+      |_|_
+)";
+
+
+const std::string AsciiArt::WinArt7 = R"(
+
+    _ ___ 
+   '__  o|
+     |___|
+   ,- / \ \,
+     |___|
+     '/ \,
+
+)";
+
+
+const std::string AsciiArt::WinArt8 = R"(
+
+    _ ___ 
+   '__  o|
+     |___|
+   ,- / \ \,
+     |___|
+     '/ \,
+)";
+
+
+const std::string AsciiArt::WinArt9 = R"(
+    ___
+   |  o| 
+   |___|
+   /   \
+   | | |
+   |_| |
+   |  |
+   |__|
+)";
+
+
+
+
+/**
+ * Grizzle Art
+ */
+
+const std::string AsciiArt::grizzleNormalExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -     –      –      - ____
+  / 	       ( o )  ( o )          \
+  \ ____  	                   ____ /
+	      |		       ^          |
+	       \	    -v———v-      /
+	        \	                /
+		          ———————————    
+)";
+
+const std::string AsciiArt::grizzleAngryExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -      \    /       - ____
+  / 	       ( o )  ( o )           \
+  \ ____  	                   ____ /
+	      |		       ^          |
+	       \	    -v———v-      /
+	        \	                /
+		          ———————————  
+)";
+
+const std::string AsciiArt::grizzleHappyExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -     -      –      - ____
+  / 	       ( o )  ( o )           \
+  \ ____  	\\\        \\\     ____ /
+	      |		       ^          |
+	       \	    'v———v'      /
+	        \	                /
+		          ———————————  
+)";
+
+const std::string AsciiArt::grizzleScaredExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -     –       –     - ____
+  / 	       ( o )   ( o )          \
+  \ ____  	       ^           ____ /
+	      |		   _________      |
+	       \	  | -v———v- |    /
+	        \	   —————————    /
+		          ———————————   
+)";
