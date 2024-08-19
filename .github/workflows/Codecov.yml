@@ -21,7 +21,7 @@ jobs:
       - name: Generate Report
         id: generate_test_report
         shell: cmd
-        run: OpenCppCoverage.exe --sources HelloCov --export_type cobertura:HelloCov.xml -- "vstest.console.exe" Debug\HelloTest.dll
+        run: OpenCppCoverage.exe --sources src --export_type cobertura:HelloCov.xml -- "vstest.console.exe" Debug\Test.dll
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v1.3.2
         with:
