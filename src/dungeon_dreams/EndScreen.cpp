@@ -135,8 +135,17 @@ void loseScreen() {
     }
 }
 
-int main() {
-    winScreen();
-    //loseScreen();
-    return 0;
+// int main() {
+//     winScreen();
+//     //loseScreen();
+//     return 0;
+// }
+
+//this will show the end screen based on the game result
+void showEndScreen(bool won) {
+    if (won) {
+        winScreen();
+    } else {
+        loseScreen();
+    }
 }

@@ -104,249 +104,249 @@ void levelPlay(){
     }
 }
 
-void level1(){
-    //LEVEL 1
-    enemyType = "Slime";
-    enemyHealth = 10;
-    enemyDamage = 10;
-    trapType = "Pitfall";
-    trapDamage = 10;
-}
-void level2(){
-    //LEVEL 2
-    enemyType = "Skeleton";
-    enemyHealth = 15;
-    enemyDamage = 15;
-    trapType = "Falling rock";
-    trapDamage = 15;
-}
-void level3(){
-    //LEVEL 3
-    enemyType = "Cave Spider";
-    enemyHealth = 15;
-    enemyDamage = 15;
-    trapType = "Swinging blade";
-    trapDamage = 15;
-}
-void level4(){
-    //LEVEL 4
-    enemyType = "Ghostly knight";
-    enemyHealth = 20;
-    enemyDamage = 20;
-    trapType = "Spiked floor";
-    trapDamage = 20;
-}
-void level5(){
-    //LEVEL 5
-    enemyType = "Banshee";
-    enemyHealth = 20;
-    enemyDamage = 20;
-    trapType = "Phantom chain";
-    trapDamage = 20;
-}
-void level6(){
-    //LEVEL 6
-    enemyType = "Fire Golem";
-    enemyHealth = 30;
-    enemyDamage = 30;
-    trapType = "Boulder";
-    trapDamage = 30;
-}
-void level7(){
-    //LEVEL 7
-    enemyType = "Liche";
-    enemyHealth = 30;
-    enemyDamage = 30;
-    trapType = "Magical rune";
-    trapDamage = 30;
-}
-void level8(){
-    //LEVEL 8
-    enemyType = "Wyvern";
-    enemyHealth = 40;
-    enemyDamage = 40;
-    trapType = "Fire trap";
-    int trapDamage = 40;
+//just changed to one function which is called and adjusted based ont he level we input for it
+void setupLevel(int levelNumber) {
+    switch(levelNumber) {
+        case 1:
+            enemyType = "Slime";
+            enemyHealth = 10;
+            enemyDamage = 10;
+            trapType = "Pitfall";
+            trapDamage = 10;
+            break;
+        case 2:
+            enemyType = "Skeleton";
+            enemyHealth = 15;
+            enemyDamage = 15;
+            trapType = "Falling rock";
+            trapDamage = 15;
+            break;
+        case 3:
+            enemyType = "Cave Spider";
+            enemyHealth = 15;
+            enemyDamage = 15;
+            trapType = "Swinging blade";
+            trapDamage = 15;
+            break;
+        case 4:
+            enemyType = "Ghostly knight";
+            enemyHealth = 20;
+            enemyDamage = 20;
+            trapType = "Spiked floor";
+            trapDamage = 20;
+            break;
+        case 5:
+            enemyType = "Banshee";
+            enemyHealth = 20;
+            enemyDamage = 20;
+            trapType = "Phantom chain";
+            trapDamage = 20;
+            break;
+        case 6:
+            enemyType = "Fire Golem";
+            enemyHealth = 30;
+            enemyDamage = 30;
+            trapType = "Boulder";
+            trapDamage = 30;
+            break;
+        case 7:
+            enemyType = "Liche";
+            enemyHealth = 30;
+            enemyDamage = 30;
+            trapType = "Magical rune";
+            trapDamage = 30;
+            break;
+        case 8:
+            enemyType = "Wyvern";
+            enemyHealth = 40;
+            enemyDamage = 40;
+            trapType = "Fire trap";
+            trapDamage = 40;
+            break;
+        default:
+            cout << "Unknown level" << endl;
+            break;
+    }
 }
 
 //MAIN METHOD (temporary - for testing)
-int main() {
-    srand(time(0));
+// int main() {
+//     srand(time(0));
 
-    //LEVEL 1
-    cout << "LEVEL 1" << endl;
-    sleep(2);
+//     //LEVEL 1
+//     cout << "LEVEL 1" << endl;
+//     sleep(2);
 
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level1(); 
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
-
-
-
-    //LEVEL 2
-    cout << "LEVEL 2" << endl;
-    sleep(2);
-
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level2();
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level1(); 
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
 
 
-    //LEVEL 3
-    cout << "LEVEL 3" << endl;
-    sleep(2);
 
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level3();
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
+//     //LEVEL 2
+//     cout << "LEVEL 2" << endl;
+//     sleep(2);
 
-
-    //LEVEL 4
-    cout << "LEVEL 4" << endl;
-    sleep(2);
-
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level4();
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level2();
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
 
 
-    //LEVEL 5
-    cout << "LEVEL 5" << endl;
-    sleep(2);
+//     //LEVEL 3
+//     cout << "LEVEL 3" << endl;
+//     sleep(2);
 
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level5();
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
-
-
-    //LEVEL 6
-    cout << "LEVEL 6" << endl;
-    sleep(2);
-
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level6();
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level3();
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
 
 
-    //LEVEL 7
-    cout << "LEVEL 7" << endl;
-    sleep(2);
+//     //LEVEL 4
+//     cout << "LEVEL 4" << endl;
+//     sleep(2);
 
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level7();
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level4();
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
 
 
-    //LEVEL 8
-    cout << "LEVEL 8" << endl;
-    sleep(2);
+//     //LEVEL 5
+//     cout << "LEVEL 5" << endl;
+//     sleep(2);
 
-    //loop through level play for all moves
-    for(int moveCount = 1; moveCount <= 5; moveCount++){
-        level8();
-        randomNumber = rand() % 5;
-        if (randomNumber == 3){
-            randomNumber = 0;
-        }
-        tileMovedTo = randomNumber; //generate a random number for tile to interact with 
-        cout << "Move: " << moveCount << endl; //move number
-        sleep(2);
-        levelPlay(); //call level play
-        sleep(2);
-        cout << endl;
-    }
-    cout << "Your current health is " << playerHealth << endl;
-    cout << endl;
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level5();
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
 
-}
+
+//     //LEVEL 6
+//     cout << "LEVEL 6" << endl;
+//     sleep(2);
+
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level6();
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
+
+
+//     //LEVEL 7
+//     cout << "LEVEL 7" << endl;
+//     sleep(2);
+
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level7();
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
+
+
+//     //LEVEL 8
+//     cout << "LEVEL 8" << endl;
+//     sleep(2);
+
+//     //loop through level play for all moves
+//     for(int moveCount = 1; moveCount <= 5; moveCount++){
+//         level8();
+//         randomNumber = rand() % 5;
+//         if (randomNumber == 3){
+//             randomNumber = 0;
+//         }
+//         tileMovedTo = randomNumber; //generate a random number for tile to interact with 
+//         cout << "Move: " << moveCount << endl; //move number
+//         sleep(2);
+//         levelPlay(); //call level play
+//         sleep(2);
+//         cout << endl;
+//     }
+//     cout << "Your current health is " << playerHealth << endl;
+//     cout << endl;
+
+// }

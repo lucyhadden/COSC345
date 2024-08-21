@@ -169,20 +169,37 @@ bool enterUserInput(){
     return false; 
 }
 
-int main() { 
-    cout << "Testing" << endl; 
+// int main() { 
+//     cout << "Testing" << endl; 
 
-    fillDungeon(); 
-    generateDynamicLevels(length, height); 
-    updateBoard(false); 
+//     fillDungeon(); 
+//     generateDynamicLevels(length, height); 
+//     updateBoard(false); 
 
-    while(true){ 
-        if(enterUserInput()){ 
-            updateBoard(true); 
-            startEvent(); 
-        } 
+//     while(true){ 
+//         if(enterUserInput()){ 
+//             updateBoard(true); 
+//             startEvent(); 
+//         } 
+//     }
+//     return 0; 
+// } 
+
+bool runMovement() {
+    fillDungeon();
+    generateDynamicLevels(length, height);
+    updateBoard(false);
+
+    while(true) {
+        if(enterUserInput()) {
+            updateBoard(true);
+            startEvent();
+        }
+
+        //this is where we will want to end the level, when the player reaches a certain positon on the board (i.e. gets through unharmed)
     }
-    return 0; 
-} 
+
+    return true; 
+}
 
  
