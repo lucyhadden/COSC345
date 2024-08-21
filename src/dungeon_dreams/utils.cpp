@@ -4,7 +4,7 @@
 // sleep function delays next command (by x seconds)
 void sleep(short seconds) {
     #ifdef __APPLE__
-        sleep(seconds);
+        ::sleep(seconds);
     #else
         Sleep(second * 1000); // converted from milliseconds
     #endif

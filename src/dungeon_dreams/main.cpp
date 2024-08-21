@@ -1,11 +1,11 @@
-#include "COSC345/include/StartScreen.h"
-#include "COSC345/include/movement.h"
-#include "COSC345/include/EndScreen.h"
-#include "COSC345/include/AsciiArt.h"
-#include "COSC345/include/player.h"
-#include "COSC345/include/item.h"
-#include "COSC345/include/interactions.h"
-#include "COSC345/include/utils.h"
+#include "StartScreen.h"
+#include "movement.h"
+#include "EndScreen.h"
+#include "AsciiArt.h"
+#include "player.h"
+#include "item.h"
+#include "interactions.h"
+#include "utils.h"
 
 int main()
 {
@@ -23,7 +23,7 @@ int main()
         for (int level = 1; level <= 8; level++) { 
             setupLevel(level);  
 
-            gameCompleted = runMovement();  
+            //gameCompleted = runMovement();  
 
             if (gameCompleted) {
                 int tileMovedTo = rand() % 5;  

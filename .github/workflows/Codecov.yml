@@ -2,29 +2,27 @@ name: Upload CodeCov Report
 on: [push, pull_request]
 jobs:
   run:
-    runs-on: windows-latest
-    name: Build, Test , Upload Code Coverage Report
+    runs-on: macos-latest
+    name: Build, Test, Upload Code Coverage Report
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: ‘2’
-        id: checkout_code
-      - name: Setup VSTest and add to PATH
-        uses: darenm/Setup-VSTest@v1
-        id: setup_vstest
-      - name: Setup OpenCppCoverage and add to PATh
-        id: setup_opencppcoverage
+      - name: Install Dependencies
         run: |
-          choco install OpenCppCoverage -y
-          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
-      - name: Generate Report
-        id: generate_test_report
-        shell: cmd
-        run: OpenCppCoverage.exe --sources src --export_type cobertura:HelloCov.xml -- "vstest.console.exe" Debug\Test.dll
+          brew install lcov
+          brew install cmake
+      - name: Build with Coverage Flags
+        run: |
+          cmake -DCMAKE_CXX_FLAGS="--coverage" .
+          make
+      - name: Run Tests
+        run: |
+          ./Test
+      - name: Capture Coverage Info
+        run: |
+          lcov --capture --directory . --output-file coverage.info
       - name: Upload Report to Codecov
-        uses: codecov/codecov-action@v1.3.2
+        uses: codecov/codecov-action@v2
         with:
-          files: ./HelloCov.xml
+          files: coverage.info
           fail_ci_if_error: true
-          functionalities: fix

@@ -99,7 +99,7 @@ void handleClassChoice() {
     handleMenuChoice();
 }
 
-int main() {
+int function() {
     displayWelcome();
     displayMenu();
     handleMenuChoice();
