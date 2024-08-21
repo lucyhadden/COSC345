@@ -1,28 +1,41 @@
-name: Upload CodeCov Report
-on: [push, pull_request]
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  run:
-    runs-on: macos-latest
-    name: Build, Test, Upload Code Coverage Report
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install Dependencies
+      - uses: actions/checkout@v2
+
+      - name: Set up CMake
         run: |
-          brew install lcov
-          brew install cmake
-      - name: Build with Coverage Flags
-        run: |
-          cmake -DCMAKE_CXX_FLAGS="--coverage" .
+          mkdir build-coverage
+          cd build-coverage
+          cmake -DCMAKE_BUILD_TYPE=Coverage ..
           make
+
       - name: Run Tests
         run: |
-          ./Test
-      - name: Capture Coverage Info
+          cd build-coverage
+          ./COSC345  # Ensure this matches the name of your executable
+
+      - name: Generate Coverage Report
         run: |
+          cd build-coverage
           lcov --capture --directory . --output-file coverage.info
-      - name: Upload Report to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          files: coverage.info
-          fail_ci_if_error: true
+          lcov --remove coverage.info '/usr/*' --output-file coverage.info
+          lcov --list coverage.info
+
+      - name: Upload Coverage to Codecov
+        run: |
+          bash <(curl -s https://codecov.io/bash) -f build-coverage/coverage.info
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

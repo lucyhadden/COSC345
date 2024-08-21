@@ -8,7 +8,7 @@
 #include <string>
 #include <cstdlib>  
 #include <unistd.h>
-#include "COSC345/include/AsciiArt.h"
+#include "AsciiArt.h"
 using namespace std;
 
 void winScreen();

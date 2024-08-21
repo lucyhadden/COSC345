@@ -8,7 +8,7 @@
  * Last editted on: 11/08/24
  */
 
-#include "COSC345/include/item.h"
+#include "item.h"
 #include <iostream>
 
 using namespace std;
