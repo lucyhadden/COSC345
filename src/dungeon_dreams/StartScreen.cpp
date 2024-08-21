@@ -2,7 +2,7 @@
 #include <string>
 #include <cstdlib>  
 #include <unistd.h>
-#include "/Users/lucyhadden/COSC345/include/AsciiArt.h"
+#include "COSC345/include/AsciiArt.h"
 
 using namespace std;
 

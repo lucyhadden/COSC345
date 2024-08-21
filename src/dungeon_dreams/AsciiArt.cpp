@@ -1,5 +1,5 @@
 // AsciiArt.cpp
-#include "AsciiArt.h"
+#include "COSC345/include/AsciiArt.h"
 
 const std::string AsciiArt::dungeonEntranceArt = R"(
    _________________________________________________________

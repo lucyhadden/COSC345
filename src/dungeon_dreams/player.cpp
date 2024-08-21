@@ -8,7 +8,7 @@
  * Last editted on: 11/08/24
  */
 
-#include "player.h"
+#include "COSC345/include/player.h"
 #include <iostream>
 #include <map>
 

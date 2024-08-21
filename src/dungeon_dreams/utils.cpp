@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "COSC345/include/utils.h"
 #include <cstdlib> 
 
 // sleep function delays next command (by x seconds)
