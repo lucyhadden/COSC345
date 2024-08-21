@@ -25,7 +25,7 @@ jobs:
       - name: Run Tests
         run: |
           cd build-coverage
-          ./COSC345  # Ensure this matches the name of your executable
+          ./COSC345 
 
       - name: Generate Coverage Report
         run: |
