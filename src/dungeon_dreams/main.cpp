@@ -1,12 +1,11 @@
-#include "/Users/lucyhadden/COSC345/include/StartScreen.h"
-//#include "StartScreen.h"
-#include "/Users/lucyhadden/COSC345/include/movement.h"
-#include "/Users/lucyhadden/COSC345/include/EndScreen.h"
-#include "/Users/lucyhadden/COSC345/include/AsciiArt.h"
-#include "/Users/lucyhadden/COSC345/include/player.h"
-#include "/Users/lucyhadden/COSC345/include/item.h"
-#include "/Users/lucyhadden/COSC345/include/interactions.h"
-#include "/Users/lucyhadden/COSC345/include/utils.h"
+#include "COSC345/include/StartScreen.h"
+#include "COSC345/include/movement.h"
+#include "COSC345/include/EndScreen.h"
+#include "COSC345/include/AsciiArt.h"
+#include "COSC345/include/player.h"
+#include "COSC345/include/item.h"
+#include "COSC345/include/interactions.h"
+#include "COSC345/include/utils.h"
 
 int main()
 {
