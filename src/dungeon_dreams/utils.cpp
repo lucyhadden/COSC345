@@ -3,18 +3,18 @@
 
 // sleep function delays next command (by x seconds)
 void sleep(short seconds) {
-    #ifdef __APPLE__
-        ::sleep(seconds);
+    #ifdef _WIN32
+        Sleep(seconds * 1000); // Windows-specific function (milliseconds)
     #else
-        Sleep(second * 1000); // converted from milliseconds
+        ::sleep(seconds); // POSIX sleep function (seconds)
     #endif
 }
 
 // clear function removes all text on terminal
-void clear(){
-    #ifdef __APPLE__
-        system("clear");
-    #else
+void clear() {
+    #ifdef _WIN32
         system("cls");
+    #else
+        system("clear");
     #endif
 }
