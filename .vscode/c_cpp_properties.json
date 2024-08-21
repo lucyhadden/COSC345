@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/src/dungeon_dreams"
+                "${workspaceFolder}/src/dungeon_dreams",
+                "/Users/elizabethstewart/Documents/COSC345"
             ],
             "defines": [],
             "macFrameworkPath": [
