@@ -38,6 +38,12 @@ public:
     static const std::string WinArt1;
     static const std::string WinArt2;
     static const std::string WinArt3;
+    static const std::string WinArt4;
+    static const std::string WinArt5;
+    static const std::string WinArt6;
+    static const std::string WinArt7;
+    static const std::string WinArt8;
+    static const std::string WinArt9;
 
 
     /**
