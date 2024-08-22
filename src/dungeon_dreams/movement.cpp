@@ -265,7 +265,7 @@ bool enterUserInput(){
     return false; 
 }
 
-int main() { 
+int main2() { 
     cout << "Testing" << endl; 
 
     fillDungeon(); 
