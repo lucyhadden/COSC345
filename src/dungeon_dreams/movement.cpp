@@ -3,6 +3,8 @@
 #include <cmath>
 #include <string> 
 #include <time.h> 
+#include <vector>
+#include <utility>
 
 using namespace std; 
 
