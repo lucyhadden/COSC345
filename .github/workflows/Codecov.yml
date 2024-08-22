@@ -15,11 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up CMake
+      - name: Install Clang
+        run: sudo apt-get install -y clang llvm
+
+      - name: Set up CMake with Clang
         run: |
           mkdir build-coverage
           cd build-coverage
-          cmake -DCMAKE_BUILD_TYPE=Coverage ..
+          cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Coverage ..
           make
 
       - name: Run Tests
@@ -30,12 +33,12 @@ jobs:
       - name: Generate Coverage Report
         run: |
           cd build-coverage
-          lcov --capture --directory . --output-file coverage.info
-          lcov --remove coverage.info '/usr/*' --output-file coverage.info
-          lcov --list coverage.info
+          llvm-profdata merge -sparse default.profraw -o default.profdata
+          llvm-cov show ./COSC345 -instr-profile=default.profdata -path-equivalence /home/runner/work/COSC345/COSC345/src src > coverage.txt
+          llvm-cov report ./COSC345 -instr-profile=default.profdata -path-equivalence /home/runner/work/COSC345/COSC345/src src
 
       - name: Upload Coverage to Codecov
         run: |
-          bash <(curl -s https://codecov.io/bash) -f build-coverage/coverage.info
+          bash <(curl -s https://codecov.io/bash) -f build-coverage/coverage.txt
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
