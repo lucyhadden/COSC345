@@ -27,15 +27,16 @@ jobs:
 
       - name: Run Tests
         run: |
-          cd build-coverage
-          ./COSC345 
+            cd build-coverage
+            LLVM_PROFILE_FILE="default.profraw" ./runTests  # Runs the tests
 
       - name: Generate Coverage Report
         run: |
-          cd build-coverage
-          llvm-profdata merge -sparse default.profraw -o default.profdata
-          llvm-cov show ./COSC345 -instr-profile=default.profdata -path-equivalence /home/runner/work/COSC345/COSC345/src src > coverage.txt
-          llvm-cov report ./COSC345 -instr-profile=default.profdata -path-equivalence /home/runner/work/COSC345/COSC345/src src
+            cd build-coverage
+            llvm-profdata merge -sparse default.profraw -o default.profdata
+            llvm-cov show ./runTests -instr-profile=default.profdata > coverage.txt
+            llvm-cov report ./runTests -instr-profile=default.profdata
+    
 
       - name: Upload Coverage to Codecov
         run: |
