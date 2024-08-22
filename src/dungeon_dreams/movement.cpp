@@ -2,6 +2,7 @@
 #include <cctype> 
 #include <cmath>
 #include <string> 
+#include <time.h> 
 
 using namespace std; 
 
@@ -26,10 +27,10 @@ short x;
 // Room config
 const short length_of_room = 5; 
 const short height_of_room = 1; 
-const short length = 10; 
-const short height = 9; 
+const short length = 8; 
+const short height = 7; 
 
-short dynamic_dungeon[length][height]; 
+short dynamic_dungeon[height][length]; 
 short level = 0; 
 
 // Positions of player 
@@ -39,14 +40,98 @@ short pos[2] = {static_cast<short>(height / 2), 0};
 // Console removal testing
 short lines_to_be_removed = 0; 
 
+// Check if a position is safe
+bool is_safe(int x, int y) {
+    return x >= 0 && x < height && y >= 0 && y < length && dynamic_dungeon[x][y] == 0;
+}
 
-void fillDungeon(){ 
-    for(int i = 0; i < length; i++){ 
-        for(int j = 0; j < height; j++){ 
-            dynamic_dungeon[i][j] = 0; 
-        } 
-    } 
-} 
+// Check if placing a path at (x, y) would form a 2x2 block
+bool forms_block(int x, int y) {
+    int directions[3][2] = {{-1, -1}, {-1, 0}, {-1, 1}};
+    for (int i = 0; i < 3; ++i) {
+        int dx = directions[i][0], dy = directions[i][1];
+        if (x + dx >= 0 && x + dx < height - 1 &&
+            y + dy >= 0 && y + dy < length - 1 &&
+            dynamic_dungeon[x + dx][y + dy] == 1 &&
+            dynamic_dungeon[x + dx + 1][y + dy] == 1 &&
+            dynamic_dungeon[x + dx][y + dy + 1] == 1 &&
+            dynamic_dungeon[x + dx + 1][y + dy + 1] == 1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Print the dungeon
+void print_dungeon() {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < length; j++) {
+            cout << dynamic_dungeon[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << "\n====================\n" << endl;
+}
+
+// Generate a random path through the dungeon
+void generate_path() {
+    int x = height / 2, y = 0;
+    dynamic_dungeon[x][y] = 1;
+    // print_dungeon();
+    
+    vector<pair<int, int>> directions = {{-1, 0}, {0, 1}, {1, 0}};
+    
+    while (y < length - 1) {
+        vector<pair<int, int>> possible_moves;
+        
+        for (const auto& dir : directions) {
+            int new_x = x + dir.first, new_y = y + dir.second;
+            if (is_safe(new_x, new_y) && !forms_block(new_x, new_y)) {
+                possible_moves.push_back({new_x, new_y});
+            }
+        }
+        
+        if (!possible_moves.empty()) {
+            int index = rand() % possible_moves.size();
+            x = possible_moves[index].first;
+            y = possible_moves[index].second;
+            dynamic_dungeon[x][y] = 1;
+            // print_dungeon();
+        } else {
+            break;
+        }
+    }
+}
+
+//method that randomly fills the rest of the dungeon with 1
+void generate_rest() {
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < length; j++) {
+            if( dynamic_dungeon[i][j] !=1){
+                int index = rand() %3+2;
+                dynamic_dungeon[i][j] = index;   
+            }
+        }
+    }
+
+}
+
+// Fill the dungeon with the generated path
+void fillDungeon() {
+    // Initialize the dungeon to zeros
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < length; j++) {
+            dynamic_dungeon[i][j] = 0;
+        }
+    }
+    // Use current time as seed for random generator 
+    srand(time(0)); 
+    // Generate the path
+    generate_path();
+    print_dungeon();
+    generate_rest();
+    print_dungeon();
+}
 
 void removeConsole(short remove){ 
 
@@ -120,8 +205,17 @@ void startEvent(){
     short type_of_room; 
     type_of_room = dynamic_dungeon[pos[0]][pos[1]]; 
     switch(type_of_room){ 
-        case 0: 
+        case 1: 
             cout << "SAFE" << endl; 
+            break; 
+        case 2: 
+            cout << "enemy" << endl; 
+            break; 
+        case 3: 
+            cout << "enemy" << endl; 
+            break; 
+        case 4: 
+            cout << "wall" << endl; 
             break; 
         default: 
             cout << "Descend the dungeon" << endl; 
@@ -169,21 +263,21 @@ bool enterUserInput(){
     return false; 
 }
 
-// int main() { 
-//     cout << "Testing" << endl; 
+int main() { 
+    cout << "Testing" << endl; 
 
-//     fillDungeon(); 
-//     generateDynamicLevels(length, height); 
-//     updateBoard(false); 
+    fillDungeon(); 
+    generateDynamicLevels(length, height); 
+    updateBoard(false); 
 
-//     while(true){ 
-//         if(enterUserInput()){ 
-//             updateBoard(true); 
-//             startEvent(); 
-//         } 
-//     }
-//     return 0; 
-// } 
+    while(true){ 
+        if(enterUserInput()){ 
+            updateBoard(true); 
+            startEvent(); 
+        } 
+    }
+    return 0; 
+} 
 
 bool runMovement() {
     fillDungeon();
