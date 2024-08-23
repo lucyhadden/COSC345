@@ -22,6 +22,8 @@ string trapType;
 int trapDamage; 
 int randomNumber;
 
+Player player("Player", 100, 10, 5, 0, 0);
+
 /** CLASS OPTIONS
  * Knight: medium health, damage, defence. But low luck and stealth
  * Mage: high damage and medium defence. But low health, luck and stealth
@@ -47,23 +49,43 @@ void resetPlayerStats() {
     switch (classChoice) {
         case 1:
             cout << "You have chosen the noble Knight class!" << endl;
-            Player("Player", 100, 10, 5, 0, 0);
+            player.setHealth(100);
+            player.setAttack(10);
+            player.setDefense(5);
+            player.setLuck(0);
+            player.setStealth(0);
             break;
         case 2:
             cout << "You have chosen the mystical Mage class!" << endl;
-            Player("Player", 80, 15, 0, 0, 0);
+            player.setHealth(80);
+            player.setAttack(15);
+            player.setDefense(5);
+            player.setLuck(0);
+            player.setStealth(0);
             break;
         case 3:
             cout << "You have chosen the sneaky Thief class!" << endl;
-            Player("Player", 50, 5, 0, 10, 10);
+            player.setHealth(50);
+            player.setAttack(5);
+            player.setDefense(0);
+            player.setLuck(10);
+            player.setStealth(10);
             break;
         case 4:
             cout << "You have chosen the stoic Tank class!" << endl;
-            Player("Player", 120, 5, 15, 0, 0);
+            player.setHealth(120);
+            player.setAttack(5);
+            player.setDefense(15);
+            player.setLuck(0);
+            player.setStealth(0);
             break;
         case 5:
             cout << "You have chosen the devout Cleric class!" << endl;
-            Player("Player", 110, 5, 0, 0, 10);
+            player.setHealth(110);
+            player.setAttack(5);
+            player.setDefense(0);
+            player.setLuck(0);
+            player.setStealth(10);
             break;
         default:
             cout << "Invalid choice. Please try again." << endl;
@@ -74,7 +96,7 @@ void resetPlayerStats() {
 }
 
 int getPlayerHealth() {
-    return playerHealth;
+    return player.getHealth();
 }
 
 int safeTile = 0;
@@ -91,34 +113,34 @@ void levelPlay(int tileMovedTo) {
     } else if(tileMovedTo == 1) {
         cout << "Oh no! You have encountered a " << enemyType << ". Attack it!" << endl;
         sleep(2);
-        enemyHealth = enemyHealth - playerDamage;
+        enemyHealth = enemyHealth - player.getAttack();
         if(enemyHealth <= 0) {
             cout << "You have defeated the " << enemyType << "." << endl;
         } else {
             while (enemyHealth > 0) {
                 cout << "The " << enemyType << " is still alive! It's going to attack" << endl;
                 sleep(2);
-                if(playerDefence > enemyDamage) {
+                if(player.getDefense() > enemyDamage) {
                     cout << "Your defensive stat is higher than the enemy's damage! You take no damage" << endl;
                 } else {
-                    cout << "The " << enemyType << "'s damage is higher than your defensive stat! You took "<< (enemyDamage - playerDefence) << " damage" << endl;
-                    playerHealth -= (enemyDamage - playerDefence);
+                    cout << "The " << enemyType << "'s damage is higher than your defensive stat! You took "<< (enemyDamage - player.getDefense()) << " damage" << endl;
+                    player.setHealth(enemyDamage - player.getDefense());
                 }
                 sleep(2);
-                if (playerHealth <= 0) {
+                if (player.getHealth() <= 0) {
                     cout << "You have died" << endl;
                     exit(0);
                 }
-                cout << "You have " << playerHealth << " health left" << endl;
-                enemyHealth -= playerDamage;
+                cout << "You have " << player.getHealth() << " health left" << endl;
+                enemyHealth -= player.getAttack();
             }
             cout << "You have defeated the " << enemyType << "." << endl;
         }
     } else if(tileMovedTo == 2) {
         cout << "Oh no! A " << trapType << endl;
         sleep(2);
-        playerHealth -= trapDamage;
-        if (playerHealth <= 0) {
+        player.setHealth(player.getHealth() - trapDamage);
+        if (player.getHealth() <= 0) {
             cout << "You have died" << endl;
             exit(0);
         }
