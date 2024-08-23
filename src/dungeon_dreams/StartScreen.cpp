@@ -12,36 +12,20 @@ void displayMenu();
 void displayCharacterClasses();
 void handleMenuChoice();
 void handleClassChoice();
+void startingStory();
+void pressAnyKeyToContinue();
 
 // Function to display the welcome screen
 void displayWelcome() {
     system("clear"); 
     cout << AsciiArt::dragonWelcomeArt << endl;
-    cout << "You find yourself lost in the forest, searching for adventure..." << endl;
-    cout << "You stumble upon an old path leading to a dark dungeon." << endl;
-    cout << "Are you ready to face the challenges ahead?" << endl;
-    cout << "Press any key to enter the dungeon..." << endl;
-    cin.ignore();
-    cin.get(); 
-
-    int countdown = 5;
-    int position = 0;
-
-    while (countdown > 0) {
-        system("clear");
-        for (int i = 0; i < position; i++) {
-            cout << endl;
-        }
-        cout << AsciiArt::dungeonEntranceArt << endl;
-        cout << "You are entering the dungeon in " << countdown << endl;
-        sleep(1);
-        position++;
-        countdown--;
-    }
-
-    system("clear");
-    cout << "You have entered the dungeon..." << endl;
     sleep(1);
+    displayMenu();
+    handleMenuChoice();
+    system("clear"); 
+
+    startingStory();
+    system("clear"); 
 }
 
 // Function to display the main menu
@@ -56,20 +40,27 @@ void displayMenu() {
 // Function to handle the menu choice
 void handleMenuChoice() {
     int choice;
-    cin >> choice;
-    switch(choice) {
-        case 1:
-            handleClassChoice();
-            break;
-        case 2:
-            cout << "Starting the game..." << endl;
-            break;
-        case 3:
-            cout << "Exiting game. Goodbye!" << endl;
-            exit(0);
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-            break;
+    bool validChoice = false;
+
+    while (!validChoice) {
+        cin >> choice;
+        switch(choice) {
+            case 1:
+                handleClassChoice();
+                validChoice = true;
+                break;
+            case 2:
+                cout << "Starting the game..." << endl;
+                validChoice = true;
+                break;
+            case 3:
+                cout << "Exiting game. Goodbye!" << endl;
+                exit(0);
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+                displayMenu(); // Re-display the menu after an invalid choice
+                break;
+        }
     }
 }
 
@@ -99,9 +90,33 @@ void handleClassChoice() {
     handleMenuChoice();
 }
 
+void startingStory(){
+    sleep(1);
+    cout << AsciiArt::storyStartArt << endl;
+    cout << "In a world filled with dungeons and monsters, adventure awaits at every corner. You are an aspiring adventurer, whose dreams have always been filled with epic quests and heroic deeds. " << endl;
+    sleep(3);
+    cout << "One fateful morning, you set off for the capital, leaving behind your village and mundane life. The grand walls of the capital greet you with an air of opportunity and excitement."  << endl;
+    sleep(3);
+    cout << "Are you ready to face the challenges ahead?" << endl;
+    sleep(3);
+    cout << "With a heart full of hope and a spirit ready for adventure, you march straight to the Adventurers' Guild..." << endl;
+    sleep(3);
+    pressAnyKeyToContinue();
+
+}
+
+// Function to wait for user input before continuing
+void pressAnyKeyToContinue() {
+    cout << "Press enter to continue...";
+    cin.ignore();  // Ignore any leftover characters in the input buffer
+    cin.get();     // Wait for user input
+}
+
 int function() {
     displayWelcome();
     displayMenu();
     handleMenuChoice();
+    startingStory();
+    pressAnyKeyToContinue();
     return 0;
 }
