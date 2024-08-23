@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 #include <unistd.h>
+#include "player.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -20,10 +21,6 @@ int enemyDamage;
 string trapType;
 int trapDamage; 
 int randomNumber;
-
-int playerHealth = 100;
-int playerDamage = 10;
-int playerDefence = 0;
 
 /** CLASS OPTIONS
  * Knight: medium health, damage, defence. But low luck and stealth
@@ -50,23 +47,29 @@ void resetPlayerStats() {
     switch (classChoice) {
         case 1:
             cout << "You have chosen the noble Knight class!" << endl;
+            Player("Player", 100, 10, 5, 0, 0);
             break;
         case 2:
             cout << "You have chosen the mystical Mage class!" << endl;
+            Player("Player", 80, 15, 0, 0, 0);
             break;
         case 3:
             cout << "You have chosen the sneaky Thief class!" << endl;
+            Player("Player", 50, 5, 0, 10, 10);
             break;
         case 4:
             cout << "You have chosen the stoic Tank class!" << endl;
+            Player("Player", 120, 5, 15, 0, 0);
             break;
         case 5:
             cout << "You have chosen the devout Cleric class!" << endl;
+            Player("Player", 110, 5, 0, 0, 10);
             break;
         default:
             cout << "Invalid choice. Please try again." << endl;
             resetPlayerStats(); // recursive call to ask again
     }
+    //cout << Player.toString() << endl;
     pressAnyKeyToContinue();
 }
 
