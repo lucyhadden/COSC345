@@ -1,3 +1,6 @@
+#include <iostream>
+#include <unistd.h>
+#include <cstdlib>
 #include "StartScreen.h"
 #include "movement.h"
 #include "EndScreen.h"
@@ -6,6 +9,9 @@
 #include "item.h"
 #include "interactions.h"
 #include "utils.h"
+
+
+using namespace std;
 
 int main()
 {
@@ -29,14 +35,14 @@ int main()
             }
             cout << AsciiArt::dungeonEntranceArt << endl;
             cout << "You are entering the dungeon in " << countdown << endl;
-            sleep(1);
+            ::sleep(1);
             position++;
             countdown--;
         }
 
         system("clear");
         cout << "You have entered the dungeon..." << endl;
-        sleep(1);
+        ::sleep(1);
 
         for (int level = 1; level <= 8; level++) { 
             setupLevel(level);  

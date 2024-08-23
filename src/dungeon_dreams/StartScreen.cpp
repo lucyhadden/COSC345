@@ -13,7 +13,7 @@ void displayCharacterClasses();
 void handleMenuChoice();
 void handleClassChoice();
 void startingStory();
-void pressAnyKeyToContinue();
+void pressAnyKeyToContinue2();
 
 // Function to display the welcome screen
 void displayWelcome() {
@@ -101,12 +101,12 @@ void startingStory(){
     sleep(3);
     cout << "With a heart full of hope and a spirit ready for adventure, you march straight to the Adventurers' Guild..." << endl;
     sleep(3);
-    pressAnyKeyToContinue();
+    pressAnyKeyToContinue2();
 
 }
 
 // Function to wait for user input before continuing
-void pressAnyKeyToContinue() {
+void pressAnyKeyToContinue2() {
     cout << "Press enter to continue...";
     cin.ignore();  // Ignore any leftover characters in the input buffer
     cin.get();     // Wait for user input
@@ -117,6 +117,6 @@ int function() {
     displayMenu();
     handleMenuChoice();
     startingStory();
-    pressAnyKeyToContinue();
+    pressAnyKeyToContinue2();
     return 0;
 }

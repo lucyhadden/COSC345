@@ -3,7 +3,7 @@
 
 #include <cstdlib>  
 
-void sleep(short seconds);
+void customSleep(short seconds);
 void clear();
 
 #endif 

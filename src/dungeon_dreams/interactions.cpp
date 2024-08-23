@@ -32,6 +32,13 @@ Player player("Player", 100, 10, 5, 0, 0);
  * Clerk: high health and luck. But low damage, defence, stealth - BUT HAS HEALING ABILITY 
 */
 
+// Function to wait for user input before continuing
+void pressAnyKeyToContinue() {
+    cout << "Press enter to continue...";
+    cin.ignore();  // Ignore any leftover characters in the input buffer
+    cin.get();     // Wait for user input
+}
+
 void resetPlayerStats() {
     sleep(2);
     cout << "Welcome to the Adventurer's Guild!" << endl;
@@ -217,12 +224,7 @@ void setupLevel(int levelNumber) {
     }
 }
 
-// Function to wait for user input before continuing
-void pressAnyKeyToContinue() {
-    cout << "Press enter to continue...";
-    cin.ignore();  // Ignore any leftover characters in the input buffer
-    cin.get();     // Wait for user input
-}
+
 
 //MAIN METHOD (temporary - for testing)
 // int main() {
