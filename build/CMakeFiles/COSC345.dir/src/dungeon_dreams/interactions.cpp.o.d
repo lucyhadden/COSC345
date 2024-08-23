@@ -741,4 +741,5 @@ CMakeFiles/COSC345.dir/src/dungeon_dreams/interactions.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/gethostuuid.h \
   /Users/lucyhadden/COSC345/include/player.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/map \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__tree
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/include/c++/v1/__tree \
+  /Users/lucyhadden/COSC345/include/StartScreen.h

@@ -221,13 +221,6 @@ void setupLevel(int levelNumber) {
     }
 }
 
-// Function to wait for user input before continuing
-void pressAnyKeyToContinue() {
-    cout << "Press enter to continue...";
-    cin.ignore();  // Ignore any leftover characters in the input buffer
-    cin.get();     // Wait for user input
-}
-
 //MAIN METHOD (temporary - for testing)
 // int main() {
 //     srand(time(0));

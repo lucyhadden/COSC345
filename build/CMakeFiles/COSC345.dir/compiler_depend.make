@@ -2906,6 +2906,7 @@ CMakeFiles/COSC345.dir/src/dungeon_dreams/interactions.cpp.o: /Users/lucyhadden/
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include/stdint.h \
+  /Users/lucyhadden/COSC345/include/StartScreen.h \
   /Users/lucyhadden/COSC345/include/player.h
 
 CMakeFiles/COSC345.dir/src/dungeon_dreams/item.cpp.o: /Users/lucyhadden/COSC345/src/dungeon_dreams/item.cpp \
