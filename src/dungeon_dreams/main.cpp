@@ -6,6 +6,9 @@
 #include "item.h"
 #include "interactions.h"
 #include "utils.h"
+#include <string>
+#include <iostream>
+using namespace std;
 
 int main()
 {
@@ -46,10 +49,10 @@ int main()
             if (gameCompleted) {
                 int tileMovedTo = rand() % 5;  
                 levelPlay(tileMovedTo);  
-                if (getPlayerHealth() <= 0) {
-                    playerWon = false;
-                    break;
-                }
+                //if (getPlayerHealth() <= 0) {
+                //    playerWon = false;
+                //    break;
+                //}
             } else {
                 playerWon = false;
                 break;
@@ -57,9 +60,9 @@ int main()
         }
 
         
-        if (gameCompleted && getPlayerHealth() > 0) {
-            playerWon = true;
-        }
+        //if (gameCompleted && getPlayerHealth() > 0) {
+        //    playerWon = true;
+        //}
 
         
         showEndScreen(playerWon);
