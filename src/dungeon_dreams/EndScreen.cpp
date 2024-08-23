@@ -17,7 +17,6 @@ void loseScreen();
 // Function to display the win screen animation
 void winScreen() {
     system("clear");
-    //cout << AsciiArt::WinArt9 << AsciiArt::WinArt6  << endl;
 
     cout << "You enter a dark room" << endl;
     sleep(3);
@@ -118,11 +117,11 @@ void loseScreen() {
     cin >> choice;
     switch(choice) {
         case 1:
-            //restart game
+            //restart game (not implemented)
             cout << "Restarting game..." << endl;
             break;
         case 2:
-            //go to main menu
+            //go to main menu (not implemented)
             cout << "Going to main menu..." << endl;
             break;
         case 3:
@@ -134,12 +133,6 @@ void loseScreen() {
             break;
     }
 }
-
-// int main() {
-//     winScreen();
-//     //loseScreen();
-//     return 0;
-// }
 
 //this will show the end screen based on the game result
 void showEndScreen(bool won) {

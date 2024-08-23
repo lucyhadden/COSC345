@@ -17,7 +17,8 @@ public:
     static const std::string clericArt;
 
     //welcome screen display
-    static const std::string dragonWelcomeArt;
+    static const std::string dragonWelcomeArt;  
+    static const std::string storyStartArt;
     
     /**
      * Main game ASCII art

@@ -205,17 +205,15 @@ const std::string AsciiArt::dragonWelcomeArt = R"(
                                   || <___//
                                   \ \/__//
                                    ~----~
+)";
+const std::string AsciiArt::storyStartArt = R"(
     _________________________________________________________
     |                                                       |
-    |  In a dense forest, a lone adventurer wanders...      |
     |                                                       |
     |   ^  ^  ^   ^      ___I_      ^  ^   ^  ^  ^   ^  ^   |
     |  /|\/|\/|\ /|\    /\-_--\    /|\/|\ /|\/|\/|\ /|\/|\  |
     |  /|\/|\/|\ /|\   /  \_-__\   /|\/|\ /|\/|\/|\ /|\/|\  |
     |  /|\/|\/|\ /|\   |[]| [] |   /|\/|\ /|\/|\/|\ /|\/|\  |   
-    |                                                       |
-    |   The adventurer finds a hidden path leading to       |
-    |   a dark dungeon. The quest is about to begin!        |
     |                                                       |
     |_______________________________________________________|
 )";
