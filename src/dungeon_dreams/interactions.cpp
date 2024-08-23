@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include "player.h"
 #include "StartScreen.h"
+#include "EndScreen.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -100,7 +101,10 @@ void resetPlayerStats() {
             cout << "Invalid choice. Please try again." << endl;
             resetPlayerStats(); // recursive call to ask again
     }
-    //cout << Player.toString() << endl;
+    //cout << player.toString() << endl;
+    cout << "Press enter to continue...";
+    cin.ignore();  // Ignore any leftover characters in the input buffer
+    cin.get();     // Wait for user input
 }
 
 int safeTile = 0;
@@ -133,7 +137,7 @@ void levelPlay(int tileMovedTo) {
                 sleep(2);
                 if (player.getHealth() <= 0) {
                     cout << "You have died" << endl;
-                    exit(0);
+                    showEndScreen(false);
                 }
                 cout << "You have " << player.getHealth() << " health left" << endl;
                 enemyHealth -= player.getAttack();
@@ -145,8 +149,7 @@ void levelPlay(int tileMovedTo) {
         sleep(2);
         player.setHealth(player.getHealth() - trapDamage);
         if (player.getHealth() <= 0) {
-            cout << "You have died" << endl;
-            exit(0);
+            showEndScreen(false);
         }
         cout << "You have taken " << trapDamage << " damage" << endl; 
     } else if(tileMovedTo == 4) {
