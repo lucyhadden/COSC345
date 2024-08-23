@@ -14,8 +14,8 @@ int main()
     bool playerWon = false;
 
     displayWelcome();
-    displayMenu();
-    handleMenuChoice();
+    //displayMenu();
+    //handleMenuChoice();
 
     while (gameRunning) {
         resetPlayerStats();  
