@@ -8,6 +8,7 @@
 #include <iostream>
 #include <unistd.h>
 #include "player.h"
+#include "StartScreen.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -16,11 +17,12 @@ using namespace std;
 
 //STARTING VARIABLES
 string enemyType;
-int enemyHealth;
-int enemyDamage;
+short enemyHealth;
+short enemyDamage;
 string trapType;
-int trapDamage; 
-int randomNumber;
+short trapDamage; 
+short randomNumber;
+
 
 Player player("Player", 100, 10, 5, 0, 0);
 
@@ -99,11 +101,6 @@ void resetPlayerStats() {
             resetPlayerStats(); // recursive call to ask again
     }
     //cout << Player.toString() << endl;
-    pressAnyKeyToContinue();
-}
-
-int getPlayerHealth() {
-    return player.getHealth();
 }
 
 int safeTile = 0;
@@ -224,7 +221,12 @@ void setupLevel(int levelNumber) {
     }
 }
 
-
+// Function to wait for user input before continuing
+void pressAnyKeyToContinue() {
+    cout << "Press enter to continue...";
+    cin.ignore();  // Ignore any leftover characters in the input buffer
+    cin.get();     // Wait for user input
+}
 
 //MAIN METHOD (temporary - for testing)
 // int main() {
