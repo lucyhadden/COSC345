@@ -13,8 +13,6 @@ void displayCharacterClasses();
 void handleMenuChoice();
 void handleClassChoice();
 void startingStory();
-void adventurersGuild();
-void enteringDungeon();
 void pressAnyKeyToContinue();
 
 // Function to display the welcome screen
@@ -28,9 +26,6 @@ void displayWelcome() {
 
     startingStory();
     system("clear"); 
-    adventurersGuild();
-
-    enteringDungeon();
 }
 
 // Function to display the main menu
@@ -110,65 +105,6 @@ void startingStory(){
 
 }
 
-void adventurersGuild() {
-    sleep(2);
-    cout << "Welcome to the Adventurer's Guild!" << endl;
-    sleep(2);
-    cout << "Select Class: " << endl;
-    cout << "1. Knight" << endl;
-    cout << "2. Mage" << endl;
-    cout << "3. Thief" << endl;
-    cout << "4. Tank" << endl;
-    cout << "5. Cleric" << endl;
-
-    int classChoice;
-    cin >> classChoice;
-
-    switch (classChoice) {
-        case 1:
-            cout << "You have chosen the noble Knight class!" << endl;
-            break;
-        case 2:
-            cout << "You have chosen the mystical Mage class!" << endl;
-            break;
-        case 3:
-            cout << "You have chosen the sneaky Thief class!" << endl;
-            break;
-        case 4:
-            cout << "You have chosen the stalwart Tank class!" << endl;
-            break;
-        case 5:
-            cout << "You have chosen the devout Cleric class!" << endl;
-            break;
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-            adventurersGuild(); // recursive call to ask again
-    }
-    pressAnyKeyToContinue();
-}
-
-
-void enteringDungeon(){
-    int countdown = 5;
-    int position = 0;
-
-    while (countdown > 0) {
-        system("clear");
-        for (int i = 0; i < position; i++) {
-            cout << endl;
-        }
-        cout << AsciiArt::dungeonEntranceArt << endl;
-        cout << "You are entering the dungeon in " << countdown << endl;
-        sleep(1);
-        position++;
-        countdown--;
-    }
-
-    system("clear");
-    cout << "You have entered the dungeon..." << endl;
-    sleep(1);
-}
-
 // Function to wait for user input before continuing
 void pressAnyKeyToContinue() {
     cout << "Press enter to continue...";
@@ -181,8 +117,6 @@ int function() {
     displayMenu();
     handleMenuChoice();
     startingStory();
-    adventurersGuild();
-    enteringDungeon();
     pressAnyKeyToContinue();
     return 0;
 }

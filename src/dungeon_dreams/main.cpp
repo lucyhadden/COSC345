@@ -15,8 +15,28 @@ int main()
 
     displayWelcome();
 
+
     while (gameRunning) {
         resetPlayerStats();  
+        
+        int countdown = 5;
+        int position = 0;
+
+        while (countdown > 0) {
+            system("clear");
+            for (int i = 0; i < position; i++) {
+                cout << endl;
+            }
+            cout << AsciiArt::dungeonEntranceArt << endl;
+            cout << "You are entering the dungeon in " << countdown << endl;
+            sleep(1);
+            position++;
+            countdown--;
+        }
+
+        system("clear");
+        cout << "You have entered the dungeon..." << endl;
+        sleep(1);
 
         for (int level = 1; level <= 8; level++) { 
             setupLevel(level);  

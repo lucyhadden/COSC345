@@ -34,9 +34,40 @@ int playerDefence = 0;
 */
 
 void resetPlayerStats() {
-    playerHealth = 100;
-    playerDamage = 10;
-    playerDefence = 0;
+    sleep(2);
+    cout << "Welcome to the Adventurer's Guild!" << endl;
+    sleep(2);
+    cout << "Select Class: " << endl;
+    cout << "1. Knight" << endl;
+    cout << "2. Mage" << endl;
+    cout << "3. Thief" << endl;
+    cout << "4. Tank" << endl;
+    cout << "5. Cleric" << endl;
+
+    int classChoice;
+    cin >> classChoice;
+
+    switch (classChoice) {
+        case 1:
+            cout << "You have chosen the noble Knight class!" << endl;
+            break;
+        case 2:
+            cout << "You have chosen the mystical Mage class!" << endl;
+            break;
+        case 3:
+            cout << "You have chosen the sneaky Thief class!" << endl;
+            break;
+        case 4:
+            cout << "You have chosen the stoic Tank class!" << endl;
+            break;
+        case 5:
+            cout << "You have chosen the devout Cleric class!" << endl;
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+            resetPlayerStats(); // recursive call to ask again
+    }
+    pressAnyKeyToContinue();
 }
 
 int getPlayerHealth() {
@@ -159,6 +190,13 @@ void setupLevel(int levelNumber) {
             cout << "Unknown level" << endl;
             break;
     }
+}
+
+// Function to wait for user input before continuing
+void pressAnyKeyToContinue() {
+    cout << "Press enter to continue...";
+    cin.ignore();  // Ignore any leftover characters in the input buffer
+    cin.get();     // Wait for user input
 }
 
 //MAIN METHOD (temporary - for testing)
