@@ -67,11 +67,11 @@ void winScreen() {
     cin >> choice;
     switch(choice) {
         case 1:
-            //restart game
+            //restart game - not implemented
             cout << "Restarting game..." << endl;
             break;
         case 2:
-            //go to main menu
+            //go to main menu - not implemented
             cout << "Going to main menu..." << endl;
             break;
         case 3:

@@ -13,9 +13,6 @@
 #include <iostream>
 using namespace std;
 
-
-using namespace std;
-
 int main()
 {
     bool gameRunning = true;
@@ -50,29 +47,27 @@ int main()
         for (int level = 1; level <= 8; level++) { 
             setupLevel(level);  
 
-            //gameCompleted = runMovement();  
+            for(int move = 1; move <= 10; move++){
+                //gameCompleted = runMovement();  
 
-            if (gameCompleted) {
-                int tileMovedTo = rand() % 5;  
-                levelPlay(tileMovedTo);  
-                //if (getPlayerHealth() <= 0) {
-                //    playerWon = false;
-                //    break;
-                //}
-            } else {
-                playerWon = false;
-                break;
+                cout << "Move: " << move << endl;
+
+                int tileMovedTo = rand() % 4;  
+                if (tileMovedTo == 3){
+                    tileMovedTo = 0;
+                }
+                levelPlay(tileMovedTo); 
+                sleep(1);
             }
+            sleep(1);
+            cout << "You have completed level " << level << ". Press enter for next level...";
+            cin.ignore();  // Ignore any leftover characters in the input buffer
+            cin.get();     // Wait for user input
         }
-
-        
-        //if (gameCompleted && getPlayerHealth() > 0) {
-        //    playerWon = true;
-        //}
-
+            
+        playerWon = true;
         
         showEndScreen(playerWon);
         gameRunning = false;  
     }
-    return 0;
 }
