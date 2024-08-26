@@ -107,9 +107,9 @@ void resetPlayerStats() {
     cin.get();     // Wait for user input
 }
 
-int safeTile = 0;
-int emenyTile = 1;
-int trapTile = 2;
+int safeTile = 1;
+int emenyTile = 2;
+int trapTile = 3;
 int wallTile = 4;
 
 int tileMovedTo;
