@@ -58,17 +58,20 @@ int main()
             fillDungeon(dungeon_sizes[level - 1][0], dungeon_sizes[level - 1][1]);
             generateDynamicLevels();
             updateBoard();
-            int count = 0;
+            // int count = 0;
 
-            while (count < 5)
+            while (true)
             {
                 if (enterUserInput())
                 {
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
+                    if(tyle ==5){
+                        break;
+                    }
                     levelPlay(tyle);
-                    count++;
+                    // count++;
                 }
             }
             // }
