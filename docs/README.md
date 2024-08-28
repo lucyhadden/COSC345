@@ -31,3 +31,6 @@ you will see a manual compilation of the tests that have been ran. If you want t
 3. under the 'generate code cov' view the manual report generated
 4. view it in gui format via CodeCov website (https://app.codecov.io/gh/lucyhadden/COSC345)
 
+codeacy link
+https://app.codacy.com/gh/lucyhadden/COSC345/dashboard 
+

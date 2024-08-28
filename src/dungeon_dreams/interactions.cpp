@@ -116,9 +116,9 @@ int tileMovedTo;
 
 
 void levelPlay(int tileMovedTo) {
-    if(tileMovedTo == 0) {
+    if(tileMovedTo == 1) {
         cout << "You are safe" << endl;
-    } else if(tileMovedTo == 1) {
+    } else if(tileMovedTo == 2) {
         cout << "Oh no! You have encountered a " << enemyType << ". Attack it!" << endl;
         sleep(2);
         enemyHealth = enemyHealth - player.getAttack();
@@ -128,11 +128,11 @@ void levelPlay(int tileMovedTo) {
             while (enemyHealth > 0) {
                 cout << "The " << enemyType << " is still alive! It's going to attack" << endl;
                 sleep(2);
-                if(player.getDefense() > enemyDamage) {
+                if(player.getDefense() >= enemyDamage) {
                     cout << "Your defensive stat is higher than the enemy's damage! You take no damage" << endl;
                 } else {
                     cout << "The " << enemyType << "'s damage is higher than your defensive stat! You took "<< (enemyDamage - player.getDefense()) << " damage" << endl;
-                    player.setHealth(enemyDamage - player.getDefense());
+                    player.setHealth(player.getHealth()- (enemyDamage - player.getDefense()));
                 }
                 sleep(2);
                 if (player.getHealth() <= 0) {
@@ -144,7 +144,7 @@ void levelPlay(int tileMovedTo) {
             }
             cout << "You have defeated the " << enemyType << "." << endl;
         }
-    } else if(tileMovedTo == 2) {
+    } else if(tileMovedTo == 3) {
         cout << "Oh no! A " << trapType << endl;
         sleep(2);
         player.setHealth(player.getHealth() - trapDamage);
@@ -152,6 +152,7 @@ void levelPlay(int tileMovedTo) {
             showEndScreen(false);
         }
         cout << "You have taken " << trapDamage << " damage" << endl; 
+        cout << "You have " << player.getHealth() << " health left" << endl;
     } else if(tileMovedTo == 4) {
         cout << "It's a wall! You cannot move here" << endl;
     } else {
