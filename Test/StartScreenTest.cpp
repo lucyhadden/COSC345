@@ -17,8 +17,6 @@ public:
     static inline std::string storyStartArt = "Story Start Art";
 };
 
-// Function prototypes (include the prototypes from the original code here)
-
 // Mock implementations to replace system-specific calls
 void mockSystemClear() {
     // Do nothing
