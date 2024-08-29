@@ -4,7 +4,6 @@ COSC345 Group project (software engineering)
 ## Badges
 [![codecov](https://codecov.io/gh/lucyhadden/COSC345/graph/badge.svg?token=2VWHP87OID)](https://codecov.io/gh/lucyhadden/COSC345)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f5370b6729b1493bbddd74b639dfa4cb)](https://app.codacy.com/gh/lucyhadden/COSC345/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-![Build Status](https://github.com/lucyhadden/COSC345/actions/workflows/codecov.yml/badge.svg)
 
 
 # Important if pipeline doesn't pass!
