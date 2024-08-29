@@ -16,7 +16,7 @@ using namespace std;
 /** 
  * @brief Sizes of each dungeon level, where each pair represents the width and height of the dungeon.
  */
-short dungeon_sizes[8][2] = {{3, 3}, {6, 5}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}}; // sizes of each dungeon level
+short dungeon_sizes[8][2] = {{3, 3}, {6, 5}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}}; 
 
 /** 
  * @brief The total number of levels in the dungeon.
