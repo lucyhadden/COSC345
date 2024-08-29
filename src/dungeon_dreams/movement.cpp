@@ -39,12 +39,34 @@ short length;
 short movement;
 short pos[2];
 
+/**
+ * @brief Method that gets the length of the room.
+ * @return The length of the room
+ */
 short getLength() { return length; }
+
+/**
+ * @brief Method that gets the height of the room.
+ * @return The height of the room
+ */
 short getHeight() { return height; }
+
+/**
+ * @brief Method that sets the length of the room.
+ * @param l The new length
+ */
 void setLength(short l) { length = l; }
+
+/**
+ * @brief Method that sets the height of the room.
+ * @param h The new height
+ */
 void setHeight(short h) { height = h; }
 
-// Print the dungeon
+/**
+ * @brief Method that gets the height of the room.
+ * @details used during debugging to see if valid room tiles were generated
+ */
 void print_dungeon()
 {
     for (int i = 0; i < height; i++)
@@ -60,12 +82,24 @@ void print_dungeon()
 }
 
 // Check if a position is safe
+/**
+ * @brief Method that checks if the coordinates passed are within bounds of room.
+ * @param x The new x coordinate
+ * @param y The new y coordinate
+ * @return True if the coordinate is valid
+ */
 bool is_safe(int x, int y)
 {
     return x >= 0 && x < height && y >= 0 && y < length && dynamic_dungeon[x][y] == 0;
 }
 
 // Check if placing a path at (x, y) would form a 2x2 block
+/**
+ * @brief Method that checks if the coordinates passed form a square.
+ * @param x The new x coordinate
+ * @param y The new y coordinate
+ * @return True if the coordinate forms a square
+ */
 bool forms_block(int x, int y)
 {
     int directions[3][2] = {{-1, -1}, {-1, 0}, {-1, 1}};
@@ -86,6 +120,10 @@ bool forms_block(int x, int y)
 }
 
 // Generate a random path through the dungeon
+/**
+ * @brief Method that generates a path from one side of the dungeon to the other
+ * @details Marks the final tile as 5 to indicate end of path/room
+ */
 void generate_path()
 {
     int x = height / 2, y = 0;
@@ -122,13 +160,16 @@ void generate_path()
             break;
         }
     }
-    print_dungeon();
+    // print_dungeon();
     cout << "first positon: " << last_position.first << " second postion: " << last_position.second << endl;
     // Mark the last tile in the path as 5
     dynamic_dungeon[last_position.first][last_position.second] = 5;
 }
 
 // method that randomly fills the rest of the dungeon with 1
+/**
+ * @brief Method that fills every square apart from path or final tile with other tile type
+ */
 void generate_rest()
 {
     for (int i = 0; i < height; i++)
@@ -144,6 +185,12 @@ void generate_rest()
     }
 }
 
+/**
+ * @brief Method that sets size of size of dungeon and fills it 
+ * @details Used in game loop to change size of rooms and randomly fill it
+ * @param l The new length
+ * @param h The new height
+ */
 void fillDungeon(short l, short h)
 {
     setLength(l);
@@ -161,12 +208,12 @@ void fillDungeon(short l, short h)
 
     // Use current time as seed for random generator
     srand(time(0));
-    print_dungeon();
+    // print_dungeon();
     // Generate the path
     generate_path();
-    print_dungeon();
+    // print_dungeon();
     generate_rest();
-    print_dungeon();
+    // print_dungeon();
 }
 
 void generateDynamicLevels()
