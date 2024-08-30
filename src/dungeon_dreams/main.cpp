@@ -71,7 +71,6 @@ int main()
 
         for (int level = 1; level <= levels; level++)
         {
-            setupLevel(level);
 
             // for (int i = 0; i < levels; i++)
             // {
@@ -84,6 +83,7 @@ int main()
             {
                 if (enterUserInput())
                 {
+                    setupLevel(level);
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
