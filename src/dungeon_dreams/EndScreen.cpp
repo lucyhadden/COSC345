@@ -11,10 +11,21 @@
 #include "AsciiArt.h"
 using namespace std;
 
+/**
+ * @file
+ * @brief Displays end screeen and handles relevant events
+ * @author Elizabeth Stewart
+ * 
+ */
+
 void winScreen();
 void loseScreen();
 
 // Function to display the win screen animation
+
+/**
+ * Method that displays the win screen animation
+ */
 void winScreen() {
     system("clear");
 
@@ -85,6 +96,9 @@ void winScreen() {
 }
 
 // Function to display the lose screen animation
+/**
+ * Method that displays the lose screen animation
+ */
 void loseScreen() {
     system("clear");
     cout << "Oh no" << endl;
@@ -135,6 +149,9 @@ void loseScreen() {
 }
 
 //this will show the end screen based on the game result
+/**
+ * Method that handles which screen is displayed
+ */
 void showEndScreen(bool won) {
     if (won) {
         winScreen();

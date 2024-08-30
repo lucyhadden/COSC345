@@ -12,6 +12,14 @@
 #include <string>
 #include <iostream>
 using namespace std;
+/**
+ * @file
+ * @brief main class for our game. contains the game loop
+ * @author Elizabeth Stewart
+ * @author Lucy Hadden
+ * 
+ */
+
 
 /** 
  * @brief Sizes of each dungeon level, where each pair represents the width and height of the dungeon.

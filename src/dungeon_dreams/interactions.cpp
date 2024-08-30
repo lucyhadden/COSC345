@@ -4,6 +4,13 @@
  * 
 */
 
+/**
+ * @file
+ * @brief Tile interactions for each level
+ * @author Elizabeth Stewart
+ * 
+ */
+
 #include <string>
 #include <iostream>
 #include <unistd.h>
@@ -17,27 +24,45 @@
 using namespace std;
 
 //STARTING VARIABLES
+/**
+ * Type of the enemy the player encounters.
+ */
 string enemyType;
+
+/**
+ * Health points of the enemy.
+ */
 short enemyHealth;
+
+/**
+ * Damage the enemy can inflict on the player.
+ */
 short enemyDamage;
+
+/**
+ * Type of trap that the player may encounter.
+ */
+
 string trapType;
+
+/**
+ * Amount of damage a trap can inflict on the player.
+ */
 short trapDamage; 
-short randomNumber;
+// short randomNumber;
 
-
+/**
+ * The player character with initial stats: health, attack, defense, luck, and stealth.
+ * 
+ * This creates a player with the name "Player", 100 health points, 10 attack, 
+ * 5 defense, 0 luck, and 0 stealth.
+ */
 Player player("Player", 100, 10, 5, 0, 0);
 
-/** CLASS OPTIONS
- * Knight: medium health, damage, defence. But low luck and stealth
- * Mage: high damage and medium defence. But low health, luck and stealth
- * Tank: high health and defence. But low damage, luck and stealth
- * Thief: high luck and stealth, and medium damage. But low health and defence
- * Clerk: high health and luck. But low damage, defence, stealth - BUT HAS HEALING ABILITY 
-*/
 
 // Function to wait for user input before continuing
 /**
- * @brief Waits for the user to press any key to continue.
+ * Waits for the user to press any key to continue.
  */
 void pressAnyKeyToContinue() {
     cout << "Press enter to continue...";
@@ -45,8 +70,15 @@ void pressAnyKeyToContinue() {
     cin.get();     // Wait for user input
 }
 
+/* CLASS OPTIONS
+ * Knight: medium health, damage, defence. But low luck and stealth
+ * Mage: high damage and medium defence. But low health, luck and stealth
+ * Tank: high health and defence. But low damage, luck and stealth
+ * Thief: high luck and stealth, and medium damage. But low health and defence
+ * Clerk: high health and luck. But low damage, defence, stealth - BUT HAS HEALING ABILITY 
+*/
 /**
- * @brief Function that sets player stats once choosen.
+ * Method that that sets player stats once choosen.
  */
 void resetPlayerStats() {
     sleep(2);
@@ -113,16 +145,34 @@ void resetPlayerStats() {
     cin.get();     // Wait for user input
 }
 
+/**
+ * The tile that a player is safe on
+ */
 int safeTile = 1;
+
+/**
+ * The tile that the player encounters an enemy on
+ */
 int emenyTile = 2;
+
+/**
+ * The tile that the player encounters a trap on
+ */
 int trapTile = 3;
+
+/**
+ * The tile that the player encounters a wall
+ */
 int wallTile = 4;
 
+/**
+ * The tile that the player just moved on to
+ */
 int tileMovedTo;
 
 
 /**
- * @brief Method that handles what each tile does to the player.
+ * Method that handles what each tile does to the player.
  * @param tileMovedTo The type of tile that player just moved on
  */
 void levelPlay(int tileMovedTo) {
@@ -172,7 +222,7 @@ void levelPlay(int tileMovedTo) {
 
 //just changed to one function which is called and adjusted based ont he level we input for it
 /**
- * @brief Method that handles setting the enemy stats up depneding on the level.
+ * Method that handles setting the enemy stats up depneding on the level.
  * @param levelNumber controls what values are being set for the level
  */
 void setupLevel(int levelNumber) {

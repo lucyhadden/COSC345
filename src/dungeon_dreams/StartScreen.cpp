@@ -4,45 +4,51 @@
 #include <unistd.h>
 #include "AsciiArt.h"
 
+/**
+ * @file
+ * @brief Displays start screeen and handles relevant events
+ * @author Lucy Hadden
+ * 
+ */
 using namespace std;
 
 /**
- * @brief Displays the welcome screen and initiates the game.
+ * Displays the welcome screen and initiates the game.
  */
 void displayWelcome();
 
 /**
- * @brief Displays the main menu.
+ * Displays the main menu.
  */
 void displayMenu();
 
 /**
- * @brief Displays the available character classes.
+ * Displays the available character classes.
  */
 void displayCharacterClasses();
 
 /**
- * @brief Handles the user's choice from the main menu.
+ * Handles the user's choice from the main menu.
  */
 void handleMenuChoice();
 
 /**
- * @brief Handles the user's choice of character class.
+ * Handles the user's choice of character class.
  */
 void handleClassChoice();
 
 /**
- * @brief Displays the starting story.
+ * Displays the starting story.
  */
 void startingStory();
 
 /**
- * @brief Waits for the user to press any key to continue.
+ * Waits for the user to press any key to continue.
  */
 void pressAnyKeyToContinue2();
 
 /**
- * @brief Main function that starts the game.
+ * Main function that starts the game.
  * 
  * @return int Returns 0 upon successful completion.
  */

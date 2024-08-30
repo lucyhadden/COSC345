@@ -8,6 +8,12 @@
  * Last editted on: 26/08/24
  */
 
+/**
+ * @file
+ * @brief Handles the player movement and generation of tiles (Hayden)
+ * @author Sen Macmaster
+ * @author Hayden Aish
+ */
 #include <iostream>
 #include <cctype>
 #include <cmath>
@@ -20,19 +26,43 @@
 using namespace std;
 
 // Board config
+/**
+ * String that holds the board
+ */
 string level_board;
 
+/**
+ * Char that represents the player
+ */
 const char player = 'X';
 short y;
 short x;
 
 // Room config
+/**
+ * Variable that controls how many spaces long the room is
+ */
 const short length_of_room = 5;
+
+/**
+ * Variable that controls how many spaces high the room is
+ */
 const short height_of_room = 1;
 
+
+/**
+ * Vector of a vector that represents the dungeon
+ */
 vector<vector<short>> dynamic_dungeon;
 
+/**
+ * The number of tiles high in the room.
+ */
 short height;
+
+/**
+ * The number of tiles long in the room.
+ */
 short length;
 
 // Positions of player
@@ -40,31 +70,31 @@ short movement;
 short pos[2];
 
 /**
- * @brief Method that gets the length of the room.
+ * Method that gets the length of the room.
  * @return The length of the room
  */
 short getLength() { return length; }
 
 /**
- * @brief Method that gets the height of the room.
+ * Method that gets the height of the room.
  * @return The height of the room
  */
 short getHeight() { return height; }
 
 /**
- * @brief Method that sets the length of the room.
+ * Method that sets the length of the room.
  * @param l The new length
  */
 void setLength(short l) { length = l; }
 
 /**
- * @brief Method that sets the height of the room.
+ * Method that sets the height of the room.
  * @param h The new height
  */
 void setHeight(short h) { height = h; }
 
 /**
- * @brief Method that gets the height of the room.
+ * Method that gets the height of the room.
  * @details used during debugging to see if valid room tiles were generated
  */
 void print_dungeon()
@@ -83,7 +113,7 @@ void print_dungeon()
 
 // Check if a position is safe
 /**
- * @brief Method that checks if the coordinates passed are within bounds of room.
+ * Method that checks if the coordinates passed are within bounds of room.
  * @param x The new x coordinate
  * @param y The new y coordinate
  * @return True if the coordinate is valid
@@ -95,7 +125,7 @@ bool is_safe(int x, int y)
 
 // Check if placing a path at (x, y) would form a 2x2 block
 /**
- * @brief Method that checks if the coordinates passed form a square.
+ * Method that checks if the coordinates passed form a square.
  * @param x The new x coordinate
  * @param y The new y coordinate
  * @return True if the coordinate forms a square
@@ -121,7 +151,7 @@ bool forms_block(int x, int y)
 
 // Generate a random path through the dungeon
 /**
- * @brief Method that generates a path from one side of the dungeon to the other
+ * Method that generates a path from one side of the dungeon to the other
  * @details Marks the final tile as 5 to indicate end of path/room
  */
 void generate_path()
@@ -168,7 +198,7 @@ void generate_path()
 
 // method that randomly fills the rest of the dungeon with 1
 /**
- * @brief Method that fills every square apart from path or final tile with other tile type
+ * Method that fills every square apart from path or final tile with other tile type
  */
 void generate_rest()
 {
@@ -186,7 +216,7 @@ void generate_rest()
 }
 
 /**
- * @brief Method that sets size of size of dungeon and fills it 
+ * Method that sets size of size of dungeon and fills it 
  * @details Used in game loop to change size of rooms and randomly fill it
  * @param l The new length
  * @param h The new height
@@ -264,6 +294,11 @@ void clearBoard()
     level_board.replace(movement, 1, 1, ' '); // update board
 }
 
+/**
+ * Method that checks if the entered move is valid e.g. will keep the plyer with in the bounds of the dungeon
+ * @param move A character indicating the direction of movement
+ * Returns true if the player is against a wall in the specified direction, false otherwise.
+ */
 bool isAgainstWall(char move)
 {
     // Vertical wall and horizontal wall checks
@@ -280,6 +315,10 @@ bool isAgainstWall(char move)
     return false;
 }
 
+/**
+ * Method that returns the type of tile the player is on
+ * @return Short representing the type of tile
+ */
 short startEvent()
 {
     short type_of_room = dynamic_dungeon[pos[0]][pos[1]];
@@ -293,6 +332,11 @@ short startEvent()
     // }
 }
 
+/**
+ * Method that checks if the input string is a valid move 
+ * @param input A string containing a single character direction ('W', 'A', 'S', 'D').
+ * @return Returns true if the move was successful, false if the move was invalid.
+ */
 bool movementCheck(string input)
 {
     char direction = toupper(input.at(0));
@@ -321,6 +365,11 @@ bool movementCheck(string input)
     return true;
 }
 
+/**
+ * Method that controls user input for movement or help commands.
+ * 
+ * @returns True if a valid move or help command is entered; false otherwise.
+ */
 bool enterUserInput()
 {
     cout << "Enter movement WASD: ";

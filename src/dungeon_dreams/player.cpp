@@ -8,6 +8,12 @@
  * Last editted on: 11/08/24
  */
 
+/**
+ * @file
+ * @brief Initialises a player objact and tracks related variables
+ * @author Sen Macmaster
+ */
+
 #include "player.h"
 #include <iostream>
 #include <map>
@@ -37,10 +43,21 @@ bool Player::removeFromInventory(const string& itemName, short amount) {
     return true;
 }
 
+/**
+ * @brief Checks if an item is in the player's inventory.
+ * 
+ * This method searches the player's inventory for the specified item name.
+ * 
+ * @param itemName The name of the item to search for.
+ * @return `true` if the item is found in the inventory, `false` otherwise.
+ */
 bool Player::findItem(const string& itemName) const{
     return inventory.find(itemName) != inventory.end();
 }
 
+/**
+ * @brief Method that prints player inventory
+ */
 void Player::displayInventory() const {
     cout << name << "'s Inventory:" << endl;
     if (!inventory.empty()) {
@@ -51,6 +68,9 @@ void Player::displayInventory() const {
     }
 }
 
+/**
+ * @brief Method that prints player stats
+ */
 void Player::displayStats() const {
     cout << "Player: " << name << endl
          << "   Health: " << health << endl
@@ -60,6 +80,9 @@ void Player::displayStats() const {
          << "   Luck: " << luck << endl << endl;
 }
 
+/**
+ * @brief to String method that displays player stats and Inventory
+ */
 void Player::toString() const {
     Player::displayStats();
     Player::displayInventory();
