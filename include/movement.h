@@ -4,10 +4,9 @@
  * Created by: Sen Macmaster 
  * Created on: 22/08/24
  * 
- * Last editted by: Sen Macmaster
- * Last editted on: 22/08/24
+ * Last edited by: Sen Macmaster
+ * Last edited on: 22/08/24
  */
-
 
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
@@ -15,27 +14,81 @@
 #include <string>
 #include <vector>
 
-extern short length;
-extern short height;
+extern short length; /**< The length of the room. */
+extern short height; /**< The height of the room. */
 
+/**
+ * @brief Gets the length of the room.
+ * 
+ * @return The length of the room.
+ */
 extern short getLength();
+
+/**
+ * @brief Gets the height of the room.
+ * 
+ * @return The height of the room.
+ */
 extern short getHeight();
+
+/**
+ * @brief Sets the length of the room.
+ * 
+ * @param l The new length of the room.
+ */
 extern void setLength(short l);
+
+/**
+ * @brief Sets the height of the room.
+ * 
+ * @param h The new height of the room.
+ */
 extern void setHeight(short h);
 
-// Checks and displays
+/**
+ * @brief Checks if the player is against a wall based on the movement direction.
+ * 
+ * @param move A character indicating the direction of movement.
+ * 
+ * @return True if the player is against a wall in the specified direction, false otherwise.
+ */
 bool isAgainstWall(char move);
+
+/**
+ * @brief Clears the current board position of the player.
+ */
 void clearBoard();
 
-// Dungeon generation
+/**
+ * @brief Fills the dungeon with the specified dimensions and generates a path.
+ * 
+ * @param l The length of the dungeon.
+ * @param h The height of the dungeon.
+ */
 void fillDungeon(short l, short h);
+
+/**
+ * @brief Generates dynamic levels for the dungeon.
+ */
 void generateDynamicLevels();
 
-// Event functions after movement
+/**
+ * @brief Handles user input for movement or help commands.
+ * 
+ * @return True if a valid move or help command is entered; false otherwise.
+ */
 bool enterUserInput();
+
+/**
+ * @brief Returns the type of tile the player is on.
+ * 
+ * @return Short representing the type of tile.
+ */
 short startEvent();
 
-// Display functions
+/**
+ * @brief Updates the board to reflect the player's current position.
+ */
 void updateBoard();
 
 #endif
