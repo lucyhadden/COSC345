@@ -51,17 +51,13 @@ string trapType;
 short trapDamage; 
 // short randomNumber;
 
-<<<<<<< HEAD
 /**
  * The player character with initial stats: health, attack, defense, luck, and stealth.
  * 
- * This creates a player with the name "Player", 100 health points, 10 attack, 
- * 5 defense, 0 luck, and 0 stealth.
+ * This creates a player with the name "Player", 0 health points, 0 attack, 
+ * 0 defense, 0 luck, and 0 stealth.
  */
-Player player("Player", 100, 10, 5, 0, 0);
-=======
 Player player("Player", 0, 0, 0, 0, 0);
->>>>>>> a22aca33150612afc5c5e9c008b2097b5a3021a2
 
 
 // Function to wait for user input before continuing
