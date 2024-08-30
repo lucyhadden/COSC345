@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
+//Comment test
 /**
  * @file
  * @brief main class for our game. contains the game loop
