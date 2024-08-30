@@ -1,5 +1,7 @@
 #include "gtest/gtest.h"
-#include "player.h"  
+#include <iostream> 
+#include <string> 
+#include "player.h" 
 
 //TEST
 TEST(PlayerTest, DummyTest) {
