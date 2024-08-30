@@ -12,7 +12,7 @@ TEST(PlayerTest, PlayerGetterTest) {
     ASSERT_TRUE(player.getAttack() == 10);
     ASSERT_TRUE(player.getDefense() == 5);
     ASSERT_TRUE(player.getStealth() == 10);
-    ASSERT_TRUE(player.getLucky() == 5);
+    ASSERT_TRUE(player.getLuck() == 5);
 
     //EXPECT_TRUE(true);  
 }
@@ -32,7 +32,7 @@ TEST(PlayerTest, PlayerSetterTest) {
     ASSERT_TRUE(player.getAttack() == 0);
     ASSERT_TRUE(player.getDefense() == 0);
     ASSERT_TRUE(player.getStealth() == 0);
-    ASSERT_TRUE(player.getLucky() == 100);
+    ASSERT_TRUE(player.getLuck() == 100);
 
     //EXPECT_TRUE(true);  
 }
