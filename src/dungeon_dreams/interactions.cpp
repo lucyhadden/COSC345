@@ -36,12 +36,18 @@ Player player("Player", 100, 10, 5, 0, 0);
 */
 
 // Function to wait for user input before continuing
+/**
+ * @brief Waits for the user to press any key to continue.
+ */
 void pressAnyKeyToContinue() {
     cout << "Press enter to continue...";
     cin.ignore();  // Ignore any leftover characters in the input buffer
     cin.get();     // Wait for user input
 }
 
+/**
+ * @brief Function that sets player stats once choosen.
+ */
 void resetPlayerStats() {
     sleep(2);
     cout << "Welcome to the Adventurer's Guild!" << endl;
@@ -115,6 +121,10 @@ int wallTile = 4;
 int tileMovedTo;
 
 
+/**
+ * @brief Method that handles what each tile does to the player.
+ * @param tileMovedTo The type of tile that player just moved on
+ */
 void levelPlay(int tileMovedTo) {
     if(tileMovedTo == 1) {
         cout << "You are safe" << endl;
@@ -161,6 +171,10 @@ void levelPlay(int tileMovedTo) {
 }
 
 //just changed to one function which is called and adjusted based ont he level we input for it
+/**
+ * @brief Method that handles setting the enemy stats up depneding on the level.
+ * @param levelNumber controls what values are being set for the level
+ */
 void setupLevel(int levelNumber) {
     switch(levelNumber) {
         case 1:

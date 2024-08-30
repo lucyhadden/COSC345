@@ -6,16 +6,56 @@
 
 using namespace std;
 
-// Function prototypes
+/**
+ * @brief Displays the welcome screen and initiates the game.
+ */
 void displayWelcome();
+
+/**
+ * @brief Displays the main menu.
+ */
 void displayMenu();
+
+/**
+ * @brief Displays the available character classes.
+ */
 void displayCharacterClasses();
+
+/**
+ * @brief Handles the user's choice from the main menu.
+ */
 void handleMenuChoice();
+
+/**
+ * @brief Handles the user's choice of character class.
+ */
 void handleClassChoice();
+
+/**
+ * @brief Displays the starting story.
+ */
 void startingStory();
+
+/**
+ * @brief Waits for the user to press any key to continue.
+ */
 void pressAnyKeyToContinue2();
 
-// Function to display the welcome screen
+/**
+ * @brief Main function that starts the game.
+ * 
+ * @return int Returns 0 upon successful completion.
+ */
+int function() {
+    displayWelcome();
+    displayMenu();
+    handleMenuChoice();
+    startingStory();
+    pressAnyKeyToContinue2();
+    return 0;
+}
+
+
 void displayWelcome() {
     system("clear"); 
     cout << AsciiArt::dragonWelcomeArt << endl;
@@ -28,7 +68,6 @@ void displayWelcome() {
     system("clear"); 
 }
 
-// Function to display the main menu
 void displayMenu() {
     cout << "Welcome to Dungeon Dreams: The Goblin Guide!" << endl;
     cout << "1. View Character Classes" << endl;
@@ -37,7 +76,6 @@ void displayMenu() {
     cout << "Please enter your choice (1-3): ";
 }
 
-// Function to handle the menu choice
 void handleMenuChoice() {
     int choice;
     bool validChoice = false;
@@ -64,7 +102,6 @@ void handleMenuChoice() {
     }
 }
 
-// Function to display character classes
 void displayCharacterClasses() {
     system("clear"); 
     cout << "Character Classes in Dungeon Dreams: The Goblin Guide" << endl;
@@ -83,7 +120,6 @@ void displayCharacterClasses() {
     cin.get(); // Wait for user input
 }
 
-// Function to handle the character class choice
 void handleClassChoice() {
     displayCharacterClasses();
     displayMenu();
@@ -105,18 +141,9 @@ void startingStory(){
 
 }
 
-// Function to wait for user input before continuing
 void pressAnyKeyToContinue2() {
     cout << "Press enter to continue...";
-    cin.ignore();  // Ignore any leftover characters in the input buffer
-    cin.get();     // Wait for user input
+    cin.ignore();  
+    cin.get();    
 }
 
-int function() {
-    displayWelcome();
-    displayMenu();
-    handleMenuChoice();
-    startingStory();
-    pressAnyKeyToContinue2();
-    return 0;
-}

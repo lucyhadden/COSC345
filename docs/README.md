@@ -1,6 +1,19 @@
 # COSC345
 COSC345 Group project (software engineering)
 
+## Badges
+[![codecov](https://codecov.io/gh/lucyhadden/COSC345/graph/badge.svg?token=2VWHP87OID)](https://codecov.io/gh/lucyhadden/COSC345)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f5370b6729b1493bbddd74b639dfa4cb)](https://app.codacy.com/gh/lucyhadden/COSC345/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+![Documentation](https://img.shields.io/badge/documentation-doxygen-blue)
+![GitHub forks](https://img.shields.io/github/forks/lucyhadden/COSC345.svg?style=social)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/lucyhadden/COSC345.svg)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/lucyhadden/COSC345.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/lucyhadden/COSC345.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/lucyhadden/COSC345.svg)
+
+
+
+
 # Important if pipeline doesn't pass!
 if the pipeline is not passing, this could be a problem because you haven't deleted your build-coverage directory, ensure that before you push you delete build-coverage
 
