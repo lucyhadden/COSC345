@@ -47,3 +47,5 @@ you will see a manual compilation of the tests that have been ran. If you want t
 codeacy link
 https://app.codacy.com/gh/lucyhadden/COSC345/dashboard 
 
+codedocs link
+https://codedocs.xyz/lucyhadden/COSC345/files.html
