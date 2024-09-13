@@ -237,7 +237,13 @@ void fillDungeon(short l, short h)
     }
 
     // Use current time as seed for random generator
-    srand(time(0));
+    
+    /*  warning C4244: 
+        'argument': conversion from 'time_t' to 'unsigned int', possible loss of data [D:\University\2024\COSC345\C 
+        OSC345_Project\COSC345\build\COSC345.vcxproj]
+    */
+    srand(time(0)); 
+
     // print_dungeon();
     // Generate the path
     generate_path();

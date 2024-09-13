@@ -6,6 +6,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(SOURCES
+    include/AsciiArt.h
+    include/EndScreen.h
+    include/interactions.h
+    include/item.h
+    include/movement.h
+    include/player.h
+    include/StartScreen.h
+    include/utils.h
     src/dungeon_dreams/main.cpp
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/AsciiArt.cpp

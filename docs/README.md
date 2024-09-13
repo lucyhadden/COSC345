@@ -26,12 +26,17 @@ if you want to run the program, i.e. the main game follow the steps below (only 
 4. run ./COSC345
 
 
-i.e. 
-1. mkdir build-coverage
-2. cd build-coverage
-3. cmake -DCMAKE_BUILD_TYPE=Coverage ..
+i.e. On Mac/Linux
+1. mkdir build
+2. cd build
+3. cmake ..
 4. make
 5. ./COSC345
+
+On Windows
+1. mkdir build
+2. cmake -B build
+3. cmake --build build
 
 # Code coverage instructions
 

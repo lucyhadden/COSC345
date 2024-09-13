@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unistd.h>
 #include <cstdlib>
 #include "StartScreen.h"
 #include "movement.h"
@@ -8,7 +7,7 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
-#include "utils.h"
+#include "Utils.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -54,21 +53,21 @@ int main()
 
         while (countdown > 0)
         {
-            system("clear");
+            Clear();
             for (int i = 0; i < position; i++)
             {
                 cout << endl;
             }
             cout << AsciiArt::dungeonEntranceArt << endl;
             cout << "You are entering the dungeon in " << countdown << endl;
-            ::sleep(1);
+            CustomSleep(1);
             position++;
             countdown--;
         }
 
-        system("clear");
-        cout << "You have entered the dungeon..." << endl;
-        ::sleep(1);
+        Clear();
+        std::cout << "You have entered the dungeon..." << std::endl;
+        CustomSleep(1);
 
         for (int level = 1; level <= levels; level++)
         {
@@ -96,7 +95,7 @@ int main()
                 }
             }
             // }
-            sleep(1);
+            CustomSleep(1);
             cout << "You have completed level " << level << ". Press enter for next level..." << endl;
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input

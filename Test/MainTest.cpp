@@ -10,7 +10,7 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
-#include "utils.h"
+#include "Utils.h"
 
 short dungeon_sizes[8][2] = {{3, 3}, {6, 5}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}};
 const int levels = 8;
