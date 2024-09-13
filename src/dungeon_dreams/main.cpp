@@ -7,6 +7,7 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
+#include "SafeZone.h"
 #include "Utils.h"
 #include <string>
 #include <iostream>
@@ -95,10 +96,11 @@ int main()
                 }
             }
             // }
-            CustomSleep(1);
-            cout << "You have completed level " << level << ". Press enter for next level..." << endl;
+            sleep(1);
+            cout << "You have completed level " << level << ". Press enter to continue..." << endl;
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input
+            displaySafeZone();
         }
 
         playerWon = true;
