@@ -13,7 +13,7 @@ set(SOURCES
     include/movement.h
     include/player.h
     include/StartScreen.h
-    include/utils.h
+    include/Utils.h
     src/dungeon_dreams/main.cpp
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/AsciiArt.cpp
@@ -22,7 +22,7 @@ set(SOURCES
     src/dungeon_dreams/item.cpp
     src/dungeon_dreams/movement.cpp
     src/dungeon_dreams/player.cpp
-    src/dungeon_dreams/utils.cpp
+    src/dungeon_dreams/Utils.cpp
 )
 
 
