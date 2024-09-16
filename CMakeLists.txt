@@ -46,6 +46,10 @@ add_executable(runTests
     Test/InteractionsTest.cpp
     Test/ItemTest.cpp
     Test/PlayerTest.cpp
+    Test/MainTest.cpp
+    Test/MovementTest.cpp
+    Test/StartScreen.cpp
+    Test/UtilsTest.cpp
 )
 
 target_link_libraries(runTests gtest_main)
