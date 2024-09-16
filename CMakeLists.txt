@@ -14,7 +14,7 @@ set(SOURCES
     include/movement.h
     include/player.h
     include/StartScreen.h
-    include/Utils.h
+    include/utils.h
     include/Equipment.h
     include/Status.h
     include/SafeZone.h
