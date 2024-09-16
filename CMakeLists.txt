@@ -10,6 +10,7 @@ set(SOURCES
     include/EndScreen.h
     include/interactions.h
     include/item.h
+    include/miniGames.h
     include/movement.h
     include/player.h
     include/StartScreen.h
