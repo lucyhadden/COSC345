@@ -14,7 +14,8 @@ set(SOURCES
     include/movement.h
     include/player.h
     include/StartScreen.h
-    include/utils.h
+    # include/utils.h
+    include/Utils.h
     include/Equipment.h
     include/Status.h
     include/SafeZone.h
@@ -27,7 +28,8 @@ set(SOURCES
     src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/movement.cpp
     src/dungeon_dreams/player.cpp
-    src/dungeon_dreams/utils.cpp
+    # src/dungeon_dreams/utils.cpp
+    # src/dungeon_dreams/Utils.cpp
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/Status.cpp
     src/dungeon_dreams/SafeZone.cpp
