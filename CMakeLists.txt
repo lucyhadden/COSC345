@@ -12,6 +12,7 @@ set(SOURCES
     src/dungeon_dreams/EndScreen.cpp
     src/dungeon_dreams/interactions.cpp
     src/dungeon_dreams/item.cpp
+    src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/movement.cpp
     src/dungeon_dreams/player.cpp
     src/dungeon_dreams/utils.cpp

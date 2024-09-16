@@ -9,6 +9,7 @@
 #include "item.h"
 #include "interactions.h"
 #include "utils.h"
+#include "miniGames.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -42,6 +43,8 @@ int main()
     bool gameRunning = true;
     bool gameCompleted = false;
     bool playerWon = false;
+
+    int totalGold = 0;
 
     displayWelcome();
 
@@ -97,6 +100,7 @@ int main()
             }
             // }
             sleep(1);
+            totalGold = totalGold + miniGames();
             cout << "You have completed level " << level << ". Press enter for next level..." << endl;
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input
