@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unistd.h>
 #include <cstdlib>
 #include "StartScreen.h"
 #include "movement.h"
@@ -8,10 +7,25 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
+<<<<<<< HEAD
 #include "utils.h"
+#include "miniGames.h"
+=======
+#include "SafeZone.h"
+#include "Utils.h"
+>>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
 #include <string>
 #include <iostream>
 using namespace std;
+//Comment test
+/**
+ * @file
+ * @brief main class for our game. contains the game loop
+ * @author Elizabeth Stewart
+ * @author Lucy Hadden
+ * 
+ */
+
 
 /** 
  * @brief Sizes of each dungeon level, where each pair represents the width and height of the dungeon.
@@ -34,6 +48,8 @@ int main()
     bool gameCompleted = false;
     bool playerWon = false;
 
+    int totalGold = 0;
+
     displayWelcome();
 
     while (gameRunning)
@@ -45,25 +61,24 @@ int main()
 
         while (countdown > 0)
         {
-            system("clear");
+            Clear();
             for (int i = 0; i < position; i++)
             {
                 cout << endl;
             }
             cout << AsciiArt::dungeonEntranceArt << endl;
             cout << "You are entering the dungeon in " << countdown << endl;
-            ::sleep(1);
+            CustomSleep(1);
             position++;
             countdown--;
         }
 
-        system("clear");
-        cout << "You have entered the dungeon..." << endl;
-        ::sleep(1);
+        Clear();
+        std::cout << "You have entered the dungeon..." << std::endl;
+        CustomSleep(1);
 
         for (int level = 1; level <= levels; level++)
         {
-            setupLevel(level);
 
             // for (int i = 0; i < levels; i++)
             // {
@@ -76,6 +91,7 @@ int main()
             {
                 if (enterUserInput())
                 {
+                    setupLevel(level);
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
@@ -88,9 +104,15 @@ int main()
             }
             // }
             sleep(1);
+<<<<<<< HEAD
+            totalGold = totalGold + miniGames();
             cout << "You have completed level " << level << ". Press enter for next level..." << endl;
+=======
+            cout << "You have completed level " << level << ". Press enter to continue..." << endl;
+>>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input
+            displaySafeZone();
         }
 
         playerWon = true;

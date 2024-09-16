@@ -5,5 +5,7 @@ void displayWelcome();
 void displayMenu();
 void handleMenuChoice();
 void handleClassChoice();
+void displayCharacterClasses();
+void startingStory();
 
 #endif

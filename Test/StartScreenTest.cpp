@@ -4,6 +4,7 @@
 #include <cstdlib>  
 #include <unistd.h>
 #include "AsciiArt.h"
+#include <StartScreen.h>
 
 // Dummy AsciiArt class for testing purposes
 class AsciiArt {
