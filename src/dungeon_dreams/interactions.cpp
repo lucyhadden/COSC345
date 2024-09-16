@@ -16,10 +16,12 @@
 #include "player.h"
 #include "StartScreen.h"
 #include "EndScreen.h"
-#include "Utils.h"
+#include "utils.h"
 
 #include <cstdlib>
 #include <ctime>
+#include <Status.h>
+#include <Equipment.h>
 
 using namespace std;
 
@@ -70,17 +72,13 @@ void pressAnyKeyToContinue() {
     cin.get();     // Wait for user input
 }
 
-/* CLASS OPTIONS
- * Knight: medium health, damage, defence. But low luck and stealth
- * Mage: high damage and medium defence. But low health, luck and stealth
- * Tank: high health and defence. But low damage, luck and stealth
- * Thief: high luck and stealth, and medium damage. But low health and defence
- * Clerk: high health and luck. But low damage, defence, stealth - BUT HAS HEALING ABILITY 
-*/
 /**
- * Method that that sets player stats once choosen.
+ * @brief Resets and initializes player stats based on chosen character class.
+ * 
+ * @param playerStats Reference to the player's current stats.
+ * @param playerClass Reference to the player's chosen character class.
  */
-void resetPlayerStats() {
+void resetPlayerStats(CharacterStats& playerStats, CharacterClass& playerClass) {
     CustomSleep(2);
     cout << "Welcome to the Adventurer's Guild!" << endl;
     CustomSleep(2);
@@ -96,50 +94,35 @@ void resetPlayerStats() {
 
     switch (classChoice) {
         case 1:
+            playerClass = KNIGHT;
+            playerStats = CharacterStats(playerClass);  // Initialize stats for Knight
             cout << "You have chosen the noble Knight class!" << endl;
-            player.setHealth(100);
-            player.setAttack(10);
-            player.setDefense(5);
-            player.setLuck(0);
-            player.setStealth(0);
             break;
         case 2:
+            playerClass = MAGE;
+            playerStats = CharacterStats(playerClass);  // Initialize stats for Mage
             cout << "You have chosen the mystical Mage class!" << endl;
-            player.setHealth(80);
-            player.setAttack(15);
-            player.setDefense(5);
-            player.setLuck(0);
-            player.setStealth(0);
             break;
         case 3:
+            playerClass = THIEF;
+            playerStats = CharacterStats(playerClass);  // Initialize stats for Thief
             cout << "You have chosen the sneaky Thief class!" << endl;
-            player.setHealth(50);
-            player.setAttack(5);
-            player.setDefense(0);
-            player.setLuck(10);
-            player.setStealth(10);
             break;
         case 4:
+            playerClass = TANK;
+            playerStats = CharacterStats(playerClass);  // Initialize stats for Tank
             cout << "You have chosen the stoic Tank class!" << endl;
-            player.setHealth(120);
-            player.setAttack(5);
-            player.setDefense(15);
-            player.setLuck(0);
-            player.setStealth(0);
             break;
         case 5:
+            playerClass = CLERIC;
+            playerStats = CharacterStats(playerClass);  // Initialize stats for Cleric
             cout << "You have chosen the devout Cleric class!" << endl;
-            player.setHealth(110);
-            player.setAttack(5);
-            player.setDefense(0);
-            player.setLuck(0);
-            player.setStealth(10);
             break;
         default:
             cout << "Invalid choice. Please try again." << endl;
-            resetPlayerStats(); // recursive call to ask again
+            resetPlayerStats(playerStats, playerClass);  // Recursive call if the choice is invalid
     }
-    //cout << player.toString() << endl;
+
     cout << "Press enter to continue...";
     cin.ignore();  // Ignore any leftover characters in the input buffer
     cin.get();     // Wait for user input
@@ -288,3 +271,60 @@ void setupLevel(int levelNumber) {
             break;
     }
 }
+
+/**
+ * Process tile interactions based on the tile the player steps on.
+ * 
+ * @param tile The tile the player is on.
+ * @param playerStats The player's stats.
+ * @param playerInventory The player's inventory.
+ * @return short The result of the interaction (e.g., 5 for level exit).
+ */
+
+short processTileInteraction(short tile, CharacterStats& playerStats, Inventory& playerInventory) {
+    switch (tile) {
+        case 1:  // Safe tile, no interaction
+            cout << "Nothing happens on this tile.\n";
+            return tile;
+
+        case 2:  // Enemy encounter
+            cout << "You encountered a " << enemyType << "!\n";
+            playerStats.health -= enemyDamage;
+            cout << "You lost " << enemyDamage << " health in the fight! Current health: " << playerStats.health << "\n";
+            if (playerStats.health <= 0) {
+                showEndScreen(false);  // Player died, show end screen
+            }
+            return tile;
+
+        case 3:  // Item discovery
+            cout << "You found a powerful item: Magic Amulet (+5 Attack, +3 Defense)\n";
+            playerInventory.addEquipment(Equipment("Magic Amulet", 5, 3));
+            return tile;
+
+        case 4:  // Trap encounter
+            cout << "Oh no! You stepped on a " << trapType << "!\n";
+            playerStats.health -= trapDamage;
+            cout << "You lost " << trapDamage << " health! Current health: " << playerStats.health << "\n";
+            if (playerStats.health <= 0) {
+                showEndScreen(false);  // Player died
+            }
+            return tile;
+
+        case 5:  // Healing fountain
+            cout << "You found a healing fountain! Restoring 20 health...\n";
+            playerStats.health += 20;
+            cout << "Current health: " << playerStats.health << "\n";
+            return tile;
+
+        case 6:  // Exit tile, level complete
+            cout << "You found the exit! Moving to the next level...\n";
+            return 5;  // Signal level completion
+
+        default:
+            cout << "You stepped on an unknown tile...\n";
+            return tile;
+    }
+}
+
+
+

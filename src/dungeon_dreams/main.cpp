@@ -7,15 +7,16 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
-<<<<<<< HEAD
-#include "utils.h"
-#include "miniGames.h"
-=======
 #include "SafeZone.h"
-#include "Utils.h"
->>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
+#include "Status.h"
+#include "Equipment.h"  
+#include "utils.h"
+
 #include <string>
 #include <iostream>
+#include <thread>
+#include <chrono>
+
 using namespace std;
 //Comment test
 /**
@@ -50,11 +51,21 @@ int main()
 
     int totalGold = 0;
 
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+    Inventory playerInventory;               
+
     displayWelcome();
+    
+    resetPlayerStats(playerStats, playerClass);
+
+    initializeInventory(playerInventory, playerClass);
+
+    applyInventoryStats(playerStats, playerInventory);
+
 
     while (gameRunning)
     {
-        resetPlayerStats();
 
         int countdown = 5;
         int position = 0;
@@ -69,6 +80,7 @@ int main()
             cout << AsciiArt::dungeonEntranceArt << endl;
             cout << "You are entering the dungeon in " << countdown << endl;
             CustomSleep(1);
+
             position++;
             countdown--;
         }
@@ -76,6 +88,15 @@ int main()
         Clear();
         std::cout << "You have entered the dungeon..." << std::endl;
         CustomSleep(1);
+
+        applyInventoryStats(playerStats, playerInventory);
+
+        cout << "\n--- Player Stats ---\n";
+        cout << "Health: " << playerStats.health << "\n";
+        cout << "Attack: " << playerStats.attack << "\n";
+        cout << "Defense: " << playerStats.defense << "\n";
+        cout << "\n--- Inventory ---\n";
+        playerInventory.printInventory();
 
         for (int level = 1; level <= levels; level++)
         {
@@ -95,23 +116,30 @@ int main()
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
+
+                    short result = processTileInteraction(tyle, playerStats, playerInventory);
+
                     if(tyle ==5){
                         break;
                     }
                     levelPlay(tyle);
+
+                    cout << "\n--- Updated Player Stats (with Inventory Bonuses) ---\n";
+                    cout << "Health: " << playerStats.health << "\n";
+                    cout << "Attack: " << playerStats.attack << "\n";
+                    cout << "Defense: " << playerStats.defense << "\n";
+
                     // count++;
                 }
             }
             // }
-            sleep(1);
-<<<<<<< HEAD
-            totalGold = totalGold + miniGames();
-            cout << "You have completed level " << level << ". Press enter for next level..." << endl;
-=======
-            cout << "You have completed level " << level << ". Press enter to continue..." << endl;
->>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+            cout << "You have completed level " << level << ". Leveling up...\n";
+            upgradeStats(playerStats, playerClass);
+            cout << "Press enter to continue..." << endl;
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input
+
             displaySafeZone();
         }
 

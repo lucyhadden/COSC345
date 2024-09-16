@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <iostream>
-#include "Utils.h"
+#include "utils.h"
 
 #ifdef _WIN32
     #include <windows.h>

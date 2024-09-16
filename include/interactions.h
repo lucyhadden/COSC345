@@ -3,6 +3,8 @@
 
 #include <string>
 #include "player.h"
+#include "Status.h"     // Include for CharacterStats
+#include "Equipment.h"  // Include for Inventory
 
 /**
  * @brief Type of the enemy the player encounters.
@@ -54,11 +56,21 @@ void setupLevel(int levelNumber);
 /**
  * @brief Sets player stats once chosen.
  */
-void resetPlayerStats();
+void resetPlayerStats(CharacterStats& playerStats, CharacterClass& playerClass);
 
 /**
  * @brief Waits for the user to press any key to continue.
  */
 void pressAnyKeyToContinue(); 
+
+/**
+ * @brief Processes tile interactions based on the tile type.
+ * 
+ * @param tile The tile the player is currently on.
+ * @param playerStats The player's stats that may be affected by the interaction.
+ * @param playerInventory The player's inventory that may be affected by the interaction.
+ * @return short The result of the interaction (e.g., 5 for level exit).
+ */
+short processTileInteraction(short tile, CharacterStats& playerStats, Inventory& playerInventory);
 
 #endif

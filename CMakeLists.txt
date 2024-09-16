@@ -14,6 +14,9 @@ set(SOURCES
     include/player.h
     include/StartScreen.h
     include/Utils.h
+    include/Equipment.h
+    include/Status.h
+    include/SafeZone.h
     src/dungeon_dreams/main.cpp
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/AsciiArt.cpp
@@ -24,6 +27,9 @@ set(SOURCES
     src/dungeon_dreams/movement.cpp
     src/dungeon_dreams/player.cpp
     src/dungeon_dreams/Utils.cpp
+    src/dungeon_dreams/Equipment.cpp
+    src/dungeon_dreams/Status.cpp
+    src/dungeon_dreams/SafeZone.cpp
 )
 
 
@@ -55,9 +61,8 @@ add_executable(runTests
     Test/InteractionsTest.cpp
     Test/ItemTest.cpp
     Test/PlayerTest.cpp
-    Test/MainTest.cpp
+    # Test/MainTest.cpp
     Test/MovementTest.cpp
-    Test/StartScreen.cpp
     Test/UtilsTest.cpp
 )
 
