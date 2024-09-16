@@ -58,12 +58,14 @@ enable_testing()
 add_executable(runTests
     Test/AsciiArtTest.cpp
     Test/EndScreenTest.cpp
+    Test/StartScreenTest.cpp
     Test/InteractionsTest.cpp
     Test/ItemTest.cpp
     Test/PlayerTest.cpp
-    # Test/MainTest.cpp
+    Test/MainTest.cpp
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
+    Test/MiniGamesTest
 )
 
 target_link_libraries(runTests gtest_main)
