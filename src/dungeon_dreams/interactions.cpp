@@ -13,10 +13,10 @@
 
 #include <string>
 #include <iostream>
-#include <unistd.h>
 #include "player.h"
 #include "StartScreen.h"
 #include "EndScreen.h"
+#include "Utils.h"
 
 #include <cstdlib>
 #include <ctime>
@@ -81,9 +81,9 @@ void pressAnyKeyToContinue() {
  * Method that that sets player stats once choosen.
  */
 void resetPlayerStats() {
-    sleep(2);
+    CustomSleep(2);
     cout << "Welcome to the Adventurer's Guild!" << endl;
-    sleep(2);
+    CustomSleep(2);
     cout << "Select Class: " << endl;
     cout << "1. Knight" << endl;
     cout << "2. Mage" << endl;
@@ -180,21 +180,21 @@ void levelPlay(int tileMovedTo) {
         cout << "You are safe" << endl;
     } else if(tileMovedTo == 2) {
         cout << "Oh no! You have encountered a " << enemyType << ". Attack it!" << endl;
-        sleep(2);
+        CustomSleep(2);
         enemyHealth = enemyHealth - player.getAttack();
         if(enemyHealth <= 0) {
             cout << "You have defeated the " << enemyType << "." << endl;
         } else {
             while (enemyHealth > 0) {
                 cout << "The " << enemyType << " is still alive! It's going to attack" << endl;
-                sleep(2);
+                CustomSleep(2);
                 if(player.getDefense() >= enemyDamage) {
                     cout << "Your defensive stat is higher than the enemy's damage! You take no damage" << endl;
                 } else {
                     cout << "The " << enemyType << "'s damage is higher than your defensive stat! You took "<< (enemyDamage - player.getDefense()) << " damage" << endl;
                     player.setHealth(player.getHealth()- (enemyDamage - player.getDefense()));
                 }
-                sleep(2);
+                CustomSleep(2);
                 if (player.getHealth() <= 0) {
                     cout << "You have died" << endl;
                     showEndScreen(false);
@@ -206,7 +206,7 @@ void levelPlay(int tileMovedTo) {
         }
     } else if(tileMovedTo == 3) {
         cout << "Oh no! A " << trapType << endl;
-        sleep(2);
+        CustomSleep(2);
         player.setHealth(player.getHealth() - trapDamage);
         if (player.getHealth() <= 0) {
             showEndScreen(false);

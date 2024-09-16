@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unistd.h>
 #include <cstdlib>
 #include "StartScreen.h"
 #include "movement.h"
@@ -8,8 +7,13 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
+<<<<<<< HEAD
 #include "utils.h"
 #include "miniGames.h"
+=======
+#include "SafeZone.h"
+#include "Utils.h"
+>>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
 #include <string>
 #include <iostream>
 using namespace std;
@@ -57,21 +61,21 @@ int main()
 
         while (countdown > 0)
         {
-            system("clear");
+            Clear();
             for (int i = 0; i < position; i++)
             {
                 cout << endl;
             }
             cout << AsciiArt::dungeonEntranceArt << endl;
             cout << "You are entering the dungeon in " << countdown << endl;
-            ::sleep(1);
+            CustomSleep(1);
             position++;
             countdown--;
         }
 
-        system("clear");
-        cout << "You have entered the dungeon..." << endl;
-        ::sleep(1);
+        Clear();
+        std::cout << "You have entered the dungeon..." << std::endl;
+        CustomSleep(1);
 
         for (int level = 1; level <= levels; level++)
         {
@@ -100,10 +104,15 @@ int main()
             }
             // }
             sleep(1);
+<<<<<<< HEAD
             totalGold = totalGold + miniGames();
             cout << "You have completed level " << level << ". Press enter for next level..." << endl;
+=======
+            cout << "You have completed level " << level << ". Press enter to continue..." << endl;
+>>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input
+            displaySafeZone();
         }
 
         playerWon = true;

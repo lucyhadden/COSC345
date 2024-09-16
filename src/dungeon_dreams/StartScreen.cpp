@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>  
-#include <unistd.h>
 #include "AsciiArt.h"
+#include "Utils.h"
 
 /**
  * @file
@@ -63,15 +63,15 @@ int function() {
 
 
 void displayWelcome() {
-    system("clear"); 
+    Clear();
     cout << AsciiArt::dragonWelcomeArt << endl;
-    sleep(1);
+    CustomSleep(1);
     displayMenu();
     handleMenuChoice();
-    system("clear"); 
+    Clear();
 
     startingStory();
-    system("clear"); 
+    Clear();
 }
 
 void displayMenu() {
@@ -109,7 +109,7 @@ void handleMenuChoice() {
 }
 
 void displayCharacterClasses() {
-    system("clear"); 
+    Clear();
     cout << "Character Classes in Dungeon Dreams: The Goblin Guide" << endl;
     cout << "1. Knight" << endl;
     cout << AsciiArt::knightArt << endl;
@@ -133,16 +133,16 @@ void handleClassChoice() {
 }
 
 void startingStory(){
-    sleep(1);
+    CustomSleep(1);
     cout << AsciiArt::storyStartArt << endl;
     cout << "In a world filled with dungeons and monsters, adventure awaits at every corner. You are an aspiring adventurer, whose dreams have always been filled with epic quests and heroic deeds. " << endl;
-    sleep(3);
+    CustomSleep(3);
     cout << "One fateful morning, you set off for the capital, leaving behind your village and mundane life. The grand walls of the capital greet you with an air of opportunity and excitement."  << endl;
-    sleep(3);
+    CustomSleep(3);
     cout << "Are you ready to face the challenges ahead?" << endl;
-    sleep(3);
+    CustomSleep(3);
     cout << "With a heart full of hope and a spirit ready for adventure, you march straight to the Adventurers' Guild..." << endl;
-    sleep(3);
+    CustomSleep(3);
     pressAnyKeyToContinue2();
 
 }
