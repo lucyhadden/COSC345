@@ -5,10 +5,10 @@
 
 using namespace std;
 
-/**
- * @brief Displays the safe zone dialogue.
- */
-void displaySafeZone();
+// /**
+//  * @brief Displays the safe zone dialogue.
+//  */
+// void displaySafeZone();
 
 /**
  * @brief Displays the options in the safe zone.
