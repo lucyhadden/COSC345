@@ -7,15 +7,13 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
-<<<<<<< HEAD
 #include "utils.h"
 #include "miniGames.h"
-=======
 #include "SafeZone.h"
 #include "Utils.h"
->>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
 #include <string>
 #include <iostream>
+#include <unistd.h>
 using namespace std;
 //Comment test
 /**
@@ -104,12 +102,10 @@ int main()
             }
             // }
             sleep(1);
-<<<<<<< HEAD
-            totalGold = totalGold + miniGames();
+            
+            totalGold = totalGold + miniGames(); // NEED TO PUT IN SAFE ZONE
             cout << "You have completed level " << level << ". Press enter for next level..." << endl;
-=======
-            cout << "You have completed level " << level << ". Press enter to continue..." << endl;
->>>>>>> 9c699a639f8fa6d3fabb91edbf5fb7cf5581359e
+            
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input
             displaySafeZone();
