@@ -5,9 +5,12 @@
 #include <vector>
 #include <iostream>
 #include "Status.h"  // Include for CharacterStats and CharacterClass
+ 
 
 /**
+ * @file
  * @brief Represents a piece of equipment that can provide bonuses to the player's stats.
+ * @author Lucy Hadden
  */
 class Equipment {
 public:

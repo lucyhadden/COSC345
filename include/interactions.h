@@ -6,6 +6,14 @@
 #include "Status.h"     // Include for CharacterStats
 #include "Equipment.h"  // Include for Inventory
 
+
+/**
+ * @file
+ * @brief Header file for methods that relate to the interactions
+ * @author Elizabeth Stewart
+ * 
+ */
+
 /**
  * @brief Type of the enemy the player encounters.
  */
