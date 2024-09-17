@@ -1,6 +1,5 @@
 #include "gtest/gtest.h"
 #include <iostream>
-#include <unistd.h>
 #include <cstdlib>
 #include <string>
 #include "StartScreen.h"
@@ -12,8 +11,6 @@
 #include "interactions.h"
 #include "utils.h"
 #include "TestUtils.h"
-
-
 
 short dungeon_sizes[8][2] = {{3, 3}, {6, 5}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}};
 const int levels = 8;

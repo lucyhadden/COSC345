@@ -2,10 +2,11 @@
 #include <string>
 #include <ctime>
 #include <cctype>
-#include <unistd.h>
 #include <algorithm>
 #include <random>
 #include <vector>
+
+#include "utils.h"
 
 using namespace std; // Use the standard namespace
 
@@ -27,13 +28,13 @@ int game1() {
     int score = 0; // Initialize score to 0
 
     cout << "Welcome to the Word Unscramble Game!" << endl;
-    sleep(1);
+    CustomSleep(1);
     cout << "You will be given a series of scrambled words, and you must unscramble them within 15 seconds." << endl;
-    sleep(1);
+    CustomSleep(1);
     cout << "For each correct unscrambled word, you will earn 1 gold." << endl;
-    sleep(1);
+    CustomSleep(1);
     cout << "Let's start the adventure!" << endl;
-    sleep(1);
+    CustomSleep(1);
     cout << "Press enter to continue...";
     cin.ignore();  // Ignore any leftover characters in the input buffer
     cin.get();     // Wait for user input
@@ -48,7 +49,7 @@ int game1() {
 
     while (time(0) < end_time) {
         // Clear the screen and print the remaining time
-        system("clear"); 
+        Clear();
         cout << "Time remaining: " << end_time - time(0) << " seconds" << endl;
         cout << "Score: " << score << " gold" << endl;
 
@@ -87,11 +88,11 @@ srand(time(0));
     int gold = 0;
 
     cout << "Welcome to the Memory Test Game!" << endl;
-    sleep(1);
+    CustomSleep(1);
     cout << "In this game, you need to memorize a sequence of numbers. Each level adds one more number to the sequence." << endl;
-    sleep(1);
+    CustomSleep(1);
     cout << "Let's start the game!" << endl;
-    sleep(1);
+    CustomSleep(1);
 
     bool playing = true;
     vector<int> sequence;
@@ -103,9 +104,9 @@ srand(time(0));
             cout << num << " ";
         }
         cout << endl;
-        sleep(2);
+        CustomSleep(2);
 
-        system("clear"); 
+        Clear();
 
         cout << "Now, enter the sequence: ";
         vector<int> playerInput;
@@ -153,20 +154,20 @@ int spinWheel() {
     char spinner[4] = {'|', '/', '-', '\\'}; // Spinner characters
     for (int i = 0; i < spins; ++i) {
         cout << "\r" << spinner[i % 4] << " Number: " << ((i % 4) + 1) << flush; // Visual effect
-        usleep(100000);  // Delay for 100 milliseconds
+        CustomSleep(1); //usleep(100000);  // Delay for 100 milliseconds
     }
 
     // Display the final result stored in gameSelection
     cout << "\rThe wheel stops at: " << gameSelection << "     " << endl;
 
-    //return gameSelection;  // Return the randomly selected number
+    return gameSelection;  // Return the randomly selected number
 }
 
 int miniGames() {
     int goldEarned = 0;
     cout << "\033[2J\033[1;1H"; // ANSI escape code to clear the console
     cout << "You Have Entered The MiniGames!" << endl;
-    sleep(1);
+    CustomSleep(1);
     int gameSelection = spinWheel();
     switch (gameSelection) {
         case 1:
