@@ -3,29 +3,10 @@
 #include <string>
 #include <cstdlib>  
 #include <unistd.h>
-#include "AsciiArt.h"
+#include "MockAsciiArt.h"
 #include <StartScreen.h>
+#include "TestUtils.h"
 
-// Dummy AsciiArt class for testing purposes
-class AsciiArt {
-public:
-    static inline std::string dragonWelcomeArt = "Dragon Art";
-    static inline std::string knightArt = "Knight Art";
-    static inline std::string mageArt = "Mage Art";
-    static inline std::string thiefArt = "Thief Art";
-    static inline std::string tankArt = "Tank Art";
-    static inline std::string clericArt = "Cleric Art";
-    static inline std::string storyStartArt = "Story Start Art";
-};
-
-// Mock implementations to replace system-specific calls
-void mockSystemClear() {
-    // Do nothing
-}
-
-void mockSleep(int seconds) {
-    // Do nothing
-}
 
 // Testing displayWelcome()
 TEST(DungeonDreamsTest, TestDisplayWelcome) {
@@ -72,7 +53,7 @@ TEST(DungeonDreamsTest, TestStartingStory) {
     EXPECT_NO_THROW(startingStory());
 }
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+// int main(int argc, char **argv) {
+//     ::testing::InitGoogleTest(&argc, argv);
+//     return RUN_ALL_TESTS();
+// }

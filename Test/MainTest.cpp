@@ -10,19 +10,13 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
-#include "Utils.h"
+#include "utils.h"
+#include "TestUtils.h"
+
 
 short dungeon_sizes[8][2] = {{3, 3}, {6, 5}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}};
 const int levels = 8;
 
-// Mock implementations for testing
-void mockSystemClear() {
-    // Mock the clear screen
-}
-
-void mockSleep(int seconds) {
-    // Mock sleep function
-}
 
 TEST(DungeonGameTest, TestCountdownSequence) {
     // Capture output
@@ -87,7 +81,7 @@ TEST(DungeonGameTest, TestGameCompletion) {
     EXPECT_NO_THROW(showEndScreen(playerWon));
 }
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+// int main(int argc, char **argv) {
+//     ::testing::InitGoogleTest(&argc, argv);
+//     return RUN_ALL_TESTS();
+// }

@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include "utils.h"  
 
-TEST(UtilsTest, DummyTest) {
+TEST(MiniGamesTest, DummyTest) {
     EXPECT_TRUE(true);  
 }

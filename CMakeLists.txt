@@ -38,6 +38,7 @@ add_executable(COSC345 ${SOURCES})
 
 include_directories(include)
 
+
 # this should hopefully enable code cov!
 if(CMAKE_BUILD_TYPE STREQUAL "Coverage")
     message("Building with code coverage")
@@ -66,8 +67,21 @@ add_executable(runTests
     Test/MainTest.cpp
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
-    Test/MiniGamesTest
+    Test/MiniGamesTest.cpp
+
+    
+    src/dungeon_dreams/AsciiArt.cpp
+    src/dungeon_dreams/StartScreen.cpp
+    src/dungeon_dreams/EndScreen.cpp
+    src/dungeon_dreams/miniGames.cpp
+    src/dungeon_dreams/player.cpp
+    src/dungeon_dreams/utils.cpp
 )
+
+target_include_directories(runTests PRIVATE include)
+target_include_directories(runTests PRIVATE Test)
+
+target_compile_definitions(runTests PRIVATE TESTING)
 
 target_link_libraries(runTests gtest_main)
 
