@@ -16,9 +16,9 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install Clang
-        run: sudo apt-get install -y clang llvm
+        run: sudo apt-get install -y clang llvm lcov
 
-      - name: Set up CMake with Clang
+      - name: Set up CMake with Clang for Coverage
         run: |
           mkdir build-coverage
           cd build-coverage
@@ -29,6 +29,11 @@ jobs:
         run: |
             cd build-coverage
             LLVM_PROFILE_FILE="default.profraw" ./DungeonGameTest  # Runs the tests
+
+      - name: Run Tests with AddressSanitizer
+        run: |
+          cd build-coverage
+          LLVM_PROFILE_FILE="default.profraw" ./DungeonGameTest  # Runs the tests with AddressSanitizer enabled
 
       - name: Generate Coverage Report
         run: |

@@ -38,6 +38,11 @@ add_executable(COSC345 ${SOURCES})
 
 include_directories(include)
 
+if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "Coverage")
+    message("Building with AddressSanitizer")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fno-omit-frame-pointer")
+    set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fsanitize=address")
+endif()
 
 # this should hopefully enable code cov!
 if(CMAKE_BUILD_TYPE STREQUAL "Coverage")

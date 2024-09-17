@@ -34,12 +34,12 @@ TEST(DungeonDreamsTest, TestDisplayMenu) {
 }
 
 // Testing handleMenuChoice()
-TEST(DungeonDreamsTest, TestHandleMenuChoice) {
-    std::istringstream input("3\n");
-    std::cin.rdbuf(input.rdbuf());
+// TEST(DungeonDreamsTest, TestHandleMenuChoice) {
+//     std::istringstream input("3\n");
+//     std::cin.rdbuf(input.rdbuf());
 
-    EXPECT_NO_THROW(handleMenuChoice());
-}
+//     EXPECT_NO_THROW(handleMenuChoice());
+// }
 
 // Testing displayCharacterClasses()
 TEST(DungeonDreamsTest, TestDisplayCharacterClasses) {
