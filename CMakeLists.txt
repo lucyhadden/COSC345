@@ -10,10 +10,11 @@ set(SOURCES
     include/EndScreen.h
     include/interactions.h
     include/item.h
+    include/miniGames.h
     include/movement.h
     include/player.h
     include/StartScreen.h
-    include/Utils.h
+    include/utils.h
     include/Equipment.h
     include/Status.h
     include/SafeZone.h
@@ -26,7 +27,7 @@ set(SOURCES
     src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/movement.cpp
     src/dungeon_dreams/player.cpp
-    src/dungeon_dreams/Utils.cpp
+    src/dungeon_dreams/utils.cpp
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/Status.cpp
     src/dungeon_dreams/SafeZone.cpp
@@ -58,12 +59,14 @@ enable_testing()
 add_executable(runTests
     Test/AsciiArtTest.cpp
     Test/EndScreenTest.cpp
+    Test/StartScreenTest.cpp
     Test/InteractionsTest.cpp
     Test/ItemTest.cpp
     Test/PlayerTest.cpp
-    # Test/MainTest.cpp
+    Test/MainTest.cpp
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
+    Test/MiniGamesTest
 )
 
 target_link_libraries(runTests gtest_main)

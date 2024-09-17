@@ -7,6 +7,13 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
+#include "utils.h"
+#include "miniGames.h"
+#include "SafeZone.h"
+// #include "Utils.h"
+#include <string>
+#include <iostream>
+#include <unistd.h>
 #include "SafeZone.h"
 #include "Status.h"
 #include "Equipment.h"  
