@@ -2,6 +2,14 @@
 #define ENDSCREEN_H
 
 /**
+ * @file
+ * @brief Header file for methods that relate to the end screen
+ * @author Elizabeth Stewart
+ * 
+ */
+
+
+/**
  * @brief Displays the win screen animation.
  */
 void winScreen();
