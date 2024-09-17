@@ -84,7 +84,7 @@ int main()
             {
                 cout << endl;
             }
-            cout << AsciiArt::dungeonEntranceArt << endl;
+            cout << AsciiArt::getDungeonEntranceArt() << endl;
             cout << "You are entering the dungeon in " << countdown << endl;
             CustomSleep(1);
 
