@@ -80,10 +80,53 @@ int game1() {
     return score;
 }
 
+// Memory Test Game - Lucy 
 int game2() {
-    // Game 2 logic here
-    cout << "You're playing Game 2!" << endl;
-    return 0;
+srand(time(0));
+    int level = 1;
+    int gold = 0;
+
+    cout << "Welcome to the Memory Test Game!" << endl;
+    sleep(1);
+    cout << "In this game, you need to memorize a sequence of numbers. Each level adds one more number to the sequence." << endl;
+    sleep(1);
+    cout << "Let's start the game!" << endl;
+    sleep(1);
+
+    bool playing = true;
+    vector<int> sequence;
+    while (playing) {
+        sequence.push_back(rand() % 10);
+
+        cout << "Level " << level << ": Memorize this sequence:" << endl;
+        for (int num : sequence) {
+            cout << num << " ";
+        }
+        cout << endl;
+        sleep(2);
+
+        system("clear"); 
+
+        cout << "Now, enter the sequence: ";
+        vector<int> playerInput;
+        for (size_t i = 0; i < sequence.size(); ++i) {
+            int input;
+            cin >> input;
+            playerInput.push_back(input);
+        }
+
+        if (playerInput == sequence) {
+            cout << "Correct! Moving to the next level." << endl;
+            gold += level; 
+            level++;
+        } else {
+            cout << "Incorrect! Game over." << endl;
+            playing = false;
+        }
+    }
+
+    cout << "You earned " << gold << " gold." << endl;
+    return gold;
 }
 
 int game3() {
