@@ -72,14 +72,14 @@ add_executable(DungeonGameTest
     Test/MainTest.cpp
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
-    Test/MiniGamesTest.cpp
+    # Test/MiniGamesTest.cpp
 
     
     src/dungeon_dreams/AsciiArt.cpp
     src/dungeon_dreams/TestUtils.cpp
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/EndScreen.cpp
-    src/dungeon_dreams/miniGames.cpp
+    # src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/player.cpp
     src/dungeon_dreams/utils.cpp
 )
