@@ -30,6 +30,11 @@ jobs:
             cd build-coverage
             LLVM_PROFILE_FILE="default.profraw" ./DungeonGameTest  # Runs the tests
 
+      - name: Run Tests with AddressSanitizer
+        run: |
+          cd build-coverage
+          LLVM_PROFILE_FILE="default.profraw" ./DungeonGameTest  # Runs the tests with AddressSanitizer enabled
+
       - name: Generate Coverage Report
         run: |
             cd build-coverage
