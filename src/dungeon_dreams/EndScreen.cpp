@@ -41,10 +41,10 @@ void winScreen() {
     cout << "He eagerly opens the chest..." << endl;
     CustomSleep(2);
 
-    cout << AsciiArt::WinArt2 << endl;
+    cout << AsciiArt::getWinArt2() << endl;
     CustomSleep(2);
     cout << "\033[15A";
-    cout << AsciiArt::WinArt3 << endl;
+    cout << AsciiArt::getWinArt3() << endl;
     CustomSleep(2);
     
     cout << "\nInside, something glimmers — a crown of dark emeralds and gold" << endl;
@@ -63,7 +63,7 @@ void winScreen() {
     CustomSleep(3);
 
     Clear();
-    cout << AsciiArt::WinArt1 << endl;
+    cout << AsciiArt::getWinArt1() << endl;
     cout << "You completed the game" << endl;
     cout << endl; 
 
@@ -113,7 +113,7 @@ void loseScreen() {
     }
 
     Clear();
-    cout << AsciiArt::LoseArt1 << endl;
+    cout << AsciiArt::getLoseArt1() << endl;
     CustomSleep(2);
     cout << "You failed to protect Grizzle and clear the dungeon" << endl;
     CustomSleep(2);

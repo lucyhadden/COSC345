@@ -296,7 +296,7 @@ const std::string& AsciiArt::getLoseArt1() {
  `-./  /.__)   `'  '-'  '('  '-'(_.-'       |  | |  |  |  | |  |    \   /     |  `---.       |  '--'  /(_|  |    |  `---.|  '--'  / 
    `--'          `-----'   `-----'          `--' `--'  `--' `--'     `-'      `------'       `-------'   `--'    `------'`-------' 
 )";
-  return loseArt1
+  return loseArt1;
 }
 
 const std::string& AsciiArt::getWinArt1() {
@@ -491,21 +491,4 @@ const std::string& AsciiArt::getWinArt9() {
    |__|
 )";
     return winArt9;
-}
-
-
-
-const std::string& AsciiArt::getGrizzleScaredExpression() {
-    static const std::string grizzleScaredExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -     –       –     - ____
-  / 	       ( o )   ( o )          \
-  \ ____  	       ^           ____ /
-	      |		   _________      |
-	       \	  | -v———v- |    /
-	        \	   —————————    /
-		          ———————————   
-)";
-    return grizzleScaredExpression;
 }
