@@ -65,7 +65,7 @@ int function() {
 
 void displayWelcome() {
     Clear();
-    cout << AsciiArt::dragonWelcomeArt << endl;
+    cout << AsciiArt::getDragonWelcomeArt() << endl;
     CustomSleep(1);
     displayMenu();
     handleMenuChoice();
@@ -113,15 +113,15 @@ void displayCharacterClasses() {
     Clear();
     cout << "Character Classes in Dungeon Dreams: The Goblin Guide" << endl;
     cout << "1. Knight" << endl;
-    cout << AsciiArt::knightArt << endl;
+    cout << AsciiArt::getKnightArt() << endl;
     cout << "2. Mage" << endl;
-    cout << AsciiArt::mageArt << endl;
+    cout << AsciiArt::getMageArt() << endl;
     cout << "3. Thief" << endl;
-    cout << AsciiArt::thiefArt << endl;
+    cout << AsciiArt::getThiefArt() << endl;
     cout << "4. Tank" << endl;
-    cout << AsciiArt::tankArt << endl;
+    cout << AsciiArt::getTankArt() << endl;
     cout << "5. Cleric" << endl;
-    cout << AsciiArt::clericArt << endl;
+    cout << AsciiArt::getClericArt() << endl;
     cout << "Press any key to return to the main menu..." << endl;
     cin.ignore();
     cin.get(); // Wait for user input
@@ -135,7 +135,7 @@ void handleClassChoice() {
 
 void startingStory(){
     CustomSleep(1);
-    cout << AsciiArt::storyStartArt << endl;
+    cout << AsciiArt::getStoryStartArt() << endl;
     cout << "In a world filled with dungeons and monsters, adventure awaits at every corner. You are an aspiring adventurer, whose dreams have always been filled with epic quests and heroic deeds. " << endl;
     CustomSleep(3);
     cout << "One fateful morning, you set off for the capital, leaving behind your village and mundane life. The grand walls of the capital greet you with an air of opportunity and excitement."  << endl;

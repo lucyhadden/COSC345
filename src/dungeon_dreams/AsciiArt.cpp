@@ -1,7 +1,8 @@
-// AsciiArt.cpp
 #include "AsciiArt.h"
 
-const std::string AsciiArt::dungeonEntranceArt = R"(
+// Dungeon entrance art
+const std::string& AsciiArt::getDungeonEntranceArt() {
+    static const std::string dungeonEntranceArt = R"(
    _________________________________________________________
  /|     -_-                                             _-  |\
 / |_-_- _                                         -_- _-   -| \   
@@ -22,8 +23,12 @@ const std::string AsciiArt::dungeonEntranceArt = R"(
  /                                             _ -        lc \
 /   -_- _ -             _- _---                       -_-  -_ \
 )";
+  return dungeonEntranceArt;
+}
 
-const std::string AsciiArt::knightArt = R"(
+// Knight art
+const std::string& AsciiArt::getKnightArt() {
+    static const std::string knightArt = R"(
               /
        ,~~   /
    _  <=)  _/_
@@ -33,8 +38,12 @@ const std::string AsciiArt::knightArt = R"(
      // \\_
     _I    /
 )";
+  return knightArt;
+}
 
-const std::string AsciiArt::mageArt = R"(
+// Mage art
+const std::string& AsciiArt::getMageArt() {
+    static const std::string mageArt = R"(
             ,    _
            /|   | |
          _/_\_  >_<
@@ -46,8 +55,12 @@ const std::string AsciiArt::mageArt = R"(
    _.'  \'-'  /  |
    `----'`=-='   '
 )";
+  return mageArt;
+}
 
-const std::string AsciiArt::thiefArt = R"(
+// Thief art
+const std::string& AsciiArt::getThiefArt() {
+    static const std::string thiefArt = R"(
    .-.
   (o o) 
    | O \
@@ -56,15 +69,23 @@ const std::string AsciiArt::thiefArt = R"(
   |     |
  /       \
 )";
+  return thiefArt;
+}
 
-const std::string AsciiArt::tankArt = R"(
+// Tank art
+const std::string& AsciiArt::getTankArt() {
+    static const std::string tankArt = R"(
     ___
  __(   )====::
 /~~~~~~~~~\
 \O.O.O.O.O/
 )";
+  return tankArt;
+}
 
-const std::string AsciiArt::clericArt = R"(
+// Cleric art
+const std::string& AsciiArt::getClericArt() {
+    static const std::string clericArt = R"(
   /\_/\ 
  / o o \
 (   "   )
@@ -73,8 +94,12 @@ const std::string AsciiArt::clericArt = R"(
    | |
   /   \
  /_____\)";
+  return clericArt;
+}
 
-const std::string AsciiArt::enemySlimeArt = R"(
+// Enemy slime art
+const std::string& AsciiArt::getEnemySlimeArt() {
+    static const std::string enemySlimeArt = R"(
     .------.  
    /        \ 
   / .-"""-.  \
@@ -86,8 +111,12 @@ const std::string AsciiArt::enemySlimeArt = R"(
     _/   \_   
    /_______\
 )";
+  return enemySlimeArt;
+}
 
-const std::string AsciiArt::enemySkeletonArt = R"(
+// Enemy skeleton art
+const std::string& AsciiArt::getEnemySkeletonArt() {
+    static const std::string enemySkeletonArt = R"(
              _..---..__
            ,'          `-.
           .'` .          )
@@ -98,8 +127,12 @@ const std::string AsciiArt::enemySkeletonArt = R"(
                `\`^-''''7
                  `~"--^-'
 )";
+  return enemySkeletonArt;
+}
 
-const std::string AsciiArt::enemySpiderArt = R"(
+// Enemy spider art
+const std::string& AsciiArt::getEnemySpiderArt() {
+    static const std::string enemySpiderArt = R"(
           |
       /   |   \
      / /  |  \ \
@@ -110,8 +143,12 @@ const std::string AsciiArt::enemySpiderArt = R"(
       \ \   / /
        \     /
 )";
+  return enemySpiderArt;
+}
 
-const std::string AsciiArt::enemyGhostArt = R"(
+// Enemy ghost art
+const std::string& AsciiArt::getEnemyGhostArt() {
+    static const std::string enemyGhostArt = R"(
          ___
        _/ @@\
       ( \  O/__
@@ -120,8 +157,12 @@ const std::string AsciiArt::enemyGhostArt = R"(
       /      _\
      `"""""``
 )";
+  return enemyGhostArt;
+}
 
-const std::string AsciiArt::enemyBansheeArt = R"(
+// Enemy banshee art
+const std::string& AsciiArt::getEnemyBansheeArt() {
+    static const std::string enemyBansheeArt = R"(
    .-""""-.  
   /        \ 
  | .-.  .-. | 
@@ -134,8 +175,12 @@ const std::string AsciiArt::enemyBansheeArt = R"(
  '.___ .___.'
      |_|_|
 )";
+  return enemyBansheeArt;
+}
 
-const std::string AsciiArt::enemyFireGolemArt = R"(
+// Enemy fire golem art
+const std::string& AsciiArt::getEnemyFireGolemArt() {
+    static const std::string enemyFireGolemArt = R"(
    .   _    .  
   /.\ | |  /.\ 
  /@@|_|_|_/@@\ 
@@ -147,8 +192,12 @@ const std::string AsciiArt::enemyFireGolemArt = R"(
    .   |   .   
  /@\  / \  /@\ 
 )";
+  return enemyFireGolemArt;
+}
 
-const std::string AsciiArt::enemyLicheArt = R"(
+// Enemy liche art
+const std::string& AsciiArt::getEnemyLicheArt() {
+    static const std::string enemyLicheArt = R"(
   .-"""-.  
  /       \ 
 | .-"""-. |
@@ -159,8 +208,12 @@ const std::string AsciiArt::enemyLicheArt = R"(
  \_______/ 
   _|_|_|_  
 )";
+  return enemyLicheArt;
+}
 
-const std::string AsciiArt::enemyWyvernArt = R"(
+// Enemy wyvern art
+const std::string& AsciiArt::getEnemyWyvernArt() {
+    static const std::string enemyWyvernArt = R"(
     / \__/ \
    /        \
   |  .-""-.  |
@@ -170,8 +223,11 @@ const std::string AsciiArt::enemyWyvernArt = R"(
   '.___ __.'_/ 
      |_||_|    
 )";
+  return enemyWyvernArt;
+}
 
-const std::string AsciiArt::dragonWelcomeArt = R"(
+const std::string& AsciiArt::getDragonWelcomeArt() {
+    static const std::string dragonWelcomeArt = R"(
                          _                    _
                   ,/                        \,
         _________{(                          })_________
@@ -206,7 +262,11 @@ const std::string AsciiArt::dragonWelcomeArt = R"(
                                   \ \/__//
                                    ~----~
 )";
-const std::string AsciiArt::storyStartArt = R"(
+  return dragonWelcomeArt;
+}
+
+const std::string& AsciiArt::getStoryStartArt() {
+    static const std::string storyStartArt = R"(
     _________________________________________________________
     |                                                       |
     |                                                       |
@@ -217,13 +277,15 @@ const std::string AsciiArt::storyStartArt = R"(
     |                                                       |
     |_______________________________________________________|
 )";
-
+  return storyStartArt;
+}
 
 
 /**
  * ENDSCREEN ART
  */
-const std::string AsciiArt::LoseArt1 = R"(
+const std::string& AsciiArt::getLoseArt1() {
+    static const std::string loseArt1 =  R"(
                                              ('-. .-.   ('-.          (`-.      ('-.         _ .-') _              ('-.  _ .-') _   
                                             ( OO )  /  ( OO ).-.    _(OO  )_  _(  OO)       ( (  OO) )           _(  OO)( (  OO) )  
   ,--.   ,--..-'),-----.  ,--. ,--.         ,--. ,--.  / . --. /,--(_/   ,. \(,------.       \     .'_   ,-.-') (,------.\     .'_  
@@ -234,7 +296,11 @@ const std::string AsciiArt::LoseArt1 = R"(
  `-./  /.__)   `'  '-'  '('  '-'(_.-'       |  | |  |  |  | |  |    \   /     |  `---.       |  '--'  /(_|  |    |  `---.|  '--'  / 
    `--'          `-----'   `-----'          `--' `--'  `--' `--'     `-'      `------'       `-------'   `--'    `------'`-------' 
 )";
-const std::string AsciiArt::WinArt1 = R"(
+  return loseArt1
+}
+
+const std::string& AsciiArt::getWinArt1() {
+    static const std::string winArt1 = R"(
    ____                            _         _       _   _                      _       _                 _                       _  
   / ___|___  _ __   __ _ _ __ __ _| |_ _   _| | __ _| |_(_) ___  _ __  ___     / \   __| |_   _____ _ __ | |_ _   _ _ __ ___ _ __| | 
  | |   / _ \| '_ \ / _` | '__/ _` | __| | | | |/ _` | __| |/ _ \| '_ \/ __|   / _ \ / _` \ \ / / _ \ '_ \| __| | | | '__/ _ \ '__| | 
@@ -242,8 +308,13 @@ const std::string AsciiArt::WinArt1 = R"(
   \____\___/|_| |_|\__, |_|  \__,_|\__|\__,_|_|\__,_|\__|_|\___/|_| |_|___/ /_/   \_\__,_| \_/ \___|_| |_|\__|\__,_|_|  \___|_|  (_) 
                    |___/                                                                                                             
 )";
+    return winArt1;
+}
 
-const std::string AsciiArt::WinArt2 = R"(
+
+// Win art 2
+const std::string& AsciiArt::getWinArt2() {
+    static const std::string winArt2 = R"(
          ,.,",','=.
       ,'.''         '=. 
      ','                `"=.
@@ -257,8 +328,12 @@ const std::string AsciiArt::WinArt2 = R"(
               "=._o._; | ;_.--"o.--"
                     "=.o|o_.--""
 )";
+    return winArt2;
+}
 
-const std::string AsciiArt::WinArt3 = R"(
+// Win art 3
+const std::string& AsciiArt::getWinArt3() {
+    static const std::string winArt3 = R"(
            .=""_;=._
        ,-"_,=""     `"=.                  
       "=._o`"-._        `"=.
@@ -276,81 +351,12 @@ const std::string AsciiArt::WinArt3 = R"(
               "=._o._; | ;_.--"o.--"
                     "=.o|o_.--""
 )";
+    return winArt3;
+}
 
-const std::string AsciiArt::WinArt4 = R"(
-
-  _ ___ _
- '-|   |-'
-   |___|
-  / / \ \
- ' |___| '
-   || ||   
-)";
-
-const std::string AsciiArt::WinArt5 = R"(
-
-  _ ___ _
- '-|   |-'
-   |___|
-  \ / \ /
-   |___| 
-   // \\   
-)";
-
-
-const std::string AsciiArt::WinArt6 = R"(
-
-    _ ___ 
-   '__  o|
-     |___|
-      /|\
-     |_|_|
-      |_|_
-)";
-
-
-const std::string AsciiArt::WinArt7 = R"(
-
-    _ ___ 
-   '__  o|
-     |___|
-   ,- / \ \,
-     |___|
-     '/ \,
-
-)";
-
-
-const std::string AsciiArt::WinArt8 = R"(
-
-    _ ___ 
-   '__  o|
-     |___|
-   ,- / \ \,
-     |___|
-     '/ \,
-)";
-
-
-const std::string AsciiArt::WinArt9 = R"(
-    ___
-   |  o| 
-   |___|
-   /   \
-   | | |
-   |_| |
-   |  |
-   |__|
-)";
-
-
-
-
-/**
- * Grizzle Art
- */
-
-const std::string AsciiArt::grizzleNormalExpression = R"(
+// Grizzle normal expression
+const std::string& AsciiArt::getGrizzleNormalExpression() {
+    static const std::string grizzleNormalExpression = R"(
 	            ———————————
 		       /  	           \
 	  ____ -     –      –      - ____
@@ -361,8 +367,12 @@ const std::string AsciiArt::grizzleNormalExpression = R"(
 	        \	                /
 		          ———————————    
 )";
+    return grizzleNormalExpression;
+}
 
-const std::string AsciiArt::grizzleAngryExpression = R"(
+// Grizzle angry expression
+const std::string& AsciiArt::getGrizzleAngryExpression() {
+    static const std::string grizzleAngryExpression = R"(
 	            ———————————
 		       /  	           \
 	  ____ -      \    /       - ____
@@ -373,8 +383,12 @@ const std::string AsciiArt::grizzleAngryExpression = R"(
 	        \	                /
 		          ———————————  
 )";
+    return grizzleAngryExpression;
+}
 
-const std::string AsciiArt::grizzleHappyExpression = R"(
+// Grizzle happy expression
+const std::string& AsciiArt::getGrizzleHappyExpression() {
+    static const std::string grizzleHappyExpression = R"(
 	            ———————————
 		       /  	           \
 	  ____ -     -      –      - ____
@@ -385,8 +399,12 @@ const std::string AsciiArt::grizzleHappyExpression = R"(
 	        \	                /
 		          ———————————  
 )";
+    return grizzleHappyExpression;
+}
 
-const std::string AsciiArt::grizzleScaredExpression = R"(
+// Grizzle scared expression
+const std::string& AsciiArt::getGrizzleScaredExpression() {
+    static const std::string grizzleScaredExpression = R"(
 	            ———————————
 		       /  	           \
 	  ____ -     –       –     - ____
@@ -397,3 +415,146 @@ const std::string AsciiArt::grizzleScaredExpression = R"(
 	        \	   —————————    /
 		          ———————————   
 )";
+    return grizzleScaredExpression;
+}
+
+// Additional Win arts (4-9) follow the same pattern.
+const std::string& AsciiArt::getWinArt4() {
+    static const std::string winArt4 = R"(
+  _ ___ _
+ '-|   |-'
+   |___|
+  / / \ \
+ ' |___| '
+   || ||   
+)";
+    return winArt4;
+}
+
+const std::string& AsciiArt::getWinArt5() {
+    static const std::string winArt5 = R"(
+  _ ___ _
+ '-|   |-'
+   |___|
+  \ / \ /
+   |___| 
+   // \\   
+)";
+    return winArt5;
+}
+
+const std::string& AsciiArt::getWinArt6() {
+    static const std::string winArt6 = R"(
+    _ ___ 
+   '__  o|
+     |___|
+      /|\
+     |_|_|
+      |_|_
+)";
+    return winArt6;
+}
+
+const std::string& AsciiArt::getWinArt7() {
+    static const std::string winArt7 = R"(
+    _ ___ 
+   '__  o|
+     |___|
+   ,- / \ \,
+     |___|
+     '/ \,
+)";
+    return winArt7;
+}
+
+const std::string& AsciiArt::getWinArt8() {
+    static const std::string winArt8 = R"(
+    _ ___ 
+   '__  o|
+     |___|
+   ,- / \ \,
+     |___|
+     '/ \,
+)";
+    return winArt8;
+}
+
+const std::string& AsciiArt::getWinArt9() {
+    static const std::string winArt9 = R"(
+    ___
+   |  o| 
+   |___|
+   /   \
+   | | |
+   |_| |
+   |  |
+   |__|
+)";
+    return winArt9;
+}
+
+
+
+/**
+ * Grizzle Art
+ */
+
+const std::string& AsciiArt::getGrizzleNormalExpression() {
+    static const std::string grizzleNormalExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -     –      –      - ____
+  / 	       ( o )  ( o )          \
+  \ ____  	                   ____ /
+	      |		       ^          |
+	       \	    -v———v-      /
+	        \	                /
+		          ———————————    
+)";
+    return grizzleNormalExpression;
+}
+
+const std::string& AsciiArt::getGrizzleAngryExpression() {
+    static const std::string grizzleAngryExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -      \    /       - ____
+  / 	       ( o )  ( o )           \
+  \ ____  	                   ____ /
+	      |		       ^          |
+	       \	    -v———v-      /
+	        \	                /
+		          ———————————  
+)";
+    return grizzleAngryExpression;
+}
+
+const std::string& AsciiArt::getGrizzleHappyExpression() {
+    static const std::string grizzleHappyExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -     -      –      - ____
+  / 	       ( o )  ( o )           \
+  \ ____  	\\\        \\\     ____ /
+	      |		       ^          |
+	       \	    'v———v'      /
+	        \	                /
+		          ———————————  
+)";
+    return grizzleHappyExpression;
+}
+
+const std::string& AsciiArt::getGrizzleScaredExpression() {
+    static const std::string grizzleScaredExpression = R"(
+	            ———————————
+		       /  	           \
+	  ____ -     –       –     - ____
+  / 	       ( o )   ( o )          \
+  \ ____  	       ^           ____ /
+	      |		   _________      |
+	       \	  | -v———v- |    /
+	        \	   —————————    /
+		          ———————————   
+)";
+    return grizzleScaredExpression;
+}

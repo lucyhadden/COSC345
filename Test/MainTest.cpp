@@ -32,7 +32,7 @@ TEST(DungeonGameTest, TestCountdownSequence) {
         for (int i = 0; i < position; i++) {
             std::cout << std::endl;
         }
-        std::cout << AsciiArt::dungeonEntranceArt << std::endl;
+        std::cout << AsciiArt::getDungeonEntranceArt() << std::endl;
         std::cout << "You are entering the dungeon in " << countdown << std::endl;
         mockSleep(1);
         position++;
