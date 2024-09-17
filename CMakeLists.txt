@@ -95,3 +95,8 @@ target_link_libraries(DungeonGameTest ${CMAKE_THREAD_LIBS_INIT})
 # Enable testing
 enable_testing()
 add_test(NAME DungeonGameTest COMMAND DungeonGameTest)
+
+if(CMAKE_BUILD_TYPE STREQUAL "Coverage")
+    target_compile_options(DungeonGameTest PRIVATE -fprofile-instr-generate -fcoverage-mapping)
+    target_link_options(DungeonGameTest PRIVATE -fprofile-instr-generate -fcoverage-mapping)
+endif()

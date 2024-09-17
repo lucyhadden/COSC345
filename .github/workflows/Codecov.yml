@@ -28,14 +28,14 @@ jobs:
       - name: Run Tests
         run: |
             cd build-coverage
-            LLVM_PROFILE_FILE="default.profraw" ./runTests  # Runs the tests
+            LLVM_PROFILE_FILE="default.profraw" ./DungeonGameTest  # Runs the tests
 
       - name: Generate Coverage Report
         run: |
             cd build-coverage
             llvm-profdata merge -sparse default.profraw -o default.profdata
-            llvm-cov show ./runTests -instr-profile=default.profdata > coverage.txt
-            llvm-cov report ./runTests -instr-profile=default.profdata
+            llvm-cov show ./DungeonGameTest -instr-profile=default.profdata > coverage.txt
+            llvm-cov report ./DungeonGameTest -instr-profile=default.profdata
     
 
       - name: Upload Coverage to Codecov
