@@ -495,55 +495,6 @@ const std::string& AsciiArt::getWinArt9() {
 
 
 
-/**
- * Grizzle Art
- */
-
-const std::string& AsciiArt::getGrizzleNormalExpression() {
-    static const std::string grizzleNormalExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -     –      –      - ____
-  / 	       ( o )  ( o )          \
-  \ ____  	                   ____ /
-	      |		       ^          |
-	       \	    -v———v-      /
-	        \	                /
-		          ———————————    
-)";
-    return grizzleNormalExpression;
-}
-
-const std::string& AsciiArt::getGrizzleAngryExpression() {
-    static const std::string grizzleAngryExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -      \    /       - ____
-  / 	       ( o )  ( o )           \
-  \ ____  	                   ____ /
-	      |		       ^          |
-	       \	    -v———v-      /
-	        \	                /
-		          ———————————  
-)";
-    return grizzleAngryExpression;
-}
-
-const std::string& AsciiArt::getGrizzleHappyExpression() {
-    static const std::string grizzleHappyExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -     -      –      - ____
-  / 	       ( o )  ( o )           \
-  \ ____  	\\\        \\\     ____ /
-	      |		       ^          |
-	       \	    'v———v'      /
-	        \	                /
-		          ———————————  
-)";
-    return grizzleHappyExpression;
-}
-
 const std::string& AsciiArt::getGrizzleScaredExpression() {
     static const std::string grizzleScaredExpression = R"(
 	            ———————————
