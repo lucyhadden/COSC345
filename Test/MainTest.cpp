@@ -81,8 +81,3 @@ TEST(DungeonGameTest, TestGameCompletion) {
     bool playerWon = true;
     EXPECT_NO_THROW(showEndScreen(playerWon));
 }
-
-// int main(int argc, char **argv) {
-//     ::testing::InitGoogleTest(&argc, argv);
-//     return RUN_ALL_TESTS();
-// }
