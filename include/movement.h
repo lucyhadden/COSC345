@@ -1,14 +1,4 @@
 /**
- * Header file for movement.cpp
- * 
- * Created by: Sen Macmaster 
- * Created on: 22/08/24
- * 
- * Last edited by: Sen Macmaster
- * Last edited on: 22/08/24
- */
-
-/**
  * @file
  * @brief Header file for movement.cpp
  * @author Sen Macmaster

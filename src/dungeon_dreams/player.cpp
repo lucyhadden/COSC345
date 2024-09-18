@@ -1,14 +1,4 @@
 /**
- * Initialises a player object and tracks variables
- * 
- * Created by: Sen Macmaster 
- * Created on: 09/08/24
- * 
- * Last editted by: Sen Macmaster
- * Last editted on: 11/08/24
- */
-
-/**
  * @file
  * @brief Initialises a player objact and tracks related variables
  * @author Sen Macmaster
