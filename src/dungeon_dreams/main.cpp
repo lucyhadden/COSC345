@@ -10,10 +10,8 @@
 #include "utils.h"
 #include "miniGames.h"
 #include "SafeZone.h"
-// #include "Utils.h"
 #include <string>
 #include <iostream>
-#include <unistd.h>
 #include "SafeZone.h"
 #include "Status.h"
 #include "Equipment.h"  
@@ -37,8 +35,11 @@ using namespace std;
 
 /** 
  * @brief Sizes of each dungeon level, where each pair represents the width and height of the dungeon.
+ * 
+ * int dungeon_sizes[8][2] = {{3, 3}, {5, 6}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}}; 
  */
-short dungeon_sizes[8][2] = {{3, 3}, {6, 5}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}}; 
+int dungeon_sizes[8][2] = {{3, 3}, {4, 4}, {5, 5}, {6, 6}, {7, 7}, {8, 8}, {9, 9}, {10, 10}}; 
+
 
 /** 
  * @brief The total number of levels in the dungeon.
@@ -107,16 +108,13 @@ int main()
 
         for (int level = 1; level <= levels; level++)
         {
-
-            // for (int i = 0; i < levels; i++)
-            // {
             fillDungeon(dungeon_sizes[level - 1][0], dungeon_sizes[level - 1][1]);
             generateDynamicLevels();
             updateBoard();
-            // int count = 0;
 
             while (true)
-            {
+            {   
+
                 if (enterUserInput())
                 {
                     setupLevel(level);
@@ -129,7 +127,7 @@ int main()
                     if(tyle ==5){
                         break;
                     }
-                    levelPlay(tyle);
+                    levelPlay(tyle, playerStats);
 
                     cout << "\n--- Updated Player Stats (with Inventory Bonuses) ---\n";
                     cout << "Health: " << playerStats.health << "\n";

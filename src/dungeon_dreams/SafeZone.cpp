@@ -25,9 +25,6 @@ void displaySafeZone()
 {
     displayOptions();
     handleChoice();
-    cout << "Press enter to continue..." <<endl;
-    cin.ignore(); // Ignore any leftover characters in the input buffer
-    cin.get();    // Wait for user input
 }
 
 void displayOptions()
@@ -43,31 +40,24 @@ void displayOptions()
 void handleChoice()
 {
     int choice;
-    bool validChoice = false;
-    while (!validChoice)
+
+    cin >> choice;
+    switch (choice)
     {
-        cin >> choice;
-        switch (choice)
-        {
-        case 1:
-            cout << "handle minigame" << endl;
-            validChoice = true;
-            break;
-        case 2:
-            cout << "Handle the store" << endl;
-            validChoice = true;
-            break;
-        case 3:
-            cout << "Handle stat upgrades" << endl;
-            validChoice = true;
-            break;
-        case 4: 
-            validChoice = true;
-            break;
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-            displayOptions(); // Re-display the menu after an invalid choice
-            break;
-        }
+    case 1:
+        cout << "handle minigame" << endl;
+        break;
+    case 2:
+        cout << "Handle the store" << endl;
+        break;
+    case 3:
+        cout << "Handle stat upgrades" << endl;
+        break;
+    case 4: 
+        break;
+    default:
+        cout << "Invalid choice. Please try again." << endl;
+        displayOptions(); // Re-display the menu after an invalid choice
+        break;
     }
 }

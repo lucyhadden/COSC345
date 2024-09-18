@@ -1,14 +1,4 @@
 /**
- * Movement.cpp
- *
- * Created by: Sen Macmaster
- * Created on: 21/07/24
- *
- * Last editted by: Sen Macmaster
- * Last editted on: 26/08/24
- */
-
-/**
  * @file
  * @brief Handles the player movement and generation of tiles (Hayden)
  * @author Sen Macmaster
@@ -35,63 +25,63 @@ string level_board;
  * Char that represents the player
  */
 const char player = 'X';
-short y;
-short x;
+int yPOS;
+int xPOS;
 
 // Room config
 /**
  * Variable that controls how many spaces long the room is
  */
-const short length_of_room = 5;
+const int length_of_room = 5;
 
 /**
  * Variable that controls how many spaces high the room is
  */
-const short height_of_room = 1;
+const int height_of_room = 1;
 
 
 /**
  * Vector of a vector that represents the dungeon
  */
-vector<vector<short>> dynamic_dungeon;
+vector<vector<int>> dynamic_dungeon;
 
 /**
  * The number of tiles high in the room.
  */
-short height;
+int height;
 
 /**
  * The number of tiles long in the room.
  */
-short length;
+int length;
 
 // Positions of player
-short movement;
-short pos[2];
+int movement;
+int pos[2];
 
 /**
  * Method that gets the length of the room.
  * @return The length of the room
  */
-short getLength() { return length; }
+int getLength() { return length; }
 
 /**
  * Method that gets the height of the room.
  * @return The height of the room
  */
-short getHeight() { return height; }
+int getHeight() { return height; }
 
 /**
  * Method that sets the length of the room.
  * @param l The new length
  */
-void setLength(short l) { length = l; }
+void setLength(int l) { length = l; }
 
 /**
  * Method that sets the height of the room.
  * @param h The new height
  */
-void setHeight(short h) { height = h; }
+void setHeight(int h) { height = h; }
 
 /**
  * Method that gets the height of the room.
@@ -109,6 +99,7 @@ void print_dungeon()
     }
     cout << "\n====================\n"
          << endl;
+
 }
 
 // Check if a position is safe
@@ -156,14 +147,16 @@ bool forms_block(int x, int y)
  */
 void generate_path()
 {
-    int x = height / 2, y = 0;
+    int x = static_cast<int>(getHeight() / 2);
+    int y = 0;
+
     dynamic_dungeon[x][y] = 1;
     // print_dungeon();
 
     vector<pair<int, int>> directions = {{-1, 0}, {0, 1}, {1, 0}};
     pair<int, int> last_position = {x, y};
 
-    while (y < length - 1)
+    while (y < getLength() - 1)
     {
         vector<pair<int, int>> possible_moves;
 
@@ -183,7 +176,7 @@ void generate_path()
             y = possible_moves[index].second;
             dynamic_dungeon[x][y] = 1;
             last_position = {x, y}; // Update last position
-            // print_dungeon();
+            //print_dungeon();
         }
         else
         {
@@ -191,7 +184,7 @@ void generate_path()
         }
     }
     // print_dungeon();
-    cout << "first positon: " << last_position.first << " second postion: " << last_position.second << endl;
+    // cout << "first positon: " << last_position.first << " second postion: " << last_position.second << endl;
     // Mark the last tile in the path as 5
     dynamic_dungeon[last_position.first][last_position.second] = 5;
 }
@@ -221,12 +214,12 @@ void generate_rest()
  * @param l The new length
  * @param h The new height
  */
-void fillDungeon(short l, short h)
+void fillDungeon(int l, int h)
 {
     setLength(l);
     setHeight(h);
 
-    pos[0] = static_cast<short>(getHeight() / 2);
+    pos[0] = static_cast<int>(getHeight() / 2);
     pos[1] = 0;
 
     dynamic_dungeon.clear();
@@ -257,8 +250,8 @@ void generateDynamicLevels()
 
     string board;
 
-    x = length_of_room + 1;
-    y = (x * getLength()) * 2;
+    xPOS = length_of_room + 1;
+    yPOS = (xPOS * getLength()) * 2;
 
     for (int i = 0; i < getHeight(); i++)
     {
@@ -289,14 +282,14 @@ void generateDynamicLevels()
 
 void updateBoard()
 {
-    movement = 2 + (pos[1] * x) + (pos[0] * y);
+    movement = 2 + (pos[1] * xPOS) + (pos[0] * yPOS);
     level_board.replace(movement, 1, 1, player); // update board
     cout << level_board << endl;
 }
 
 void clearBoard()
 {
-    movement = 2 + (pos[1] * x) + (pos[0] * y);
+    movement = 2 + (pos[1] * xPOS) + (pos[0] * yPOS);
     level_board.replace(movement, 1, 1, ' '); // update board
 }
 

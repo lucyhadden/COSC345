@@ -2,6 +2,11 @@
 #define STATUS_H
 
 /**
+ * @file
+ * @brief Header for to represent different classes and player stats
+ */
+
+/**
  * @brief Enum representing different character classes in the game.
  */
 enum CharacterClass {

@@ -1,12 +1,10 @@
 /**
- * Header file for movement.cpp
+ * @file
+ * @brief Header file for movement.cpp
+ * @author Sen Macmaster
  * 
- * Created by: Sen Macmaster 
- * Created on: 22/08/24
- * 
- * Last edited by: Sen Macmaster
- * Last edited on: 22/08/24
  */
+
 
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
@@ -14,36 +12,36 @@
 #include <string>
 #include <vector>
 
-extern short length; /**< The length of the room. */
-extern short height; /**< The height of the room. */
+extern int length; /**< The length of the room. */
+extern int height; /**< The height of the room. */
 
 /**
  * @brief Gets the length of the room.
  * 
  * @return The length of the room.
  */
-extern short getLength();
+extern int getLength();
 
 /**
  * @brief Gets the height of the room.
  * 
  * @return The height of the room.
  */
-extern short getHeight();
+extern int getHeight();
 
 /**
  * @brief Sets the length of the room.
  * 
  * @param l The new length of the room.
  */
-extern void setLength(short l);
+extern void setLength(int l);
 
 /**
  * @brief Sets the height of the room.
  * 
  * @param h The new height of the room.
  */
-extern void setHeight(short h);
+extern void setHeight(int h);
 
 /**
  * @brief Checks if the player is against a wall based on the movement direction.
@@ -65,7 +63,7 @@ void clearBoard();
  * @param l The length of the dungeon.
  * @param h The height of the dungeon.
  */
-void fillDungeon(short l, short h);
+void fillDungeon(int l, int h);
 
 /**
  * @brief Generates dynamic levels for the dungeon.

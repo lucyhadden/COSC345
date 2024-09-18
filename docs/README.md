@@ -37,6 +37,7 @@ On Windows
 1. mkdir build
 2. cmake -B build
 3. cmake --build build
+4. ./build/Debug/COSC345.exe
 
 # Code coverage instructions
 

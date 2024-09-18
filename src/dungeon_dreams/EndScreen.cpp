@@ -47,7 +47,7 @@ void winScreen() {
     cout << AsciiArt::getWinArt3() << endl;
     CustomSleep(2);
     
-    cout << "\nInside, something glimmers — a crown of dark emeralds and gold" << endl;
+    cout << "\nInside, something glimmers - a crown of dark emeralds and gold" << endl;
     CustomSleep(3);
     
     cout << "It's an ancient goblin crown, a relic of a long-lost dynasty" << endl;

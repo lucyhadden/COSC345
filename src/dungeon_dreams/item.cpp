@@ -1,13 +1,3 @@
-/**
- * Initialises an item object and tracks variables
- * 
- * Created by: Sen Macmaster 
- * Created on: 11/08/24
- * 
- * Last editted by: Sen Macmaster
- * Last editted on: 11/08/24
- */
-
 #include "item.h"
 #include <iostream>
 

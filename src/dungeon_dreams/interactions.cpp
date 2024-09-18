@@ -17,6 +17,7 @@
 #include "StartScreen.h"
 #include "EndScreen.h"
 #include "utils.h"
+#include "Status.h" 
 // #include "Utils.h"
 
 #include <cstdlib>
@@ -159,44 +160,44 @@ int tileMovedTo;
  * Method that handles what each tile does to the player.
  * @param tileMovedTo The type of tile that player just moved on
  */
-void levelPlay(int tileMovedTo) {
+void levelPlay(int tileMovedTo, CharacterStats playerStats) {
     if(tileMovedTo == 1) {
         cout << "You are safe" << endl;
     } else if(tileMovedTo == 2) {
         cout << "Oh no! You have encountered a " << enemyType << ". Attack it!" << endl;
         CustomSleep(2);
-        enemyHealth = enemyHealth - player.getAttack();
+        enemyHealth = enemyHealth - playerStats.attack;
         if(enemyHealth <= 0) {
             cout << "You have defeated the " << enemyType << "." << endl;
         } else {
             while (enemyHealth > 0) {
                 cout << "The " << enemyType << " is still alive! It's going to attack" << endl;
                 CustomSleep(2);
-                if(player.getDefense() >= enemyDamage) {
+                if(playerStats.defense >= enemyDamage) {
                     cout << "Your defensive stat is higher than the enemy's damage! You take no damage" << endl;
                 } else {
-                    cout << "The " << enemyType << "'s damage is higher than your defensive stat! You took "<< (enemyDamage - player.getDefense()) << " damage" << endl;
-                    player.setHealth(player.getHealth()- (enemyDamage - player.getDefense()));
+                    cout << "The " << enemyType << "'s damage is higher than your defensive stat! You took "<< (enemyDamage - playerStats.defense) << " damage" << endl;
+                    playerStats.health -= (enemyDamage - playerStats.defense);
                 }
                 CustomSleep(2);
-                if (player.getHealth() <= 0) {
+                if (playerStats.health <= 0) {
                     cout << "You have died" << endl;
                     showEndScreen(false);
                 }
-                cout << "You have " << player.getHealth() << " health left" << endl;
-                enemyHealth -= player.getAttack();
+                cout << "You have " << playerStats.health << " health left" << endl;
+                enemyHealth -= playerStats.attack;
             }
             cout << "You have defeated the " << enemyType << "." << endl;
         }
     } else if(tileMovedTo == 3) {
         cout << "Oh no! A " << trapType << endl;
         CustomSleep(2);
-        player.setHealth(player.getHealth() - trapDamage);
-        if (player.getHealth() <= 0) {
+        playerStats.health -= trapDamage;
+        if (playerStats.health <= 0) {
             showEndScreen(false);
         }
         cout << "You have taken " << trapDamage << " damage" << endl; 
-        cout << "You have " << player.getHealth() << " health left" << endl;
+        cout << "You have " << playerStats.health << " health left" << endl;
     } else if(tileMovedTo == 4) {
         cout << "It's a wall! You cannot move here" << endl;
     } else {

@@ -1,14 +1,3 @@
-/**
- * Header file for player.cpp
- * 
- * Created by: Sen Macmaster 
- * Created on: 11/08/24
- * 
- * Last editted by: Sen Macmaster
- * Last editted on: 11/08/24
- */
-
-
 #ifndef PLAYER_H
 #define PLAYER_H
 
