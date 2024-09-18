@@ -14,37 +14,37 @@
 using namespace std;
 
 /**
- * Displays the welcome screen and initiates the game.
+ * @brief Displays the welcome screen and initiates the game.
  */
 void displayWelcome();
 
 /**
- * Displays the main menu.
+ * @brief Displays the main menu.
  */
 void displayMenu();
 
 /**
- * Displays the available character classes.
+ * @brief Displays the available character classes.
  */
 void displayCharacterClasses();
 
 /**
- * Handles the user's choice from the main menu.
+ * @brief Handles the user's choice from the main menu.
  */
 void handleMenuChoice();
 
 /**
- * Handles the user's choice of character class.
+ * @brief Handles the user's choice of character class.
  */
 void handleClassChoice();
 
 /**
- * Displays the starting story.
+ * @brief Displays the starting story.
  */
 void startingStory();
 
 /**
- * Waits for the user to press any key to continue.
+ * @brief Waits for the user to press any key to continue.
  */
 void pressAnyKeyToContinue2();
 

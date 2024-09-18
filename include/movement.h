@@ -8,6 +8,14 @@
  * Last edited on: 22/08/24
  */
 
+/**
+ * @file
+ * @brief Header file for movement.cpp
+ * @author Sen Macmaster
+ * 
+ */
+
+
 #ifndef MOVEMENT_H
 #define MOVEMENT_H
 
