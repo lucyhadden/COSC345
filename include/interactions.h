@@ -52,7 +52,7 @@ extern Player player;
  * 
  * @param tileMovedTo The type of tile that player just moved on.
  */
-void levelPlay(int tileMovedTo);
+void levelPlay(int tileMovedTo, CharacterStats playerStats);
 
 /**
  * @brief Sets up the enemy stats depending on the level.

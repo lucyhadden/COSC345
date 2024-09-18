@@ -127,7 +127,7 @@ int main()
                     if(tyle ==5){
                         break;
                     }
-                    levelPlay(tyle);
+                    levelPlay(tyle, playerStats);
 
                     cout << "\n--- Updated Player Stats (with Inventory Bonuses) ---\n";
                     cout << "Health: " << playerStats.health << "\n";
