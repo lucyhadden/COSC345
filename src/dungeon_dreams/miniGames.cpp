@@ -9,7 +9,12 @@
 #include "utils.h"
 #include "miniGames.h"
 #include "BlackJack.h"
-
+/**
+ * @file
+ * @brief Holds minigames
+ * @author Elizabeth Stewart
+ * 
+ */
 using namespace std; // Use the standard namespace
 
 // Mini-game functions
