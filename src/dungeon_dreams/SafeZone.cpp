@@ -3,6 +3,7 @@
 #include <cstdlib>
 // #include "Utils.h"
 #include "utils.h"
+#include "Store.h"
 
 using namespace std;
 
@@ -16,15 +17,17 @@ using namespace std;
  */
 void displayOptions();
 
+void IntroductionToStore();
+
 /**
  * @brief Displays the options in the safe zone.
  */
-void handleChoice();
+void handleChoice(CharacterStats& playerStats);
 
-void displaySafeZone()
+void displaySafeZone(CharacterStats& playerStats)
 {
     displayOptions();
-    handleChoice();
+    handleChoice(playerStats);
 }
 
 void displayOptions()
@@ -37,7 +40,7 @@ void displayOptions()
     cout << "Please enter your choice (1-4): ";
 }
 
-void handleChoice()
+void handleChoice(CharacterStats& playerStats)
 {
     int choice;
 
@@ -48,7 +51,7 @@ void handleChoice()
         cout << "handle minigame" << endl;
         break;
     case 2:
-        cout << "Handle the store" << endl;
+        StoreActivated(playerStats);
         break;
     case 3:
         cout << "Handle stat upgrades" << endl;

@@ -18,6 +18,7 @@ set(SOURCES
     include/Equipment.h
     include/Status.h
     include/SafeZone.h
+    include/Store.h
     src/dungeon_dreams/main.cpp
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/AsciiArt.cpp
@@ -31,6 +32,7 @@ set(SOURCES
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/Status.cpp
     src/dungeon_dreams/SafeZone.cpp
+    src/dungeon_dreams/Store.cpp
 )
 
 

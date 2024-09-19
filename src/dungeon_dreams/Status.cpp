@@ -12,6 +12,7 @@ struct CharacterStats {
     int defense;
     int agility;
     int intelligence;
+    int gold;
 
     CharacterStats(CharacterClass characterClass) {
         switch (characterClass) {
@@ -51,6 +52,7 @@ struct CharacterStats {
                 intelligence = 8;
                 break;
         }
+        gold = 0;
     }
 };
 
