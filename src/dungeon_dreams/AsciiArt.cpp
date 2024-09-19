@@ -226,6 +226,112 @@ const std::string& AsciiArt::getEnemyWyvernArt() {
   return enemyWyvernArt;
 }
 
+// Shopkeeper art
+const std::string& AsciiArt::getShopkeeper() {
+    static const std::string shopkeeperArt = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (o.o)       "*e.  L                     
+    dP"            |U|            ^*$                     
+    F$            __|__            .PL                    
+   d *          //.=|=.\\          4 3                    
+  .F 4.        // .=|=. \\  _____  $  L                   
+  d   F        \\ .=|=. // /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+  return shopkeeperArt;
+}
+
+// Shopkeeper art
+const std::string& AsciiArt::getShrugShopkeeper() {
+    static const std::string shrugShopkeeper = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (0.0)       "*e.  L                     
+    dP"            |w|            ^*$                     
+    F$      __    __|__    __      .PL                    
+   d *        \\//.=|=.\\//        4 3                    
+  .F 4.        \/ .=|=. \/  _____  $  L                   
+  d   F           .=|=.    /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+  return shrugShopkeeper;
+}
+
+// Shopkeeper art
+const std::string& AsciiArt::getRightTalkShopkeeper() {
+    static const std::string rightTalkShopkeeper = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (>.o)       "*e.  L                     
+    dP"            |<|            ^*$                     
+    F$            __|__   />       .PL                    
+   d *          //.=|=.\\//        4 3                    
+  .F 4.        // .=|=. \/  _____  $  L                   
+  d   F        \\ .=|=.    /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+  return rightTalkShopkeeper;
+}
+
+// Shopkeeper art
+const std::string& AsciiArt::getLeftTalkShopkeeper() {
+    static const std::string leftTalkShopkeeperArt = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (o.<)       "*e.  L                     
+    dP"            |>|            ^*$                     
+    F$       <\   __|__            .PL                    
+   d *        \\//.=|=.\\          4 3                    
+  .F 4.        \/ .=|=. \\  _____  $  L                   
+  d   F           .=|=. // /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+  return leftTalkShopkeeperArt;
+}
+
+
+
 const std::string& AsciiArt::getDragonWelcomeArt() {
     static const std::string dragonWelcomeArt = R"(
                          _                    _

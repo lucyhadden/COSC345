@@ -2,6 +2,11 @@
 #define STATUS_H
 
 /**
+ * @file
+ * @brief Header for to represent different classes and player stats
+ */
+
+/**
  * @brief Enum representing different character classes in the game.
  */
 enum CharacterClass {
@@ -21,6 +26,7 @@ struct CharacterStats {
     int defense;
     int agility;
     int intelligence;
+    int gold;
 
     /**
      * @brief Initializes stats based on the selected character class.
@@ -64,6 +70,7 @@ struct CharacterStats {
                 intelligence = 8;
                 break;
         }
+        gold = 0;
     }
 };
 

@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(SOURCES
     include/AsciiArt.h
+    include/BlackJack.h
     include/EndScreen.h
     include/interactions.h
     include/item.h
@@ -18,9 +19,11 @@ set(SOURCES
     include/Equipment.h
     include/Status.h
     include/SafeZone.h
+    include/Store.h
     src/dungeon_dreams/main.cpp
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/AsciiArt.cpp
+    src/dungeon_dreams/BlackJack.cpp
     src/dungeon_dreams/EndScreen.cpp
     src/dungeon_dreams/interactions.cpp
     src/dungeon_dreams/item.cpp
@@ -31,6 +34,7 @@ set(SOURCES
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/Status.cpp
     src/dungeon_dreams/SafeZone.cpp
+    src/dungeon_dreams/Store.cpp
 )
 
 
@@ -83,16 +87,6 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/player.cpp
     src/dungeon_dreams/utils.cpp
 )
-
-# target_include_directories(runTests PRIVATE include)
-# target_include_directories(runTests PRIVATE Test)
-
-# target_compile_definitions(runTests PRIVATE TESTING)
-
-# target_link_libraries(runTests gtest_main)
-
-# include(GoogleTest)
-# gtest_discover_tests(runTests)
 
 target_link_libraries(DungeonGameTest gtest gtest_main)
 target_link_libraries(DungeonGameTest ${CMAKE_THREAD_LIBS_INIT})

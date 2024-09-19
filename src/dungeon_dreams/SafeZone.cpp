@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-// #include "Utils.h"
+
 #include "utils.h"
+#include "Store.h"
+#include "miniGames.h"
+#include "BlackJack.h"
 
 using namespace std;
 
@@ -16,18 +19,17 @@ using namespace std;
  */
 void displayOptions();
 
+void IntroductionToStore();
+
 /**
  * @brief Displays the options in the safe zone.
  */
-void handleChoice();
+void handleChoice(CharacterStats& playerStats);
 
-void displaySafeZone()
+void displaySafeZone(CharacterStats& playerStats)
 {
     displayOptions();
-    handleChoice();
-    cout << "Press enter to continue..." <<endl;
-    cin.ignore(); // Ignore any leftover characters in the input buffer
-    cin.get();    // Wait for user input
+    handleChoice(playerStats);
 }
 
 void displayOptions()
@@ -40,34 +42,30 @@ void displayOptions()
     cout << "Please enter your choice (1-4): ";
 }
 
-void handleChoice()
+void handleChoice(CharacterStats& playerStats)
 {
     int choice;
-    bool validChoice = false;
-    while (!validChoice)
+
+    cin >> choice;
+    switch (choice)
     {
-        cin >> choice;
-        switch (choice)
-        {
-        case 1:
-            cout << "handle minigame" << endl;
-            validChoice = true;
-            break;
-        case 2:
-            cout << "Handle the store" << endl;
-            validChoice = true;
-            break;
-        case 3:
-            cout << "Handle stat upgrades" << endl;
-            validChoice = true;
-            break;
-        case 4: 
-            validChoice = true;
-            break;
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-            displayOptions(); // Re-display the menu after an invalid choice
-            break;
-        }
+    case 1:
+        //cout << "handle minigame" << endl;
+        //SelectGame(spinWheel());
+        //game4();
+        BlackJack();
+        break;
+    case 2:
+        StoreActivated(playerStats);
+        break;
+    case 3:
+        cout << "Handle stat upgrades" << endl;
+        break;
+    case 4: 
+        break;
+    default:
+        cout << "Invalid choice. Please try again." << endl;
+        displayOptions(); // Re-display the menu after an invalid choice
+        break;
     }
 }

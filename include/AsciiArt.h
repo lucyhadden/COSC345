@@ -103,6 +103,27 @@ public:
      */ 
     static const std::string& getEnemyWyvernArt();
 
+
+       /**
+     * @brief ASCII art for the shopkeeper.
+     */ 
+    static const std::string& getShopkeeper();
+
+       /**
+     * @brief ASCII art for the shopkeeper.
+     */ 
+    static const std::string& getShrugShopkeeper();
+
+       /**
+     * @brief ASCII art for the shopkeeper.
+     */ 
+    static const std::string& getLeftTalkShopkeeper();
+
+     /**
+     * @brief ASCII art for the shopkeeper.
+     */ 
+    static const std::string& getRightTalkShopkeeper();
+
     /**
      * End screen ASCII art
     */

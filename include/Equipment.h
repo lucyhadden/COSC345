@@ -17,14 +17,16 @@ public:
     std::string name;
     int attackBoost;
     int defenseBoost;
+    int cost;
 
     /**
      * @brief Constructor for Equipment.
      * @param n The name of the equipment.
      * @param atkBoost The attack boost this equipment provides.
      * @param defBoost The defense boost this equipment provides.
+     * @param cost The cost of this equipment.
      */
-    Equipment(std::string n, int atkBoost, int defBoost);
+    Equipment(std::string n, int atkBoost, int defBoost, int c);
 };
 
 /**
@@ -35,6 +37,13 @@ private:
     std::vector<Equipment> equipment;  // List of equipment
 
 public:
+
+    /**
+     * @brief Get inventory
+     * @return equipment
+     */
+    std::vector<Equipment> getInventory() { return equipment; }
+
     /**
      * @brief Adds a piece of equipment to the inventory.
      * @param equip The equipment to be added.

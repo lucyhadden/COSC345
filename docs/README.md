@@ -10,9 +10,8 @@ COSC345 Group project (software engineering)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/lucyhadden/COSC345.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/lucyhadden/COSC345.svg)
 ![GitHub top language](https://img.shields.io/github/languages/top/lucyhadden/COSC345.svg)
-
-
-
+[![CodeQL](https://github.com/lucyhadden/COSC345/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/lucyhadden/COSC345/actions/workflows/github-code-scanning/codeql)
+[![flawfinder](https://github.com/lucyhadden/COSC345/actions/workflows/flawfinder.yml/badge.svg)](https://github.com/lucyhadden/COSC345/actions/workflows/flawfinder.yml)
 
 # Important if pipeline doesn't pass!
 if the pipeline is not passing, this could be a problem because you haven't deleted your build-coverage directory, ensure that before you push you delete build-coverage
