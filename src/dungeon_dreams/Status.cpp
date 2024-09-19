@@ -83,5 +83,6 @@ void upgradeStats(CharacterStats& stats, CharacterClass characterClass) {
             stats.defense += 6;
             break;
     }
+    stats.gold += 5;
 }
 
