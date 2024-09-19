@@ -54,7 +54,6 @@ void pressAnyKeyToContinue2();
  * @return int Returns 0 upon successful completion.
  */
 int function() {
-    displayWelcome();
     displayMenu();
     handleMenuChoice();
     startingStory();
