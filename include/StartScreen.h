@@ -9,6 +9,11 @@
  */
 
 /**
+ * @brief Main function that starts the game.
+ */
+void function();
+
+/**
  * @brief Displays the welcome screen and initiates the game.
  */
 void displayWelcome();
