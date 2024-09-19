@@ -42,8 +42,9 @@ void StoreActivated(CharacterStats& playerStats);
 /**
  * @brief The main loop of store
  * @param equipment the equipment selected
+ * @param playerStats to add the attack and defense bonuses to the player
  */
-void BuyItem(Equipment equipment);
+void BuyItem(CharacterStats& playerStats, Equipment equipment);
 
 /**
  * @brief Prints the shopkeeper's wares
