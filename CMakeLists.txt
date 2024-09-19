@@ -86,16 +86,6 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/utils.cpp
 )
 
-# target_include_directories(runTests PRIVATE include)
-# target_include_directories(runTests PRIVATE Test)
-
-# target_compile_definitions(runTests PRIVATE TESTING)
-
-# target_link_libraries(runTests gtest_main)
-
-# include(GoogleTest)
-# gtest_discover_tests(runTests)
-
 target_link_libraries(DungeonGameTest gtest gtest_main)
 target_link_libraries(DungeonGameTest ${CMAKE_THREAD_LIBS_INIT})
 
