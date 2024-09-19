@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-// #include "Utils.h"
+
 #include "utils.h"
 #include "Store.h"
+#include "miniGames.h"
+#include "BlackJack.h"
 
 using namespace std;
 
@@ -48,7 +50,10 @@ void handleChoice(CharacterStats& playerStats)
     switch (choice)
     {
     case 1:
-        cout << "handle minigame" << endl;
+        //cout << "handle minigame" << endl;
+        //SelectGame(spinWheel());
+        //game4();
+        BlackJack();
         break;
     case 2:
         StoreActivated(playerStats);

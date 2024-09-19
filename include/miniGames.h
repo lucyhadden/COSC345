@@ -1,9 +1,5 @@
-
 #ifndef MINIGAMES_H
 #define MINIGAMES_H
-
-
-#include "miniGames.h"
 
 /**
  * @file 
@@ -40,4 +36,9 @@ int spinWheel();
  */
 int miniGames();
 
-#endif 
+/**
+ * @brief Select game from game 1-4
+ */
+//void SelectGame(int game);
+
+#endif // MINIGAMES_H

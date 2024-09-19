@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(SOURCES
     include/AsciiArt.h
+    include/BlackJack.h
     include/EndScreen.h
     include/interactions.h
     include/item.h
@@ -22,6 +23,7 @@ set(SOURCES
     src/dungeon_dreams/main.cpp
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/AsciiArt.cpp
+    src/dungeon_dreams/BlackJack.cpp
     src/dungeon_dreams/EndScreen.cpp
     src/dungeon_dreams/interactions.cpp
     src/dungeon_dreams/item.cpp
