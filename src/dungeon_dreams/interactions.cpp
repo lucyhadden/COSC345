@@ -300,7 +300,8 @@ short processTileInteraction(short tile, CharacterStats& playerStats, Inventory&
 
         case 3:  // Item discovery
             cout << "You found a powerful item: Magic Amulet (+5 Attack, +3 Defense)\n";
-            playerInventory.addEquipment(Equipment("Magic Amulet", 5, 3));
+            playerInventory.addEquipment(Equipment("Magic Amulet", 5, 3, 5));
+            applyInventoryStats(playerStats, playerInventory);
             return tile;
 
         case 4:  // Trap encounter

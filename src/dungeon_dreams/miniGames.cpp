@@ -7,7 +7,14 @@
 #include <vector>
 
 #include "utils.h"
-
+#include "miniGames.h"
+#include "BlackJack.h"
+/**
+ * @file
+ * @brief Holds minigames
+ * @author Elizabeth Stewart
+ * 
+ */
 using namespace std; // Use the standard namespace
 
 // Mini-game functions
@@ -138,7 +145,7 @@ int game3() {
 
 int game4() {
     // Game 4 logic here
-    cout << "You're playing Game 4!" << endl;
+    //BlackJack();
     return 0;
 }
 
@@ -187,4 +194,25 @@ int miniGames() {
             break;
     }
     return goldEarned;
+}
+
+void SelectGame(int game)
+{
+    switch(game)
+    {
+        case 1:
+            game1();
+            break;
+        case 2:
+            game2();
+            break;
+        case 3:
+            game3();
+            break;
+        case 4:
+            game4();
+            break;
+        default:
+            break;
+    }
 }

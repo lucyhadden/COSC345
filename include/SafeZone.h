@@ -10,7 +10,7 @@
 /**
  * @brief Displays the safe zone dialogue.
  */
-void displaySafeZone();
+void displaySafeZone(CharacterStats& playerStats);
 
 /**
  * @brief Displays the options in the safe zone.
@@ -20,7 +20,7 @@ void displayOptions();
 /**
  * @brief Displays the options in the safe zone.
  */
-void handleChoice();
+void handleChoice(CharacterStats& playerStats);
 
 
 

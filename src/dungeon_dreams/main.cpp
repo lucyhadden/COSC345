@@ -7,18 +7,14 @@
 #include "player.h"
 #include "item.h"
 #include "interactions.h"
-#include "utils.h"
 #include "miniGames.h"
 #include "SafeZone.h"
-#include <string>
-#include <iostream>
-#include "SafeZone.h"
+#include "Store.h"
 #include "Status.h"
 #include "Equipment.h"  
 #include "utils.h"
 
 #include <string>
-#include <iostream>
 #include <thread>
 #include <chrono>
 
@@ -46,6 +42,9 @@ int dungeon_sizes[8][2] = {{3, 3}, {4, 4}, {5, 5}, {6, 6}, {7, 7}, {8, 8}, {9, 9
  */
 const int levels = 8;
 
+extern CharacterStats playerStats;
+extern Inventory playerInventory;
+
 /**
  * @brief Main function that runs the game loop.
  * 
@@ -55,13 +54,10 @@ int main()
 {
     bool gameRunning = true;
     bool gameCompleted = false;
-    bool playerWon = false;
-
-    int totalGold = 0;
+    bool playerWon = false;      
 
     CharacterClass playerClass = KNIGHT; 
-    CharacterStats playerStats(playerClass); 
-    Inventory playerInventory;               
+    CharacterStats playerStats(playerClass);
 
     displayWelcome();
     
@@ -145,7 +141,7 @@ int main()
             cin.ignore(); // Ignore any leftover characters in the input buffer
             cin.get();    // Wait for user input
 
-            displaySafeZone();
+            displaySafeZone(playerStats);
         }
 
         playerWon = true;

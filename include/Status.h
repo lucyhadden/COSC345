@@ -26,6 +26,7 @@ struct CharacterStats {
     int defense;
     int agility;
     int intelligence;
+    int gold;
 
     /**
      * @brief Initializes stats based on the selected character class.
@@ -69,6 +70,7 @@ struct CharacterStats {
                 intelligence = 8;
                 break;
         }
+        gold = 0;
     }
 };
 

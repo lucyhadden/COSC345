@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "EndScreen.h"  
 
-TEST(EndScreenTest, DummyTest) {
+//TEST
+TEST(EndScreenTest, EndScreenDummyTest) {
     EXPECT_TRUE(true);  
 }
