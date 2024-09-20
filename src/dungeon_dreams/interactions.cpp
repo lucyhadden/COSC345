@@ -13,7 +13,7 @@
 
 #include <string>
 #include <iostream>
-#include "player.h"
+#include "interactions.h"
 #include "StartScreen.h"
 #include "EndScreen.h"
 #include "utils.h"
@@ -54,15 +54,6 @@ string trapType;
  */
 short trapDamage; 
 // short randomNumber;
-
-/**
- * The player character with initial stats: health, attack, defense, luck, and stealth.
- * 
- * This creates a player with the name "Player", 0 health points, 0 attack, 
- * 0 defense, 0 luck, and 0 stealth.
- */
-Player player("Player", 0, 0, 0, 0, 0);
-
 
 // Function to wait for user input before continuing
 /**

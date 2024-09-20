@@ -6,8 +6,6 @@
 #include "movement.h"
 #include "EndScreen.h"
 #include "AsciiArt.h"
-#include "player.h"
-#include "item.h"
 #include "interactions.h"
 #include "utils.h"
 #include "TestUtils.h"
