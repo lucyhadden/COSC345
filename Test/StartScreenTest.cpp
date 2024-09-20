@@ -8,6 +8,12 @@
 #include "utils.h"
 
 
+// // Testing displayWelcome()
+// TEST(DungeonDreamsTest, TestDisplayWelcome) {
+//     // Expect the function to run without errors
+//     EXPECT_NO_THROW(displayWelcome());
+// }
+
 // Testing displayMenu()
 TEST(DungeonDreamsTest, TestDisplayMenu) {
     // Redirect stdout to a stringstream to capture output
@@ -27,8 +33,23 @@ TEST(DungeonDreamsTest, TestDisplayMenu) {
     std::cout.rdbuf(old);
 }
 
+// Testing handleMenuChoice()
+// TEST(DungeonDreamsTest, TestHandleMenuChoice) {
+//     std::istringstream input("3\n");
+//     std::cin.rdbuf(input.rdbuf());
+
+//     EXPECT_NO_THROW(handleMenuChoice());
+// }
+
+// Testing displayCharacterClasses()
+TEST(DungeonDreamsTest, TestDisplayCharacterClasses) {
+    // Expect the function to run without errors
+    EXPECT_NO_THROW(displayCharacterClasses());
+}
+
 // Testing startingStory()
 TEST(DungeonDreamsTest, TestStartingStory) {
     // Expect the function to run without errors
     EXPECT_NO_THROW(startingStory());
 }
+
