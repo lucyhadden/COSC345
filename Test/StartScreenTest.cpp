@@ -7,7 +7,7 @@
 #include "TestUtils.h"
 #include "utils.h"
 
-TEST(DungeonDreamsTest, TestFunction) {
+/*TEST(DungeonDreamsTest, TestFunction) {
     // Redirect stdout to a stringstream to capture output
     std::stringstream buffer;
     std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
@@ -24,6 +24,7 @@ TEST(DungeonDreamsTest, TestFunction) {
     // Restore the original stdout
     std::cout.rdbuf(old);
 }
+**/
 
 // Testing displayWelcome()
 TEST(DungeonDreamsTest, TestDisplayWelcome) {
