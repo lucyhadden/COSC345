@@ -97,6 +97,7 @@ const std::string& AsciiArt::getClericArt() {
   return clericArt;
 }
 
+/** NOT USED
 // Enemy slime art
 const std::string& AsciiArt::getEnemySlimeArt() {
     static const std::string enemySlimeArt = R"(
@@ -225,6 +226,7 @@ const std::string& AsciiArt::getEnemyWyvernArt() {
 )";
   return enemyWyvernArt;
 }
+**/
 
 // Shopkeeper art
 const std::string& AsciiArt::getShopkeeper() {
@@ -460,6 +462,7 @@ const std::string& AsciiArt::getWinArt3() {
     return winArt3;
 }
 
+/** NOT USED YET
 // Grizzle normal expression
 const std::string& AsciiArt::getGrizzleNormalExpression() {
     static const std::string grizzleNormalExpression = R"(
@@ -598,3 +601,4 @@ const std::string& AsciiArt::getWinArt9() {
 )";
     return winArt9;
 }
+*/
