@@ -74,7 +74,12 @@ TEST(DungeonGameTest, TestLevelCompletion) {
     std::cout.rdbuf(old);
 }
 
-TEST(DungeonGameTest, TestGameCompletion) {
+TEST(DungeonGameTest, TestGameCompletionWin) {
     bool playerWon = true;
+    EXPECT_NO_THROW(showEndScreen(playerWon));
+}
+
+TEST(DungeonGameTest, TestGameCompletionLoss) {
+    bool playerWon = false;
     EXPECT_NO_THROW(showEndScreen(playerWon));
 }
