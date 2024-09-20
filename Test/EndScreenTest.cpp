@@ -2,6 +2,6 @@
 #include "EndScreen.h"  
 
 //TEST
-TEST(ItemTest, DummyTest) {
+TEST(ItemTest, EndScreenDummyTest) {
     EXPECT_TRUE(true);  
 }
