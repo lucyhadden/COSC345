@@ -50,10 +50,8 @@ void handleChoice(CharacterStats& playerStats)
     switch (choice)
     {
     case 1:
-        //cout << "handle minigame" << endl;
-        //SelectGame(spinWheel());
-        //game4();
-        BlackJack();
+        cout << "handle minigame" << endl;
+        miniGames();
         break;
     case 2:
         StoreActivated(playerStats);
