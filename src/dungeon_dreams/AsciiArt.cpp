@@ -462,19 +462,40 @@ const std::string& AsciiArt::getWinArt3() {
     return winArt3;
 }
 
-/** NOT USED YET
+// Win art 3
+const std::string& AsciiArt::getGuildMaster() {
+    static const std::string guildMaster = R"(
+
+           .=(((=.       
+          i;'   `:i      
+          !__   __!      
+         (~(_)-(_)~)     
+          !   n   !      
+           \  -  /       
+           !`---'!       
+          /`-._.-'\      
+     _.-~'\_/ |o\_/`~-._       _+_     
+    '         |o        `     /   \
+===========================================
+
+
+===========================================
+)";
+    return guildMaster;
+}
+
 // Grizzle normal expression
 const std::string& AsciiArt::getGrizzleNormalExpression() {
     static const std::string grizzleNormalExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -     –      –      - ____
-  / 	       ( o )  ( o )          \
-  \ ____  	                   ____ /
-	      |		       ^          |
-	       \	    -v———v-      /
-	        \	                /
-		          ———————————    
+              ———————————
+           /               \
+    ____ -     –       –     - ____
+  /          ( o )   ( o )          \
+  \ ____                       ____ /
+        |          ^          |
+         \      -v———v-      /
+           \                /
+              ———————————   
 )";
     return grizzleNormalExpression;
 }
@@ -482,15 +503,15 @@ const std::string& AsciiArt::getGrizzleNormalExpression() {
 // Grizzle angry expression
 const std::string& AsciiArt::getGrizzleAngryExpression() {
     static const std::string grizzleAngryExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -      \    /       - ____
-  / 	       ( o )  ( o )           \
-  \ ____  	                   ____ /
-	      |		       ^          |
-	       \	    -v———v-      /
-	        \	                /
-		          ———————————  
+              ———————————
+           /               \
+    ____ -      \     /       - ____
+  /          ( o )   ( o )          \
+  \ ____                       ____ /
+        |          ^          |
+         \      -v———v-      /
+          \                 /
+              ———————————  
 )";
     return grizzleAngryExpression;
 }
@@ -498,15 +519,15 @@ const std::string& AsciiArt::getGrizzleAngryExpression() {
 // Grizzle happy expression
 const std::string& AsciiArt::getGrizzleHappyExpression() {
     static const std::string grizzleHappyExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -     -      –      - ____
-  / 	       ( o )  ( o )           \
-  \ ____  	\\\        \\\     ____ /
-	      |		       ^          |
-	       \	    'v———v'      /
-	        \	                /
-		          ———————————  
+              ———————————
+           /               \
+    ____ -     -       –     - ____
+  /          ( o )   ( o )          \
+  \ ____      \\\      \\\     ____ /
+        |          ^          |
+         \      'v———v'      /
+          \                 /
+              ———————————   
 )";
     return grizzleHappyExpression;
 }
@@ -514,18 +535,19 @@ const std::string& AsciiArt::getGrizzleHappyExpression() {
 // Grizzle scared expression
 const std::string& AsciiArt::getGrizzleScaredExpression() {
     static const std::string grizzleScaredExpression = R"(
-	            ———————————
-		       /  	           \
-	  ____ -     –       –     - ____
-  / 	       ( o )   ( o )          \
-  \ ____  	       ^           ____ /
-	      |		   _________      |
-	       \	  | -v———v- |    /
-	        \	   —————————    /
-		          ———————————   
+              ———————————
+           /               \
+    ____ -     –       –     - ____
+  /          ( o )   ( o )          \
+  \ ____           ^           ____ /
+        |      _________      |
+         \    | -v———v- |    /
+          \    —————————    /
+              ———————————   
 )";
     return grizzleScaredExpression;
 }
+
 
 // Additional Win arts (4-9) follow the same pattern.
 const std::string& AsciiArt::getWinArt4() {
@@ -601,4 +623,5 @@ const std::string& AsciiArt::getWinArt9() {
 )";
     return winArt9;
 }
-*/
+
+
