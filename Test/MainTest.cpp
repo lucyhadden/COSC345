@@ -6,8 +6,6 @@
 #include "movement.h"
 #include "EndScreen.h"
 #include "AsciiArt.h"
-#include "player.h"
-#include "item.h"
 #include "interactions.h"
 #include "utils.h"
 #include "TestUtils.h"
@@ -74,7 +72,12 @@ TEST(DungeonGameTest, TestLevelCompletion) {
     std::cout.rdbuf(old);
 }
 
-TEST(DungeonGameTest, TestGameCompletion) {
+TEST(DungeonGameTest, TestGameCompletionWin) {
     bool playerWon = true;
+    EXPECT_NO_THROW(showEndScreen(playerWon));
+}
+
+TEST(DungeonGameTest, TestGameCompletionLoss) {
+    bool playerWon = false;
     EXPECT_NO_THROW(showEndScreen(playerWon));
 }

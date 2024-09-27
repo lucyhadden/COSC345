@@ -10,10 +10,8 @@ set(SOURCES
     include/BlackJack.h
     include/EndScreen.h
     include/interactions.h
-    include/item.h
     include/miniGames.h
     include/movement.h
-    include/player.h
     include/StartScreen.h
     include/utils.h
     include/Equipment.h
@@ -26,10 +24,8 @@ set(SOURCES
     src/dungeon_dreams/BlackJack.cpp
     src/dungeon_dreams/EndScreen.cpp
     src/dungeon_dreams/interactions.cpp
-    src/dungeon_dreams/item.cpp
     src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/movement.cpp
-    src/dungeon_dreams/player.cpp
     src/dungeon_dreams/utils.cpp
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/Status.cpp
@@ -71,8 +67,6 @@ add_executable(DungeonGameTest
     Test/EndScreenTest.cpp
     Test/StartScreenTest.cpp
     Test/InteractionsTest.cpp
-    Test/ItemTest.cpp
-    Test/PlayerTest.cpp
     Test/MainTest.cpp
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
@@ -84,7 +78,6 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/EndScreen.cpp
     src/dungeon_dreams/miniGames.cpp
-    src/dungeon_dreams/player.cpp
     src/dungeon_dreams/utils.cpp
 )
 
