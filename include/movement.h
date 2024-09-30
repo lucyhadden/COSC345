@@ -89,4 +89,10 @@ short startEvent();
  */
 void updateBoard();
 
+/**
+ * @brief used during debugging to see if valid room tiles were generated
+ */
+
+void print_dungeon();
+
 #endif

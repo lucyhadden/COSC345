@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <random>
 #include <vector>
+#include <cstdlib>
 
 #include "utils.h"
 #include "miniGames.h"
@@ -137,9 +138,101 @@ srand(time(0));
     return gold;
 }
 
+char board[3][3] = { {'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'} };
+char current_marker;
+char computer_marker = 'O';
+int current_player;
+int gold = 0; // Variable to keep track of gold
+
+void drawBoard() {
+    cout << " " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << " \n";
+    cout << "---|---|---\n";
+    cout << " " << board[1][0] << " | " << board[1][1] << " | " << board[1][2] << " \n";
+    cout << "---|---|---\n";
+    cout << " " << board[2][0] << " | " << board[2][1] << " | " << board[2][2] << " \n";
+}
+
+bool placeMarker(int slot, char marker) {
+    int row = (slot - 1) / 3;
+    int col = (slot - 1) % 3;
+
+    if (board[row][col] != 'X' && board[row][col] != 'O') {
+        board[row][col] = marker;
+        return true;
+    }
+    return false;
+}
+int winner() {
+    // Rows
+    for (int i = 0; i < 3; i++)
+        if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) return (board[i][0] == 'X') ? 1 : 2;
+
+    // Columns
+    for (int i = 0; i < 3; i++)
+        if (board[0][i] == board[1][i] && board[1][i] == board[2][i]) return (board[0][i] == 'X') ? 1 : 2;
+
+    // Diagonals
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) return (board[0][0] == 'X') ? 1 : 2;
+    if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) return (board[0][2] == 'X') ? 1 : 2;
+
+    return 0;
+}
+
+void computerMove() {
+    int slot;
+    do {
+        slot = std::rand() % 9 + 1; // Random slot between 1 and 9
+    } while (!placeMarker(slot, computer_marker));
+}
+
 int game3() {
-    // Game 3 logic here
-    cout << "You're playing Game 3!" << endl;
+    cout << "Welcome to the Tic Tac Toe!" << endl;
+    CustomSleep(1);
+    cout << "In this game, you need to beat the computer at tic tac toe." << endl;
+    CustomSleep(1);
+    cout << "Let's start the game!" << endl;
+    CustomSleep(1);
+    srand(time(0));
+    current_marker = 'X';
+    drawBoard();
+
+    int player_won;
+    for (int i = 0; i < 9; i++) {
+        // Player's turn
+        cout << "Your turn (X). Enter your slot: ";
+        int slot;
+        cin >> slot;
+
+        if (slot < 1 || slot > 9) {
+            cout << "Invalid slot! Try again.\n";
+            i--;
+            continue;
+        }
+
+        if (!placeMarker(slot, current_marker)) {
+            cout << "Slot already taken! Try again.\n";
+            i--;
+            continue;
+        }
+
+        drawBoard();
+
+        player_won = winner();
+        if (player_won == 1) { cout << "You win!\n"; break; gold += 10; }
+        if (player_won == 2) { cout << "Computer wins!\n"; break; gold +=1;}
+
+        // Computer's turn
+        cout << "Computer's turn (O).\n";
+        computerMove();
+        drawBoard();
+
+        player_won = winner();
+        if (player_won == 1) { cout << "You win!\n"; break; gold += 10; }
+        if (player_won == 2) { cout << "Computer wins!\n"; break; gold +=1; }
+    }
+
+    if (player_won == 0) {cout << "It's a tie!\n"; gold +=3;}
+    // cout << "You're playing Game 3!" << endl;
     return 0;
 }
 
@@ -176,6 +269,7 @@ int miniGames() {
     cout << "You Have Entered The MiniGames!" << endl;
     CustomSleep(1);
     int gameSelection = spinWheel();
+    // int gameSelection = 3;
     switch (gameSelection) {
         case 1:
             goldEarned = game1();
