@@ -12,6 +12,7 @@
 #include <vector>
 #include <utility>
 #include "movement.h"
+#include "utils.h"
 
 using namespace std;
 

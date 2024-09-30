@@ -127,7 +127,7 @@ void resetPlayerStats(CharacterStats& playerStats, CharacterClass& playerClass) 
     CustomSleep(2);
     cout << "It is time to accept your first quest as an adventurer!" << endl;
     CustomSleep(2);
-    cout << "Ah here's a simple one. Meant to be escort job through a low class dungeon." << endl;
+    cout << "Ah here's a simple one, an escort job through a low class dungeon." << endl;
     CustomSleep(2);
     cout << "Good Luck!" << endl;
     CustomSleep(2);

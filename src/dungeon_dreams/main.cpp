@@ -59,7 +59,7 @@ int main()
     
     Clear();
 
-    displayWelcome();
+    //displayWelcome();
     
     resetPlayerStats(playerStats, playerClass);
 
@@ -90,9 +90,10 @@ int main()
         }
 
         Clear();
+        /**
         std::cout << "You have entered the dungeon..." << std::endl;
         CustomSleep(2);
-        cout << "The treasure lies at the other end of this dungeon, but beware—it’s filled with enemies, traps, and walls that will block your path." << std::endl;
+        cout << "The treasure lies at the other end of this dungeon, but beware — it’s filled with enemies, traps, and walls that will block your path." << std::endl;
         CustomSleep(3);
         cout << ""<< endl;
         cout << "How to move:"<< endl; 
@@ -120,8 +121,10 @@ int main()
         cin.ignore();  // Ignore any leftover characters in the input buffer
         cin.get();     // Wait for user input
 
+        */
+        Clear();    
         applyInventoryStats(playerStats, playerInventory);
-
+        cout << "Level 1" << endl;
         cout << "\n--- Player Stats ---\n";
         cout << "Health: " << playerStats.health << "\n";
         cout << "Attack: " << playerStats.attack << "\n";
@@ -137,10 +140,11 @@ int main()
 
             while (true)
             {   
-
                 if (enterUserInput())
                 {
+                    Clear();
                     setupLevel(level);
+                    cout << "Level " << level << endl;
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
@@ -156,6 +160,9 @@ int main()
                     cout << "Health: " << playerStats.health << "\n";
                     cout << "Attack: " << playerStats.attack << "\n";
                     cout << "Defense: " << playerStats.defense << "\n";
+                    cout << "\n--- Inventory ---\n";
+                    playerInventory.printInventory();
+                    cout << "\n";
 
                     // count++;
                 }
