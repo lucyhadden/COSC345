@@ -10,6 +10,8 @@
 // #include "Utils.h"
 #include "utils.h"
 #include "AsciiArt.h"
+#include "InputUtils.h"
+
 using namespace std;
 
 /**
@@ -22,7 +24,6 @@ using namespace std;
 void winScreen();
 void loseScreen();
 
-// Function to display the win screen animation
 
 /**
  * Method that displays the win screen animation
@@ -75,6 +76,7 @@ void winScreen() {
     cout << "3. Exit" << endl;
     cout << "Please enter your choice (1-3): ";
 
+    clearInputBuffer();
     int choice;
     cin >> choice;
     switch(choice) {
@@ -128,6 +130,7 @@ void loseScreen() {
     CustomSleep(1);
     cout << "Please enter your choice (1-3): ";
 
+    clearInputBuffer();
     int choice;
     cin >> choice;
     switch(choice) {

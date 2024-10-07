@@ -11,8 +11,10 @@
 #include "Status.h"
 #include "Equipment.h"  
 #include "utils.h"
+#include "InputUtils.h"
 
 #include <string>
+#include <limits>
 #include <thread>
 #include <chrono>
 
@@ -172,14 +174,14 @@ int main()
             cout << "You have completed level " << level << ". Leveling up...\n";
             upgradeStats(playerStats, playerClass);
             cout << "Press enter to continue..." << endl;
-            cin.ignore(); // Ignore any leftover characters in the input buffer
-            cin.get();    // Wait for user input
+            clearInputBuffer();
+            cin.get();  // Wait for user input
 
             displaySafeZone(playerStats);
         }
 
         playerWon = true;
-
+        clearInputBuffer(); 
         showEndScreen(playerWon);
         gameRunning = false;
     }
