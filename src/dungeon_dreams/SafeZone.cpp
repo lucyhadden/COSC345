@@ -39,10 +39,9 @@ void displaySafeZone(CharacterStats& playerStats)
 void displayOptions()
 {
     cout << "Welcome to the safe zone" << endl;
-    cout << "1. Play a minigame" << endl;
+    cout << "1. Play a minigame to earn more gold!" << endl;
     cout << "2. Visit the store" << endl;
-    cout << "3. Upgrade your stats" << endl;
-    cout << "4. Continue to next level" << endl;
+    cout << "3. Continue to next level" << endl;
     cout << "Please enter your choice (1-4): ";
 }
 
@@ -66,19 +65,8 @@ void handleChoice(CharacterStats& playerStats)
     case 2:
         StoreActivated(playerStats);
         displayOptions();
-    case 3:
-        if (doneStats){
-            cout << "Handle stat upgrades" << endl;
-            //ADD STATS UPGRADE
-            doneStats = true;
-        }
-        else{
-            cout << "You have already upgraded your stats" << endl;
-        }
-        displayOptions();
-    case 4: 
+    case 3: 
         doneMinigame = false;
-        doneStats = false;
         break;
     default:
         cout << "Invalid choice. Please try again." << endl;
