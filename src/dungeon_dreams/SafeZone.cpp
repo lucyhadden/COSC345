@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+#include "SafeZone.h"
 #include "utils.h"
 #include "Store.h"
 #include "miniGames.h"

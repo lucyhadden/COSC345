@@ -1,5 +1,6 @@
 #ifndef SAFEZONE_H
 #define SAFEZONE_H
+#include "Status.h"
 
 /**
  * @file
