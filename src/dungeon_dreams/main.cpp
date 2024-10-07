@@ -146,7 +146,7 @@ int main()
                 {
                     Clear();
                     setupLevel(level);
-                    cout << "Level " << level << endl;
+                    cout << "Level " << level << "\n"<< endl;
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
