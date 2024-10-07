@@ -9,6 +9,10 @@
 
 using namespace std;
 
+
+bool doneMinigame = false;
+bool doneStats = false;
+
 // /**
 //  * @brief Displays the safe zone dialogue.
 //  */
@@ -50,16 +54,31 @@ void handleChoice(CharacterStats& playerStats)
     switch (choice)
     {
     case 1:
-        cout << "handle minigame" << endl;
-        miniGames();
-        break;
+        if (doneMinigame){
+            cout << "handle minigame" << endl;
+            miniGames();
+            doneMinigame = true;
+        }
+        else{
+            cout << "You have already played a minigame" << endl;
+        }
+        displayOptions();
     case 2:
         StoreActivated(playerStats);
-        break;
+        displayOptions();
     case 3:
-        cout << "Handle stat upgrades" << endl;
-        break;
+        if (doneStats){
+            cout << "Handle stat upgrades" << endl;
+            //ADD STATS UPGRADE
+            doneStats = true;
+        }
+        else{
+            cout << "You have already upgraded your stats" << endl;
+        }
+        displayOptions();
     case 4: 
+        doneMinigame = false;
+        doneStats = false;
         break;
     default:
         cout << "Invalid choice. Please try again." << endl;
