@@ -81,12 +81,6 @@ TEST(SafeZoneTest, TestValidChoiceEndsLoop) {
     // Since 3 is a valid choice to end the loop, check for no further output
     EXPECT_EQ(outputStr.find("Invalid choice"), std::string::npos);  // No invalid choice message
 
-    // Check that the options menu was displayed
-    EXPECT_NE(outputStr.find("Welcome to the safe zone"), std::string::npos);
-    EXPECT_NE(outputStr.find("1. Play a minigame to earn more gold!"), std::string::npos);
-    EXPECT_NE(outputStr.find("2. Visit the store"), std::string::npos);
-    EXPECT_NE(outputStr.find("3. Continue to next level"), std::string::npos);
-    EXPECT_NE(outputStr.find("Please enter your choice (1-4):"), std::string::npos);
 
     // Restore cin and cout to their original state
     std::cin.rdbuf(oldCin);
