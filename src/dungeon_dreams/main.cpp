@@ -59,7 +59,7 @@ int main()
     
     Clear();
 
-    //displayWelcome();
+    displayWelcome();
     
     resetPlayerStats(playerStats, playerClass);
 
@@ -90,7 +90,6 @@ int main()
         }
 
         Clear();
-        /**
         std::cout << "You have entered the dungeon..." << std::endl;
         CustomSleep(2);
         cout << "The treasure lies at the other end of this dungeon, but beware — it’s filled with enemies, traps, and walls that will block your path." << std::endl;
@@ -121,7 +120,6 @@ int main()
         cin.ignore();  // Ignore any leftover characters in the input buffer
         cin.get();     // Wait for user input
 
-        */
         Clear();    
         applyInventoryStats(playerStats, playerInventory);
         cout << "Level 1" << endl;
