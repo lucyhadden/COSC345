@@ -179,6 +179,11 @@ public:
     static const std::string& getWinArt9();
 
 
+    /**
+     * @brief ASCII art for the guild master.
+     */ 
+    static const std::string& getGuildMaster();
+
 
     /**
      * @brief ASCII art for the grizzles normal face

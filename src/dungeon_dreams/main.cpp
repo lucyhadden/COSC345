@@ -56,8 +56,10 @@ int main()
 
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass);
+    
+    Clear();
 
-    displayWelcome();
+    //displayWelcome();
     
     resetPlayerStats(playerStats, playerClass);
 
@@ -88,11 +90,41 @@ int main()
         }
 
         Clear();
+        /**
         std::cout << "You have entered the dungeon..." << std::endl;
-        CustomSleep(1);
+        CustomSleep(2);
+        cout << "The treasure lies at the other end of this dungeon, but beware — it’s filled with enemies, traps, and walls that will block your path." << std::endl;
+        CustomSleep(3);
+        cout << ""<< endl;
+        cout << "How to move:"<< endl; 
+        cout << "Use W to move up"<< endl;
+        cout << "Use A to move left"<< endl;
+        cout << "Use S to move down"<< endl;
+        cout << "Use D to move right"<< endl;
+        CustomSleep(3);
+        cout << ""<< endl;
+        cout << "Find the safe path and avoid the dangers hidden within the tiles." << endl;
+        CustomSleep(3);
+        cout << ""<< endl;
+        cout << "Not all tiles are safe. Some hide dangerous enemies or traps. Others are blocked by walls." << endl;
+        CustomSleep(3);
+        cout << ""<< endl;
+        cout << "Your goal is to navigate through each room safely to get the the treasure." << endl;
+        CustomSleep(3);
+        cout << ""<< endl;
+        cout << "But remember, each step could be your last." << endl;
+        CustomSleep(3);
+        cout << ""<< endl;
+        cout << "Good luck, adventurer! The dungeon awaits." << endl;
+        CustomSleep(3);
+        cout << "Press enter to continue...";
+        cin.ignore();  // Ignore any leftover characters in the input buffer
+        cin.get();     // Wait for user input
 
+        */
+        Clear();    
         applyInventoryStats(playerStats, playerInventory);
-
+        cout << "Level 1" << endl;
         cout << "\n--- Player Stats ---\n";
         cout << "Health: " << playerStats.health << "\n";
         cout << "Attack: " << playerStats.attack << "\n";
@@ -108,10 +140,11 @@ int main()
 
             while (true)
             {   
-
                 if (enterUserInput())
                 {
+                    Clear();
                     setupLevel(level);
+                    cout << "Level " << level << endl;
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
@@ -127,6 +160,9 @@ int main()
                     cout << "Health: " << playerStats.health << "\n";
                     cout << "Attack: " << playerStats.attack << "\n";
                     cout << "Defense: " << playerStats.defense << "\n";
+                    cout << "\n--- Inventory ---\n";
+                    playerInventory.printInventory();
+                    cout << "\n";
 
                     // count++;
                 }

@@ -12,6 +12,7 @@
 #include <vector>
 #include <utility>
 #include "movement.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -282,6 +283,7 @@ void generateDynamicLevels()
 
 void updateBoard()
 {
+    
     movement = 2 + (pos[1] * xPOS) + (pos[0] * yPOS);
     level_board.replace(movement, 1, 1, player); // update board
     cout << level_board << endl;
@@ -340,20 +342,47 @@ bool movementCheck(string input)
 {
     char direction = toupper(input.at(0));
     clearBoard();
+    short py = pos[0];
+    short px = pos[1];
     if (direction == 'W' && !isAgainstWall('W'))
-    {
+    {   
+        short nextPos = dynamic_dungeon[py-1][px];
+        cout<<nextPos<< endl;
+        if(nextPos ==4) {
+            cout << "It's a wall! You cannot move here" << endl;
+            return false;
+        }
         pos[0] -= 1;
+
     }
     else if (direction == 'A' && !isAgainstWall('A'))
     {
+        short nextPos = dynamic_dungeon[py][px-1];
+        cout<<nextPos<< endl;
+        if(nextPos ==4) {
+            cout << "It's a wall! You cannot move here" << endl;
+            return false;
+        }
         pos[1] -= 1;
     }
     else if (direction == 'S' && !isAgainstWall('S'))
     {
+        short nextPos = dynamic_dungeon[py+1][px];
+        cout<<nextPos<< endl;
+        if(nextPos ==4) {
+            cout << "It's a wall! You cannot move here" << endl;
+            return false;
+        }
         pos[0] += 1;
     }
     else if (direction == 'D' && !isAgainstWall('D'))
     {
+        short nextPos = dynamic_dungeon[py][px+1];
+        cout<<nextPos<< endl;
+        if(nextPos ==4) {
+            cout << "It's a wall! You cannot move here" << endl;
+            return false;
+        }
         pos[1] += 1;
     }
     else

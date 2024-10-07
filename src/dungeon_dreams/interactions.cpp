@@ -18,6 +18,7 @@
 #include "EndScreen.h"
 #include "utils.h"
 #include "Status.h" 
+#include "AsciiArt.h"
 // #include "Utils.h"
 
 #include <cstdlib>
@@ -73,6 +74,8 @@ void pressAnyKeyToContinue() {
  */
 void resetPlayerStats(CharacterStats& playerStats, CharacterClass& playerClass) {
     CustomSleep(2);
+    cout << AsciiArt::getGuildMaster() << endl;
+    CustomSleep(2);
     cout << "Welcome to the Adventurer's Guild!" << endl;
     CustomSleep(2);
     cout << "Select Class: " << endl;
@@ -115,10 +118,36 @@ void resetPlayerStats(CharacterStats& playerStats, CharacterClass& playerClass) 
             cout << "Invalid choice. Please try again." << endl;
             resetPlayerStats(playerStats, playerClass);  // Recursive call if the choice is invalid
     }
-
     cout << "Press enter to continue...";
     cin.ignore();  // Ignore any leftover characters in the input buffer
     cin.get();     // Wait for user input
+
+    Clear();
+    cout << AsciiArt::getGuildMaster() << endl;
+    CustomSleep(2);
+    cout << "It is time to accept your first quest as an adventurer!" << endl;
+    CustomSleep(2);
+    cout << "Ah here's a simple one, an escort job through a low class dungeon." << endl;
+    CustomSleep(2);
+    cout << "Good Luck!" << endl;
+    CustomSleep(2);
+    cout << "Press enter to continue...";
+    cin.ignore();  // Ignore any leftover characters in the input buffer
+    cin.get();     // Wait for user input
+
+    Clear();
+    cout << AsciiArt::getGrizzleNormalExpression() << endl;
+    cout << "Ah, there you are! Name’s Grizzle. Heard you're the new adventurer everyone’s talking about!" << endl;
+    CustomSleep(4);
+    Clear();
+    cout << AsciiArt::getGrizzleScaredExpression() << endl;
+    cout << "I need a bit of help, see? This dungeon just popped up recently — real simple stuff, nothing to worry about." << endl;
+    CustomSleep(4);
+    cout << "Just escort me through, and I’ll make sure you get a little reward." << endl;
+    cout << "Press enter to continue...";
+    cin.ignore();  // Ignore any leftover characters in the input buffer
+    cin.get();     // Wait for user input
+
 }
 
 /**
