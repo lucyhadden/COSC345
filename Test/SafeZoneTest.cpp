@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include <sstream>
 #include <iostream>
+#include <SafeZone.h>
 
 TEST(DungeonDreamsTest, TestDisplayOptions) {
     // Redirect std::cout to a stringstream
