@@ -142,7 +142,6 @@ char board[3][3] = { {'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'} };
 char current_marker;
 char computer_marker = 'O';
 int current_player;
-int gold = 0; // Variable to keep track of gold
 
 void drawBoard() {
     cout << " " << board[0][0] << " | " << board[0][1] << " | " << board[0][2] << " \n";
@@ -186,6 +185,7 @@ void computerMove() {
 }
 
 int game3() {
+    int gold = 0; // Variable to keep track of gold
     cout << "Welcome to the Tic Tac Toe!" << endl;
     CustomSleep(1);
     cout << "In this game, you need to beat the computer at tic tac toe." << endl;
@@ -233,7 +233,7 @@ int game3() {
 
     if (player_won == 0) {cout << "It's a tie!\n"; gold +=3;}
     // cout << "You're playing Game 3!" << endl;
-    return 0;
+    return gold;
 }
 
 int game4() {
