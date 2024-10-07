@@ -86,3 +86,37 @@ TEST(SafeZoneTest, TestValidChoiceEndsLoop) {
     std::cin.rdbuf(oldCin);
     std::cout.rdbuf(oldCout);
 }
+
+TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
+    // Set up mock input and output
+    std::stringstream input("1\n");  // Mock input: valid choice 1
+    std::stringstream output;
+
+    // Redirect cin and cout to our stringstreams
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Set up player stats and doneMinigame
+    CharacterStats playerStats(KNIGHT);  // Example player stats
+    doneMinigame = false;  // Set up condition for already played
+
+    // Call the function
+    handleChoice(playerStats);
+
+    // Check the output
+    std::string outputStr = output.str();
+    
+    // Expect to see the message for already played minigame
+    EXPECT_NE(outputStr.find("You have already played a minigame"), std::string::npos);
+    
+    // Check if the menu was re-displayed after invalid choice
+    EXPECT_NE(outputStr.find("Welcome to the safe zone"), std::string::npos);
+    EXPECT_NE(outputStr.find("1. Play a minigame to earn more gold!"), std::string::npos);
+    EXPECT_NE(outputStr.find("2. Visit the store"), std::string::npos);
+    EXPECT_NE(outputStr.find("3. Continue to next level"), std::string::npos);
+    EXPECT_NE(outputStr.find("Please enter your choice (1-4):"), std::string::npos);
+
+    // Restore cin and cout to their original state
+    std::cin.rdbuf(oldCin);
+    std::cout.rdbuf(oldCout);
+}
