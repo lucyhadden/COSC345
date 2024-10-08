@@ -69,16 +69,17 @@ void handleChoice(CharacterStats& playerStats)
         else{
             cout << "You have already played a minigame" << endl;
         }
-        displaySafeZone(playerStats);
+        break;
     case 2:
         StoreActivated(playerStats);
-        displaySafeZone(playerStats);
+        break;
     case 3: 
         doneMinigame = false;
-        break;
+        return;
     default:
         cout << "Invalid choice. Please try again." << endl;
-        displayOptions(); // Re-display the menu after an invalid choice
+        // displayOptions(); // Re-display the menu after an invalid choice
         break;
     }
+    displaySafeZone(playerStats);
 }

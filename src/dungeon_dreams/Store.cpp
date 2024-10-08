@@ -130,7 +130,7 @@ void StoreActivated(CharacterStats& playerStats)
     }
     atStore = true;
     Clear();
-    displaySafeZone(playerStats);
+    // displaySafeZone(playerStats);
 }
 
 void BuyItem(CharacterStats& playerStats, Equipment equipment)
