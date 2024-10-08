@@ -89,7 +89,7 @@ TEST(SafeZoneTest, TestValidChoiceEndsLoop) {
 
 TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
     // Set up mock input and output
-    std::stringstream input("1\n");  // Mock input: valid choice 1
+    std::stringstream input("1\n3\n");  // Mock input: valid choice 1
     std::stringstream output;
 
     // Redirect cin and cout to our stringstreams
