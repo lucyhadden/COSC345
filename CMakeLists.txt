@@ -71,7 +71,6 @@ add_executable(DungeonGameTest
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
     Test/MiniGamesTest.cpp
-    Test/EquipmentTest.cpp
 
 
     
@@ -82,7 +81,6 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/utils.cpp
    
-    src/dungeon_dreams/Equipment.cpp
 )
 
 target_link_libraries(DungeonGameTest gtest gtest_main)
