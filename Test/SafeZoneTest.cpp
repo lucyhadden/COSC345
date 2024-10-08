@@ -98,7 +98,7 @@ TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
 
     // Set up player stats and doneMinigame
     CharacterStats playerStats(KNIGHT);  // Example player stats
-    doneMinigame = false;  // Set up condition for already played
+    // doneMinigame = false;  // Set up condition for already played
 
     // Call the function
     handleChoice(playerStats);
