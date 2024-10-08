@@ -97,137 +97,6 @@ const std::string& AsciiArt::getClericArt() {
   return clericArt;
 }
 
-/** NOT USED
-// Enemy slime art
-const std::string& AsciiArt::getEnemySlimeArt() {
-    static const std::string enemySlimeArt = R"(
-    .------.  
-   /        \ 
-  / .-"""-.  \
- | |  .-.  | |
-  \ \_| |_/ / 
-   '.\   /.'  
-     '|_|'    
-      |_|     
-    _/   \_   
-   /_______\
-)";
-  return enemySlimeArt;
-}
-
-// Enemy skeleton art
-const std::string& AsciiArt::getEnemySkeletonArt() {
-    static const std::string enemySkeletonArt = R"(
-             _..---..__
-           ,'          `-.
-          .'` .          )
-          |     `;.__.._.'
-           \ .`--.(##)(#).
-            `-->;--' pWq`>
-              < <"v\,,,,]
-               `\`^-''''7
-                 `~"--^-'
-)";
-  return enemySkeletonArt;
-}
-
-// Enemy spider art
-const std::string& AsciiArt::getEnemySpiderArt() {
-    static const std::string enemySpiderArt = R"(
-          |
-      /   |   \
-     / /  |  \ \
-     \ \_(*)_/ /
-      \_(~:~)_/
-       /-(:)-\
-      / / * \ \
-      \ \   / /
-       \     /
-)";
-  return enemySpiderArt;
-}
-
-// Enemy ghost art
-const std::string& AsciiArt::getEnemyGhostArt() {
-    static const std::string enemyGhostArt = R"(
-         ___
-       _/ @@\
-      ( \  O/__
-       \    \__)
-       /     \
-      /      _\
-     `"""""``
-)";
-  return enemyGhostArt;
-}
-
-// Enemy banshee art
-const std::string& AsciiArt::getEnemyBansheeArt() {
-    static const std::string enemyBansheeArt = R"(
-   .-""""-.  
-  /        \ 
- | .-.  .-. | 
- |/_o | o_\| 
- |  (_)   (_)
- |  \ '---'/
- /    '---' \ 
-/`'-       -'\ 
-\   '-...-'   /
- '.___ .___.'
-     |_|_|
-)";
-  return enemyBansheeArt;
-}
-
-// Enemy fire golem art
-const std::string& AsciiArt::getEnemyFireGolemArt() {
-    static const std::string enemyFireGolemArt = R"(
-   .   _    .  
-  /.\ | |  /.\ 
- /@@|_|_|_/@@\ 
- | @@@@|@@@@ | 
- \  @@'|`@@  / 
-  \  '@|@'  /  
-   '-- | --'   
-       |       
-   .   |   .   
- /@\  / \  /@\ 
-)";
-  return enemyFireGolemArt;
-}
-
-// Enemy liche art
-const std::string& AsciiArt::getEnemyLicheArt() {
-    static const std::string enemyLicheArt = R"(
-  .-"""-.  
- /       \ 
-| .-"""-. |
-| |  X  | |
-| | /^\ | |
-| |(   )| |
-|  \'-'/  |
- \_______/ 
-  _|_|_|_  
-)";
-  return enemyLicheArt;
-}
-
-// Enemy wyvern art
-const std::string& AsciiArt::getEnemyWyvernArt() {
-    static const std::string enemyWyvernArt = R"(
-    / \__/ \
-   /        \
-  |  .-""-.  |
- /`-'  oo  '-'\
-|           >  |
- \   '--'   / /
-  '.___ __.'_/ 
-     |_||_|    
-)";
-  return enemyWyvernArt;
-}
-**/
-
 // Shopkeeper art
 const std::string& AsciiArt::getShopkeeper() {
     static const std::string shopkeeperArt = R"(       
@@ -625,3 +494,133 @@ const std::string& AsciiArt::getWinArt9() {
 }
 
 
+/** NOT USED
+// Enemy slime art
+const std::string& AsciiArt::getEnemySlimeArt() {
+    static const std::string enemySlimeArt = R"(
+    .------.  
+   /        \ 
+  / .-"""-.  \
+ | |  .-.  | |
+  \ \_| |_/ / 
+   '.\   /.'  
+     '|_|'    
+      |_|     
+    _/   \_   
+   /_______\
+)";
+  return enemySlimeArt;
+}
+
+// Enemy skeleton art
+const std::string& AsciiArt::getEnemySkeletonArt() {
+    static const std::string enemySkeletonArt = R"(
+             _..---..__
+           ,'          `-.
+          .'` .          )
+          |     `;.__.._.'
+           \ .`--.(##)(#).
+            `-->;--' pWq`>
+              < <"v\,,,,]
+               `\`^-''''7
+                 `~"--^-'
+)";
+  return enemySkeletonArt;
+}
+
+// Enemy spider art
+const std::string& AsciiArt::getEnemySpiderArt() {
+    static const std::string enemySpiderArt = R"(
+          |
+      /   |   \
+     / /  |  \ \
+     \ \_(*)_/ /
+      \_(~:~)_/
+       /-(:)-\
+      / / * \ \
+      \ \   / /
+       \     /
+)";
+  return enemySpiderArt;
+}
+
+// Enemy ghost art
+const std::string& AsciiArt::getEnemyGhostArt() {
+    static const std::string enemyGhostArt = R"(
+         ___
+       _/ @@\
+      ( \  O/__
+       \    \__)
+       /     \
+      /      _\
+     `"""""``
+)";
+  return enemyGhostArt;
+}
+
+// Enemy banshee art
+const std::string& AsciiArt::getEnemyBansheeArt() {
+    static const std::string enemyBansheeArt = R"(
+   .-""""-.  
+  /        \ 
+ | .-.  .-. | 
+ |/_o | o_\| 
+ |  (_)   (_)
+ |  \ '---'/
+ /    '---' \ 
+/`'-       -'\ 
+\   '-...-'   /
+ '.___ .___.'
+     |_|_|
+)";
+  return enemyBansheeArt;
+}
+
+// Enemy fire golem art
+const std::string& AsciiArt::getEnemyFireGolemArt() {
+    static const std::string enemyFireGolemArt = R"(
+   .   _    .  
+  /.\ | |  /.\ 
+ /@@|_|_|_/@@\ 
+ | @@@@|@@@@ | 
+ \  @@'|`@@  / 
+  \  '@|@'  /  
+   '-- | --'   
+       |       
+   .   |   .   
+ /@\  / \  /@\ 
+)";
+  return enemyFireGolemArt;
+}
+
+// Enemy liche art
+const std::string& AsciiArt::getEnemyLicheArt() {
+    static const std::string enemyLicheArt = R"(
+  .-"""-.  
+ /       \ 
+| .-"""-. |
+| |  X  | |
+| | /^\ | |
+| |(   )| |
+|  \'-'/  |
+ \_______/ 
+  _|_|_|_  
+)";
+  return enemyLicheArt;
+}
+
+// Enemy wyvern art
+const std::string& AsciiArt::getEnemyWyvernArt() {
+    static const std::string enemyWyvernArt = R"(
+    / \__/ \
+   /        \
+  |  .-""-.  |
+ /`-'  oo  '-'\
+|           >  |
+ \   '--'   / /
+  '.___ __.'_/ 
+     |_||_|    
+)";
+  return enemyWyvernArt;
+}
+**/

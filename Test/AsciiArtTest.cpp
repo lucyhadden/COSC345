@@ -171,3 +171,147 @@ TEST(AsciiArtTest, GetWinArt9Test) {
 )";
     EXPECT_EQ(AsciiArt::getWinArt9(), expectedArt);
 }
+
+// Test for getShopkeeper
+TEST(AsciiArtTest, GetShopkeeperTest) {
+    std::string expectedArt = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (o.o)       "*e.  L                     
+    dP"            |U|            ^*$                     
+    F$            __|__            .PL                    
+   d *          //.=|=.\\          4 3                    
+  .F 4.        // .=|=. \\  _____  $  L                   
+  d   F        \\ .=|=. // /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+    EXPECT_EQ(AsciiArt::getShopkeeper(), expectedArt);
+}
+
+// Test for getShrugShopkeeper
+TEST(AsciiArtTest, GetShrugShopkeeperTest) {
+    std::string expectedArt = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (0.0)       "*e.  L                     
+    dP"            |w|            ^*$                     
+    F$      __    __|__    __      .PL                    
+   d *        \\//.=|=.\\//        4 3                    
+  .F 4.        \/ .=|=. \/  _____  $  L                   
+  d   F           .=|=.    /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+    EXPECT_EQ(AsciiArt::getShrugShopkeeper(), expectedArt);
+}
+
+// Test for getRightTalkShopkeeper
+TEST(AsciiArtTest, GetRightTalkShopkeeperTest) {
+    std::string expectedArt = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (>.o)       "*e.  L                     
+    dP"            |<|            ^*$                     
+    F$            __|__   />       .PL                    
+   d *          //.=|=.\\//        4 3                    
+  .F 4.        // .=|=. \/  _____  $  L                   
+  d   F        \\ .=|=.    /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+    EXPECT_EQ(AsciiArt::getRightTalkShopkeeper(), expectedArt);
+}
+
+// Test for getLeftTalkShopkeeper
+TEST(AsciiArtTest, GetLeftTalkShopkeeperTest) {
+    std::string expectedArt = R"(       
+                    .                             
+                   .$r                            
+                  z$$$b                                   
+                z$$$$$$$e                                 
+             .d$$$$$$$$$$$b.                              
+          zd$$$$$$$$$$$$$$$$$$e.                          
+      z*************$*************4                       
+      F         .*"   "%c.         L                      
+     d     .z*"    .-.    "*e.     4                      
+     F .z*"       (o.<)       "*e.  L                     
+    dP"            |>|            ^*$                     
+    F$       <\   __|__            .PL                    
+   d *        \\//.=|=.\\          4 3                    
+  .F 4.        \/ .=|=. \\  _____  $  L                   
+  d   F           .=|=. // /..../\ F  3                   
+  P   $'========================='4%   L                  
+ d    3        ....'s Wares       d    *                  
+ P    4r                          $    ^L                 
+'%=====%============*=============%=====*      
+)";
+    EXPECT_EQ(AsciiArt::getLeftTalkShopkeeper(), expectedArt);
+}
+
+// Test for getDragonWelcomeArt
+TEST(AsciiArtTest, GetDragonWelcomeArtTest) {
+    std::string expectedArt = R"(
+                         _                    _
+                  ,/                        \,
+        _________{(                          })_________
+       /.-------./\\                        //\.-------.\
+      //@@@@@@@//@@\\  )                (  //@@\\@@@@@@@\\
+     //@@@@@@@//@@@@>>/                  \<<@@@@\\@@@@@@@\\
+    //O@O@O@O//@O@O//                      \\O@O@\\O@O@O@O\\
+  //OOOOOOOO//OOOO||          \  /          ||OOOO\\OOOOOOOO\\
+ //O%O%O%O%//O%O%O%\\         ))((         //%O%O%O\\%O%O%O%O\\
+||%%%%%%%%//'  `%%%%\\       //  \\       //%%%%'   `\\%%%%%%%||
+((%%%%%%%((      %%%%%\\    ((    ))    //%%%%%       ))%%%%%%))
+ \:::' `::\\      `:::::\\   \)~~(/    //:::::'      //::' `:::/
+  )'     `;)'      (`  ` \\ `<@  @>' / / '  ')      `(;'     `(
+          (               \`\ )^^( /  /               )
+        _                  ) \\oo/   (
+       (@)                  \  `'   /                      _
+       |-|\__________________\__^__<________oOo__________ (@)
+       |-|                                  VVV           |-|
+       |-|   __          __  _                            |-|
+       |-|  \ \        / / | |                            |-|
+       |-|   \ \  /\  / /__| | ___ ___  _ __ ___   ___    |-|
+       |-|    \ \/  \/ / _ \ |/ __/ _ \| '_ ` _ \ / _ \   |-|
+       |-|     \  /\  /  __/ | (_| (_) | | | | | |  __/   |-|
+       |-|      \/  \/ \___|_|\___\___/|_| |_| |_|\___|   |-|
+       |-|                                                |-|
+       |_|\_____________________________________________  | |
+       (@)                 / ,/ \_____/ \\ ~\/~         `\|-|
+        ~             ___//^~      \____/\\               (@)
+                     <<<  \     __  <____/||               ~
+                               <   \ <___/||
+                                  || <___//
+                                  \ \/__//
+                                   ~----~
+)";
+    EXPECT_EQ(AsciiArt::getDragonWelcomeArt(), expectedArt);
+}
