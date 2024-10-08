@@ -63,6 +63,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(DungeonGameTest
+    Test/SafeZoneTest.cpp
     Test/AsciiArtTest.cpp
     Test/EndScreenTest.cpp
     Test/StartScreenTest.cpp
@@ -72,7 +73,6 @@ add_executable(DungeonGameTest
     Test/UtilsTest.cpp
     Test/MiniGamesTest.cpp
     Test/EquipmentTest.cpp
-    Test/SafeZoneTest.cpp
 
 
     

@@ -150,8 +150,6 @@ TEST(SafeZoneTest, TestStore) {
 
     // Validate that the player exited the store by selecting option 5
     EXPECT_NE(outputStr.find("5. Exit Shop"), std::string::npos);
-
-//     // Validate that the game continued without further store display
-//     EXPECT_EQ(atStore, true);  // Check that atStore was correctly reset after leaving the store
 }
+
 
