@@ -89,7 +89,7 @@ TEST(SafeZoneTest, TestValidChoiceEndsLoop) {
 
 TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
     // Set up mock input and output
-    std::stringstream input("1\n");  // Mock input: valid choice 1
+    std::stringstream input("1\n3\n");  // Mock input: valid choice 1
     std::stringstream output;
 
     // Redirect cin and cout to our stringstreams
@@ -98,7 +98,8 @@ TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
 
     // Set up player stats and doneMinigame
     CharacterStats playerStats(KNIGHT);  // Example player stats
-    // doneMinigame = false;  // Set up condition for already played
+    
+    // setDoneMinigame(false);  // Set up condition for already played
 
     // Call the function
     handleChoice(playerStats);

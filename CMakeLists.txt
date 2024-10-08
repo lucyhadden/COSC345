@@ -72,6 +72,7 @@ add_executable(DungeonGameTest
     Test/UtilsTest.cpp
     Test/MiniGamesTest.cpp
     Test/EquipmentTest.cpp
+    Test/SafeZoneTest.cpp
 
 
     
@@ -82,6 +83,8 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/utils.cpp
     src/dungeon_dreams/Equipment.cpp
+    src/dungeon_dreams/SafeZone.cpp
+    src/dungeon_dreams/Store.cpp
    
 )
 
