@@ -25,6 +25,7 @@ void displayOptions();
 
 void IntroductionToStore();
 
+
 /**
  * @brief Displays the options in the safe zone.
  */
@@ -53,7 +54,7 @@ void handleChoice(CharacterStats& playerStats)
     switch (choice)
     {
     case 1:
-        if (doneMinigame){
+        if (!doneMinigame){
             cout << "handle minigame" << endl;
             miniGames();
             doneMinigame = true;
@@ -61,10 +62,10 @@ void handleChoice(CharacterStats& playerStats)
         else{
             cout << "You have already played a minigame" << endl;
         }
-        displayOptions();
+        displaySafeZone(playerStats);
     case 2:
         StoreActivated(playerStats);
-        displayOptions();
+        displaySafeZone(playerStats);
     case 3: 
         doneMinigame = false;
         break;
