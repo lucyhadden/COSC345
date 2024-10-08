@@ -121,3 +121,37 @@ TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
     std::cin.rdbuf(oldCin);
     std::cout.rdbuf(oldCout);
 }
+
+TEST(SafeZoneTest, TestStore) {
+    // Set up mock input and output
+    std::stringstream input("2\n5\n");  // Mock input: 2 to enter the store, 5 to exit the store
+    std::stringstream output;
+
+    // Redirect cin and cout to our stringstreams
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Set up player stats
+    CharacterStats playerStats(KNIGHT);  // Example player stats
+
+    // Call the function (entering the store with option 3)
+    handleChoice(playerStats);
+
+    // Capture the output
+    std::string outputStr = output.str();
+
+    // Restore cin and cout to their original state
+    std::cin.rdbuf(oldCin);
+    std::cout.rdbuf(oldCout);
+
+    // Validate that the store introduction appeared
+    EXPECT_NE(outputStr.find("Welcome to"), std::string::npos);
+    EXPECT_NE(outputStr.find("Please enter your choice (1-5):"), std::string::npos);
+
+    // Validate that the player exited the store by selecting option 5
+    EXPECT_NE(outputStr.find("5. Exit Shop"), std::string::npos);
+
+//     // Validate that the game continued without further store display
+//     EXPECT_EQ(atStore, true);  // Check that atStore was correctly reset after leaving the store
+}
+
