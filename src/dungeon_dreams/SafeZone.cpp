@@ -25,6 +25,13 @@ void displayOptions();
 
 void IntroductionToStore();
 
+/**
+ * @brief Setter for the minigame Boolean variable used in testing.
+ */
+void setDoneMinigame(bool value) {
+    doneMinigame = value;
+}
+
 
 /**
  * @brief Displays the options in the safe zone.
