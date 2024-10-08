@@ -71,6 +71,7 @@ add_executable(DungeonGameTest
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
     Test/MiniGamesTest.cpp
+    Test/EquipmentTest.cpp
 
 
     
