@@ -321,8 +321,24 @@ TEST(InteractionsTest, LevelPlayTestTile2C) {
     
     std::cout.rdbuf(oldCout);
 }
+TEST(InteractionsTest, LevelPlayTestTile2D) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = TANK; 
+    CharacterStats playerStats(playerClass); 
+
+    setupLevel(4);
+    levelPlay(2, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+
+    EXPECT_NE(outputStr.find("Your defensive stat is higher than the enemy's damage! You take no damage"), std::string::npos);
+    
+    std::cout.rdbuf(oldCout);
+}
 // Test for Tile 3 (Trap encounter)
-TEST(InteractionsTest, LevelPlayTestTile3) {
+TEST(InteractionsTest, LevelPlayTestTile3A) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
@@ -339,6 +355,21 @@ TEST(InteractionsTest, LevelPlayTestTile3) {
     
     // Check player health is correctly updated after the trap
     EXPECT_LE(playerStats.health, 150); 
+    
+    std::cout.rdbuf(oldCout);
+}
+TEST(InteractionsTest, LevelPlayTestTile3B) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+    playerStats.health = 20;
+
+    setupLevel(8);
+    levelPlay(3, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
     
     std::cout.rdbuf(oldCout);
 }
@@ -453,4 +484,117 @@ TEST(InteractionsTest, SetUpLevel){
 }
 
 //test processTileInteraction
-//TEST(InteractionsTest, ProcessTileInteraction){}
+// Test for a safe tile (tile 1)
+TEST(InteractionsTest, ProcessTileInteractionTestTile1) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    short result = processTileInteraction(1, playerStats, playerInventory);
+
+    EXPECT_EQ(outputBuffer.str(), "Nothing happens on this tile.\n");
+    
+    std::cout.rdbuf(oldCout);
+}
+// Test for enemy encounter (tile 2)
+TEST(InteractionsTest, ProcessTileInteractionTestTile2) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    playerStats.health = 100; // Set initial health
+    short result = processTileInteraction(2, playerStats, playerInventory);
+
+    EXPECT_EQ(result, 2);
+    EXPECT_NE(outputBuffer.str().find("You encountered a "), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("You lost "), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+}
+// Test for item discovery (tile 3)
+TEST(InteractionsTest, ProcessTileInteractionTestTile3) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    short result = processTileInteraction(3, playerStats, playerInventory);
+
+    EXPECT_EQ(result, 3);
+    EXPECT_NE(outputBuffer.str().find("You found a powerful item: Magic Amulet"), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+}
+// Test for trap encounter (tile 4)
+TEST(InteractionsTest, ProcessTileInteractionTestTile4) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    short result = processTileInteraction(4, playerStats, playerInventory);
+
+    EXPECT_EQ(result, 4);
+    EXPECT_NE(outputBuffer.str().find("Oh no! You stepped on a "), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("You lost "), std::string::npos);
+    std::cout.rdbuf(oldCout);
+}
+// Test for healing fountain (tile 5)
+TEST(InteractionsTest, ProcessTileInteractionTestTile5) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    playerStats.health = 80; // Set health below max
+    short result = processTileInteraction(5, playerStats, playerInventory);
+
+    EXPECT_EQ(result, 5);
+    EXPECT_NE(outputBuffer.str().find("You found a healing fountain!"), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+}
+// Test for exit tile (tile 6)
+TEST(InteractionsTest, ProcessTileInteractionTestTile6) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    short result = processTileInteraction(6, playerStats, playerInventory);
+
+    EXPECT_EQ(result, 5); // Level completion
+    EXPECT_NE(outputBuffer.str().find("You found the exit!"), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+}
+// Test for unknown tile
+TEST(InteractionsTest, ProcessTileInteractionTestUnknownTile) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    short result = processTileInteraction(99, playerStats, playerInventory); // Unknown tile
+
+    EXPECT_EQ(result, 99);
+    EXPECT_NE(outputBuffer.str().find("You stepped on an unknown tile..."), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+}
