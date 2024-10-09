@@ -88,7 +88,7 @@ TEST(InteractionsTest, ResetPlayerStatMage){
     std::istringstream inputBuffer("2\n"); // Simulate choosing the Knight class
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
-    CharacterClass playerClass = MAGE;
+    CharacterClass playerClass = KNIGHT;
     CharacterStats playerStats(playerClass);
 
     resetPlayerStats(playerStats, playerClass); 
