@@ -34,7 +34,7 @@ using namespace std;
  * 
  * int dungeon_sizes[8][2] = {{3, 3}, {5, 6}, {6, 3}, {6, 5}, {10, 5}, {8, 7}, {8, 7}, {10, 9}}; 
  */
-int dungeon_sizes[8][2] = {{3, 3}, {4, 4}, {5, 5}, {6, 6}, {7, 7}, {8, 8}, {9, 9}, {10, 10}}; 
+int dungeon_sizes[8][2] = {{3, 3}, {3, 3}, {5, 5}, {5, 5}, {7, 7}, {7, 7}, {9, 9}, {9, 9}}; 
 
 
 /** 
@@ -94,7 +94,7 @@ int main()
         Clear();
         std::cout << "You have entered the dungeon..." << std::endl;
         CustomSleep(2);
-        cout << "The treasure lies at the other end of this dungeon, but beware — it’s filled with enemies, traps, and walls that will block your path." << std::endl;
+        cout << "The treasure lies at the other end of this dungeon, but beware - it's filled with enemies, traps, and walls that will block your path." << std::endl;
         CustomSleep(3);
         cout << ""<< endl;
         cout << "How to move:"<< endl; 
@@ -148,13 +148,14 @@ int main()
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
-
-                    short result = processTileInteraction(tyle, playerStats, playerInventory);
+                    if(tyle != -1){
+                        short result = processTileInteraction(tyle, playerStats, playerInventory);
+                    }
 
                     if(tyle ==5){
                         break;
                     }
-                    levelPlay(tyle, playerStats);
+                    //levelPlay(tyle, playerStats);
 
                     cout << "\n--- Updated Player Stats (with Inventory Bonuses) ---\n";
                     cout << "Health: " << playerStats.health << "\n";

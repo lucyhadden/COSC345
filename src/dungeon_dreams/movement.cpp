@@ -46,6 +46,9 @@ const int height_of_room = 1;
  */
 vector<vector<int>> dynamic_dungeon;
 
+vector<vector<bool>> has_been_on;
+
+
 /**
  * The number of tiles high in the room.
  */
@@ -225,9 +228,13 @@ void fillDungeon(int l, int h)
 
     dynamic_dungeon.clear();
     dynamic_dungeon.resize(getLength());
+
+    has_been_on.clear();
+    has_been_on.resize(getLength());
     for (int i = 0; i < getLength(); i++)
     {
         dynamic_dungeon[i].resize(getHeight(), 0);
+        has_been_on[i].resize(getHeight(), false);
     }
 
     // Use current time as seed for random generator
@@ -305,12 +312,10 @@ bool isAgainstWall(char move)
     // Vertical wall and horizontal wall checks
     if ((move == 'W' && pos[0] <= 0) || (move == 'S' && pos[0] >= getHeight() - 1))
     {
-        cout << "TEST" << endl;
         return true;
     }
     else if ((move == 'A' && pos[1] <= 0) || (move == 'D' && pos[1] >= getLength() - 1))
     {
-        cout << "TEST" << endl;
         return true;
     }
     return false;
@@ -323,14 +328,12 @@ bool isAgainstWall(char move)
 short startEvent()
 {
     short type_of_room = dynamic_dungeon[pos[0]][pos[1]];
+    if(has_been_on[pos[0]][pos[1]] && type_of_room != 1){
+        return -1;
+    }
+
+    has_been_on[pos[0]][pos[1]] = true;
     return type_of_room;
-    // switch(type_of_room) {
-    //     case 0:
-    //         cout << "SAFE" << endl;
-    //         break;
-    //     default:
-    //         cout << "Descend the dungeon" << endl;
-    // }
 }
 
 /**
@@ -409,11 +412,11 @@ bool enterUserInput()
     {
         return movementCheck(input);
     }
-    if (input == "Help")
-    {
-        cout << "--Help Menu--" << endl;
-        return true;
-    }
+    // if (input == "Help")
+    // {
+    //     cout << "--Help Menu--" << endl;
+    //     return true;
+    // }
     cout << "Could not make move, try again" << endl;
     return false;
 }

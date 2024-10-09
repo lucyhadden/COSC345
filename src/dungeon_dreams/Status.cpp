@@ -52,7 +52,7 @@ struct CharacterStats {
                 intelligence = 8;
                 break;
         }
-        gold = 0;
+        gold = 5;
     }
 };
 

@@ -5,6 +5,7 @@
 #include "utils.h"
 #include "Store.h"
 #include "miniGames.h"
+#include <Status.h>
 #include "BlackJack.h"
 
 using namespace std;
@@ -50,7 +51,7 @@ void displayOptions()
     cout << "1. Play a minigame to earn more gold!" << endl;
     cout << "2. Visit the store" << endl;
     cout << "3. Continue to next level" << endl;
-    cout << "Please enter your choice (1-4): ";
+    cout << "Please enter your choice (1-3): ";
 }
 
 // void handleChoice(CharacterStats& playerStats)
@@ -99,7 +100,7 @@ void handleChoice(CharacterStats& playerStats)
         case 1:
             if (!doneMinigame) {
                 // cout << "handle minigame" << endl;
-                miniGames();
+                miniGames(playerStats);
                 doneMinigame = true;
             } else {
                 cout << "You have already played a minigame" << endl;

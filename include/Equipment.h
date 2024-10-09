@@ -2,8 +2,10 @@
 #define EQUIPMENT_H
 
 #include <string>
+#include <unordered_map>
 #include <vector>
 #include <iostream>
+#include "Equipment.h"
 #include "Status.h"  // Include for CharacterStats and CharacterClass
  
 
@@ -74,6 +76,13 @@ public:
  * @param inventory Reference to the player's inventory.
  */
 void applyInventoryStats(CharacterStats& stats, Inventory& inventory);
+
+/**
+ * @brief Applies the last items inventory's stat bonuses to the player's stats.
+ * @param stats Reference to the player's character stats.
+ * @param equipment Apply new item 
+ */
+void applyLastAddedItemToStats(CharacterStats& stats, Equipment& equipment);
 
 /**
  * @brief Initializes the inventory based on the player's class.

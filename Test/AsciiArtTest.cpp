@@ -189,9 +189,9 @@ TEST(AsciiArtTest, GetShopkeeperTest) {
     F$            __|__            .PL                    
    d *          //.=|=.\\          4 3                    
   .F 4.        // .=|=. \\  _____  $  L                   
-  d   F        \\ .=|=. // /..../\ F  3                   
+  d   F        \\ .=|=. // /Sive/\ F  3                   
   P   $'========================='4%   L                  
- d    3        ....'s Wares       d    *                  
+ d    3        Sive's Wares       d    *                  
  P    4r                          $    ^L                 
 '%=====%============*=============%=====*      
 )";
@@ -215,9 +215,9 @@ TEST(AsciiArtTest, GetShrugShopkeeperTest) {
     F$      __    __|__    __      .PL                    
    d *        \\//.=|=.\\//        4 3                    
   .F 4.        \/ .=|=. \/  _____  $  L                   
-  d   F           .=|=.    /..../\ F  3                   
+  d   F           .=|=.    /Sive/\ F  3                   
   P   $'========================='4%   L                  
- d    3        ....'s Wares       d    *                  
+ d    3        Sive's Wares       d    *                  
  P    4r                          $    ^L                 
 '%=====%============*=============%=====*      
 )";
@@ -241,9 +241,9 @@ TEST(AsciiArtTest, GetRightTalkShopkeeperTest) {
     F$            __|__   />       .PL                    
    d *          //.=|=.\\//        4 3                    
   .F 4.        // .=|=. \/  _____  $  L                   
-  d   F        \\ .=|=.    /..../\ F  3                   
+  d   F        \\ .=|=.    /Sive/\ F  3                   
   P   $'========================='4%   L                  
- d    3        ....'s Wares       d    *                  
+ d    3        Sive's Wares       d    *                  
  P    4r                          $    ^L                 
 '%=====%============*=============%=====*      
 )";
@@ -267,9 +267,9 @@ TEST(AsciiArtTest, GetLeftTalkShopkeeperTest) {
     F$       <\   __|__            .PL                    
    d *        \\//.=|=.\\          4 3                    
   .F 4.        \/ .=|=. \\  _____  $  L                   
-  d   F           .=|=. // /..../\ F  3                   
+  d   F           .=|=. // /Sive/\ F  3                   
   P   $'========================='4%   L                  
- d    3        ....'s Wares       d    *                  
+ d    3        Sive's Wares       d    *                  
  P    4r                          $    ^L                 
 '%=====%============*=============%=====*      
 )";

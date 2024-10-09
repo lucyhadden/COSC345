@@ -23,7 +23,7 @@ TEST(StoreTest, FirstTimeVisit) {
     std::cout.rdbuf(oldCout);
 
     // Assertions for first time visit
-    EXPECT_NE(outputStr.find("Oh a new face? Hello friend, my name is [...]. I am a skeleton"), std::string::npos);
+    EXPECT_NE(outputStr.find("Oh a new face? Hello friend, my name is Sive. I am a skeleton"), std::string::npos);
     EXPECT_NE(outputStr.find("This is my shop. Please buy something."), std::string::npos);
 }
 

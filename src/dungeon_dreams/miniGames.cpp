@@ -10,6 +10,7 @@
 #include "utils.h"
 #include "miniGames.h"
 #include "BlackJack.h"
+#include <Status.h>
 /**
  * @file
  * @brief Holds minigames
@@ -18,7 +19,31 @@
  */
 using namespace std; // Use the standard namespace
 
+/**
+ * @brief boolean variable to control whether being called from test to select which game
+ */
+bool isTesting = false;
+
+/**
+ * @brief int variable that can be set when testing minigame to select a game
+ */
+int gameNo = 0;
+
+/**
+ * @brief Setter for the is testing Boolean variable used in testing.
+ */
+void setIsTesting(bool value) {
+    isTesting = value;
+}
+
+/**
+ * @brief Setter used to select which game to test.
+ */
+void SelectGame(int value) {
+    gameNo = value;
+}
 // Mini-game functions
+
 
 //Word Scrabble - unscrabble as many words as you can in a set time
 int game1() {
@@ -238,7 +263,7 @@ int game3() {
 
 int game4() {
     // Game 4 logic here
-    //BlackJack();
+    BlackJack();
     return 0;
 }
 
@@ -247,7 +272,7 @@ int spinWheel() {
     srand(time(0));
 
     int gameSelection = (rand() % 4) + 1;  // Generate a random number between 1 and 4
-    int spins = (rand() % 10) + 10;        // Random number of spins between 10 and 20
+    int spins = (rand() % 8) + 8;        // Random number of spins between 8 and 16
 
     cout << "Spinning the wheel..." << endl;
 
@@ -263,25 +288,28 @@ int spinWheel() {
     return gameSelection;  // Return the randomly selected number
 }
 
-int miniGames() {
+int miniGames(CharacterStats& playerStats) {
     int goldEarned = 0;
     cout << "\033[2J\033[1;1H"; // ANSI escape code to clear the console
     cout << "You Have Entered The MiniGames!" << endl;
     CustomSleep(1);
     int gameSelection = spinWheel();
+    if(isTesting){
+        gameSelection = gameNo;
+    }
     // int gameSelection = 3;
     switch (gameSelection) {
         case 1:
-            goldEarned = game1();
+            playerStats.gold += game1();
             break;
         case 2:
-            goldEarned = game2();
+            playerStats.gold += game2();
             break;
         case 3:
-            goldEarned = game3();
+            playerStats.gold += game3();
             break;
         case 4:
-            goldEarned = game4();
+            playerStats.gold += game4();
             break;
         default:
             cout << "Error: Invalid game selection." << endl;
@@ -290,23 +318,23 @@ int miniGames() {
     return goldEarned;
 }
 
-void SelectGame(int game)
-{
-    switch(game)
-    {
-        case 1:
-            game1();
-            break;
-        case 2:
-            game2();
-            break;
-        case 3:
-            game3();
-            break;
-        case 4:
-            game4();
-            break;
-        default:
-            break;
-    }
-}
+// void SelectGame(int game)
+// {
+//     switch(game)
+//     {
+//         case 1:
+//             game1();
+//             break;
+//         case 2:
+//             game2();
+//             break;
+//         case 3:
+//             game3();
+//             break;
+//         case 4:
+//             game4();
+//             break;
+//         default:
+//             break;
+//     }
+// }
