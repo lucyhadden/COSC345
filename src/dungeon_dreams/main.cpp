@@ -148,13 +148,14 @@ int main()
                     updateBoard();
                     short tyle = startEvent();
                     // cout << tyle << endl;
-
-                    short result = processTileInteraction(tyle, playerStats, playerInventory);
+                    if(tyle != -1){
+                        short result = processTileInteraction(tyle, playerStats, playerInventory);
+                    }
 
                     if(tyle ==5){
                         break;
                     }
-                    levelPlay(tyle, playerStats);
+                    //levelPlay(tyle, playerStats);
 
                     cout << "\n--- Updated Player Stats (with Inventory Bonuses) ---\n";
                     cout << "Health: " << playerStats.health << "\n";
