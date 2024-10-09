@@ -2,13 +2,7 @@
 #include "interactions.h" 
 #include "Status.h" 
 
-/** 
-TEST(InteractionsTest, DummyTest) {
-    EXPECT_TRUE(true);  
-}
-*/
-
-//test pressAnyKeyToContinue
+//Test pressAnyKeyToContinue
 TEST(InteractionsTest, PressAnyKeyToContinue){
     std::stringstream buffer;
     std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());  // Redirect std::cout
@@ -26,7 +20,7 @@ TEST(InteractionsTest, PressAnyKeyToContinue){
     EXPECT_EQ(buffer.str(), expected_output);
 }
 
-//test resetPlayerStats
+//Test resetPlayerStats
 TEST(InteractionsTest, ResetPlayerStatInvalidChoice) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -54,7 +48,6 @@ TEST(InteractionsTest, ResetPlayerStatInvalidChoice) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
-
 TEST(InteractionsTest, ResetPlayerStatKnight){
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -106,7 +99,6 @@ TEST(InteractionsTest, ResetPlayerStatKnight){
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
-
 TEST(InteractionsTest, ResetPlayerStatMage){
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -140,7 +132,6 @@ TEST(InteractionsTest, ResetPlayerStatMage){
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
-
 TEST(InteractionsTest, ResetPlayerStatThief) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -176,7 +167,6 @@ TEST(InteractionsTest, ResetPlayerStatThief) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
-
 TEST(InteractionsTest, ResetPlayerStatCleric) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -212,7 +202,6 @@ TEST(InteractionsTest, ResetPlayerStatCleric) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
-
 TEST(InteractionsTest, ResetPlayerStatTank) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -249,8 +238,7 @@ TEST(InteractionsTest, ResetPlayerStatTank) {
     std::cin.rdbuf(oldCin);
 }
 
-
-//test levelPlay
+//Test levelPlay
 // Test for Tile 1 (Safe tile)
 TEST(InteractionsTest, LevelPlayTestTile1) {
     std::ostringstream outputBuffer;
@@ -269,14 +257,60 @@ TEST(InteractionsTest, LevelPlayTestTile1) {
     
     std::cout.rdbuf(oldCout);
 }
-
 // Test for Tile 2 (Enemy encounter)
-TEST(InteractionsTest, LevelPlayTestTile2) {
+TEST(InteractionsTest, LevelPlayTestTile2A) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
+
+    setupLevel(1);
+    levelPlay(2, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+    
+    // Check that the enemy encounter message is displayed
+    EXPECT_NE(outputStr.find("Oh no! You have encountered a Slime"), std::string::npos);
+    EXPECT_NE(outputStr.find("You have defeated the Slime."), std::string::npos);
+
+    // Check player health is correctly updated after the encounter
+    EXPECT_LE(playerStats.health, 150); 
+    
+    std::cout.rdbuf(oldCout);
+}
+TEST(InteractionsTest, LevelPlayTestTile2B) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+
+    setupLevel(8);
+    levelPlay(2, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+    
+    // Check that the enemy encounter message is displayed
+    EXPECT_NE(outputStr.find("Oh no! You have encountered a Wyvern"), std::string::npos);
+    EXPECT_NE(outputStr.find("The Wyvern is still alive! It's going to attack"), std::string::npos);
+    EXPECT_NE(outputStr.find("You have died"), std::string::npos);
+
+    // Check player health is correctly updated after the encounter
+    EXPECT_LE(playerStats.health, 0); 
+    
+    std::cout.rdbuf(oldCout);
+}
+TEST(InteractionsTest, LevelPlayTestTile2C) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+    // Set low health to ensure the player can die
+    playerStats.health = 5; 
+    playerStats.attack = 5; 
+    playerStats.defense = 0;
 
     setupLevel(8);
     levelPlay(2, playerStats); 
@@ -293,7 +327,6 @@ TEST(InteractionsTest, LevelPlayTestTile2) {
     
     std::cout.rdbuf(oldCout);
 }
-
 // Test for Tile 3 (Trap encounter)
 TEST(InteractionsTest, LevelPlayTestTile3) {
     std::ostringstream outputBuffer;
@@ -315,7 +348,6 @@ TEST(InteractionsTest, LevelPlayTestTile3) {
     
     std::cout.rdbuf(oldCout);
 }
-
 // Test for Tile 4 (Wall)
 TEST(InteractionsTest, LevelPlayTestTile4) {
     std::ostringstream outputBuffer;
@@ -332,7 +364,6 @@ TEST(InteractionsTest, LevelPlayTestTile4) {
     
     std::cout.rdbuf(oldCout);
 }
-
 // Test for Invalid Tile
 TEST(InteractionsTest, LevelPlayTestInvalidTile) {
     std::ostringstream outputBuffer;
@@ -350,9 +381,7 @@ TEST(InteractionsTest, LevelPlayTestInvalidTile) {
     std::cout.rdbuf(oldCout);
 }
 
-
-
-//test setUpLevel
+//Test setUpLevel
 TEST(InteractionsTest, SetUpLevel){
 // Test level 1
     setupLevel(1);
