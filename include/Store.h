@@ -19,7 +19,7 @@ void DisplayStoreMenu(CharacterStats& playerStats);
 /**
  * @brief Manages all methods in one
  */
-void IntroductionToStore();
+void IntroductionToStore(CharacterStats &playerStats);
 
 /**
  * @brief Checks if a purchase can be made
