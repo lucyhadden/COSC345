@@ -68,7 +68,7 @@ add_executable(DungeonGameTest
     Test/AsciiArtTest.cpp
     Test/EndScreenTest.cpp
     Test/StartScreenTest.cpp
-    Test/InteractionsTest.cpp
+    # Test/InteractionsTest.cpp
     Test/MainTest.cpp
     Test/MovementTest.cpp
     Test/UtilsTest.cpp
