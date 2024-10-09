@@ -77,7 +77,7 @@ TEST(StoreTest, DisplayStoreMenuShowsCorrectItems) {
 
     // Assertions to check if "Sword of Valor" is printed
     EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos);  // Check for the real item
-    EXPECT_NE(outputStr.find("Shield of Courage"), std::string::npos); // Check for another real item
+    EXPECT_NE(outputStr.find("Steel Shield"), std::string::npos); // Check for another real item
 
     // Assertions to check if a made-up item is not printed
     EXPECT_EQ(outputStr.find("Made-Up Item"), std::string::npos);  // Check that a fake item is NOT present
@@ -107,4 +107,35 @@ TEST(StoreTest, DisplayStoreMenuDialogueOption) {
 
     // Assertion to check if the dialogue message is printed
     EXPECT_NE(outputStr.find("I don't have any dialogue options for this right now."), std::string::npos);
+}
+
+TEST(StoreTest, DisplayStoreMenuShowsInventory) {
+    // Redirect output to a stringstream
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Create a dummy player stats
+    CharacterStats playerStats(KNIGHT);
+
+    // Simulate user input for option 4 (My Inventory)
+    std::stringstream input("4\n\n"); // Input to select option 4 and press enter
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    // Call the function
+    DisplayStoreMenu(playerStats);
+
+    // Capture the output
+    std::string outputStr = output.str();
+
+    // Restore cout and cin to their original state
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+
+    // Assertions to check if the inventory is printed correctly
+    EXPECT_NE(outputStr.find("--- Inventory ---"), std::string::npos); // Check for inventory header
+    EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos); // Check for the real item
+    EXPECT_EQ(outputStr.find("Staff of Wisdom"), std::string::npos); // Check that a fake item is NOT present
+
+    // Assertions for "Press enter to continue..." message
+    EXPECT_NE(outputStr.find("Press enter to continue..."), std::string::npos);  // Check if the message is printed
 }
