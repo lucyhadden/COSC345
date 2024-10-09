@@ -108,6 +108,7 @@ TEST(StoreTest, DisplayStoreMenuDialogueOption) {
     // Assertion to check if the dialogue message is printed
     EXPECT_NE(outputStr.find("I don't have any dialogue options for this right now."), std::string::npos);
 }
+extern Inventory playerInventory;
 
 TEST(StoreTest, DisplayStoreMenuShowsInventory) {
     // Redirect output to a stringstream
@@ -121,9 +122,8 @@ TEST(StoreTest, DisplayStoreMenuShowsInventory) {
     std::stringstream input("4\n\n"); // Input to select option 4 and press enter
     std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
 
-    Inventory playerInventoryTest;
     CharacterClass playerClass = KNIGHT; 
-    initializeInventory(playerInventoryTest, playerClass);
+    initializeInventory(playerInventory, playerClass);
 
     // Call the function
     DisplayStoreMenu(playerStats);
