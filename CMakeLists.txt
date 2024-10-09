@@ -74,8 +74,6 @@ add_executable(DungeonGameTest
     Test/MiniGamesTest.cpp
     Test/EquipmentTest.cpp
 
-
-    
     src/dungeon_dreams/AsciiArt.cpp
     src/dungeon_dreams/TestUtils.cpp
     src/dungeon_dreams/StartScreen.cpp
@@ -85,6 +83,7 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/SafeZone.cpp
     src/dungeon_dreams/Store.cpp
+    src/dungeon_dreams/interactions.cpp
    
 )
 
