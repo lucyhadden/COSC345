@@ -113,6 +113,115 @@ TEST(InteractionsTest, ResetPlayerStatMage){
     std::cin.rdbuf(oldCin);
 }
 
+TEST(InteractionsTest, ResetPlayerStatThief) {
+    // Redirect cout to capture output
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    // Simulate cin for user input
+    std::istringstream inputBuffer("3\n"); // Simulate choosing the Thief class
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    // Start with a different character class, e.g., Knight
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); // This initializes with Knight stats
+
+    // Call the function to reset player stats
+    resetPlayerStats(playerStats, playerClass); 
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Verify that class selection was successful
+    EXPECT_EQ(playerClass, THIEF); // Check if class was changed to Thief
+    EXPECT_EQ(playerStats.health, 100); // Thief stats
+    EXPECT_EQ(playerStats.attack, 15);
+    EXPECT_EQ(playerStats.defense, 10);
+    EXPECT_EQ(playerStats.agility, 25);
+    EXPECT_EQ(playerStats.intelligence, 10);
+    EXPECT_EQ(playerStats.gold, 0);
+
+    // Validate the message indicating class selection
+    EXPECT_NE(outputStr.find("You have chosen the sneaky Thief class!"), std::string::npos);
+
+    // Restore cout and cin
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+
+TEST(InteractionsTest, ResetPlayerStatCleric) {
+    // Redirect cout to capture output
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    // Simulate cin for user input
+    std::istringstream inputBuffer("5\n"); // Simulate choosing the Cleric class
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    // Start with a different character class, e.g., Knight
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); // This initializes with Knight stats
+
+    // Call the function to reset player stats
+    resetPlayerStats(playerStats, playerClass); 
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Verify that class selection was successful
+    EXPECT_EQ(playerClass, CLERIC); // Check if class was changed to Cleric
+    EXPECT_EQ(playerStats.health, 110); // Cleric stats
+    EXPECT_EQ(playerStats.attack, 10);
+    EXPECT_EQ(playerStats.defense, 20);
+    EXPECT_EQ(playerStats.agility, 8);
+    EXPECT_EQ(playerStats.intelligence, 25);
+    EXPECT_EQ(playerStats.gold, 0);
+
+    // Validate the message indicating class selection
+    EXPECT_NE(outputStr.find("You have chosen the devout Cleric class!"), std::string::npos);
+
+    // Restore cout and cin
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+
+TEST(InteractionsTest, ResetPlayerStatTank) {
+    // Redirect cout to capture output
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    // Simulate cin for user input
+    std::istringstream inputBuffer("4\n"); // Simulate choosing the Tank class
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    // Start with a different character class, e.g., Knight
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); // This initializes with Knight stats
+
+    // Call the function to reset player stats
+    resetPlayerStats(playerStats, playerClass); 
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Verify that class selection was successful
+    EXPECT_EQ(playerClass, TANK); // Check if class was changed to Tank
+    EXPECT_EQ(playerStats.health, 200); // Tank stats
+    EXPECT_EQ(playerStats.attack, 18);
+    EXPECT_EQ(playerStats.defense, 30);
+    EXPECT_EQ(playerStats.agility, 5);
+    EXPECT_EQ(playerStats.intelligence, 8);
+    EXPECT_EQ(playerStats.gold, 0);
+
+    // Validate the message indicating class selection
+    EXPECT_NE(outputStr.find("You have chosen the stoic Tank class!"), std::string::npos);
+
+    // Restore cout and cin
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+
+
 //test levelPlay
 //TEST(InteractionsTest, LevelPlay){}
 
