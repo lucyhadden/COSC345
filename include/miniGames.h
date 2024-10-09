@@ -39,6 +39,12 @@ int miniGames();
 /**
  * @brief Select game from game 1-4
  */
-//void SelectGame(int game);
+void SelectGame(int game);
+
+/**
+ * @brief Setter for the is testing Boolean variable used in testing.
+ */
+void setIsTesting(bool value);
+
 
 #endif // MINIGAMES_H
