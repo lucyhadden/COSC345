@@ -288,6 +288,9 @@ TEST(InteractionsTest, LevelPlayTestTile2B) {
 
     setupLevel(8);
     levelPlay(2, playerStats); 
+    playerStats.health = 5; 
+    playerStats.attack = 5; 
+    playerStats.defense = 0;
 
     std::string outputStr = outputBuffer.str();
     
@@ -308,9 +311,6 @@ TEST(InteractionsTest, LevelPlayTestTile2C) {
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
     // Set low health to ensure the player can die
-    playerStats.health = 5; 
-    playerStats.attack = 5; 
-    playerStats.defense = 0;
 
     setupLevel(8);
     levelPlay(2, playerStats); 
