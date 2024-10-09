@@ -131,6 +131,9 @@ TEST(StoreTest, DisplayStoreMenuShowsInventory) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 
+    // Debugging: print captured output
+    std::cout << "Captured Output:\n" << outputStr << std::endl;
+    
     // Assertions to check if the inventory is printed correctly
     EXPECT_NE(outputStr.find("--- Inventory ---"), std::string::npos); // Check for inventory header
     // Check for the full output line of the Sword of Valor
