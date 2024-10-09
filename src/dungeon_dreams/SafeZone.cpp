@@ -40,7 +40,7 @@ void handleChoice(CharacterStats& playerStats);
 
 void displaySafeZone(CharacterStats& playerStats)
 {
-    displayOptions();
+    // displayOptions();
     handleChoice(playerStats);
 }
 
@@ -53,33 +53,68 @@ void displayOptions()
     cout << "Please enter your choice (1-4): ";
 }
 
+// void handleChoice(CharacterStats& playerStats)
+// {
+//     int choice;
+
+//     cin >> choice;
+//     switch (choice)
+//     {
+//     case 1:
+//         if (!doneMinigame){
+//             cout << "handle minigame" << endl;
+//             miniGames();
+//             doneMinigame = true;
+//         }
+//         else{
+//             cout << "You have already played a minigame" << endl;
+//         }
+//         break;
+//     case 2:
+//         StoreActivated(playerStats);
+//         break;
+//     case 3: 
+//         doneMinigame = false;
+//         return;
+//     default:
+//         cout << "Invalid choice. Please try again." << endl;
+//         // displayOptions(); // Re-display the menu after an invalid choice
+//         break;
+//     }
+//     displaySafeZone(playerStats);
+// }
+
 void handleChoice(CharacterStats& playerStats)
 {
-    int choice;
+    bool inSafeZone = true;
+    
+    while (inSafeZone) {
+        displayOptions();  // Display the menu
+        
+        int choice;
+        cin >> choice;
 
-    cin >> choice;
-    switch (choice)
-    {
-    case 1:
-        if (!doneMinigame){
-            cout << "handle minigame" << endl;
-            miniGames();
-            doneMinigame = true;
+        switch (choice)
+        {
+        case 1:
+            if (!doneMinigame) {
+                // cout << "handle minigame" << endl;
+                miniGames();
+                doneMinigame = true;
+            } else {
+                cout << "You have already played a minigame" << endl;
+            }
+            break;
+        case 2:
+            StoreActivated(playerStats);
+            break;
+        case 3: 
+            doneMinigame = false;
+            inSafeZone = false;  // Exit the loop and safe zone
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+            break;
         }
-        else{
-            cout << "You have already played a minigame" << endl;
-        }
-        break;
-    case 2:
-        StoreActivated(playerStats);
-        break;
-    case 3: 
-        doneMinigame = false;
-        return;
-    default:
-        cout << "Invalid choice. Please try again." << endl;
-        // displayOptions(); // Re-display the menu after an invalid choice
-        break;
     }
-    displaySafeZone(playerStats);
 }
