@@ -124,7 +124,7 @@ TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
 
 TEST(SafeZoneTest, TestStore) {
     // Set up mock input and output
-    std::stringstream input("2\n5\n\3");  // Mock input: 2 to enter the store, 5 to exit the store, 3 to end safezone
+    std::stringstream input("2\n5\n3\n");  // Mock input: 2 to enter the store, 5 to exit the store, 3 to end safezone
     std::stringstream output;
 
     // Redirect cin and cout to our stringstreams
