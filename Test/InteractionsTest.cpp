@@ -327,7 +327,6 @@ TEST(InteractionsTest, LevelPlayTestTile2D) {
 
     CharacterClass playerClass = TANK; 
     CharacterStats playerStats(playerClass); 
-    // Set low health to ensure the player can die
 
     setupLevel(4);
     levelPlay(2, playerStats); 
@@ -367,7 +366,7 @@ TEST(InteractionsTest, LevelPlayTestTile3B) {
     CharacterStats playerStats(playerClass); 
     playerStats.health = 20;
 
-    setupLevel(9);
+    setupLevel(8);
     levelPlay(3, playerStats); 
 
     std::string outputStr = outputBuffer.str();
