@@ -27,6 +27,34 @@ TEST(InteractionsTest, PressAnyKeyToContinue){
 }
 
 //test resetPlayerStats
+TEST(InteractionsTest, ResetPlayerStatInvalidChoice) {
+    // Redirect cout to capture output
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    // Simulate cin for user input (invalid choice)
+    std::istringstream inputBuffer("0\n1\n"); // Simulate choosing invalid option first then valid Knight class
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    CharacterClass playerClass; 
+    CharacterStats playerStats(playerClass);
+
+    resetPlayerStats(playerStats, playerClass); 
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Validate the output for invalid input handling
+    EXPECT_NE(outputStr.find("Invalid choice. Please try again."), std::string::npos);
+    EXPECT_EQ(playerClass, KNIGHT);
+    EXPECT_EQ(playerStats.health, 150);
+    // Other expectations for Knight stats...
+
+    // Restore cout and cin
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+
 TEST(InteractionsTest, ResetPlayerStatKnight){
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
