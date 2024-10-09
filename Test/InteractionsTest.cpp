@@ -339,7 +339,7 @@ TEST(InteractionsTest, LevelPlayTestTile2D) {
     std::cout.rdbuf(oldCout);
 }
 // Test for Tile 3 (Trap encounter)
-TEST(InteractionsTest, LevelPlayTestTile3) {
+TEST(InteractionsTest, LevelPlayTestTile3A) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
@@ -356,6 +356,24 @@ TEST(InteractionsTest, LevelPlayTestTile3) {
     
     // Check player health is correctly updated after the trap
     EXPECT_LE(playerStats.health, 150); 
+    
+    std::cout.rdbuf(oldCout);
+}
+TEST(InteractionsTest, LevelPlayTestTile3B) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+    playerStats.health = 20;
+
+    setupLevel(9);
+    levelPlay(3, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+    
+    // Check that the trap message is displayed
+    EXPECT_NE(outputStr.find("Oh no! A Fire trap"), std::string::npos);
     
     std::cout.rdbuf(oldCout);
 }
