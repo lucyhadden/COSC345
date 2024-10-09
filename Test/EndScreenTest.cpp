@@ -51,18 +51,22 @@ TEST(EndScreenTest, WinScreenTest) {
 
     winScreen();
 
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+    
     // Validate parts of the output
-    EXPECT_NE(outputBuffer.str().find("You enter a dark room"), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find("In the middle, you see a treasure chest"), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find("Grizzle rushes forward"), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find("He eagerly opens the chest..."), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find(expectedWinArt1), std::string::npos);  
-    EXPECT_NE(outputBuffer.str().find(expectedWinArt2), std::string::npos); 
-    EXPECT_NE(outputBuffer.str().find("Inside, something glimmers - a crown of dark emeralds and gold"), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find("Grizzle looks at you with gratitude in his eyes"), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find("Ever grateful, he pledges his loyalty to you"), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find(expectedWinArt3), std::string::npos);
-    EXPECT_NE(outputBuffer.str().find("You completed the game"), std::string::npos);
+    EXPECT_NE(outputStr.find("You enter a dark room"), std::string::npos);
+    EXPECT_NE(outputStr.find("In the middle, you see a treasure chest"), std::string::npos);
+    EXPECT_NE(outputStr.find("Grizzle rushes forward"), std::string::npos);
+    EXPECT_NE(outputStr.find("He eagerly opens the chest..."), std::string::npos);
+    EXPECT_NE(outputStr.find(expectedWinArt1), std::string::npos);  
+    EXPECT_NE(outputStr.find(expectedWinArt2), std::string::npos); 
+    EXPECT_NE(outputStr.find("Inside, something glimmers - a crown of dark emeralds and gold"), std::string::npos);
+    EXPECT_NE(outputStr.find("Grizzle looks at you with gratitude in his eyes"), std::string::npos);
+    EXPECT_NE(outputStr.find("Ever grateful, he pledges his loyalty to you"), std::string::npos);
+    EXPECT_NE(outputStr.find(expectedWinArt3), std::string::npos);
+    EXPECT_NE(outputStr.find("You completed the game"), std::string::npos);
+    
     std::cout.rdbuf(oldCout);
 }
 
