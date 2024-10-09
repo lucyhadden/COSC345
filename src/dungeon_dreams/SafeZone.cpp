@@ -50,7 +50,7 @@ void displayOptions()
     cout << "1. Play a minigame to earn more gold!" << endl;
     cout << "2. Visit the store" << endl;
     cout << "3. Continue to next level" << endl;
-    cout << "Please enter your choice (1-4): ";
+    cout << "Please enter your choice (1-3): ";
 }
 
 // void handleChoice(CharacterStats& playerStats)

@@ -92,8 +92,8 @@ TEST(InteractionsTest, ResetPlayerStatKnight){
     EXPECT_NE(outputStr.find("It is time to accept your first quest as an adventurer!"), std::string::npos);
     EXPECT_NE(outputStr.find("Ah here's a simple one, an escort job through a low class dungeon."), std::string::npos);
     EXPECT_NE(outputStr.find("Good Luck!"), std::string::npos);
-    EXPECT_NE(outputStr.find("Ah, there you are! Name’s Grizzle. Heard you're the new adventurer everyone’s talking about!"), std::string::npos);
-    EXPECT_NE(outputStr.find("I need a bit of help, see? This dungeon just popped up recently — real simple stuff, nothing to worry about."), std::string::npos);
+    EXPECT_NE(outputStr.find("Ah, there you are! Name's Grizzle. Heard you're the new adventurer everyone's talking about!"), std::string::npos);
+    EXPECT_NE(outputStr.find("I need a bit of help, see? This dungeon just popped up recently - real simple stuff, nothing to worry about."), std::string::npos);
 
     // Restore cout and cin
     std::cout.rdbuf(oldCout);

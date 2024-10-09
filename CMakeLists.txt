@@ -85,6 +85,8 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/SafeZone.cpp
     src/dungeon_dreams/Store.cpp
     src/dungeon_dreams/interactions.cpp
+    src/dungeon_dreams/BlackJack.cpp
+
    
 )
 

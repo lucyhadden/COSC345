@@ -305,12 +305,10 @@ bool isAgainstWall(char move)
     // Vertical wall and horizontal wall checks
     if ((move == 'W' && pos[0] <= 0) || (move == 'S' && pos[0] >= getHeight() - 1))
     {
-        cout << "TEST" << endl;
         return true;
     }
     else if ((move == 'A' && pos[1] <= 0) || (move == 'D' && pos[1] >= getLength() - 1))
     {
-        cout << "TEST" << endl;
         return true;
     }
     return false;

@@ -56,7 +56,8 @@ void UpdateShopkeeper()
 void DisplayStoreMenu(CharacterStats &playerStats)
 {
     UpdateShopkeeper();
-    std::cout << "Welcome to [....]'s Wares" << std::endl;
+    std::cout << "Welcome to [Sive]'s Wares" << std::endl;
+    std::cout << "You have " << playerStats.gold << " gold." << std::endl;
     std::cout << "1. View Stock" << std::endl;
     std::cout << "2. Purchase" << std::endl;
     std::cout << "3. Talk" << std::endl;
@@ -104,7 +105,7 @@ void IntroductionToStore(CharacterStats &playerStats)
     {
         std::cout << shopkeeperSprites[0] << std::endl;
         CustomSleep(2);
-        std::cout << "Oh a new face? Hello friend, my name is [...]. I am a skeleton" << std::endl;
+        std::cout << "Oh a new face? Hello friend, my name is Sive. I am a skeleton" << std::endl;
         CustomSleep(2);
         std::cout << "This is my shop. Please buy something." << std::endl;
         CustomSleep(2);
@@ -172,7 +173,7 @@ void PrintStock(const std::unordered_map<int, Equipment> &list)
 {
     Clear();
     UpdateShopkeeper();
-    std::cout << " ~~~ [...]'s Wares ~~~ " << std::endl;
+    std::cout << " ~~~ Sive's Wares ~~~ " << std::endl;
     for (const auto &item : list)
     {
         const Equipment &equipment = item.second;

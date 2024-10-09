@@ -137,13 +137,13 @@ void resetPlayerStats(CharacterStats& playerStats, CharacterClass& playerClass) 
 
     Clear();
     cout << AsciiArt::getGrizzleNormalExpression() << endl;
-    cout << "Ah, there you are! Name’s Grizzle. Heard you're the new adventurer everyone’s talking about!" << endl;
+    cout << "Ah, there you are! Name's Grizzle. Heard you're the new adventurer everyone's talking about!" << endl;
     CustomSleep(4);
     Clear();
     cout << AsciiArt::getGrizzleScaredExpression() << endl;
-    cout << "I need a bit of help, see? This dungeon just popped up recently — real simple stuff, nothing to worry about." << endl;
+    cout << "I need a bit of help, see? This dungeon just popped up recently - real simple stuff, nothing to worry about." << endl;
     CustomSleep(4);
-    cout << "Just escort me through, and I’ll make sure you get a little reward." << endl;
+    cout << "Just escort me through, and I'll make sure you get a little reward." << endl;
     cout << "Press enter to continue...";
     cin.ignore();  // Ignore any leftover characters in the input buffer
     cin.get();     // Wait for user input

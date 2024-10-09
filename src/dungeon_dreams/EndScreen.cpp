@@ -70,32 +70,34 @@ void winScreen() {
 
     CustomSleep(3);
     
-    cout << "What would you like to do?" << endl;
-    cout << "1. Restart" << endl;
-    cout << "2. Go to main menu" << endl;
-    cout << "3. Exit" << endl;
-    cout << "Please enter your choice (1-3): ";
+    // cout << "What would you like to do?" << endl;
+    // cout << "1. Restart" << endl;
+    // cout << "2. Go to main menu" << endl;
+    // cout << "3. Exit" << endl;
+    // cout << "Please enter your choice (1-3): ";
 
-    clearInputBuffer();
-    int choice;
-    cin >> choice;
-    switch(choice) {
-        case 1:
-            //restart game - not implemented
-            cout << "Restarting game..." << endl;
-            break;
-        case 2:
-            //go to main menu - not implemented
-            cout << "Going to main menu..." << endl;
-            break;
-        case 3:
-            //exit game
-            cout << "Exiting game..." << endl;
-            exit(0);
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-            break;
-    }
+    // clearInputBuffer();
+    // int choice;
+    // cin >> choice;
+    // switch(choice) {
+    //     case 1:
+    //         //restart game - not implemented
+    //         cout << "Restarting game..." << endl;
+    //         break;
+    //     case 2:
+    //         //go to main menu - not implemented
+    //         cout << "Going to main menu..." << endl;
+    //         break;
+    //     case 3:
+    //         //exit game
+    //         cout << "Exiting game..." << endl;
+    //         exit(0);
+    //     default:
+    //         cout << "Invalid choice. Please try again." << endl;
+    //         break;
+    // }
+    exit(0);
+
 }
 
 // Function to display the lose screen animation

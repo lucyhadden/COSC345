@@ -262,7 +262,7 @@ int game3() {
 
 int game4() {
     // Game 4 logic here
-    //BlackJack();
+    BlackJack();
     return 0;
 }
 
@@ -271,7 +271,7 @@ int spinWheel() {
     srand(time(0));
 
     int gameSelection = (rand() % 4) + 1;  // Generate a random number between 1 and 4
-    int spins = (rand() % 10) + 10;        // Random number of spins between 10 and 20
+    int spins = (rand() % 10) + 10;        // Random number of spins between 6 and 16
 
     cout << "Spinning the wheel..." << endl;
 
