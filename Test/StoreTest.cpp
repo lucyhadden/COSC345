@@ -121,6 +121,10 @@ TEST(StoreTest, DisplayStoreMenuShowsInventory) {
     std::stringstream input("4\n\n"); // Input to select option 4 and press enter
     std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
 
+    Inventory playerInventoryTest;
+    CharacterClass playerClass = KNIGHT; 
+    initializeInventory(playerInventoryTest, playerClass);
+
     // Call the function
     DisplayStoreMenu(playerStats);
 
@@ -138,6 +142,7 @@ TEST(StoreTest, DisplayStoreMenuShowsInventory) {
     EXPECT_NE(outputStr.find("--- Inventory ---"), std::string::npos); // Check for inventory header
     // Check for the full output line of the Sword of Valor
     // EXPECT_NE(outputStr.find("Item: Sword of Valor | Attack Boost: 10 | Defense Boost: 5"), std::string::npos);
+    EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos);
     EXPECT_EQ(outputStr.find("Item: Staff of Wisdom"), std::string::npos); 
 
     // Assertions for "Press enter to continue..." message
