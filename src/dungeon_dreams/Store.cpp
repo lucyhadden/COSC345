@@ -36,12 +36,13 @@ const std::string shopkeeper2 = AsciiArt::getLeftTalkShopkeeper();
 const std::string shopkeeper3 = AsciiArt::getRightTalkShopkeeper();
 const std::string shopkeeper4 = AsciiArt::getShrugShopkeeper();
 
-std::vector<std::string> shopkeeperSprites = {shopkeeper1, shopkeeper2, shopkeeper3, shopkeeper4 };
+std::vector<std::string> shopkeeperSprites = {shopkeeper1, shopkeeper2, shopkeeper3, shopkeeper4};
 
-void PressEnterToContinue(){
+void PressEnterToContinue()
+{
     std::cout << "Press enter to continue...";
-    std::cin.ignore();  
-    std::cin.get(); 
+    std::cin.ignore();
+    std::cin.get();
 }
 
 void UpdateShopkeeper()
@@ -49,10 +50,10 @@ void UpdateShopkeeper()
     srand(time(0));
     int random = rand() % 4;
     Clear();
-    std::cout << shopkeeperSprites[random] << std::endl; 
+    std::cout << shopkeeperSprites[random] << std::endl;
 }
 
-void DisplayStoreMenu(CharacterStats& playerStats)
+void DisplayStoreMenu(CharacterStats &playerStats)
 {
     UpdateShopkeeper();
     std::cout << "Welcome to [....]'s Wares" << std::endl;
@@ -62,45 +63,44 @@ void DisplayStoreMenu(CharacterStats& playerStats)
     std::cout << "4. My Inventory" << std::endl;
     std::cout << "5. Exit Shop" << std::endl;
     std::cout << "Please enter your choice (1-5): ";
-    
+
     int choice;
     std::cin >> choice;
-    switch(choice) 
+    switch (choice)
     {
-        case 1:
-            PrintStock(stock);  
-            PressEnterToContinue();
-            break;
-        case 2:
-            std::cout << "Please enter the ID of the item you want to purchase: ";
-            int index;
-            std::cin >> index;
-            PurchaseEquipment(playerStats, stock, index);
-            break;
-        case 3:
-            std::cout << "I don't have any dialogue options for this right now." << std::endl;
-            CustomSleep(2);
-            break;
-        case 4:
-            std::cout << "--- Inventory ---" << std::endl;
-            playerInventory.printInventory();
-            PressEnterToContinue();
-            break;
-        case 5: 
-            atStore = false;
-            break;
-        default:
-            std::cout << "Invalid choice. Please try again." << std::endl;
-            CustomSleep(2);
-            break;
+    case 1:
+        PrintStock(stock);
+        PressEnterToContinue();
+        break;
+    case 2:
+        std::cout << "Please enter the ID of the item you want to purchase: ";
+        int index;
+        std::cin >> index;
+        PurchaseEquipment(playerStats, stock, index);
+        break;
+    case 3:
+        std::cout << "I don't have any dialogue options for this right now." << std::endl;
+        CustomSleep(2);
+        break;
+    case 4:
+        std::cout << "--- Inventory ---" << std::endl;
+        playerInventory.printInventory();
+        PressEnterToContinue();
+        break;
+    case 5:
+        atStore = false;
+        break;
+    default:
+        std::cout << "Invalid choice. Please try again." << std::endl;
+        CustomSleep(2);
+        break;
     }
-    
 }
 
-void IntroductionToStore(CharacterStats& playerStats)
+void IntroductionToStore(CharacterStats &playerStats)
 {
     Clear();
-    if(isFirstTime)
+    if (isFirstTime)
     {
         std::cout << shopkeeperSprites[0] << std::endl;
         CustomSleep(2);
@@ -109,7 +109,8 @@ void IntroductionToStore(CharacterStats& playerStats)
         std::cout << "This is my shop. Please buy something." << std::endl;
         CustomSleep(2);
         isFirstTime = false;
-    }else
+    }
+    else
     {
         UpdateShopkeeper();
         CustomSleep(1);
@@ -118,47 +119,48 @@ void IntroductionToStore(CharacterStats& playerStats)
         std::cout << "Please buy something." << std::endl;
         CustomSleep(1);
     }
-    DisplayStoreMenu(playerStats);
+    // DisplayStoreMenu(playerStats);
 }
 
-void StoreActivated(CharacterStats& playerStats)
-{   
+void StoreActivated(CharacterStats &playerStats)
+{
     IntroductionToStore(playerStats);
-    while(atStore)
-    {
+    atStore = true;
+    while(atStore){
         DisplayStoreMenu(playerStats);
     }
-    atStore = true;
     Clear();
-    displaySafeZone(playerStats);
+    // displaySafeZone(playerStats);
 }
 
-void BuyItem(CharacterStats& playerStats, Equipment equipment)
+void BuyItem(CharacterStats &playerStats, Equipment equipment)
 {
     playerInventory.addEquipment(equipment);
     applyInventoryStats(playerStats, playerInventory);
 }
 
-void PurchaseEquipment(CharacterStats& playerStats, const std::unordered_map<int, Equipment>& list, int index)
-{   
+void PurchaseEquipment(CharacterStats &playerStats, const std::unordered_map<int, Equipment> &list, int index)
+{
     if (index < 0 || stock.find(index) == stock.end())
     {
         std::cout << "Item ID not found." << std::endl;
         CustomSleep(5);
-    }else
-    {   
+    }
+    else
+    {
         auto it = list.find(index);
-        const Equipment& equipment = it->second;
+        const Equipment &equipment = it->second;
         int cost = equipment.cost;
 
-        if (playerStats.gold >= cost) 
-        {   
+        if (playerStats.gold >= cost)
+        {
             playerStats.gold -= cost;
             BuyItem(playerStats, equipment);
             stock.erase(index);
             std::cout << "Thank you for your purchase. Remaining gold: " << playerStats.gold << std::endl;
             CustomSleep(3);
-        } else 
+        }
+        else
         {
             std::cout << "You don't have enough gold to purchase this item." << std::endl;
             CustomSleep(5);
@@ -166,22 +168,22 @@ void PurchaseEquipment(CharacterStats& playerStats, const std::unordered_map<int
     }
 }
 
-void PrintStock(const std::unordered_map<int, Equipment>& list)
+void PrintStock(const std::unordered_map<int, Equipment> &list)
 {
     Clear();
     UpdateShopkeeper();
     std::cout << " ~~~ [...]'s Wares ~~~ " << std::endl;
-    for(const auto& item : list)
+    for (const auto &item : list)
     {
-        const Equipment& equipment = item.second;
-        if(item.first != 444343434)
+        const Equipment &equipment = item.second;
+        if (item.first != 444343434)
         {
-        std::cout << item.first << ": " 
-                  << equipment.name << " (+" 
-                  << equipment.attackBoost << " Attack, +" 
-                  << equipment.defenseBoost << " Defense): $"
-                  << equipment.cost
-                  << std::endl;
+            std::cout << item.first << ": "
+                      << equipment.name << " (+"
+                      << equipment.attackBoost << " Attack, +"
+                      << equipment.defenseBoost << " Defense): $"
+                      << equipment.cost
+                      << std::endl;
         }
     }
 }

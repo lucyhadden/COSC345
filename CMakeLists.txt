@@ -63,6 +63,8 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(DungeonGameTest
+    Test/StoreTest.cpp
+    Test/SafeZoneTest.cpp
     Test/AsciiArtTest.cpp
     Test/EndScreenTest.cpp
     Test/StartScreenTest.cpp
@@ -72,10 +74,7 @@ add_executable(DungeonGameTest
     Test/UtilsTest.cpp
     Test/MiniGamesTest.cpp
     Test/EquipmentTest.cpp
-    Test/SafeZoneTest.cpp
 
-
-    
     src/dungeon_dreams/AsciiArt.cpp
     src/dungeon_dreams/TestUtils.cpp
     src/dungeon_dreams/StartScreen.cpp
@@ -85,6 +84,7 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/SafeZone.cpp
     src/dungeon_dreams/Store.cpp
+    src/dungeon_dreams/interactions.cpp
    
 )
 

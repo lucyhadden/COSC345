@@ -23,6 +23,10 @@ void displayOptions();
  */
 void handleChoice(CharacterStats& playerStats);
 
+/**
+ * @brief Setter for the minigame Boolean variable used in testing.
+ */
+void setDoneMinigame(bool value);
 
 
 #endif
