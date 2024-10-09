@@ -10,6 +10,7 @@
 #include "utils.h"
 #include "miniGames.h"
 #include "BlackJack.h"
+#include <Status.h>
 /**
  * @file
  * @brief Holds minigames
@@ -271,7 +272,7 @@ int spinWheel() {
     srand(time(0));
 
     int gameSelection = (rand() % 4) + 1;  // Generate a random number between 1 and 4
-    int spins = (rand() % 10) + 10;        // Random number of spins between 6 and 16
+    int spins = (rand() % 8) + 8;        // Random number of spins between 8 and 16
 
     cout << "Spinning the wheel..." << endl;
 
@@ -287,7 +288,7 @@ int spinWheel() {
     return gameSelection;  // Return the randomly selected number
 }
 
-int miniGames() {
+int miniGames(CharacterStats& playerStats) {
     int goldEarned = 0;
     cout << "\033[2J\033[1;1H"; // ANSI escape code to clear the console
     cout << "You Have Entered The MiniGames!" << endl;
@@ -299,16 +300,16 @@ int miniGames() {
     // int gameSelection = 3;
     switch (gameSelection) {
         case 1:
-            goldEarned = game1();
+            playerStats.gold += game1();
             break;
         case 2:
-            goldEarned = game2();
+            playerStats.gold += game2();
             break;
         case 3:
-            goldEarned = game3();
+            playerStats.gold += game3();
             break;
         case 4:
-            goldEarned = game4();
+            playerStats.gold += game4();
             break;
         default:
             cout << "Error: Invalid game selection." << endl;

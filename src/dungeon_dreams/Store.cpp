@@ -15,19 +15,15 @@ bool atStore = true;
 Inventory playerInventory;
 
 std::unordered_map<int, Equipment> stock = {
-    {0, Equipment("Sword of Valor", 10, 5, 20)}, // base equip for KNIGHT
-    {1, Equipment("Steel Shield", 0, 15, 20)},
-    {2, Equipment("Staff of Wisdom", 15, 3, 20)}, // base equip for MAGE
-    {3, Equipment("Magic Robe", 0, 5, 20)},
-    {4, Equipment("Dagger of Speed", 7, 0, 20)}, // base equip for THIEF
-    {5, Equipment("Cloak of Shadows", 0, 8, 20)},
-    {6, Equipment("Holy Mace", 8, 4, 20)}, // base equip for CLERIC
-    {7, Equipment("Blessed Armor", 0, 10, 20)},
-    {8, Equipment("Warhammer", 12, 0, 20)}, // base equip for TANK
-    {9, Equipment("Tower Shield", 0, 20, 20)},
-    // Upgraded Items
-    {10, Equipment("Amulet", 1, 1, 3)},
-    {12, Equipment("Magic Amulet", 5, 3, 30)},
+    {0, Equipment("Wooden Spatula", 15, 0, 20)},
+    {1, Equipment("Shinguards", 0, 10, 35)}, 
+    {2, Equipment("Plastic Shiv", 20, 0, 55)},   
+    {3, Equipment("Metal Umberella", 0, 50, 100)},
+    // Potion Items
+    {4, Equipment("Minor Healing Potion (10HP)", 0, 0, 5)},
+    {5, Equipment("Major Healing Potion (30HP)", 0, 0, 20)},
+    {6, Equipment("Super Healing Potion (80HP)", 0, 0, 50)},
+
     {444343434, Equipment("God Killer", 9999, 9999, 0)}
 };
 
@@ -56,7 +52,7 @@ void UpdateShopkeeper()
 void DisplayStoreMenu(CharacterStats &playerStats)
 {
     UpdateShopkeeper();
-    std::cout << "Welcome to [Sive]'s Wares" << std::endl;
+    std::cout << "Welcome to Sive's Wares" << std::endl;
     std::cout << "You have " << playerStats.gold << " gold." << std::endl;
     std::cout << "1. View Stock" << std::endl;
     std::cout << "2. Purchase" << std::endl;
@@ -153,12 +149,29 @@ void PurchaseEquipment(CharacterStats &playerStats, const std::unordered_map<int
         const Equipment &equipment = it->second;
         int cost = equipment.cost;
 
-        if (playerStats.gold >= cost)
+        if (playerStats.gold >= cost && !(index == 4 || index == 5 || index == 6))
         {
             playerStats.gold -= cost;
             BuyItem(playerStats, equipment);
             stock.erase(index);
             std::cout << "Thank you for your purchase. Remaining gold: " << playerStats.gold << std::endl;
+            CustomSleep(3);
+        }
+        else if (playerStats.gold >= cost && (index == 4 || index == 5 || index == 6))
+        {
+            playerStats.gold -= cost;
+            if(index == 4) // minor
+            {
+                playerStats.health += 10;
+            }else if(index == 5)
+            {
+                playerStats.health += 30;
+            }else // super
+            {
+                playerStats.health += 80;
+            }
+            std::cout << "Thank you for your purchase. Remaining gold: " << playerStats.gold << " gold." << std::endl;
+            std::cout << "We have many in stock." << std::endl;
             CustomSleep(3);
         }
         else

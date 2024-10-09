@@ -1,6 +1,8 @@
 #ifndef MINIGAMES_H
 #define MINIGAMES_H
 
+#include <Status.h>
+
 /**
  * @file 
  * @brief Header file that holds the minigames
@@ -33,8 +35,9 @@ int spinWheel();
 
 /**
  * @brief Method that contains logic for picking a game and returning gold
+ * @param playerStats used to get the gold
  */
-int miniGames();
+int miniGames(CharacterStats& playerStats);
 
 /**
  * @brief Select game from game 1-4
