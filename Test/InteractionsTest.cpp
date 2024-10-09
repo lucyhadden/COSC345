@@ -252,13 +252,12 @@ TEST(InteractionsTest, ResetPlayerStatTank) {
 
 //test levelPlay
 // Test for Tile 1 (Safe tile)
-TEST(LevelPlayTest, Tile1) {
+TEST(InteractionsTest, LevelPlayTestTile1) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
-    playerStats.health = 150; 
 
     setupLevel(1);
     levelPlay(1, playerStats); 
@@ -266,13 +265,13 @@ TEST(LevelPlayTest, Tile1) {
     std::string outputStr = outputBuffer.str();
     
     EXPECT_NE(outputStr.find("You are safe"), std::string::npos);
-    EXPECT_EQ(playerStats.health, 100);
+    EXPECT_EQ(playerStats.health, 150);
     
     std::cout.rdbuf(oldCout);
 }
 
 // Test for Tile 2 (Enemy encounter)
-TEST(LevelPlayTest, Tile2) {
+TEST(InteractionsTest, LevelPlayTestTile2) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
@@ -294,7 +293,7 @@ TEST(LevelPlayTest, Tile2) {
 }
 
 // Test for Tile 3 (Trap encounter)
-TEST(LevelPlayTest, Tile3) {
+TEST(InteractionsTest, LevelPlayTestTile3) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
@@ -316,7 +315,7 @@ TEST(LevelPlayTest, Tile3) {
 }
 
 // Test for Tile 4 (Wall)
-TEST(LevelPlayTest, Tile4) {
+TEST(InteractionsTest, LevelPlayTestTile4) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
@@ -333,7 +332,7 @@ TEST(LevelPlayTest, Tile4) {
 }
 
 // Test for Invalid Tile
-TEST(LevelPlayTest, InvalidTile) {
+TEST(InteractionsTest, LevelPlayTestInvalidTile) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
