@@ -284,7 +284,7 @@ TEST(InteractionsTest, LevelPlayTestTile2) {
     std::string outputStr = outputBuffer.str();
     
     // Check that the enemy encounter message is displayed
-    EXPECT_NE(outputStr.find("Oh no! You have encountered a Goblin"), std::string::npos);
+    EXPECT_NE(outputStr.find("Oh no! You have encountered a Slime"), std::string::npos);
     
     // Check player health is correctly updated after the encounter
     EXPECT_LE(playerStats.health, 150); 
