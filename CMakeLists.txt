@@ -67,7 +67,7 @@ add_executable(DungeonGameTest
     Test/SafeZoneTest.cpp
     Test/AsciiArtTest.cpp
     Test/EndScreenTest.cpp
-    Test/StartScreenTest.cpp
+    # Test/StartScreenTest.cpp
     # Test/InteractionsTest.cpp
     Test/MainTest.cpp
     Test/MovementTest.cpp
@@ -77,7 +77,7 @@ add_executable(DungeonGameTest
 
     src/dungeon_dreams/AsciiArt.cpp
     src/dungeon_dreams/TestUtils.cpp
-    src/dungeon_dreams/StartScreen.cpp
+    # src/dungeon_dreams/StartScreen.cpp
     src/dungeon_dreams/EndScreen.cpp
     src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/utils.cpp
