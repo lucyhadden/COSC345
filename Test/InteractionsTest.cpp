@@ -484,4 +484,22 @@ TEST(InteractionsTest, SetUpLevel){
 }
 
 //test processTileInteraction
-//TEST(InteractionsTest, ProcessTileInteraction){}
+// Test for a safe tile (tile 1)
+TEST(InteractionsTest, ProcessTileInteractionTestTile1) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
+
+    std::istringstream inputBuffer("1\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass);
+    Inventory playerInventory;
+
+    short result = processTileInteraction(1, playerStats, playerInventory);
+
+    EXPECT_EQ(outputBuffer.str(), "Nothing happens on this tile.\n");
+    
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
