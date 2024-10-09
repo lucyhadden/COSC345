@@ -278,14 +278,16 @@ TEST(InteractionsTest, LevelPlayTestTile2) {
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
 
-    setupLevel(1);
+    setupLevel(8);
     levelPlay(2, playerStats); 
 
     std::string outputStr = outputBuffer.str();
     
     // Check that the enemy encounter message is displayed
-    EXPECT_NE(outputStr.find("Oh no! You have encountered a Slime"), std::string::npos);
-    
+    EXPECT_NE(outputStr.find("Oh no! You have encountered a Wyvern"), std::string::npos);
+    EXPECT_NE(outputStr.find("The Wyvern is still alive! It's going to attack"), std::string::npos);
+    EXPECT_NE(outputStr.find("You have defeated the Wyvern."), std::string::npos);
+
     // Check player health is correctly updated after the encounter
     EXPECT_LE(playerStats.health, 150); 
     
