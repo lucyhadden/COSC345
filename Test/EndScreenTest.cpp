@@ -103,6 +103,7 @@ TEST(EndScreenTest, LoseScreenTestA) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+
 TEST(EndScreenTest, LoseScreenTestB) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
@@ -117,6 +118,7 @@ TEST(EndScreenTest, LoseScreenTestB) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+
 TEST(EndScreenTest, LoseScreenTestC) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
@@ -131,6 +133,7 @@ TEST(EndScreenTest, LoseScreenTestC) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+
 TEST(EndScreenTest, LoseScreenTestD) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
