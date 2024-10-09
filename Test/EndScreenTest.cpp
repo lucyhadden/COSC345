@@ -64,5 +64,84 @@ TEST(EndScreenTest, WinScreenTest) {
     EXPECT_NE(outputBuffer.str().find(expectedWinArt3), std::string::npos);
     EXPECT_NE(outputBuffer.str().find("You completed the game"), std::string::npos);
     std::cout.rdbuf(oldCout);
+}
 
+//TEST for loseScreen
+TEST(EndScreenTest, LoseScreenTestA) {
+
+    std::string expectedLoseArt1 = R"(
+                                                 ('-. .-.   ('-.          (`-.      ('-.         _ .-') _              ('-.  _ .-') _   
+                                            ( OO )  /  ( OO ).-.    _(OO  )_  _(  OO)       ( (  OO) )           _(  OO)( (  OO) )  
+  ,--.   ,--..-'),-----.  ,--. ,--.         ,--. ,--.  / . --. /,--(_/   ,. \(,------.       \     .'_   ,-.-') (,------.\     .'_  
+   \  `.'  /( OO'  .-.  ' |  | |  |         |  | |  |  | \-.  \ \   \   /(__/ |  .---'       ,`'--..._)  |  |OO) |  .---',`'--..._) 
+ .-')     / /   |  | |  | |  | | .-')       |   .|  |.-'-'  |  | \   \ /   /  |  |           |  |  \  '  |  |  \ |  |    |  |  \  ' 
+(OO  \   /  \_) |  |\|  | |  |_|( OO )      |       | \| |_.'  |  \   '   /, (|  '--.        |  |   ' |  |  |(_/(|  '--. |  |   ' | 
+ |   /  /\_   \ |  | |  | |  | | `-' /      |  .-.  |  |  .-.  |   \     /__) |  .--'        |  |   / : ,|  |_.' |  .--' |  |   / : 
+ `-./  /.__)   `'  '-'  '('  '-'(_.-'       |  | |  |  |  | |  |    \   /     |  `---.       |  '--'  /(_|  |    |  `---.|  '--'  / 
+   `--'          `-----'   `-----'          `--' `--'  `--' `--'     `-'      `------'       `-------'   `--'    `------'`-------' 
+)";
+
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    std::istringstream inputBuffer("1\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    loseScreen();
+
+    EXPECT_NE(outputBuffer.str().find("Oh no"), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("..."), std::string::npos); 
+    EXPECT_NE(outputBuffer.str().find(expectedLoseArt1), std::string::npos); 
+    EXPECT_NE(outputBuffer.str().find("You failed to protect Grizzle and clear the dungeon"), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("What would you like to do?"), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("1. Restart"), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("2. Go to main menu"), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("3. Exit"), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("Please enter your choice (1-3): "), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("Restarting game..."), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+TEST(EndScreenTest, LoseScreenTestB) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    std::istringstream inputBuffer("2\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    loseScreen();
+
+    EXPECT_NE(outputBuffer.str().find("Going to main menu..."), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+TEST(EndScreenTest, LoseScreenTestC) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    std::istringstream inputBuffer("3\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    loseScreen();
+
+    EXPECT_NE(outputBuffer.str().find("Exiting game..."), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+TEST(EndScreenTest, LoseScreenTestC) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    std::istringstream inputBuffer("99\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    loseScreen();
+
+    EXPECT_NE(outputBuffer.str().find("Invalid choice. Please try again."), std::string::npos);
+
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
 }
