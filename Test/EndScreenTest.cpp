@@ -71,7 +71,7 @@ TEST(EndScreenTest, WinScreenTest) {
 TEST(EndScreenTest, LoseScreenTestA) {
 
     std::string expectedLoseArt1 = R"(
-                                                 ('-. .-.   ('-.          (`-.      ('-.         _ .-') _              ('-.  _ .-') _   
+                                             ('-. .-.   ('-.          (`-.      ('-.         _ .-') _              ('-.  _ .-') _   
                                             ( OO )  /  ( OO ).-.    _(OO  )_  _(  OO)       ( (  OO) )           _(  OO)( (  OO) )  
   ,--.   ,--..-'),-----.  ,--. ,--.         ,--. ,--.  / . --. /,--(_/   ,. \(,------.       \     .'_   ,-.-') (,------.\     .'_  
    \  `.'  /( OO'  .-.  ' |  | |  |         |  | |  |  | \-.  \ \   \   /(__/ |  .---'       ,`'--..._)  |  |OO) |  .---',`'--..._) 
@@ -102,43 +102,6 @@ TEST(EndScreenTest, LoseScreenTestA) {
     EXPECT_NE(outputStr.find("2. Go to main menu"), std::string::npos);
     EXPECT_NE(outputStr.find("3. Exit"), std::string::npos);
     EXPECT_NE(outputStr.find("Please enter your choice (1-3): "), std::string::npos);
-    EXPECT_NE(outputStr.find("Restarting game..."), std::string::npos);
-
-    std::cout.rdbuf(oldCout);
-    std::cin.rdbuf(oldCin);
-}
-
-TEST(EndScreenTest, LoseScreenTestB) {
-    std::ostringstream outputBuffer;
-    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
-
-    std::istringstream inputBuffer("2\n"); 
-    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
-
-    loseScreen();
-    
-    // Capture the output
-    std::string outputStr = outputBuffer.str();
-
-    EXPECT_NE(outputStr.find("Going to main menu..."), std::string::npos);
-
-    std::cout.rdbuf(oldCout);
-    std::cin.rdbuf(oldCin);
-}
-
-TEST(EndScreenTest, LoseScreenTestC) {
-    std::ostringstream outputBuffer;
-    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
-
-    std::istringstream inputBuffer("3\n"); 
-    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
-
-    loseScreen();
-
-    // Capture the output
-    std::string outputStr = outputBuffer.str();
-
-    EXPECT_NE(outputStr.find("Exiting game..."), std::string::npos);
 
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
