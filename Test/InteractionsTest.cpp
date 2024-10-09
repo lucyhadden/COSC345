@@ -27,7 +27,7 @@ TEST(InteractionsTest, PressAnyKeyToContinue){
 }
 
 //test resetPlayerStats
-TEST(InteractionsTest, ResetPlayerStats){
+TEST(InteractionsTest, ResetPlayerStatKnight){
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
@@ -73,6 +73,40 @@ TEST(InteractionsTest, ResetPlayerStats){
     EXPECT_NE(outputStr.find("Good Luck!"), std::string::npos);
     EXPECT_NE(outputStr.find("Ah, there you are! Name’s Grizzle. Heard you're the new adventurer everyone’s talking about!"), std::string::npos);
     EXPECT_NE(outputStr.find("I need a bit of help, see? This dungeon just popped up recently — real simple stuff, nothing to worry about."), std::string::npos);
+
+    // Restore cout and cin
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
+
+TEST(InteractionsTest, ResetPlayerStatMage){
+    // Redirect cout to capture output
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    // Simulate cin for user input
+    std::istringstream inputBuffer("2\n"); // Simulate choosing the Knight class
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    CharacterClass playerClass = MAGE;
+    CharacterStats playerStats(playerClass);
+
+    resetPlayerStats(playerStats, playerClass); 
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Verify that class selection was successful
+    EXPECT_EQ(playerClass, MAGE);
+    EXPECT_EQ(playerStats.health, 80);
+    EXPECT_EQ(playerStats.attack, 25);
+    EXPECT_EQ(playerStats.defense, 5);
+    EXPECT_EQ(playerStats.agility, 15);
+    EXPECT_EQ(playerStats.intelligence, 30);
+    EXPECT_EQ(playerStats.gold, 0);
+
+    // Validate the message indicating class selection
+    EXPECT_NE(outputStr.find("You have chosen the mystical Mage class!"), std::string::npos);
 
     // Restore cout and cin
     std::cout.rdbuf(oldCout);
