@@ -251,7 +251,102 @@ TEST(InteractionsTest, ResetPlayerStatTank) {
 
 
 //test levelPlay
-//TEST(InteractionsTest, LevelPlay){}
+// Test for Tile 1 (Safe tile)
+TEST(LevelPlayTest, Tile1) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+    playerStats.health = 150; 
+
+    levelPlay(1, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+    
+    EXPECT_NE(outputStr.find("You are safe"), std::string::npos);
+    EXPECT_EQ(playerStats.health, 100);
+    
+    std::cout.rdbuf(oldCout);
+}
+
+// Test for Tile 2 (Enemy encounter)
+TEST(LevelPlayTest, Tile2) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+
+    levelPlay(2, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+    
+    // Check that the enemy encounter message is displayed
+    EXPECT_NE(outputStr.find("Oh no! You have encountered a Goblin"), std::string::npos);
+    
+    // Check player health is correctly updated after the encounter
+    EXPECT_LE(playerStats.health, 150); 
+    
+    std::cout.rdbuf(oldCout);
+}
+
+// Test for Tile 3 (Trap encounter)
+TEST(LevelPlayTest, Tile3) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+
+    levelPlay(3, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+    
+    // Check that the trap message is displayed
+    EXPECT_NE(outputStr.find("Oh no! A spike trap"), std::string::npos);
+    
+    // Check player health is correctly updated after the trap
+    EXPECT_LE(playerStats.health, 150); 
+    
+    std::cout.rdbuf(oldCout);
+}
+
+// Test for Tile 4 (Wall)
+TEST(LevelPlayTest, Tile4) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+
+    levelPlay(4, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+    
+    EXPECT_NE(outputStr.find("It's a wall! You cannot move here"), std::string::npos);
+    
+    std::cout.rdbuf(oldCout);
+}
+
+// Test for Invalid Tile
+TEST(LevelPlayTest, InvalidTile) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = KNIGHT; 
+    CharacterStats playerStats(playerClass); 
+
+    levelPlay(99, playerStats); // Pass an invalid tile number
+
+    std::string outputStr = outputBuffer.str();
+    
+    EXPECT_NE(outputStr.find("Invalid tile"), std::string::npos);
+    
+    std::cout.rdbuf(oldCout);
+}
+
+
 
 //test setUpLevel
 TEST(InteractionsTest, SetUpLevel){
