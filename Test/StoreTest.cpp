@@ -148,3 +148,55 @@ TEST(StoreTest, DisplayStoreMenuShowsInventory) {
     // Assertions for "Press enter to continue..." message
     EXPECT_NE(outputStr.find("Press enter to continue..."), std::string::npos);  // Check if the message is printed
 }
+
+
+TEST(StoreTest, DisplayWholeInventory) {
+    // Redirect output to a stringstream
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Create a dummy player stats
+    CharacterStats playerStats(KNIGHT);
+
+    // Simulate user input for option 4 (My Inventory)
+    std::stringstream input("4\n\n"); // Input to select option 4 and press enter
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    CharacterClass playerClass = KNIGHT; 
+    initializeInventory(playerInventory, playerClass);
+    CharacterClass playerClass = MAGE; 
+    initializeInventory(playerInventory, playerClass);
+    CharacterClass playerClass = THIEF; 
+    initializeInventory(playerInventory, playerClass);
+    CharacterClass playerClass = CLERIC; 
+    initializeInventory(playerInventory, playerClass);
+    CharacterClass playerClass = TANK; 
+    initializeInventory(playerInventory, playerClass);
+
+    // Call the function
+    DisplayStoreMenu(playerStats);
+
+    // Capture the output
+    std::string outputStr = output.str();
+
+    // Restore cout and cin to their original state
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+
+    // Debugging: print captured output
+    std::cout << "Captured Output:\n" << outputStr << std::endl;
+    
+    // Assertions to check if the inventory is printed correctly
+    EXPECT_NE(outputStr.find("--- Inventory ---"), std::string::npos); // Check for inventory header
+    // Check for the full output line of the Sword of Valor
+    // EXPECT_NE(outputStr.find("Item: Sword of Valor | Attack Boost: 10 | Defense Boost: 5"), std::string::npos);
+    EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos);
+    EXPECT_NE(outputStr.find("Staff of Wisdom"), std::string::npos); 
+    EXPECT_NE(outputStr.find("Dagger of Speed"), std::string::npos); 
+    EXPECT_NE(outputStr.find("Holy Mace"), std::string::npos); 
+    EXPECT_NE(outputStr.find("Warhammer"), std::string::npos); 
+
+    // Assertions for "Press enter to continue..." message
+    EXPECT_NE(outputStr.find("Press enter to continue..."), std::string::npos);  // Check if the message is printed
+}
+
