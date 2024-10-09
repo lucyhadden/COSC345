@@ -164,13 +164,13 @@ TEST(StoreTest, DisplayWholeInventory) {
 
     CharacterClass playerClass = KNIGHT; 
     initializeInventory(playerInventory, playerClass);
-    CharacterClass playerClass = MAGE; 
+    playerClass = MAGE; 
     initializeInventory(playerInventory, playerClass);
-    CharacterClass playerClass = THIEF; 
+    playerClass = THIEF; 
     initializeInventory(playerInventory, playerClass);
-    CharacterClass playerClass = CLERIC; 
+    playerClass = CLERIC; 
     initializeInventory(playerInventory, playerClass);
-    CharacterClass playerClass = TANK; 
+    playerClass = TANK; 
     initializeInventory(playerInventory, playerClass);
 
     // Call the function
