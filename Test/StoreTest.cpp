@@ -52,3 +52,59 @@ TEST(StoreTest, SecondTimeVisitOutput) {
     EXPECT_NE(outputStr.find("Hello again friend! Welcome back to my store."), std::string::npos);
     EXPECT_NE(outputStr.find("Please buy something."), std::string::npos);
 }
+
+TEST(StoreTest, DisplayStoreMenuShowsCorrectItems) {
+    // Redirect output to a stringstream
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Create a dummy player stats
+    CharacterStats playerStats(KNIGHT);  // Adjust depending on your setup
+
+    // Simulate user input for option 1 (View Stock) and pressing enter
+    std::stringstream input("1\n\n");
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    // Call the function
+    DisplayStoreMenu(playerStats);
+
+    // Capture the output
+    std::string outputStr = output.str();
+
+    // Restore cout and cin to their original state
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+
+    // Assertions to check if "Sword of Valor" is printed
+    EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos);  // Check for the real item
+    EXPECT_NE(outputStr.find("Shield of Courage"), std::string::npos); // Check for another real item
+
+    // Assertions to check if a made-up item is not printed
+    EXPECT_EQ(outputStr.find("Made-Up Item"), std::string::npos);  // Check that a fake item is NOT present
+}
+
+TEST(StoreTest, DisplayStoreMenuDialogueOption) {
+    // Redirect output to a stringstream
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Create a dummy player stats
+    CharacterStats playerStats(KNIGHT);  // Adjust depending on your setup
+
+    // Simulate user input for option 3 (Talk)
+    std::stringstream input("3\n"); // Input to select option 3
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    // Call the function
+    DisplayStoreMenu(playerStats);
+
+    // Capture the output
+    std::string outputStr = output.str();
+
+    // Restore cout and cin to their original state
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+
+    // Assertion to check if the dialogue message is printed
+    EXPECT_NE(outputStr.find("I don't have any dialogue options for this right now."), std::string::npos);
+}
