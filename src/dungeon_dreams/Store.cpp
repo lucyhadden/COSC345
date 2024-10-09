@@ -20,9 +20,9 @@ std::unordered_map<int, Equipment> stock = {
     {2, Equipment("Plastic Shiv", 20, 0, 55)},   
     {3, Equipment("Metal Umberella", 0, 50, 100)},
     // Potion Items
-    {4, Equipment("Minor Healing Potion (10HP)", 0, 0, 5)},
-    {5, Equipment("Major Healing Potion (30HP)", 0, 0, 20)},
-    {6, Equipment("Super Healing Potion (80HP)", 0, 0, 50)},
+    {4, Equipment("Minor Healing Potion - 10HP", 0, 0, 5)},
+    {5, Equipment("Major Healing Potion - 30HP", 0, 0, 20)},
+    {6, Equipment("Super Healing Potion - 80HP", 0, 0, 50)},
 
     {444343434, Equipment("God Killer", 9999, 9999, 0)}
 };
@@ -133,7 +133,7 @@ void StoreActivated(CharacterStats &playerStats)
 void BuyItem(CharacterStats &playerStats, Equipment equipment)
 {
     playerInventory.addEquipment(equipment);
-    applyInventoryStats(playerStats, playerInventory);
+    applyLastAddedItemToStats(playerStats, equipment);
 }
 
 void PurchaseEquipment(CharacterStats &playerStats, const std::unordered_map<int, Equipment> &list, int index)

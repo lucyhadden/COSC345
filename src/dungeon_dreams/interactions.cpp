@@ -13,6 +13,7 @@
 
 #include <string>
 #include <iostream>
+#include <optional>
 #include "interactions.h"
 #include "StartScreen.h"
 #include "EndScreen.h"
@@ -24,7 +25,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <Status.h>
-#include <Equipment.h>
+#include "Equipment.h"
 
 using namespace std;
 
@@ -221,7 +222,7 @@ void levelPlay(int tileMovedTo, CharacterStats playerStats) {
     } else if(tileMovedTo == 4) {
         cout << "It's a wall! You cannot move here" << endl;
     } else {
-        cout << "Invalid tile" << endl;
+        cout << "This tile has already been explored. It has been cleared and is now safe." << endl;
     }
 }
 
@@ -304,6 +305,7 @@ void setupLevel(int levelNumber) {
  */
 
 short processTileInteraction(short tile, CharacterStats& playerStats, Inventory& playerInventory) {
+    std::optional<Equipment> equipment;
     switch (tile) {
         case 1:  // Safe tile, no interaction
             cout << "Nothing happens on this tile.\n";
@@ -319,9 +321,14 @@ short processTileInteraction(short tile, CharacterStats& playerStats, Inventory&
             return tile;
 
         case 3:  // Item discovery
-            cout << "You found a powerful item: Magic Amulet (+5 Attack, +3 Defense)\n";
-            playerInventory.addEquipment(Equipment("Magic Amulet", 5, 3, 5));
-            applyInventoryStats(playerStats, playerInventory);
+            cout << "You found a powerful item: Enchanted Rune Stone (+2 Attack, +2 Defense)\n";
+            // int attack = (rand() % 5) + 1;
+            // int defense = (rand() % 5) + 1;
+            equipment = Equipment("Enchanted Rune Stone", 2, 2, 5);
+            if (equipment.has_value()) {
+                applyLastAddedItemToStats(playerStats, equipment.value()); 
+                playerInventory.addEquipment(equipment.value());
+            }
             return tile;
 
         case 4:  // Trap encounter

@@ -1,4 +1,8 @@
 #include "Equipment.h"
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <vector>
 
 /**
  * @brief Constructor for Equipment.
@@ -56,6 +60,14 @@ void Inventory::printInventory() const {
 void applyInventoryStats(CharacterStats& stats, Inventory& inventory) {
     stats.attack += inventory.calculateTotalAttack();
     stats.defense += inventory.calculateTotalDefense();
+}
+
+/**
+ * @brief Adds the last item in the inventory's attack and defense bonuses to the player's stats
+ */
+void applyLastAddedItemToStats(CharacterStats& stats, Equipment& equipment) {
+    stats.attack += equipment.attackBoost;
+    stats.defense += equipment.defenseBoost;
 }
 
 /**
