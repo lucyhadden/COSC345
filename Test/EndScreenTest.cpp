@@ -49,11 +49,11 @@ TEST(EndScreenTest, WinScreenTest) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
-    winScreen();
+    winScreen(true);
 
     // Capture the output
     std::string outputStr = outputBuffer.str();
-    
+
     // Validate parts of the output
     EXPECT_NE(outputStr.find("You enter a dark room"), std::string::npos);
     EXPECT_NE(outputStr.find("In the middle, you see a treasure chest"), std::string::npos);
