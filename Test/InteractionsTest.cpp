@@ -260,6 +260,7 @@ TEST(LevelPlayTest, Tile1) {
     CharacterStats playerStats(playerClass); 
     playerStats.health = 150; 
 
+    setupLevel(1);
     levelPlay(1, playerStats); 
 
     std::string outputStr = outputBuffer.str();
@@ -278,6 +279,7 @@ TEST(LevelPlayTest, Tile2) {
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
 
+    setupLevel(1);
     levelPlay(2, playerStats); 
 
     std::string outputStr = outputBuffer.str();
@@ -299,12 +301,13 @@ TEST(LevelPlayTest, Tile3) {
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
 
+    setupLevel(1);
     levelPlay(3, playerStats); 
 
     std::string outputStr = outputBuffer.str();
     
     // Check that the trap message is displayed
-    EXPECT_NE(outputStr.find("Oh no! A spike trap"), std::string::npos);
+    EXPECT_NE(outputStr.find("Oh no! A Pitfall"), std::string::npos);
     
     // Check player health is correctly updated after the trap
     EXPECT_LE(playerStats.health, 150); 
