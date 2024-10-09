@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "EndScreen.h"  
 
-/**TEST for winScreen
+//TEST for winScreen
 TEST(EndScreenTest, WinScreenTest) {
 
     std::string expectedWinArt1 = R"(
@@ -65,7 +65,6 @@ TEST(EndScreenTest, WinScreenTest) {
     EXPECT_NE(outputBuffer.str().find("You completed the game"), std::string::npos);
     std::cout.rdbuf(oldCout);
 }
-*/
 
 //TEST for loseScreen
 TEST(EndScreenTest, LoseScreenTestA) {
