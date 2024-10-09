@@ -287,10 +287,10 @@ TEST(InteractionsTest, LevelPlayTestTile2B) {
     CharacterStats playerStats(playerClass); 
 
     setupLevel(8);
-    levelPlay(2, playerStats); 
-    playerStats.health = 5; 
+    playerStats.health = 100; 
     playerStats.attack = 5; 
     playerStats.defense = 0;
+    levelPlay(2, playerStats); 
 
     std::string outputStr = outputBuffer.str();
     
