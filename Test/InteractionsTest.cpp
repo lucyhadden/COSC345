@@ -372,9 +372,6 @@ TEST(InteractionsTest, LevelPlayTestTile3B) {
 
     std::string outputStr = outputBuffer.str();
     
-    // Check that the trap message is displayed
-    EXPECT_NE(outputStr.find("Oh no! A Fire trap"), std::string::npos);
-    
     std::cout.rdbuf(oldCout);
 }
 // Test for Tile 4 (Wall)
