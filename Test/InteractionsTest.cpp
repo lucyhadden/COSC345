@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include "interactions.h" 
-#include "status.h" 
+#include "Status.h" 
 
 /** 
 TEST(InteractionsTest, DummyTest) {
