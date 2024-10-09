@@ -18,7 +18,31 @@
  */
 using namespace std; // Use the standard namespace
 
+/**
+ * @brief boolean variable to control whether being called from test to select which game
+ */
+bool isTesting = false;
+
+/**
+ * @brief int variable that can be set when testing minigame to select a game
+ */
+int gameNo = 0;
+
+/**
+ * @brief Setter for the is testing Boolean variable used in testing.
+ */
+void setIsTesting(bool value) {
+    isTesting = value;
+}
+
+/**
+ * @brief Setter used to select which game to test.
+ */
+void SelectGame(int value) {
+    gameNo = value;
+}
 // Mini-game functions
+
 
 //Word Scrabble - unscrabble as many words as you can in a set time
 int game1() {
@@ -269,6 +293,9 @@ int miniGames() {
     cout << "You Have Entered The MiniGames!" << endl;
     CustomSleep(1);
     int gameSelection = spinWheel();
+    if(isTesting){
+        gameSelection = gameNo;
+    }
     // int gameSelection = 3;
     switch (gameSelection) {
         case 1:
@@ -290,23 +317,23 @@ int miniGames() {
     return goldEarned;
 }
 
-void SelectGame(int game)
-{
-    switch(game)
-    {
-        case 1:
-            game1();
-            break;
-        case 2:
-            game2();
-            break;
-        case 3:
-            game3();
-            break;
-        case 4:
-            game4();
-            break;
-        default:
-            break;
-    }
-}
+// void SelectGame(int game)
+// {
+//     switch(game)
+//     {
+//         case 1:
+//             game1();
+//             break;
+//         case 2:
+//             game2();
+//             break;
+//         case 3:
+//             game3();
+//             break;
+//         case 4:
+//             game4();
+//             break;
+//         default:
+//             break;
+//     }
+// }
