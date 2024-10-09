@@ -321,6 +321,23 @@ TEST(InteractionsTest, LevelPlayTestTile2C) {
     
     std::cout.rdbuf(oldCout);
 }
+TEST(InteractionsTest, LevelPlayTestTile2D) {
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    CharacterClass playerClass = TANK; 
+    CharacterStats playerStats(playerClass); 
+    // Set low health to ensure the player can die
+
+    setupLevel(4);
+    levelPlay(2, playerStats); 
+
+    std::string outputStr = outputBuffer.str();
+
+    EXPECT_NE(outputStr.find("Your defensive stat is higher than the enemy's damage! You take no damage"), std::string::npos);
+    
+    std::cout.rdbuf(oldCout);
+}
 // Test for Tile 3 (Trap encounter)
 TEST(InteractionsTest, LevelPlayTestTile3) {
     std::ostringstream outputBuffer;
