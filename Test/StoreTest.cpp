@@ -75,9 +75,9 @@ TEST(StoreTest, DisplayStoreMenuShowsCorrectItems) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 
-    // Assertions to check if "Sword of Valor" is printed
-    EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos);  // Check for the real item
-    EXPECT_NE(outputStr.find("Steel Shield"), std::string::npos); // Check for another real item
+    // Assertions to check if "Wooden Spatula" is printed
+    EXPECT_NE(outputStr.find("Wooden Spatula"), std::string::npos);  // Check for the real item
+    EXPECT_NE(outputStr.find("Shinguards"), std::string::npos); // Check for another real item
 
     // Assertions to check if a made-up item is not printed
     EXPECT_EQ(outputStr.find("Made-Up Item"), std::string::npos);  // Check that a fake item is NOT present
@@ -140,9 +140,9 @@ TEST(StoreTest, DisplayStoreMenuShowsInventory) {
     
     // Assertions to check if the inventory is printed correctly
     EXPECT_NE(outputStr.find("--- Inventory ---"), std::string::npos); // Check for inventory header
-    // Check for the full output line of the Sword of Valor
-    // EXPECT_NE(outputStr.find("Item: Sword of Valor | Attack Boost: 10 | Defense Boost: 5"), std::string::npos);
-    EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos);
+    // Check for the full output line of the Wooden Spatula
+    // EXPECT_NE(outputStr.find("Item: Wooden Spatula | Attack Boost: 10 | Defense Boost: 5"), std::string::npos);
+    EXPECT_NE(outputStr.find("Wooden Spatula"), std::string::npos);
     EXPECT_EQ(outputStr.find("Item: Staff of Wisdom"), std::string::npos); 
 
     // Assertions for "Press enter to continue..." message
@@ -188,15 +188,24 @@ TEST(StoreTest, DisplayWholeInventory) {
     
     // Assertions to check if the inventory is printed correctly
     EXPECT_NE(outputStr.find("--- Inventory ---"), std::string::npos); // Check for inventory header
-    // Check for the full output line of the Sword of Valor
-    // EXPECT_NE(outputStr.find("Item: Sword of Valor | Attack Boost: 10 | Defense Boost: 5"), std::string::npos);
-    EXPECT_NE(outputStr.find("Sword of Valor"), std::string::npos);
+    // Check for the full output line of the Wooden Spatula
+    // EXPECT_NE(outputStr.find("Item: Wooden Spatula | Attack Boost: 10 | Defense Boost: 5"), std::string::npos);
+    EXPECT_NE(outputStr.find("Wooden Spatula"), std::string::npos);
     EXPECT_NE(outputStr.find("Staff of Wisdom"), std::string::npos); 
-    EXPECT_NE(outputStr.find("Dagger of Speed"), std::string::npos); 
-    EXPECT_NE(outputStr.find("Holy Mace"), std::string::npos); 
-    EXPECT_NE(outputStr.find("Warhammer"), std::string::npos); 
+    EXPECT_NE(outputStr.find("Plastic Shiv"), std::string::npos); 
+    EXPECT_NE(outputStr.find("Metal Umberella"), std::string::npos); 
 
     // Assertions for "Press enter to continue..." message
     EXPECT_NE(outputStr.find("Press enter to continue..."), std::string::npos);  // Check if the message is printed
 }
 
+
+
+// TEST(StoreTest, testPurchaseA) {
+//     // Redirect output to a stringstream
+//     std::stringstream output;
+//     std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+    
+//     CharacterClass playerClass = KNIGHT; 
+//     CharacterStats playerStats(playerClass); 
+// }
