@@ -251,6 +251,9 @@ TEST(ShopTest, PurchaseItemWithNotEnoughGold) {
     // Capture output
     std::string outputStr = output.str();
 
+     // Debugging: print captured output
+    std::cout << "Captured Output:\n" << outputStr << std::endl;
+    
     // Assertions:
     // Check if no gold was deducted
     EXPECT_EQ(playerStats.gold, 10);
