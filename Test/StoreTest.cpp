@@ -13,7 +13,7 @@ TEST(StoreTest, FirstTimeVisit) {
     CharacterStats playerStats(KNIGHT);  // Adjust depending on your setup
 
     // Test for first-time visit
-    // isFirstTime = true;
+    setIsFirstTime();
     IntroductionToStore(playerStats);
 
     // Capture the output
