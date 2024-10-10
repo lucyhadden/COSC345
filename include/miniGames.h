@@ -11,7 +11,7 @@
 /**
  * @brief Holds the first minigame option
  */
-int game1();
+int game1(bool isTesting);
 
 /**
  * @brief Holds the second minigame option

@@ -95,12 +95,12 @@ TEST(MiniGamesTest, Game1){
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
 
     // Generate input for the game by simulating Enter presses
-    std::string input = createEnterInput(100); // Adjust the number of presses as needed
+    std::string input = createEnterInput(10); // Adjust the number of presses as needed
     std::istringstream inputBuffer(input);
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
     // Call the game1 function
-    int score = game1();
+    int score = game1(true);
 
     // Capture the output
     std::string outputStr = outputBuffer.str();

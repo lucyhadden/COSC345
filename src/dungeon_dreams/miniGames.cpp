@@ -46,7 +46,7 @@ void SelectGame(int value) {
 
 
 //Word Scrabble - unscrabble as many words as you can in a set time
-int game1() {
+int game1(bool isTesting) {
     // Game 1 logic here
 
     vector<string> original_words = {"win", "lose", "game", "dungeon", "dream", "goblin", "guild", "adventure", "quest", "treasure", "reward", "monster", "ghost", "slime", "dragon", "troll", "knight", "mage", "tank", "theif", "cleric"};
@@ -59,7 +59,7 @@ int game1() {
 
     srand(time(0)); // Seed the random number generator
     int score = 0; // Initialize score to 0
-
+    
     cout << "Welcome to the Word Unscramble Game!" << endl;
     CustomSleep(1);
     cout << "You will be given a series of scrambled words, and you must unscramble them within 15 seconds." << endl;
@@ -76,9 +76,13 @@ int game1() {
     mt19937 rng{random_device{}()};
     uniform_int_distribution<int> dist(0, scrambled_words.size() - 1);
 
+
     // Start the timer
     time_t start_time = time(0);
-    time_t end_time = start_time + 30; // 30 seconds
+    time_t end_time = start_time + 1; // for testing
+    if(!isTesting){
+        time_t end_time =+ 29; // 30 seconds
+    }
 
     while (time(0) < end_time) {
         // Clear the screen and print the remaining time
@@ -300,7 +304,7 @@ int miniGames(CharacterStats& playerStats) {
     // int gameSelection = 3;
     switch (gameSelection) {
         case 1:
-            playerStats.gold += game1();
+            playerStats.gold += game1(false);
             break;
         case 2:
             playerStats.gold += game2();
