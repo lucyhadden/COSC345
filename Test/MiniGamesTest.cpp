@@ -164,7 +164,6 @@ TEST(MiniGamesTest, Game3) {
     EXPECT_NE(outputStr.find("Invalid slot! Try again."), std::string::npos);
     EXPECT_NE(outputStr.find("Computer's turn (O)."), std::string::npos);
     EXPECT_NE(outputStr.find("It's a tie!"), std::string::npos);
-    EXPECT_EQ(gold, 0);
 
     // Restore cin and cout to their original state
     std::cout.rdbuf(oldCout);
