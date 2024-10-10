@@ -398,3 +398,29 @@ TEST(ShopTest, PurchaseHealingPotionsC) {
     EXPECT_EQ(playerStats.health, 230);
     
 }
+
+TEST(SafeZoneTest, TestInvalidChoice) {
+
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    std::istringstream inputBuffer("6\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    // Set up player stats
+    CharacterStats playerStats(KNIGHT);
+
+    // Call the function
+    DisplayStoreMenu(playerStats);
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+    
+    // Expect the correct message for invalid choice (4)
+    EXPECT_NE(outputStr.find("Invalid choice. Please try again.."), std::string::npos);
+
+
+    // Restore cin and cout to their original state
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+}
