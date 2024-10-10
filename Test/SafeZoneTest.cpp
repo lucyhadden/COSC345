@@ -48,7 +48,7 @@ TEST(SafeZoneTest, TestInvalidChoice) {
     EXPECT_NE(outputStr.find("1. Play a minigame to earn more gold!"), std::string::npos);
     EXPECT_NE(outputStr.find("2. Visit the store"), std::string::npos);
     EXPECT_NE(outputStr.find("3. Continue to next level"), std::string::npos);
-    EXPECT_NE(outputStr.find("Please enter your choice (1-4):"), std::string::npos);
+    EXPECT_NE(outputStr.find("Please enter your choice (1-3):"), std::string::npos);
 
     // Restore cin and cout to their original state
     std::cout.rdbuf(oldCout);
@@ -109,7 +109,7 @@ TEST(SafeZoneTest, TestMinigameAlreadyPlayed) {
     EXPECT_NE(outputStr.find("1. Play a minigame to earn more gold!"), std::string::npos);
     EXPECT_NE(outputStr.find("2. Visit the store"), std::string::npos);
     EXPECT_NE(outputStr.find("3. Continue to next level"), std::string::npos);
-    EXPECT_NE(outputStr.find("Please enter your choice (1-4):"), std::string::npos);
+    EXPECT_NE(outputStr.find("Please enter your choice (1-3):"), std::string::npos);
 
     // Restore cin and cout to their original state
     std::cout.rdbuf(oldCout);
