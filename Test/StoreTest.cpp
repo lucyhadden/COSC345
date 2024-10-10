@@ -416,9 +416,11 @@ TEST(ShopTest, TestInvalidChoice) {
     // Capture the output
     std::string outputStr = outputBuffer.str();
     
-    // Expect the correct message for invalid choice (4)
-    EXPECT_NE(outputStr.find("Invalid choice. Please try again.."), std::string::npos);
+        // Debugging: print captured output
+    std::cout << "Captured Output:\n" << outputStr << std::endl;
 
+    // Expect the correct message for invalid choice (4)
+    EXPECT_NE(outputStr.find("Invalid choice. Please try again."), std::string::npos);
 
     // Restore cin and cout to their original state
     std::cout.rdbuf(oldCout);
