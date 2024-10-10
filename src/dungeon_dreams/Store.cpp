@@ -34,6 +34,10 @@ const std::string shopkeeper4 = AsciiArt::getShrugShopkeeper();
 
 std::vector<std::string> shopkeeperSprites = {shopkeeper1, shopkeeper2, shopkeeper3, shopkeeper4};
 
+void setIsFirstTime(){
+    isFirstTime = true;
+}
+
 void PressEnterToContinue()
 {
     std::cout << "Press enter to continue...";

@@ -52,4 +52,9 @@ void BuyItem(CharacterStats& playerStats, Equipment equipment);
  */
 void PrintStock(const std::unordered_map<int, Equipment>& list);
 
+/**
+ * @brief reset isFirstTime
+ */
+void setIsFirstTime();
+
 #endif // STORE_H
