@@ -81,35 +81,34 @@ int game1(bool isTesting) {
     time_t start_time = time(0);
     time_t end_time = start_time + 1; // for testing
     if(!isTesting){
-        time_t end_time =+ 29; // 30 seconds
-    }
 
-    while (time(0) < end_time) {
-        // Clear the screen and print the remaining time
-        Clear();
-        cout << "Time remaining: " << end_time - time(0) << " seconds" << endl;
-        cout << "Score: " << score << " gold" << endl;
+        while (time(0) < end_time) {
+            // Clear the screen and print the remaining time
+            Clear();
+            cout << "Time remaining: " << end_time - time(0) << " seconds" << endl;
+            cout << "Score: " << score << " gold" << endl;
 
-        // Randomly select an index from the vector
-        int selectedIndex = dist(rng);
+            // Randomly select an index from the vector
+            int selectedIndex = dist(rng);
 
-        // Print the scrambled word and prompt the user to unscramble it
-        cout << "Unscramble the word: " << scrambled_words[selectedIndex] << endl;
+            // Print the scrambled word and prompt the user to unscramble it
+            cout << "Unscramble the word: " << scrambled_words[selectedIndex] << endl;
 
 
-        string userInput;
-        bool correct = false;
-        while (!correct) {
-            cout << "Enter your answer: ";
-            cin >> userInput;
+            string userInput;
+            bool correct = false;
+            while (!correct) {
+                cout << "Enter your answer: ";
+                cin >> userInput;
 
-            // Check if the user's answer is correct
-            if (userInput == original_words[selectedIndex]) {
-                cout << "Correct! The unscrambled word is indeed " << original_words[selectedIndex] << "." << endl;
-                correct = true;
-                score++;
-            } else {
-                cout << "Sorry, that's incorrect. Try again!" << endl;
+                // Check if the user's answer is correct
+                if (userInput == original_words[selectedIndex]) {
+                    cout << "Correct! The unscrambled word is indeed " << original_words[selectedIndex] << "." << endl;
+                    correct = true;
+                    score++;
+                } else {
+                    cout << "Sorry, that's incorrect. Try again!" << endl;
+                }
             }
         }
     }

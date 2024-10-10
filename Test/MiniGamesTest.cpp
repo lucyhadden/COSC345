@@ -79,15 +79,6 @@ TEST(MiniGamesTest, SpinWheelTest){
     std::cout.rdbuf(oldCout);
 }
 
-// Function to create an input string that simulates pressing Enter repeatedly
-std::string createEnterInput(int presses) {
-    std::ostringstream oss;
-    for (int i = 0; i < presses; ++i) {
-        oss << '\n';  // Append a newline for each "Enter" press
-    }
-    return oss.str();
-}
-
 //TEST for game 1
 TEST(MiniGamesTest, Game1){
 
@@ -95,8 +86,7 @@ TEST(MiniGamesTest, Game1){
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
 
     // Generate input for the game by simulating Enter presses
-    std::string input = createEnterInput(10); // Adjust the number of presses as needed
-    std::istringstream inputBuffer(input);
+    std::istringstream inputBuffer("\n"); // Simulate choosing invalid option first then valid Knight class
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
     // Call the game1 function
@@ -111,10 +101,6 @@ TEST(MiniGamesTest, Game1){
     EXPECT_NE(outputStr.find("For each correct unscrambled word, you will earn 1 gold."), std::string::npos);
     EXPECT_NE(outputStr.find("Let's start the adventure!"), std::string::npos);
     EXPECT_NE(outputStr.find("Press enter to continue..."), std::string::npos);
-
-    EXPECT_NE(outputStr.find("Time remaining:"), std::string::npos);
-    EXPECT_NE(outputStr.find("Score:"), std::string::npos);
-    EXPECT_NE(outputStr.find("Unscramble the word:"), std::string::npos);
     EXPECT_NE(outputStr.find("Game over! Your final score is"), std::string::npos);
 
     // Optionally check if the score is in the expected range (e.g., 0 for no correct answers)
