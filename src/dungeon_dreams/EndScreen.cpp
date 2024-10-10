@@ -23,7 +23,7 @@ using namespace std;
  * 
  */
 
-void winScreen(bool);
+void winScreen(bool isTest);
 void loseScreen();
 
 
