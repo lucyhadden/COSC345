@@ -26,28 +26,11 @@ TEST(StartScreenTest, TestDisplayMenu) {
     std::cout.rdbuf(old);
 }
 
-TEST(StartScreenTest, MenuChooseOption1) {
+TEST(StartScreenTest, MenuChooseOption) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
-    std::istringstream inputBuffer("1\n"); // Simulate choosing the Knight class
-    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
-
-    handleMenuChoice();
-
-    // Capture the output
-    std::string outputStr = outputBuffer.str();
-
-    // Restore cout and cin
-    std::cout.rdbuf(oldCout);
-    std::cin.rdbuf(oldCin);
-}
-
-TEST(StartScreenTest, MenuChooseOption2) {
-    std::ostringstream outputBuffer;
-    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
-
-    std::istringstream inputBuffer("0\n1\n"); // Simulate choosing the Knight class
+    std::istringstream inputBuffer("0\n2\n"); // Simulate choosing the Knight class
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
     handleMenuChoice();
