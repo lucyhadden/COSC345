@@ -80,7 +80,6 @@ add_executable(DungeonGameTest
     src/dungeon_dreams/EndScreen.cpp
     src/dungeon_dreams/Equipment.cpp
     src/dungeon_dreams/interactions.cpp
-    src/dungeon_dreams/main.cpp
     src/dungeon_dreams/miniGames.cpp
     src/dungeon_dreams/movement.cpp 
     src/dungeon_dreams/SafeZone.cpp
