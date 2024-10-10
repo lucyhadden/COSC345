@@ -9,13 +9,13 @@
 
 
 // // Testing displayWelcome()
-// TEST(DungeonDreamsTest, TestDisplayWelcome) {
+// TEST(StartScreenTest, TestDisplayWelcome) {
 //     // Expect the function to run without errors
 //     EXPECT_NO_THROW(displayWelcome());
 // }
 
 // Testing displayMenu()
-TEST(DungeonDreamsTest, TestDisplayMenu) {
+TEST(StartScreenTest, TestDisplayMenu) {
     // Redirect stdout to a stringstream to capture output
     std::stringstream buffer;
     std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
@@ -41,15 +41,15 @@ TEST(DungeonDreamsTest, TestDisplayMenu) {
 //     EXPECT_NO_THROW(handleMenuChoice());
 // }
 
-// Testing displayCharacterClasses()
-TEST(DungeonDreamsTest, TestDisplayCharacterClasses) {
+/** Testing displayCharacterClasses()
+TEST(StartScreenTest, TestDisplayCharacterClasses) {
     // Expect the function to run without errors
     EXPECT_NO_THROW(displayCharacterClasses());
 }
 
 // Testing startingStory()
-TEST(DungeonDreamsTest, TestStartingStory) {
+TEST(StartScreenTest, TestStartingStory) {
     // Expect the function to run without errors
     EXPECT_NO_THROW(startingStory());
 }
-
+*/

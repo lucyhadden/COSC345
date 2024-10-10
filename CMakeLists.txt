@@ -63,31 +63,31 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(DungeonGameTest
-    Test/StoreTest.cpp
-    Test/SafeZoneTest.cpp
     Test/AsciiArtTest.cpp
     Test/EndScreenTest.cpp
-    # Test/StartScreenTest.cpp
-    # Test/InteractionsTest.cpp
-    Test/MainTest.cpp
-    Test/MovementTest.cpp
-    Test/UtilsTest.cpp
-    Test/MiniGamesTest.cpp
     Test/EquipmentTest.cpp
+    Test/InteractionsTest.cpp
+    Test/MainTest.cpp
+    Test/MiniGamesTest.cpp
+    Test/MovementTest.cpp
+    Test/SafeZoneTest.cpp
+    Test/StartScreenTest.cpp
+    Test/StoreTest.cpp
+    Test/UtilsTest.cpp
 
     src/dungeon_dreams/AsciiArt.cpp
-    src/dungeon_dreams/TestUtils.cpp
-    # src/dungeon_dreams/StartScreen.cpp
-    src/dungeon_dreams/EndScreen.cpp
-    src/dungeon_dreams/miniGames.cpp
-    src/dungeon_dreams/utils.cpp
-    src/dungeon_dreams/Equipment.cpp
-    src/dungeon_dreams/SafeZone.cpp
-    src/dungeon_dreams/Store.cpp
-    src/dungeon_dreams/interactions.cpp
     src/dungeon_dreams/BlackJack.cpp
-
-   
+    src/dungeon_dreams/EndScreen.cpp
+    src/dungeon_dreams/Equipment.cpp
+    src/dungeon_dreams/interactions.cpp
+    src/dungeon_dreams/miniGames.cpp
+    src/dungeon_dreams/movement.cpp 
+    src/dungeon_dreams/SafeZone.cpp
+    src/dungeon_dreams/StartScreen.cpp
+    src/dungeon_dreams/Status.cpp
+    src/dungeon_dreams/Store.cpp
+    src/dungeon_dreams/TestUtils.cpp
+    src/dungeon_dreams/utils.cpp
 )
 
 target_link_libraries(DungeonGameTest gtest gtest_main)

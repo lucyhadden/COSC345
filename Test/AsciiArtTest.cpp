@@ -31,15 +31,15 @@ TEST(AsciiArtTest, GetGuildMasterTest) {
 // Test for Grizzle normal expression
 TEST(AsciiArtTest, GetGrizzleNormalExpressionTest) {
     std::string expectedArt = R"(
-              ———————————
+              -----------
            /               \
-    ____ -     –       –     - ____
+    ____ -     -       -     - ____
   /          ( o )   ( o )          \
   \ ____                       ____ /
         |          ^          |
-         \      -v———v-      /
+         \      -v---v-      /
            \                /
-              ———————————   
+              -----------   
 )";
     EXPECT_EQ(AsciiArt::getGrizzleNormalExpression(), expectedArt);
 }
@@ -47,15 +47,15 @@ TEST(AsciiArtTest, GetGrizzleNormalExpressionTest) {
 // Test for Grizzle angry expression
 TEST(AsciiArtTest, GetGrizzleAngryExpressionTest) {
     std::string expectedArt = R"(
-              ———————————
+              -----------
            /               \
     ____ -      \     /       - ____
   /          ( o )   ( o )          \
   \ ____                       ____ /
         |          ^          |
-         \      -v———v-      /
+         \      -v---v-      /
           \                 /
-              ———————————  
+              -----------  
 )";
     EXPECT_EQ(AsciiArt::getGrizzleAngryExpression(), expectedArt);
 }
@@ -63,15 +63,15 @@ TEST(AsciiArtTest, GetGrizzleAngryExpressionTest) {
 // Test for Grizzle happy expression
 TEST(AsciiArtTest, GetGrizzleHappyExpressionTest) {
     std::string expectedArt = R"(
-              ———————————
+              -----------
            /               \
-    ____ -     -       –     - ____
+    ____ -     -       -     - ____
   /          ( o )   ( o )          \
   \ ____      \\\      \\\     ____ /
         |          ^          |
-         \      'v———v'      /
+         \      'v---v'      /
           \                 /
-              ———————————   
+              -----------   
 )";
     EXPECT_EQ(AsciiArt::getGrizzleHappyExpression(), expectedArt);
 }
@@ -79,15 +79,15 @@ TEST(AsciiArtTest, GetGrizzleHappyExpressionTest) {
 // Test for Grizzle scared expression
 TEST(AsciiArtTest, GetGrizzleScaredExpressionTest) {
     std::string expectedArt = R"(
-              ———————————
+              -----------
            /               \
-    ____ -     –       –     - ____
+    ____ -     -       -     - ____
   /          ( o )   ( o )          \
   \ ____           ^           ____ /
         |      _________      |
-         \    | -v———v- |    /
-          \    —————————    /
-              ———————————   
+         \    | -v---v- |    /
+          \    ---------    /
+              -----------   
 )";
     EXPECT_EQ(AsciiArt::getGrizzleScaredExpression(), expectedArt);
 }

@@ -19,16 +19,18 @@ using namespace std;
  * @brief Displays end screeen and handles relevant events
  * @author Elizabeth Stewart
  * 
+ * @param isTest Boolean flag indicating if a test scenario. 
+ * 
  */
 
-void winScreen();
+void winScreen(bool isTest);
 void loseScreen();
 
 
 /**
  * Method that displays the win screen animation
  */
-void winScreen() {
+void winScreen(bool isTest) {
     Clear();
 
     cout << "You enter a dark room" << endl;
@@ -96,8 +98,11 @@ void winScreen() {
     //         cout << "Invalid choice. Please try again." << endl;
     //         break;
     // }
-    exit(0);
-
+    if(isTest){
+        return;
+    }else{
+        exit(0);
+    }
 }
 
 // Function to display the lose screen animation
@@ -160,7 +165,7 @@ void loseScreen() {
  */
 void showEndScreen(bool won) {
     if (won) {
-        winScreen();
+        winScreen(false);
     } else {
         loseScreen();
     }

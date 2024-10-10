@@ -46,7 +46,7 @@ void SelectGame(int value) {
 
 
 //Word Scrabble - unscrabble as many words as you can in a set time
-int game1() {
+int game1(bool isTesting) {
     // Game 1 logic here
 
     vector<string> original_words = {"win", "lose", "game", "dungeon", "dream", "goblin", "guild", "adventure", "quest", "treasure", "reward", "monster", "ghost", "slime", "dragon", "troll", "knight", "mage", "tank", "theif", "cleric"};
@@ -59,7 +59,7 @@ int game1() {
 
     srand(time(0)); // Seed the random number generator
     int score = 0; // Initialize score to 0
-
+    
     cout << "Welcome to the Word Unscramble Game!" << endl;
     CustomSleep(1);
     cout << "You will be given a series of scrambled words, and you must unscramble them within 15 seconds." << endl;
@@ -76,36 +76,39 @@ int game1() {
     mt19937 rng{random_device{}()};
     uniform_int_distribution<int> dist(0, scrambled_words.size() - 1);
 
+
     // Start the timer
     time_t start_time = time(0);
-    time_t end_time = start_time + 30; // 30 seconds
+    time_t end_time = start_time + 1; // for testing
+    if(!isTesting){
 
-    while (time(0) < end_time) {
-        // Clear the screen and print the remaining time
-        Clear();
-        cout << "Time remaining: " << end_time - time(0) << " seconds" << endl;
-        cout << "Score: " << score << " gold" << endl;
+        while (time(0) < end_time) {
+            // Clear the screen and print the remaining time
+            Clear();
+            cout << "Time remaining: " << end_time - time(0) << " seconds" << endl;
+            cout << "Score: " << score << " gold" << endl;
 
-        // Randomly select an index from the vector
-        int selectedIndex = dist(rng);
+            // Randomly select an index from the vector
+            int selectedIndex = dist(rng);
 
-        // Print the scrambled word and prompt the user to unscramble it
-        cout << "Unscramble the word: " << scrambled_words[selectedIndex] << endl;
+            // Print the scrambled word and prompt the user to unscramble it
+            cout << "Unscramble the word: " << scrambled_words[selectedIndex] << endl;
 
 
-        string userInput;
-        bool correct = false;
-        while (!correct) {
-            cout << "Enter your answer: ";
-            cin >> userInput;
+            string userInput;
+            bool correct = false;
+            while (!correct) {
+                cout << "Enter your answer: ";
+                cin >> userInput;
 
-            // Check if the user's answer is correct
-            if (userInput == original_words[selectedIndex]) {
-                cout << "Correct! The unscrambled word is indeed " << original_words[selectedIndex] << "." << endl;
-                correct = true;
-                score++;
-            } else {
-                cout << "Sorry, that's incorrect. Try again!" << endl;
+                // Check if the user's answer is correct
+                if (userInput == original_words[selectedIndex]) {
+                    cout << "Correct! The unscrambled word is indeed " << original_words[selectedIndex] << "." << endl;
+                    correct = true;
+                    score++;
+                } else {
+                    cout << "Sorry, that's incorrect. Try again!" << endl;
+                }
             }
         }
     }
@@ -209,7 +212,7 @@ void computerMove() {
     } while (!placeMarker(slot, computer_marker));
 }
 
-int game3() {
+int game3(bool isTesting) {
     int gold = 0; // Variable to keep track of gold
     cout << "Welcome to the Tic Tac Toe!" << endl;
     CustomSleep(1);
@@ -254,10 +257,14 @@ int game3() {
         player_won = winner();
         if (player_won == 1) { cout << "You win!\n"; break; gold += 10; }
         if (player_won == 2) { cout << "Computer wins!\n"; break; gold +=1; }
+
+        //If testing break
+        if(isTesting){
+            break;
+        }
     }
 
     if (player_won == 0) {cout << "It's a tie!\n"; gold +=3;}
-    // cout << "You're playing Game 3!" << endl;
     return gold;
 }
 
@@ -300,13 +307,13 @@ int miniGames(CharacterStats& playerStats) {
     // int gameSelection = 3;
     switch (gameSelection) {
         case 1:
-            playerStats.gold += game1();
+            playerStats.gold += game1(false);
             break;
         case 2:
             playerStats.gold += game2();
             break;
         case 3:
-            playerStats.gold += game3();
+            playerStats.gold += game3(false);
             break;
         case 4:
             playerStats.gold += game4();

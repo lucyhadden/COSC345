@@ -10,8 +10,10 @@
 
 /**
  * @brief Holds the first minigame option
+ * 
+ * @param isTesting used for testing
  */
-int game1();
+int game1(bool isTesting);
 
 /**
  * @brief Holds the second minigame option
@@ -20,8 +22,10 @@ int game2();
 
 /**
  * @brief Holds the third minigame option
+ * 
+ *  @param isTesting used for testing
  */
-int game3();
+int game3(bool isTesting);
 
 /**
  * @brief Holds the fourth minigame option

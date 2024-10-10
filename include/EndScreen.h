@@ -11,8 +11,10 @@
 
 /**
  * @brief Displays the win screen animation.
+ * 
+ * @param isTest Boolean flag indicating if a test scenario. 
  */
-void winScreen();
+void winScreen(bool isTest);
 
 /**
  * @brief Displays the lose screen animation.
