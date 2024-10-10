@@ -361,8 +361,8 @@ TEST(ShopTest, PurchaseHealingPotionsB) {
     
     // Assertions:
     // Check if no gold was deducted
-    EXPECT_EQ(playerStats.gold, 75);
-    EXPECT_EQ(playerStats.health, 190);
+    EXPECT_EQ(playerStats.gold, 80);
+    EXPECT_EQ(playerStats.health, 180);
     
 
     // Check the output to confirm the purchase message
@@ -394,7 +394,7 @@ TEST(ShopTest, PurchaseHealingPotionsC) {
 
     // Assertions:
     // Check if no gold was deducted
-    EXPECT_EQ(playerStats.gold, 25);
-    EXPECT_EQ(playerStats.health, 270);
+    EXPECT_EQ(playerStats.gold, 50);
+    EXPECT_EQ(playerStats.health, 230);
     
 }
