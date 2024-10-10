@@ -12,7 +12,7 @@
 /**
  * @brief Displays the win screen animation.
  */
-void winScreen();
+void winScreen(bool);
 
 /**
  * @brief Displays the lose screen animation.

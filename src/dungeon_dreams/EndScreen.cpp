@@ -21,7 +21,7 @@ using namespace std;
  * 
  */
 
-void winScreen();
+void winScreen(bool);
 void loseScreen();
 
 
