@@ -137,6 +137,36 @@ TEST(MiniGamesTest, Game2) {
     // Restore cin and cout to their original state
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
+}
 
+//TEST game 3
+TEST(MiniGamesTest, Game3) {
+    // Redirect cout to capture the output
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
 
+    std::istringstream inputBuffer("0\n1\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    // Call the game3 function
+    int gold = game3(true);
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Check if the expected phrases are present in the output
+
+    // Check if the expected phrases are present in the output
+    EXPECT_NE(outputStr.find("Welcome to the Tic Tac Toe!"), std::string::npos);
+    EXPECT_NE(outputStr.find("In this game, you need to beat the computer at tic tac toe."), std::string::npos);
+    EXPECT_NE(outputStr.find("Let's start the game!"), std::string::npos);
+    EXPECT_NE(outputStr.find("Your turn (X). Enter your slot:"), std::string::npos);
+    EXPECT_NE(outputStr.find("Invalid slot! Try again."), std::string::npos);
+    EXPECT_NE(outputStr.find("Computer's turn (O)."), std::string::npos);
+    EXPECT_NE(outputStr.find("It's a tie!"), std::string::npos);
+    EXPECT_EQ(gold, 0);
+
+    // Restore cin and cout to their original state
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
 }

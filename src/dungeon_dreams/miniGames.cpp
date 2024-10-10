@@ -212,7 +212,7 @@ void computerMove() {
     } while (!placeMarker(slot, computer_marker));
 }
 
-int game3() {
+int game3(bool isTesting) {
     int gold = 0; // Variable to keep track of gold
     cout << "Welcome to the Tic Tac Toe!" << endl;
     CustomSleep(1);
@@ -257,10 +257,14 @@ int game3() {
         player_won = winner();
         if (player_won == 1) { cout << "You win!\n"; break; gold += 10; }
         if (player_won == 2) { cout << "Computer wins!\n"; break; gold +=1; }
+
+        //If testing break
+        if(isTesting){
+            break;
+        }
     }
 
     if (player_won == 0) {cout << "It's a tie!\n"; gold +=3;}
-    // cout << "You're playing Game 3!" << endl;
     return gold;
 }
 
@@ -309,7 +313,7 @@ int miniGames(CharacterStats& playerStats) {
             playerStats.gold += game2();
             break;
         case 3:
-            playerStats.gold += game3();
+            playerStats.gold += game3(false);
             break;
         case 4:
             playerStats.gold += game4();
