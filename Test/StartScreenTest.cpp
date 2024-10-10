@@ -30,7 +30,7 @@ TEST(StartScreenTest, MenuChooseOption) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
-    std::istringstream inputBuffer("0\n2\n"); // Simulate choosing the Knight class
+    std::istringstream inputBuffer("99\n2\n"); // Simulate choosing the Knight class
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
     handleMenuChoice();
