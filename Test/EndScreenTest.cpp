@@ -49,7 +49,8 @@ TEST(EndScreenTest, WinScreenTest) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
-    winScreen(true);
+    bool isTest = true;
+    winScreen(isTest);
 
     // Capture the output
     std::string outputStr = outputBuffer.str();
