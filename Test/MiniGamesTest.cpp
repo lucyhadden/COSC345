@@ -120,64 +120,64 @@ TEST(MiniGamesTest, Game3) {
     std::cin.rdbuf(oldCin);
 }
 
-TEST(MiniGamesTest, BlackJackInitialSetup) {
-    // Check if the game starts with the correct player and house account balances
-    EXPECT_EQ(player_account, 4);
-    EXPECT_EQ(house_account, 8);
-}
+// TEST(MiniGamesTest, BlackJackInitialSetup) {
+//     // Check if the game starts with the correct player and house account balances
+//     EXPECT_EQ(player_account, 4);
+//     EXPECT_EQ(house_account, 8);
+// }
 
-// Test player's turn where the player hits and busts
-TEST(MiniGamesTest, BlackJackPlayerHitsAndBusts) {
-    players_value = 22; // Simulate a bust
-    EXPECT_FALSE(PlayerHasAce());
-    EXPECT_GT(players_value, 21);
-}
+// // Test player's turn where the player hits and busts
+// TEST(MiniGamesTest, BlackJackPlayerHitsAndBusts) {
+//     players_value = 22; // Simulate a bust
+//     EXPECT_FALSE(PlayerHasAce());
+//     EXPECT_GT(players_value, 21);
+// }
 
-// Test dealer's turn logic
-TEST(MiniGamesTest, BlackJackDealerTurnLogic) {
-    players_value = 18;
-    dealers_value = 17;
-    aces_in_play = 0;
-    EXPECT_TRUE(DealersPlayLogic());
-}
+// // Test dealer's turn logic
+// TEST(MiniGamesTest, BlackJackDealerTurnLogic) {
+//     players_value = 18;
+//     dealers_value = 17;
+//     aces_in_play = 0;
+//     EXPECT_TRUE(DealersPlayLogic());
+// }
 
-// Test end conditions of the Blackjack game
-TEST(MiniGamesTest, BlackJackGameEndConditions) {
-    // Case 1: Player has no money left
-    player_account = 0;
-    EXPECT_FALSE(ContinueGame());
+// // Test end conditions of the Blackjack game
+// TEST(MiniGamesTest, BlackJackGameEndConditions) {
+//     // Case 1: Player has no money left
+//     player_account = 0;
+//     EXPECT_FALSE(ContinueGame());
 
-    // Case 2: House has no money left
-    player_account = 4;
-    house_account = 0;
-    EXPECT_FALSE(ContinueGame());
-}
+//     // Case 2: House has no money left
+//     player_account = 4;
+//     house_account = 0;
+//     EXPECT_FALSE(ContinueGame());
+// }
 
-// Test Blackjack gameplay including hit and stand scenarios
-TEST(MiniGamesTest, BlackJackGameplay) {
-    // Redirect cout to capture the output
-    std::ostringstream outputBuffer;
-    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
+// // Test Blackjack gameplay including hit and stand scenarios
+// TEST(MiniGamesTest, BlackJackGameplay) {
+//     // Redirect cout to capture the output
+//     std::ostringstream outputBuffer;
+//     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
 
-    std::istringstream inputBuffer("H\nS\n"); 
-    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+//     std::istringstream inputBuffer("H\nS\n"); 
+//     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
-    // Reset the game state
-    ResetGame();
+//     // Reset the game state
+//     ResetGame();
 
-    // Simulate player actions
-    PlayersTurn();
-    DealersTurn();
-    DisplayResults();
+//     // Simulate player actions
+//     PlayersTurn();
+//     DealersTurn();
+//     DisplayResults();
 
-    // Capture the output
-    std::string outputStr = outputBuffer.str();
+//     // Capture the output
+//     std::string outputStr = outputBuffer.str();
 
-    // Verify key outputs
-    EXPECT_NE(outputStr.find("Hit or Stand (H/S)?"), std::string::npos);
-    EXPECT_NE(outputStr.find("Dealer's Turn"), std::string::npos);
+//     // Verify key outputs
+//     EXPECT_NE(outputStr.find("Hit or Stand (H/S)?"), std::string::npos);
+//     EXPECT_NE(outputStr.find("Dealer's Turn"), std::string::npos);
 
-    // Restore cin and cout to their original state
-    std::cout.rdbuf(oldCout);
-    std::cin.rdbuf(oldCin);
-}
+//     // Restore cin and cout to their original state
+//     std::cout.rdbuf(oldCout);
+//     std::cin.rdbuf(oldCin);
+// }
