@@ -72,6 +72,7 @@ add_executable(DungeonGameTest
     Test/MovementTest.cpp
     Test/SafeZoneTest.cpp
     Test/StartScreenTest.cpp
+    Test/StatusTest.cpp
     Test/StoreTest.cpp
     Test/UtilsTest.cpp
 
