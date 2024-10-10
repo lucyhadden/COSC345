@@ -297,3 +297,104 @@ TEST(ShopTest, PurchaseItemWithNotEnoughGold) {
     // Check the output to confirm the purchase message
     EXPECT_NE(outputStr.find("You don't have enough gold to purchase this item."), std::string::npos);
 }
+
+// Test to check if the player can not purchase when not enough gold
+TEST(ShopTest, PurchaseHealingPotionsA) {
+    // Redirect output to a stringstream to capture console output
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Mock player stats with enough gold
+    CharacterStats playerStats(KNIGHT);
+    playerStats.gold = 100;  // Give enough gold to buy an item
+
+    // Simulate user input for option 4 (My Inventory)
+    std::stringstream input("2\n4\n"); // Input to select option 2 and purchase option 1
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    DisplayStoreMenu(playerStats);
+
+    // Restore cout to its original state
+    std::cout.rdbuf(oldCout);
+
+    // Capture output
+    std::string outputStr = output.str();
+
+     // Debugging: print captured output
+    // std::cout << "Captured Output:\n" << outputStr << std::endl;
+    
+    // Assertions:
+    // Check if no gold was deducted
+    EXPECT_EQ(playerStats.gold, 95);
+    EXPECT_EQ(playerStats.health, 160);
+    
+
+    // Check the output to confirm the purchase message
+    // EXPECT_NE(outputStr.find("You don't have enough gold to purchase this item."), std::string::npos);
+}
+
+
+// Test to check if the player can not purchase when not enough gold
+TEST(ShopTest, PurchaseHealingPotionsB) {
+    // Redirect output to a stringstream to capture console output
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Mock player stats with enough gold
+    CharacterStats playerStats(KNIGHT);
+    playerStats.gold = 100;  // Give enough gold to buy an item
+
+    // Simulate user input for option 4 (My Inventory)
+    std::stringstream input("2\n5\n"); // Input to select option 2 and purchase option 1
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    DisplayStoreMenu(playerStats);
+
+    // Restore cout to its original state
+    std::cout.rdbuf(oldCout);
+
+    // Capture output
+    std::string outputStr = output.str();
+
+     // Debugging: print captured output
+    // std::cout << "Captured Output:\n" << outputStr << std::endl;
+    
+    // Assertions:
+    // Check if no gold was deducted
+    EXPECT_EQ(playerStats.gold, 80);
+    EXPECT_EQ(playerStats.health, 180);
+    
+
+    // Check the output to confirm the purchase message
+    // EXPECT_NE(outputStr.find("You don't have enough gold to purchase this item."), std::string::npos);
+}
+
+
+// Test to check if the player can not purchase when not enough gold
+TEST(ShopTest, PurchaseHealingPotionsC) {
+    // Redirect output to a stringstream to capture console output
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Mock player stats with enough gold
+    CharacterStats playerStats(KNIGHT);
+    playerStats.gold = 100;  // Give enough gold to buy an item
+
+    // Simulate user input for option 4 (My Inventory)
+    std::stringstream input("2\n6\n"); // Input to select option 2 and purchase option 1
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    DisplayStoreMenu(playerStats);
+
+    // Restore cout to its original state
+    std::cout.rdbuf(oldCout);
+
+    // Capture output
+    std::string outputStr = output.str();
+
+    // Assertions:
+    // Check if no gold was deducted
+    EXPECT_EQ(playerStats.gold, 50);
+    EXPECT_EQ(playerStats.health, 230);
+    
+}
