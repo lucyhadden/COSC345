@@ -198,3 +198,64 @@ TEST(StoreTest, DisplayWholeInventory) {
     EXPECT_NE(outputStr.find("Press enter to continue..."), std::string::npos);  // Check if the message is printed
 }
 
+// Test to check if a player can successfully purchase an item when they have enough gold
+TEST(ShopTest, PurchaseItemWithEnoughGold) {
+    // Redirect output to a stringstream to capture console output
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Mock player stats with enough gold
+    CharacterStats playerStats(KNIGHT);
+    playerStats.gold = 50;  // Give enough gold to buy an item
+
+    // Simulate user input for option 4 (My Inventory)
+    std::stringstream input("2\n1\n"); // Input to select option 4 and press enter
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    DisplayStoreMenu(playerStats);
+
+    // Restore cout to its original state
+    std::cout.rdbuf(oldCout);
+
+    // Capture output
+    std::string outputStr = output.str();
+
+    // Assertions:
+    // Check if the item was successfully purchased and the gold was deducted
+    EXPECT_EQ(playerStats.gold, 15);  // Gold should be reduced by the item's cost (100 - 50)
+    
+
+    // Check the output to confirm the purchase message
+    EXPECT_NE(outputStr.find("Thank you for your purchase."), std::string::npos);
+}
+
+// Test to check if the player can not purchase when not enough gold
+TEST(ShopTest, PurchaseItemWithNotEnoughGold) {
+    // Redirect output to a stringstream to capture console output
+    std::stringstream output;
+    std::streambuf* oldCout = std::cout.rdbuf(output.rdbuf());
+
+    // Mock player stats with enough gold
+    CharacterStats playerStats(KNIGHT);
+    playerStats.gold = 10;  // Give enough gold to buy an item
+
+    // Simulate user input for option 4 (My Inventory)
+    std::stringstream input("2\n1\n"); // Input to select option 2 and purchase option 1
+    std::streambuf* oldCin = std::cin.rdbuf(input.rdbuf());
+
+    DisplayStoreMenu(playerStats);
+
+    // Restore cout to its original state
+    std::cout.rdbuf(oldCout);
+
+    // Capture output
+    std::string outputStr = output.str();
+
+    // Assertions:
+    // Check if no gold was deducted
+    EXPECT_EQ(playerStats.gold, 10);
+    
+
+    // Check the output to confirm the purchase message
+    EXPECT_NE(outputStr.find("You don't have enough gold to purchase this item."), std::string::npos);
+}
