@@ -401,7 +401,7 @@ TEST(InteractionsTest, LevelPlayTestInvalidTile) {
 
     std::string outputStr = outputBuffer.str();
     
-    EXPECT_NE(outputStr.find("Invalid tile"), std::string::npos);
+    EXPECT_NE(outputStr.find("This tile has already been explored. It has been cleared and is now safe."), std::string::npos);
     
     std::cout.rdbuf(oldCout);
 }
@@ -529,7 +529,7 @@ TEST(InteractionsTest, ProcessTileInteractionTestTile3) {
     short result = processTileInteraction(3, playerStats, playerInventory);
 
     EXPECT_EQ(result, 3);
-    EXPECT_NE(outputBuffer.str().find("You found a powerful item: Magic Amulet"), std::string::npos);
+    EXPECT_NE(outputBuffer.str().find("You found a powerful item: Enchanted Rune Stone (+2 Attack, +2 Defense)"), std::string::npos);
 
     std::cout.rdbuf(oldCout);
 }
