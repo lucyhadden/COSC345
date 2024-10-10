@@ -44,6 +44,37 @@ TEST(MiniGamesTest, TestMiniGames) {
 }
 */
 
+/** 
 TEST(MiniGamesTest, MiniGamesDummyTest) {
     EXPECT_TRUE(true);  
+}
+*/
+
+//WRITING TESTS FOR MINIGAMES
+TEST(MiniGamesTest, SpinWheelTest){
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
+
+    // Call the spinWheel function
+    int result = spinWheel();
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Check if the result is in the expected range (1 to 4)
+    EXPECT_GE(result, 1);
+    EXPECT_LE(result, 4);
+
+    // Check if the output contains the expected text
+    EXPECT_NE(outputStr.find("Spinning the wheel..."), std::string::npos);
+    EXPECT_NE(outputStr.find("The wheel stops at: "), std::string::npos);
+
+    // Check that the spinner characters were displayed (you can refine this further if needed)
+    EXPECT_NE(outputStr.find("|"), std::string::npos);
+    EXPECT_NE(outputStr.find("/"), std::string::npos);
+    EXPECT_NE(outputStr.find("-"), std::string::npos);
+    EXPECT_NE(outputStr.find("\\"), std::string::npos);
+
+    // Restore cout
+    std::cout.rdbuf(oldCout);
 }
