@@ -85,8 +85,7 @@ TEST(MiniGamesTest, Game1){
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
 
-    // Generate input for the game by simulating Enter presses
-    std::istringstream inputBuffer("\n"); // Simulate choosing invalid option first then valid Knight class
+    std::istringstream inputBuffer("\n"); 
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
     // Call the game1 function
@@ -109,6 +108,35 @@ TEST(MiniGamesTest, Game1){
     // Restore cin and cout to their original state
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
-    
+}
+
+//TEST for game 2
+TEST(MiniGamesTest, Game2) {
+    // Redirect cout to capture the output
+    std::ostringstream outputBuffer;
+    std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf());
+
+    std::istringstream inputBuffer("0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n"); 
+    std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
+
+    // Call the game2 function
+    int score = game2();
+
+    // Capture the output
+    std::string outputStr = outputBuffer.str();
+
+    // Check if the expected phrases are present in the output
+    EXPECT_NE(outputStr.find("Welcome to the Memory Test Game!"), std::string::npos);
+    EXPECT_NE(outputStr.find("In this game, you need to memorize a sequence of numbers."), std::string::npos);
+    EXPECT_NE(outputStr.find("Let's start the game!"), std::string::npos);
+    EXPECT_NE(outputStr.find("Level 1: Memorize this sequence:"), std::string::npos);
+    EXPECT_NE(outputStr.find("Now, enter the sequence: "), std::string::npos);
+    EXPECT_NE(outputStr.find("Incorrect! Game over."), std::string::npos);
+    EXPECT_NE(outputStr.find("You earned "), std::string::npos);
+
+    // Restore cin and cout to their original state
+    std::cout.rdbuf(oldCout);
+    std::cin.rdbuf(oldCin);
+
 
 }
