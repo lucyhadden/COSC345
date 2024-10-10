@@ -146,7 +146,7 @@ TEST(StartScreenTest, StartingStory) {
     std::istringstream inputBuffer("\n"); // Simulate choosing the Knight class
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
-    handleMenuChoice();
+    startingStory();
 
     // Capture the output
     std::string outputStr = outputBuffer.str();
