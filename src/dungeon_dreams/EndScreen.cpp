@@ -19,6 +19,8 @@ using namespace std;
  * @brief Displays end screeen and handles relevant events
  * @author Elizabeth Stewart
  * 
+ * @param isTest Boolean flag indicating if a test scenario. 
+ * 
  */
 
 void winScreen(bool);
