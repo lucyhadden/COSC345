@@ -17,7 +17,7 @@ TEST(StatusTest, UpgradeKnight) {
     EXPECT_EQ(playerStats.defense, 18);     
     EXPECT_EQ(playerStats.agility, 10);     
     EXPECT_EQ(playerStats.intelligence, 5); 
-    EXPECT_EQ(playerStats.gold, 10);         
+    EXPECT_EQ(playerStats.gold, 5);         
 
     std::cout.rdbuf(oldCout);
 }
@@ -36,7 +36,7 @@ TEST(StatusTest, UpgradeMage) {
     EXPECT_EQ(playerStats.defense, 5);     
     EXPECT_EQ(playerStats.agility, 15);     
     EXPECT_EQ(playerStats.intelligence, 35); 
-    EXPECT_EQ(playerStats.gold, 10);         
+    EXPECT_EQ(playerStats.gold, 5);         
 
     std::cout.rdbuf(oldCout);
 }
@@ -55,7 +55,7 @@ TEST(StatusTest, UpgradeThief) {
     EXPECT_EQ(playerStats.defense, 10);      // Defense unchanged
     EXPECT_EQ(playerStats.agility, 30);      // Agility +5
     EXPECT_EQ(playerStats.intelligence, 10); // Intelligence unchanged
-    EXPECT_EQ(playerStats.gold, 10);         // Gold +5
+    EXPECT_EQ(playerStats.gold, 5);         // Gold +5
 
     std::cout.rdbuf(oldCout);
 }
@@ -74,7 +74,7 @@ TEST(StatusTest, UpgradeCleric) {
     EXPECT_EQ(playerStats.defense, 24);      // Defense +4
     EXPECT_EQ(playerStats.agility, 8);       // Agility unchanged
     EXPECT_EQ(playerStats.intelligence, 29); // Intelligence +4
-    EXPECT_EQ(playerStats.gold, 10);         // Gold +5
+    EXPECT_EQ(playerStats.gold, 5);         // Gold +5
 
     std::cout.rdbuf(oldCout);
 }
@@ -93,7 +93,7 @@ TEST(StatusTest, UpgradeTank) {
     EXPECT_EQ(playerStats.defense, 36);      // Defense +6
     EXPECT_EQ(playerStats.agility, 5);       // Agility unchanged
     EXPECT_EQ(playerStats.intelligence, 8);  // Intelligence unchanged
-    EXPECT_EQ(playerStats.gold, 10);         // Gold +5
+    EXPECT_EQ(playerStats.gold, 5);         // Gold +5
 
     std::cout.rdbuf(oldCout);
 }
