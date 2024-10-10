@@ -93,7 +93,8 @@ const std::string& AsciiArt::getClericArt() {
   \~_~/
    | |
   /   \
- /_____\)";
+ /_____\
+ )";
   return clericArt;
 }
 
