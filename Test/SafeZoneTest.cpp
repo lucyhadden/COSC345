@@ -35,7 +35,7 @@ TEST(SafeZoneTest, TestInvalidChoice) {
     CharacterStats playerStats(KNIGHT);
 
     // Call the function
-    handleChoice(playerStats);
+    displaySafeZone(playerStats);
 
     // Capture the output
     std::string outputStr = outputBuffer.str();

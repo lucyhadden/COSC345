@@ -399,7 +399,7 @@ TEST(ShopTest, PurchaseHealingPotionsC) {
     
 }
 
-TEST(SafeZoneTest, TestInvalidChoice) {
+TEST(ShopTest, TestInvalidChoice) {
 
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
