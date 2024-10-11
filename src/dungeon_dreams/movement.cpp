@@ -50,6 +50,14 @@ vector<vector<bool>> has_been_on;
 
 
 /**
+ * @brief getter method for the dungeon
+ */
+vector<vector<int>> getDungeon()
+{
+    return dynamic_dungeon;
+}
+
+/**
  * The number of tiles high in the room.
  */
 int height;

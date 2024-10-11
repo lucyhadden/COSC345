@@ -14,6 +14,9 @@ TEST(MovementTest, PathStartsCorrectly) {
 
     // Check if the start point of the path is at the middle of the leftmost column
     int expected_start_x = getHeight() / 2;
-    int start_value = startEvent();
+    // Check if the start point of the path is at the middle of the leftmost column
+
+    int start_value = getDungeon()[expected_start_x][0];
+
     EXPECT_EQ(start_value, 1);  // Path should start with a value of 1
 }

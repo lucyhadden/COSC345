@@ -101,4 +101,9 @@ void print_dungeon();
  */
 void generate_path();
 
+/**
+ * @brief getter method for the dungeon
+ */
+std::vector<std::vector<int>> getDungeon();
+
 #endif
