@@ -95,4 +95,10 @@ void updateBoard();
 
 void print_dungeon();
 
+/**
+ * Method that generates a path from one side of the dungeon to the other
+ * @details Marks the final tile as 5 to indicate end of path/room
+ */
+void generate_path();
+
 #endif

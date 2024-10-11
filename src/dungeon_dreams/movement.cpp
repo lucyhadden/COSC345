@@ -146,7 +146,7 @@ bool forms_block(int x, int y)
 
 // Generate a random path through the dungeon
 /**
- * Method that generates a path from one side of the dungeon to the other
+ * @brief Method that generates a path from one side of the dungeon to the other
  * @details Marks the final tile as 5 to indicate end of path/room
  */
 void generate_path()
@@ -250,7 +250,6 @@ void fillDungeon(int l, int h)
     generate_path();
     // print_dungeon();
     generate_rest();
-    // print_dungeon();
 }
 
 void generateDynamicLevels()
