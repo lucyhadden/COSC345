@@ -76,12 +76,10 @@ int game1(bool isTesting) {
     mt19937 rng{random_device{}()};
     uniform_int_distribution<int> dist(0, scrambled_words.size() - 1);
 
-
     // Start the timer
-    time_t start_time = time(0);
-    time_t end_time = start_time + 1; // for testing
     if(!isTesting){
-
+        time_t start_time = time(0);
+        time_t end_time = start_time + 30;
         while (time(0) < end_time) {
             // Clear the screen and print the remaining time
             Clear();
@@ -320,6 +318,7 @@ int miniGames(CharacterStats& playerStats) {
             break;
         default:
             cout << "Error: Invalid game selection." << endl;
+            Clear();
             break;
     }
     return goldEarned;

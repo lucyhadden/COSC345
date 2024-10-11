@@ -54,37 +54,6 @@ void displayOptions()
     cout << "Please enter your choice (1-3): ";
 }
 
-// void handleChoice(CharacterStats& playerStats)
-// {
-//     int choice;
-
-//     cin >> choice;
-//     switch (choice)
-//     {
-//     case 1:
-//         if (!doneMinigame){
-//             cout << "handle minigame" << endl;
-//             miniGames();
-//             doneMinigame = true;
-//         }
-//         else{
-//             cout << "You have already played a minigame" << endl;
-//         }
-//         break;
-//     case 2:
-//         StoreActivated(playerStats);
-//         break;
-//     case 3: 
-//         doneMinigame = false;
-//         return;
-//     default:
-//         cout << "Invalid choice. Please try again." << endl;
-//         // displayOptions(); // Re-display the menu after an invalid choice
-//         break;
-//     }
-//     displaySafeZone(playerStats);
-// }
-
 void handleChoice(CharacterStats& playerStats)
 {
     bool inSafeZone = true;
@@ -104,6 +73,8 @@ void handleChoice(CharacterStats& playerStats)
                 doneMinigame = true;
             } else {
                 cout << "You have already played a minigame" << endl;
+                CustomSleep(1);
+                Clear();
             }
             break;
         case 2:
