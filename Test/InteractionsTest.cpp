@@ -20,7 +20,8 @@ TEST(InteractionsTest, PressAnyKeyToContinue){
     EXPECT_EQ(buffer.str(), expected_output);
 }
 
-//Test resetPlayerStats
+// Test resetPlayerStats
+// Test invalid choice
 TEST(InteractionsTest, ResetPlayerStatInvalidChoice) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -48,6 +49,7 @@ TEST(InteractionsTest, ResetPlayerStatInvalidChoice) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+// Test reset to knight class
 TEST(InteractionsTest, ResetPlayerStatKnight){
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -99,13 +101,14 @@ TEST(InteractionsTest, ResetPlayerStatKnight){
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+// Test reset to mage class
 TEST(InteractionsTest, ResetPlayerStatMage){
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
     // Simulate cin for user input
-    std::istringstream inputBuffer("2\n"); // Simulate choosing the Knight class
+    std::istringstream inputBuffer("2\n"); // Simulate choosing the Mage class
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
     CharacterClass playerClass = KNIGHT;
@@ -132,6 +135,7 @@ TEST(InteractionsTest, ResetPlayerStatMage){
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+// Test reset to thief class
 TEST(InteractionsTest, ResetPlayerStatThief) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -152,8 +156,8 @@ TEST(InteractionsTest, ResetPlayerStatThief) {
     std::string outputStr = outputBuffer.str();
 
     // Verify that class selection was successful
-    EXPECT_EQ(playerClass, THIEF); // Check if class was changed to Thief
-    EXPECT_EQ(playerStats.health, 100); // Thief stats
+    EXPECT_EQ(playerClass, THIEF); 
+    EXPECT_EQ(playerStats.health, 100);
     EXPECT_EQ(playerStats.attack, 15);
     EXPECT_EQ(playerStats.defense, 10);
     EXPECT_EQ(playerStats.agility, 25);
@@ -167,6 +171,7 @@ TEST(InteractionsTest, ResetPlayerStatThief) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+// Test reset to cleric class
 TEST(InteractionsTest, ResetPlayerStatCleric) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -187,8 +192,8 @@ TEST(InteractionsTest, ResetPlayerStatCleric) {
     std::string outputStr = outputBuffer.str();
 
     // Verify that class selection was successful
-    EXPECT_EQ(playerClass, CLERIC); // Check if class was changed to Cleric
-    EXPECT_EQ(playerStats.health, 110); // Cleric stats
+    EXPECT_EQ(playerClass, CLERIC); 
+    EXPECT_EQ(playerStats.health, 110); 
     EXPECT_EQ(playerStats.attack, 10);
     EXPECT_EQ(playerStats.defense, 20);
     EXPECT_EQ(playerStats.agility, 8);
@@ -202,6 +207,7 @@ TEST(InteractionsTest, ResetPlayerStatCleric) {
     std::cout.rdbuf(oldCout);
     std::cin.rdbuf(oldCin);
 }
+// Test reset to tank class
 TEST(InteractionsTest, ResetPlayerStatTank) {
     // Redirect cout to capture output
     std::ostringstream outputBuffer;
@@ -222,8 +228,8 @@ TEST(InteractionsTest, ResetPlayerStatTank) {
     std::string outputStr = outputBuffer.str();
 
     // Verify that class selection was successful
-    EXPECT_EQ(playerClass, TANK); // Check if class was changed to Tank
-    EXPECT_EQ(playerStats.health, 200); // Tank stats
+    EXPECT_EQ(playerClass, TANK); 
+    EXPECT_EQ(playerStats.health, 200); 
     EXPECT_EQ(playerStats.attack, 18);
     EXPECT_EQ(playerStats.defense, 30);
     EXPECT_EQ(playerStats.agility, 5);
@@ -238,7 +244,7 @@ TEST(InteractionsTest, ResetPlayerStatTank) {
     std::cin.rdbuf(oldCin);
 }
 
-//Test levelPlay
+// Test levelPlay
 // Test for Tile 1 (Safe tile)
 TEST(InteractionsTest, LevelPlayTestTile1) {
     std::ostringstream outputBuffer;
@@ -257,7 +263,7 @@ TEST(InteractionsTest, LevelPlayTestTile1) {
     
     std::cout.rdbuf(oldCout);
 }
-// Test for Tile 2 (Enemy encounter)
+// Test for Tile 2 (Enemy encounter - defeat enemy first hit)
 TEST(InteractionsTest, LevelPlayTestTile2A) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
@@ -270,15 +276,14 @@ TEST(InteractionsTest, LevelPlayTestTile2A) {
 
     std::string outputStr = outputBuffer.str();
     
-    // Check that the enemy encounter message is displayed
     EXPECT_NE(outputStr.find("Oh no! You have encountered a Slime"), std::string::npos);
     EXPECT_NE(outputStr.find("You have defeated the Slime."), std::string::npos);
 
-    // Check player health is correctly updated after the encounter
     EXPECT_LE(playerStats.health, 150); 
     
     std::cout.rdbuf(oldCout);
 }
+// Test for Tile 2 (Enemy encounter - die)
 TEST(InteractionsTest, LevelPlayTestTile2B) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
@@ -298,29 +303,28 @@ TEST(InteractionsTest, LevelPlayTestTile2B) {
     
     std::cout.rdbuf(oldCout);
 }
+// Test for Tile 2 (Enemy encounter - defeat enemy not first hit)
 TEST(InteractionsTest, LevelPlayTestTile2C) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
-    // Set low health to ensure the player can die
 
     setupLevel(8);
     levelPlay(2, playerStats); 
 
     std::string outputStr = outputBuffer.str();
     
-    // Check that the enemy encounter message is displayed
     EXPECT_NE(outputStr.find("Oh no! You have encountered a Wyvern"), std::string::npos);
     EXPECT_NE(outputStr.find("The Wyvern is still alive! It's going to attack"), std::string::npos);
     EXPECT_NE(outputStr.find("You have defeated the Wyvern."), std::string::npos);
 
-    // Check player health is correctly updated after the encounter
     EXPECT_LE(playerStats.health, 150); 
     
     std::cout.rdbuf(oldCout);
 }
+// Test for Tile 2 (Enemy encounter - defense higher than enemy damage)
 TEST(InteractionsTest, LevelPlayTestTile2D) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
@@ -350,10 +354,8 @@ TEST(InteractionsTest, LevelPlayTestTile3A) {
 
     std::string outputStr = outputBuffer.str();
     
-    // Check that the trap message is displayed
     EXPECT_NE(outputStr.find("Oh no! A Pitfall"), std::string::npos);
     
-    // Check player health is correctly updated after the trap
     EXPECT_LE(playerStats.health, 150); 
     
     std::cout.rdbuf(oldCout);
@@ -397,7 +399,7 @@ TEST(InteractionsTest, LevelPlayTestInvalidTile) {
     CharacterClass playerClass = KNIGHT; 
     CharacterStats playerStats(playerClass); 
 
-    levelPlay(99, playerStats); // Pass an invalid tile number
+    levelPlay(99, playerStats); 
 
     std::string outputStr = outputBuffer.str();
     
@@ -473,17 +475,17 @@ TEST(InteractionsTest, SetUpLevel){
     EXPECT_EQ(trapDamage, 40);
 
     // Test default case (unknown level)
-    std::ostringstream buffer; // Create a string stream to capture output
-    std::streambuf *oldCout = std::cout.rdbuf(buffer.rdbuf()); // Redirect std::cout to the string stream
+    std::ostringstream buffer; 
+    std::streambuf *oldCout = std::cout.rdbuf(buffer.rdbuf()); 
 
-    setupLevel(9);  // Passing an invalid level number
+    setupLevel(9);  
 
-    std::cout.rdbuf(oldCout); // Restore std::cout
+    std::cout.rdbuf(oldCout); 
 
-    EXPECT_EQ(buffer.str(), "Unknown level\n"); // Check that the output matches expected message
+    EXPECT_EQ(buffer.str(), "Unknown level\n"); 
 }
 
-//test processTileInteraction
+// Test processTileInteraction
 // Test for a safe tile (tile 1)
 TEST(InteractionsTest, ProcessTileInteractionTestTile1) {
     std::ostringstream outputBuffer;
@@ -558,7 +560,7 @@ TEST(InteractionsTest, ProcessTileInteractionTestTile5) {
     CharacterStats playerStats(playerClass);
     Inventory playerInventory;
 
-    playerStats.health = 80; // Set health below max
+    playerStats.health = 80; 
     short result = processTileInteraction(5, playerStats, playerInventory);
 
     EXPECT_EQ(result, 5);
@@ -577,7 +579,7 @@ TEST(InteractionsTest, ProcessTileInteractionTestTile6) {
 
     short result = processTileInteraction(6, playerStats, playerInventory);
 
-    EXPECT_EQ(result, 5); // Level completion
+    EXPECT_EQ(result, 5); 
     EXPECT_NE(outputBuffer.str().find("You found the exit!"), std::string::npos);
 
     std::cout.rdbuf(oldCout);
@@ -591,7 +593,7 @@ TEST(InteractionsTest, ProcessTileInteractionTestUnknownTile) {
     CharacterStats playerStats(playerClass);
     Inventory playerInventory;
 
-    short result = processTileInteraction(99, playerStats, playerInventory); // Unknown tile
+    short result = processTileInteraction(99, playerStats, playerInventory); 
 
     EXPECT_EQ(result, 99);
     EXPECT_NE(outputBuffer.str().find("You stepped on an unknown tile..."), std::string::npos);
