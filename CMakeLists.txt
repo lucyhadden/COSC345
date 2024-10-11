@@ -63,13 +63,13 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(DungeonGameTest
-    Test/MovementTest.cpp
     Test/AsciiArtTest.cpp
-    # Test/EndScreenTest.cpp
+    Test/EndScreenTest.cpp
     Test/EquipmentTest.cpp
-    # Test/InteractionsTest.cpp
+    Test/InteractionsTest.cpp
     Test/MainTest.cpp
-    # Test/MiniGamesTest.cpp
+    Test/MiniGamesTest.cpp
+    Test/MovementTest.cpp
     Test/SafeZoneTest.cpp
     Test/StartScreenTest.cpp
     Test/StatusTest.cpp
