@@ -54,8 +54,7 @@ TEST(MiniGamesTest, Game1){
     EXPECT_NE(outputStr.find("Press enter to continue..."), std::string::npos);
     EXPECT_NE(outputStr.find("Game over! Your final score is"), std::string::npos);
 
-    // Optionally check if the score is in the expected range (e.g., 0 for no correct answers)
-    EXPECT_EQ(score, 0);  // Assuming score cannot be negative
+    EXPECT_EQ(score, 0);  
 
     // Restore cin and cout to their original state
     std::cout.rdbuf(oldCout);

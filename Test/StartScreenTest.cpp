@@ -105,7 +105,7 @@ TEST(StartScreenTest, Welcome) {
     std::ostringstream outputBuffer;
     std::streambuf* oldCout = std::cout.rdbuf(outputBuffer.rdbuf()); 
 
-    std::istringstream inputBuffer("99\n1\n0\n2\n"); // Simulate choosing the Knight class
+    std::istringstream inputBuffer("99\n1\n0\n2\n"); 
     std::streambuf* oldCin = std::cin.rdbuf(inputBuffer.rdbuf());
 
     displayWelcome();
